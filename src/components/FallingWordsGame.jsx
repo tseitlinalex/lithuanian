@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles } from 'lucide-react';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight } from 'lucide-react';
 import { checkAnswerMatch, normalizeText } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
@@ -13,7 +13,7 @@ const DIFFICULTY_SETTINGS = {
 
 export default function FallingWordsGame({ topic, difficulty = 'medium', onBackToTopics, soundMuted, onToggleSound }) {
   // Game State
-  const [gameState, setGameState] = useState('ready'); // 'ready', 'playing', 'paused', 'gameover', 'victory'
+  const [gameState, setGameState] = useState('ready'); // 'ready', 'playing', 'paused', 'gameover', 'victory', 'practice'
   const [activeWords, setActiveWords] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [score, setScore] = useState(0);
@@ -23,6 +23,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
   const [multiplier, setMultiplier] = useState(1);
   const [wordsCleared, setWordsCleared] = useState(0);
   const [missedWords, setMissedWords] = useState([]);
+
+  // Practice Mode State (Untimed flashcard practice for missed words)
+  const [practiceList, setPracticeList] = useState([]);
+  const [practiceIndex, setPracticeIndex] = useState(0);
+  const [practiceInput, setPracticeInput] = useState('');
+  const [practiceFeedback, setPracticeFeedback] = useState(null); // { isCorrect: boolean, msg: string }
+  const [practiceMasteredCount, setPracticeMasteredCount] = useState(0);
 
   // Power-ups
   const [freezeCharges, setFreezeCharges] = useState(2);
@@ -85,6 +92,50 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     lastTimeRef.current = performance.now();
   };
 
+  // Start Practice Mode for Missed Words
+  const startPracticeMode = () => {
+    if (missedWords.length === 0) return;
+    setPracticeList([...missedWords]);
+    setPracticeIndex(0);
+    setPracticeInput('');
+    setPracticeFeedback(null);
+    setPracticeMasteredCount(0);
+    setGameState('practice');
+  };
+
+  const handlePracticeSubmit = (e) => {
+    e.preventDefault();
+    if (!practiceInput.trim()) return;
+
+    const currentWord = practiceList[practiceIndex];
+    const isMatch = checkAnswerMatch(practiceInput, [currentWord.answer, ...(currentWord.acceptableAnswers || [])]);
+
+    if (isMatch) {
+      soundFx.playCorrect(2);
+      setPracticeFeedback({ isCorrect: true, msg: 'Puikiai! (Perfect!)' });
+
+      setTimeout(() => {
+        setPracticeFeedback(null);
+        setPracticeInput('');
+        const nextIndex = practiceIndex + 1;
+        setPracticeMasteredCount(c => c + 1);
+
+        if (nextIndex < practiceList.length) {
+          setPracticeIndex(nextIndex);
+        } else {
+          // Mastered all missed words!
+          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        }
+      }, 1000);
+    } else {
+      soundFx.playWordHitBottom();
+      setPracticeFeedback({
+        isCorrect: false,
+        msg: `Neteisingai. (Correct answer: ${currentWord.answer})`
+      });
+    }
+  };
+
   // Spawn Next Word
   const spawnWord = () => {
     if (gameStateRef.current !== 'playing') return;
@@ -126,7 +177,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     const updateLoop = (now) => {
       if (!lastTimeRef.current) lastTimeRef.current = now;
       const rawDeltaTime = now - lastTimeRef.current;
-      const deltaTime = Math.min(rawDeltaTime, 64); // Cap deltaTime to prevent teleporting on pause/resume
+      const deltaTime = Math.min(rawDeltaTime, 64);
       lastTimeRef.current = now;
 
       if (!isFrozenRef.current) {
@@ -432,6 +483,76 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           </div>
         )}
 
+        {/* Untimed Missed Words Practice Mode */}
+        {gameState === 'practice' && (
+          <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30">
+            <div className="bg-slate-800/90 border border-indigo-500/50 rounded-2xl p-6 w-full max-w-md shadow-2xl">
+              <div className="flex items-center justify-between text-xs text-indigo-300 font-bold uppercase tracking-wider mb-4 border-b border-slate-700/80 pb-2">
+                <span className="flex items-center gap-1.5"><BookOpen className="w-4 h-4 text-amber-400" /> Untimed Practice</span>
+                <span>{practiceIndex < practiceList.length ? `Word ${practiceIndex + 1} of ${practiceList.length}` : 'Completed!'}</span>
+              </div>
+
+              {practiceIndex < practiceList.length ? (
+                <div>
+                  <div className="text-sm text-slate-400 mb-1">Fill in the correct Lithuanian answer:</div>
+                  <div className="text-2xl font-black text-white mb-3 text-glow">
+                    {practiceList[practiceIndex].prompt}
+                  </div>
+                  {practiceList[practiceIndex].hint && (
+                    <div className="text-xs text-slate-400 italic mb-4">
+                      Hint: {practiceList[practiceIndex].hint}
+                    </div>
+                  )}
+
+                  <form onSubmit={handlePracticeSubmit} className="space-y-3">
+                    <input
+                      type="text"
+                      value={practiceInput}
+                      onChange={(e) => setPracticeInput(e.target.value)}
+                      placeholder="Type your answer here..."
+                      className="w-full bg-slate-900 border-2 border-indigo-500 text-white text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium text-center"
+                      autoFocus
+                    />
+                    <button
+                      type="submit"
+                      className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
+                    >
+                      Check Answer <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </form>
+
+                  {practiceFeedback && (
+                    <div className={`mt-4 p-3 rounded-xl font-bold text-sm ${
+                      practiceFeedback.isCorrect ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-300' : 'bg-rose-500/20 border border-rose-500/40 text-rose-300'
+                    }`}>
+                      {practiceFeedback.msg}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="py-4 space-y-4">
+                  <CheckCircle2 className="w-16 h-16 text-emerald-400 mx-auto animate-bounce-short" />
+                  <h3 className="text-2xl font-black text-white">All Missed Words Mastered! 🎉</h3>
+                  <p className="text-xs text-slate-300">You completed practice mode for all missed words.</p>
+                  <button
+                    onClick={startGame}
+                    className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
+                  >
+                    Play Main Game Again 🚀
+                  </button>
+                </div>
+              )}
+
+              <button
+                onClick={() => setGameState('gameover')}
+                className="mt-4 text-xs text-slate-400 hover:text-slate-200 underline"
+              >
+                ← Back to Game Over Screen
+              </button>
+            </div>
+          </div>
+        )}
+
         {gameState === 'gameover' && (
           <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 animate-fadeIn">
             <ShieldAlert className="w-16 h-16 text-red-500 mb-2 animate-bounce-short" />
@@ -462,7 +583,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                     <span>📖 Missed Words ({missedWords.length})</span>
                     <span className="text-[10px] text-slate-400">Review & Learn</span>
                   </div>
-                  <div className="max-h-36 overflow-y-auto space-y-1.5 pr-1">
+                  <div className="max-h-32 overflow-y-auto space-y-1.5 pr-1 mb-3">
                     {missedWords.map((item, idx) => (
                       <div key={idx} className="bg-slate-900/80 p-2 rounded-lg border border-slate-700/60 text-xs">
                         <div className="text-slate-300 font-medium">{item.prompt}</div>
@@ -470,6 +591,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                       </div>
                     ))}
                   </div>
+
+                  <button
+                    onClick={startPracticeMode}
+                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
+                  >
+                    <BookOpen className="w-4 h-4" /> Practice Missed Words (Untimed)
+                  </button>
                 </div>
               )}
             </div>
