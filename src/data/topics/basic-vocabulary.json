@@ -1,0 +1,75 @@
+{
+  "id": "basic-vocabulary",
+  "title": "Basic Vocabulary & Translations",
+  "description": "Translate common everyday English terms into Lithuanian.",
+  "category": "Vocabulary",
+  "icon": "BookOpen",
+  "instructions": "Type the Lithuanian word for each English prompt.",
+  "items": [
+    {
+      "id": "vocab-1",
+      "prompt": "Hello / Hi",
+      "answer": "labas",
+      "acceptableAnswers": ["labas", "laba diena"],
+      "hint": "la..."
+    },
+    {
+      "id": "vocab-2",
+      "prompt": "Thank you",
+      "answer": "ačiū",
+      "acceptableAnswers": ["ačiū", "aciu", "dėkui", "dekui"],
+      "hint": "ač..."
+    },
+    {
+      "id": "vocab-3",
+      "prompt": "Goodbye",
+      "answer": "viso gero",
+      "acceptableAnswers": ["viso gero", "iki"],
+      "hint": "vi..."
+    },
+    {
+      "id": "vocab-4",
+      "prompt": "Cat",
+      "answer": "katė",
+      "hint": "ka..."
+    },
+    {
+      "id": "vocab-5",
+      "prompt": "Dog",
+      "answer": "šuo",
+      "acceptableAnswers": ["šuo", "suo", "šuniukas"],
+      "hint": "šu..."
+    },
+    {
+      "id": "vocab-6",
+      "prompt": "Friend",
+      "answer": "draugas",
+      "hint": "dr..."
+    },
+    {
+      "id": "vocab-7",
+      "prompt": "Sun",
+      "answer": "saulė",
+      "hint": "sa..."
+    },
+    {
+      "id": "vocab-8",
+      "prompt": "Water",
+      "answer": "vanduo",
+      "hint": "va..."
+    },
+    {
+      "id": "vocab-9",
+      "prompt": "Bread",
+      "answer": "duona",
+      "hint": "du..."
+    },
+    {
+      "id": "vocab-10",
+      "prompt": "House / Home",
+      "answer": "namas",
+      "acceptableAnswers": ["namas", "namai"],
+      "hint": "na..."
+    }
+  ]
+}

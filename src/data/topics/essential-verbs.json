@@ -1,0 +1,70 @@
+{
+  "id": "essential-verbs",
+  "title": "Essential Lithuanian Verbs",
+  "description": "Practice fundamental present tense verb forms.",
+  "category": "Verbs & Action",
+  "icon": "Zap",
+  "instructions": "Type the correct conjugated verb form in Lithuanian.",
+  "items": [
+    {
+      "id": "verb-1",
+      "prompt": "I speak (kalbėti)",
+      "answer": "kalbu",
+      "hint": "kalb..."
+    },
+    {
+      "id": "verb-2",
+      "prompt": "You (singular) speak (kalbėti)",
+      "answer": "kalbi",
+      "hint": "kalb..."
+    },
+    {
+      "id": "verb-3",
+      "prompt": "We speak (kalbėti)",
+      "answer": "kalbame",
+      "hint": "kalba..."
+    },
+    {
+      "id": "verb-4",
+      "prompt": "I eat (valgyti)",
+      "answer": "valgau",
+      "hint": "valg..."
+    },
+    {
+      "id": "verb-5",
+      "prompt": "They eat (valgyti)",
+      "answer": "valgo",
+      "hint": "valg..."
+    },
+    {
+      "id": "verb-6",
+      "prompt": "I see (matyti)",
+      "answer": "matau",
+      "hint": "mat..."
+    },
+    {
+      "id": "verb-7",
+      "prompt": "I go / walk (eiti)",
+      "answer": "einu",
+      "hint": "ein..."
+    },
+    {
+      "id": "verb-8",
+      "prompt": "We go / walk (eiti)",
+      "answer": "einame",
+      "hint": "eina..."
+    },
+    {
+      "id": "verb-9",
+      "prompt": "I live (gyventi)",
+      "answer": "gyvenu",
+      "hint": "gyve..."
+    },
+    {
+      "id": "verb-10",
+      "prompt": "I work (dirbti)",
+      "answer": "dirbu",
+      "hint": "dir..."
+    }
+  ]
+}

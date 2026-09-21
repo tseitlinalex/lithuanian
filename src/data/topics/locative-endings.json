@@ -1,0 +1,83 @@
+{
+  "id": "locative-endings",
+  "title": "Vietininkas (Locative Endings)",
+  "description": "Fill in the correct locative case ending for place names and nouns.",
+  "category": "Grammar & Cases",
+  "icon": "MapPin",
+  "instructions": "Type the correct word with its ending (e.g. Niujorke, Rokiškyje, parke). Diacritics are optional!",
+  "items": [
+    {
+      "id": "loc-1",
+      "prompt": "Jie yra ____________ (Niujorkas)",
+      "answer": "Niujorke",
+      "hint": "Niujorkas -> Niujorke"
+    },
+    {
+      "id": "loc-2",
+      "prompt": "Aš dirbu ____________ (Rokiškis)",
+      "answer": "Rokiškyje",
+      "acceptableAnswers": ["Rokiškyje", "Rokiskyje"],
+      "hint": "Rokiškis -> Rokiškyje"
+    },
+    {
+      "id": "loc-3",
+      "prompt": "Vaikas yra ____________ (parkas)",
+      "answer": "parke",
+      "hint": "parkas -> parke"
+    },
+    {
+      "id": "loc-4",
+      "prompt": "Knyga yra ____________ (stalas)",
+      "answer": "stale",
+      "hint": "stalas -> stale"
+    },
+    {
+      "id": "loc-5",
+      "prompt": "Mes gyvename ____________ (Vilnius)",
+      "answer": "Vilniuje",
+      "hint": "Vilnius -> Vilniuje"
+    },
+    {
+      "id": "loc-6",
+      "prompt": "Mokiniai yra ____________ (mokykla)",
+      "answer": "mokykloje",
+      "hint": "mokykla -> mokykloje"
+    },
+    {
+      "id": "loc-7",
+      "prompt": "Traukinys stovi ____________ (stotis)",
+      "answer": "stotyje",
+      "hint": "stotis -> stotyje"
+    },
+    {
+      "id": "loc-8",
+      "prompt": "Žuvys plaukia ____________ (jūra)",
+      "answer": "jūroje",
+      "hint": "jūra -> jūroje"
+    },
+    {
+      "id": "loc-9",
+      "prompt": "Gydytojas dirbu ____________ (ligoninė)",
+      "answer": "ligoninėje",
+      "hint": "ligoninė -> ligoninėje"
+    },
+    {
+      "id": "loc-10",
+      "prompt": "Automobilis yra ____________ (garažas)",
+      "answer": "garaže",
+      "hint": "garažas -> garaže"
+    },
+    {
+      "id": "loc-11",
+      "prompt": "Brolis gyvena ____________ (Kaunas)",
+      "answer": "Kaune",
+      "hint": "Kaunas -> Kaune"
+    },
+    {
+      "id": "loc-12",
+      "prompt": "Sesuo studijuoja ____________ (Klaipėda)",
+      "answer": "Klaipėdoje",
+      "hint": "Klaipėda -> Klaipėdoje"
+    }
+  ]
+}
