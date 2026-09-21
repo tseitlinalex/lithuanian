@@ -22,6 +22,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
   const [maxStreak, setMaxStreak] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
   const [wordsCleared, setWordsCleared] = useState(0);
+  const [missedWords, setMissedWords] = useState([]);
 
   // Power-ups
   const [freezeCharges, setFreezeCharges] = useState(2);
@@ -56,9 +57,15 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     if (saved) setHighScore(parseInt(saved, 10));
   }, [topic.id, difficulty]);
 
+  // Reset lastTimeRef when game starts or unpauses to prevent deltaTime jump
+  useEffect(() => {
+    if (gameState === 'playing') {
+      lastTimeRef.current = performance.now();
+    }
+  }, [gameState]);
+
   // Start / Reset Game
   const startGame = () => {
-    // Shuffle pool of topic items into queue
     const items = [...topic.items].sort(() => Math.random() - 0.5);
     queueRef.current = items;
     activeWordsRef.current = [];
@@ -70,6 +77,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     setMaxStreak(0);
     setMultiplier(1);
     setWordsCleared(0);
+    setMissedWords([]);
     setFreezeCharges(2);
     setBombCharges(1);
     setIsFrozen(false);
@@ -84,7 +92,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
     if (activeWordsRef.current.length >= config.maxWordsOnScreen) return;
 
-    // Refill queue if empty and game still running
     if (queueRef.current.length === 0) {
       queueRef.current = [...topic.items].sort(() => Math.random() - 0.5);
     }
@@ -112,13 +119,14 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     setActiveWords(prev => [...prev, newWord]);
   };
 
-  // Main Game Animation Loop (Updates Y coordinates of falling words)
+  // Main Game Animation Loop
   useEffect(() => {
     if (gameState !== 'playing') return;
 
     const updateLoop = (now) => {
       if (!lastTimeRef.current) lastTimeRef.current = now;
-      const deltaTime = now - lastTimeRef.current;
+      const rawDeltaTime = now - lastTimeRef.current;
+      const deltaTime = Math.min(rawDeltaTime, 64); // Cap deltaTime to prevent teleporting on pause/resume
       lastTimeRef.current = now;
 
       if (!isFrozenRef.current) {
@@ -131,12 +139,16 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           for (const word of prevWords) {
             const nextY = word.y + word.speed * (deltaTime * 0.06);
 
-            // Check if word reached bottom boundary
             if (nextY >= gameHeight - 90) {
               lostLives++;
               soundFx.playWordHitBottom();
-              // Create red splash particles at bottom
-              setParticles(p => [...p, ...createBurstParticles(word.x + 100, gameHeight - 40, 15, '#ef4444')]);
+              setMissedWords(prevMissed => {
+                if (!prevMissed.some(m => m.prompt === word.prompt)) {
+                  return [...prevMissed, { prompt: word.prompt, answer: word.answer, hint: word.hint }];
+                }
+                return prevMissed;
+              });
+              setParticles(createBurstParticles(word.x + 100, gameHeight - 40, 15, '#ef4444'));
             } else {
               nextWords.push({ ...word, y: nextY });
             }
@@ -191,7 +203,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
     if (gameState !== 'playing' || !value.trim()) return;
 
-    // Search for any word on screen that matches user input
     const matchedIndex = activeWords.findIndex(word =>
       checkAnswerMatch(value, word.acceptableAnswers)
     );
@@ -199,7 +210,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     if (matchedIndex !== -1) {
       const matchedWord = activeWords[matchedIndex];
 
-      // Calculate score points
       const basePoints = 100;
       const speedBonus = Math.round(Math.max(0, (500 - matchedWord.y) / 5));
       const earnedPoints = (basePoints + speedBonus) * multiplier;
@@ -213,7 +223,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         return newScore;
       });
 
-      // Update streaks & multipliers
       const newStreak = streak + 1;
       setStreak(newStreak);
       if (newStreak > maxStreak) setMaxStreak(newStreak);
@@ -229,13 +238,8 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
       setWordsCleared(c => c + 1);
 
-      // Trigger particle effects at word position
-      setParticles(p => [
-        ...p,
-        ...createBurstParticles(matchedWord.x + 120, matchedWord.y + 30, 30, '#10b981')
-      ]);
+      setParticles(createBurstParticles(matchedWord.x + 120, matchedWord.y + 30, 30, '#10b981'));
 
-      // Trigger floating text popup
       setFloatingTexts(t => [
         ...t,
         {
@@ -248,13 +252,11 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         }
       ]);
 
-      // Remove matched word from screen and clear input box
       setActiveWords(prev => prev.filter((_, idx) => idx !== matchedIndex));
       setInputValue('');
     }
   };
 
-  // Activate Freeze Powerup
   const activateFreeze = () => {
     if (freezeCharges <= 0 || isFrozen || gameState !== 'playing') return;
     setFreezeCharges(c => c - 1);
@@ -265,22 +267,21 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     }, 4500);
   };
 
-  // Activate Bomb Powerup
   const activateBomb = () => {
     if (bombCharges <= 0 || activeWords.length === 0 || gameState !== 'playing') return;
     setBombCharges(c => c - 1);
     soundFx.playBombSound();
 
-    // Clear all words on screen and gain partial points
+    const bombParticles = [];
     activeWords.forEach(word => {
-      setParticles(p => [...p, ...createBurstParticles(word.x + 100, word.y + 30, 20, '#ef4444')]);
+      bombParticles.push(...createBurstParticles(word.x + 100, word.y + 30, 20, '#ef4444'));
     });
+    setParticles(bombParticles);
 
     setScore(s => s + activeWords.length * 50);
     setActiveWords([]);
   };
 
-  // End Game
   const endGame = (isVictory) => {
     setGameState(isVictory ? 'victory' : 'gameover');
     if (isVictory) {
@@ -311,9 +312,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           </div>
         </div>
 
-        {/* Lives, Score, Multiplier Display */}
         <div className="flex items-center gap-4 sm:gap-6">
-          {/* Hearts / Health */}
           <div className="flex items-center gap-1 bg-slate-900/60 px-3 py-1.5 rounded-xl border border-slate-700">
             {[...Array(5)].map((_, i) => (
               <Heart
@@ -325,7 +324,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
             ))}
           </div>
 
-          {/* Score & High Score */}
           <div className="text-right">
             <div className="text-xs text-slate-400 uppercase font-semibold">Score</div>
             <div className="text-lg sm:text-2xl font-black text-amber-400 font-mono text-glow">
@@ -333,14 +331,12 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
             </div>
           </div>
 
-          {/* Multiplier Badge */}
           {multiplier > 1 && (
             <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-slate-900 font-black px-2.5 py-1 rounded-xl text-xs sm:text-sm animate-bounce-short shadow-lg">
               {multiplier}x MULTI!
             </div>
           )}
 
-          {/* Controls */}
           <div className="flex items-center gap-2">
             <button
               onClick={onToggleSound}
@@ -362,22 +358,18 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         </div>
       </div>
 
-      {/* Main Falling Game Canvas Container */}
       <div
         ref={gameAreaRef}
         className="relative flex-1 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border-2 border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl min-h-[420px]"
       >
-        {/* Particle and Floating Text Overlay */}
         <ParticleCanvas particles={particles} floatingTexts={floatingTexts} isFrozen={isFrozen} />
 
-        {/* Danger Danger Bottom Red Zone */}
         <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-red-600/30 to-transparent border-t border-red-500/30 pointer-events-none flex items-end justify-center pb-2">
           <span className="text-[10px] tracking-widest text-red-400/80 uppercase font-semibold">
             ⚠️ Danger Zone ⚠️
           </span>
         </div>
 
-        {/* Falling Word Cards */}
         {gameState === 'playing' &&
           activeWords.map(word => (
             <div
@@ -391,7 +383,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
               <div className="text-sm font-semibold text-indigo-200 mb-1 leading-snug">
                 {word.prompt}
               </div>
-              {word.hint && (
+              {difficulty === 'easy' && word.hint && (
                 <div className="text-[11px] text-slate-400 italic">
                   Hint: {word.hint}
                 </div>
@@ -399,7 +391,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
             </div>
           ))}
 
-        {/* Ready / Start Instructions Overlay */}
         {gameState === 'ready' && (
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30">
             <Sparkles className="w-16 h-16 text-indigo-400 mb-4 animate-pulse" />
@@ -421,7 +412,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           </div>
         )}
 
-        {/* Pause Overlay */}
         {gameState === 'paused' && (
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30">
             <h2 className="text-3xl font-bold text-white mb-6">Game Paused</h2>
@@ -442,14 +432,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           </div>
         )}
 
-        {/* Game Over Overlay */}
         {gameState === 'gameover' && (
           <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 animate-fadeIn">
             <ShieldAlert className="w-16 h-16 text-red-500 mb-2 animate-bounce-short" />
             <h2 className="text-3xl font-black text-red-400 mb-1">Game Over!</h2>
             <p className="text-slate-400 mb-6">Don't worry, practice makes perfect!</p>
 
-            <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 w-full max-w-xs mb-6 space-y-3 font-mono text-sm">
+            <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 w-full max-w-sm mb-6 space-y-3 font-mono text-sm">
               <div className="flex justify-between">
                 <span className="text-slate-400">Final Score:</span>
                 <span className="text-amber-400 font-bold">{score}</span>
@@ -466,6 +455,23 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 <span className="text-slate-400">Personal Best:</span>
                 <span className="text-amber-300 font-bold">{highScore}</span>
               </div>
+
+              {missedWords.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-slate-700 text-left font-sans">
+                  <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                    <span>📖 Missed Words ({missedWords.length})</span>
+                    <span className="text-[10px] text-slate-400">Review & Learn</span>
+                  </div>
+                  <div className="max-h-36 overflow-y-auto space-y-1.5 pr-1">
+                    {missedWords.map((item, idx) => (
+                      <div key={idx} className="bg-slate-900/80 p-2 rounded-lg border border-slate-700/60 text-xs">
+                        <div className="text-slate-300 font-medium">{item.prompt}</div>
+                        <div className="text-emerald-400 font-bold mt-0.5">Answer: {item.answer}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="flex gap-4">
@@ -486,9 +492,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         )}
       </div>
 
-      {/* Input Control Box & Power-ups */}
       <div className="mt-3 flex flex-col sm:flex-row items-center gap-3">
-        {/* Main Typing Input */}
         <div className="relative flex-1 w-full">
           <input
             type="text"
@@ -506,7 +510,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           )}
         </div>
 
-        {/* Power-up Buttons */}
         <div className="flex gap-2 w-full sm:w-auto justify-stretch">
           <button
             onClick={activateFreeze}
