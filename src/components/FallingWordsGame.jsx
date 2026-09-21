@@ -6,7 +6,7 @@ import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
 
 const DIFFICULTY_SETTINGS = {
-  easy: { speedMultiplier: 0.7, spawnInterval: 3200, maxWordsOnScreen: 3, label: 'Easy (Lengva)' },
+  easy: { speedMultiplier: 0.35, spawnInterval: 4500, maxWordsOnScreen: 3, label: 'Easy (Lengva)' },
   medium: { speedMultiplier: 1.0, spawnInterval: 2400, maxWordsOnScreen: 4, label: 'Medium (Vidutinė)' },
   hard: { speedMultiplier: 1.4, spawnInterval: 1700, maxWordsOnScreen: 5, label: 'Hard (Sunkus)' }
 };
