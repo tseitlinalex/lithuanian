@@ -1,72 +1,85 @@
 {
   "id": "basic-vocabulary",
-  "title": "Basic Vocabulary & Translations",
-  "description": "Translate common everyday English terms into Lithuanian.",
+  "title": "Basic Vocabulary & Translations / Основной словарь",
+  "title_ru": "Основной словарь и перевод",
+  "description": "Translate common everyday terms into Lithuanian.",
+  "description_ru": "Переводите обиходные слова на литовский язык.",
   "category": "Vocabulary",
   "icon": "BookOpen",
-  "instructions": "Type the Lithuanian word for each English prompt.",
+  "instructions": "Type the Lithuanian word for each prompt.",
+  "instructions_ru": "Введите слово на литовском языке для каждого понятия.",
   "items": [
     {
       "id": "vocab-1",
-      "prompt": "Hello / Hi",
+      "prompt": "Привет / Здравствуйте (Hello)",
+      "prompt_ru": "Привет / Здравствуйте",
       "answer": "labas",
       "acceptableAnswers": ["labas", "laba diena"],
       "hint": "la..."
     },
     {
       "id": "vocab-2",
-      "prompt": "Thank you",
+      "prompt": "Спасибо (Thank you)",
+      "prompt_ru": "Спасибо",
       "answer": "ačiū",
       "acceptableAnswers": ["ačiū", "aciu", "dėkui", "dekui"],
       "hint": "ač..."
     },
     {
       "id": "vocab-3",
-      "prompt": "Goodbye",
+      "prompt": "До свидания (Goodbye)",
+      "prompt_ru": "До свидания",
       "answer": "viso gero",
       "acceptableAnswers": ["viso gero", "iki"],
       "hint": "vi..."
     },
     {
       "id": "vocab-4",
-      "prompt": "Cat",
+      "prompt": "Кошка / Кот (Cat)",
+      "prompt_ru": "Кошка / Кот",
       "answer": "katė",
       "hint": "ka..."
     },
     {
       "id": "vocab-5",
-      "prompt": "Dog",
+      "prompt": "Собака (Dog)",
+      "prompt_ru": "Собака",
       "answer": "šuo",
       "acceptableAnswers": ["šuo", "suo", "šuniukas"],
       "hint": "šu..."
     },
     {
       "id": "vocab-6",
-      "prompt": "Friend",
+      "prompt": "Друг (Friend)",
+      "prompt_ru": "Друг",
       "answer": "draugas",
       "hint": "dr..."
     },
     {
       "id": "vocab-7",
-      "prompt": "Sun",
+      "prompt": "Солнце (Sun)",
+      "prompt_ru": "Солнце",
       "answer": "saulė",
       "hint": "sa..."
     },
     {
       "id": "vocab-8",
-      "prompt": "Water",
+      "prompt": "Вода (Water)",
+      "prompt_ru": "Вода",
       "answer": "vanduo",
       "hint": "va..."
     },
     {
       "id": "vocab-9",
-      "prompt": "Bread",
+      "prompt": "Хлеб (Bread)",
+      "prompt_ru": "Хлеб",
       "answer": "duona",
       "hint": "du..."
     },
     {
       "id": "vocab-10",
-      "prompt": "House / Home",
+      "prompt": "Дом (House / Home)",
+      "prompt_ru": "Дом",
       "answer": "namas",
       "acceptableAnswers": ["namas", "namai"],
       "hint": "na..."

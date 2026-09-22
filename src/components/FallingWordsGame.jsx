@@ -6,12 +6,14 @@ import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
 
 const DIFFICULTY_SETTINGS = {
-  easy: { speedMultiplier: 0.35, spawnInterval: 4500, maxWordsOnScreen: 3, label: 'Easy (Lengva)' },
-  medium: { speedMultiplier: 1.0, spawnInterval: 2400, maxWordsOnScreen: 4, label: 'Medium (Vidutinė)' },
-  hard: { speedMultiplier: 1.4, spawnInterval: 1700, maxWordsOnScreen: 5, label: 'Hard (Sunkus)' }
+  easy: { speedMultiplier: 0.35, spawnInterval: 4500, maxWordsOnScreen: 3, label_en: 'Easy (Lengva)', label_ru: 'Легко (Lengva)' },
+  medium: { speedMultiplier: 1.0, spawnInterval: 2400, maxWordsOnScreen: 4, label_en: 'Medium (Vidutinė)', label_ru: 'Средне (Vidutinė)' },
+  hard: { speedMultiplier: 1.4, spawnInterval: 1700, maxWordsOnScreen: 5, label_en: 'Hard (Sunkus)', label_ru: 'Сложно (Sunkus)' }
 };
 
-export default function FallingWordsGame({ topic, difficulty = 'medium', onBackToTopics, soundMuted, onToggleSound }) {
+export default function FallingWordsGame({ topic, difficulty = 'medium', onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
+  const isRu = lang === 'ru';
+
   // Game State
   const [gameState, setGameState] = useState('ready'); // 'ready', 'playing', 'paused', 'gameover', 'victory', 'practice'
   const [activeWords, setActiveWords] = useState([]);
@@ -28,7 +30,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
   const [practiceList, setPracticeList] = useState([]);
   const [practiceIndex, setPracticeIndex] = useState(0);
   const [practiceInput, setPracticeInput] = useState('');
-  const [practiceFeedback, setPracticeFeedback] = useState(null); // { isCorrect: boolean, msg: string }
+  const [practiceFeedback, setPracticeFeedback] = useState(null);
   const [practiceMasteredCount, setPracticeMasteredCount] = useState(0);
 
   // Power-ups
@@ -112,7 +114,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
     if (isMatch) {
       soundFx.playCorrect(2);
-      setPracticeFeedback({ isCorrect: true, msg: 'Puikiai! (Perfect!)' });
+      setPracticeFeedback({ isCorrect: true, msg: isRu ? 'Отлично! (Puikiai!)' : 'Perfect! (Puikiai!)' });
 
       setTimeout(() => {
         setPracticeFeedback(null);
@@ -123,7 +125,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         if (nextIndex < practiceList.length) {
           setPracticeIndex(nextIndex);
         } else {
-          // Mastered all missed words!
           confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
         }
       }, 1000);
@@ -131,7 +132,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
       soundFx.playWordHitBottom();
       setPracticeFeedback({
         isCorrect: false,
-        msg: `Neteisingai. (Correct answer: ${currentWord.answer})`
+        msg: isRu ? `Неправильно. (Правильный ответ: ${currentWord.answer})` : `Incorrect. (Correct answer: ${currentWord.answer})`
       });
     }
   };
@@ -156,9 +157,11 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     const maxX = Math.max(minX + 20, gameWidth - cardWidth - 10);
     const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
 
+    const wordPrompt = isRu && item.prompt_ru ? item.prompt_ru : item.prompt;
+
     const newWord = {
       id: `${item.id}-${Date.now()}-${Math.random()}`,
-      prompt: item.prompt,
+      prompt: wordPrompt,
       answer: item.answer,
       acceptableAnswers: item.acceptableAnswers || [item.answer],
       hint: item.hint || '',
@@ -342,6 +345,10 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     }
   };
 
+  const topicTitle = isRu && topic.title_ru ? topic.title_ru : topic.title;
+  const topicInstructions = isRu && topic.instructions_ru ? topic.instructions_ru : topic.instructions;
+  const diffLabel = isRu ? DIFFICULTY_SETTINGS[difficulty]?.label_ru : DIFFICULTY_SETTINGS[difficulty]?.label_en;
+
   return (
     <div className={`relative flex flex-col h-[calc(100vh-80px)] max-w-5xl mx-auto p-2 sm:p-4 ${shakeScreen ? 'animate-shake' : ''}`}>
       {/* Top Game Bar HUD */}
@@ -351,13 +358,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
             onClick={onBackToTopics}
             className="text-xs sm:text-sm bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg transition font-medium"
           >
-            ← Topics
+            ← {isRu ? 'Темы' : 'Topics'}
           </button>
           <div>
             <h2 className="text-sm sm:text-lg font-bold text-white flex items-center gap-2">
-              <span>{topic.title}</span>
+              <span>{topicTitle}</span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                {DIFFICULTY_SETTINGS[difficulty]?.label}
+                {diffLabel}
               </span>
             </h2>
           </div>
@@ -376,7 +383,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           </div>
 
           <div className="text-right">
-            <div className="text-xs text-slate-400 uppercase font-semibold">Score</div>
+            <div className="text-xs text-slate-400 uppercase font-semibold">{isRu ? 'Счёт' : 'Score'}</div>
             <div className="text-lg sm:text-2xl font-black text-amber-400 font-mono text-glow">
               {score}
             </div>
@@ -417,7 +424,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
         <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-red-600/30 to-transparent border-t border-red-500/30 pointer-events-none flex items-end justify-center pb-2">
           <span className="text-[10px] tracking-widest text-red-400/80 uppercase font-semibold">
-            ⚠️ Danger Zone ⚠️
+            ⚠️ {isRu ? 'Опасная зона' : 'Danger Zone'} ⚠️
           </span>
         </div>
 
@@ -436,7 +443,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
               </div>
               {difficulty === 'easy' && word.hint && (
                 <div className="text-[11px] text-slate-400 italic">
-                  Hint: {word.hint}
+                  {isRu ? 'Подсказка:' : 'Hint:'} {word.hint}
                 </div>
               )}
             </div>
@@ -445,39 +452,39 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         {gameState === 'ready' && (
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30">
             <Sparkles className="w-16 h-16 text-indigo-400 mb-4 animate-pulse" />
-            <h2 className="text-3xl font-extrabold text-white mb-2">{topic.title}</h2>
-            <p className="text-slate-300 max-w-md mb-6">{topic.instructions}</p>
+            <h2 className="text-3xl font-extrabold text-white mb-2">{topicTitle}</h2>
+            <p className="text-slate-300 max-w-md mb-6">{topicInstructions}</p>
             <div className="bg-slate-800/80 border border-slate-700 p-4 rounded-xl mb-6 max-w-sm text-left text-xs text-slate-300 space-y-2">
-              <p className="text-amber-400 font-bold">✨ Quick Gamification Tips:</p>
-              <p>• Type the answer to vaporize falling words!</p>
-              <p>• Special Lithuanian letters (š, ž, ą, ė...) are optional!</p>
-              <p>• Build streaks for up to 5x score multipliers!</p>
-              <p>• Use Power-ups: Freeze Time ❄️ & Bomb Blast 💣</p>
+              <p className="text-amber-400 font-bold">✨ {isRu ? 'Быстрые советы по игре:' : 'Quick Gamification Tips:'}</p>
+              <p>• {isRu ? 'Печатайте ответ, чтобы уничтожать падающие слова!' : 'Type the answer to vaporize falling words!'}</p>
+              <p>• {isRu ? 'Литовские спецсимволы (š, ž, ą, ė...) необязательны!' : 'Special Lithuanian letters (š, ž, ą, ė...) are optional!'}</p>
+              <p>• {isRu ? 'Делайте серии ответов для множителя очков до 5x!' : 'Build streaks for up to 5x score multipliers!'}</p>
+              <p>• {isRu ? 'Используйте суперсилы: Заморозка ❄️ и Бомба 💣' : 'Use Power-ups: Freeze Time ❄️ & Bomb Blast 💣'}</p>
             </div>
             <button
               onClick={startGame}
               className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg px-8 py-3.5 rounded-2xl shadow-lg shadow-indigo-500/30 hover:scale-105 active:scale-95 transition-all"
             >
-              Start Game! 🚀
+              {isRu ? 'Начать игру! 🚀' : 'Start Game! 🚀'}
             </button>
           </div>
         )}
 
         {gameState === 'paused' && (
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30">
-            <h2 className="text-3xl font-bold text-white mb-6">Game Paused</h2>
+            <h2 className="text-3xl font-bold text-white mb-6">{isRu ? 'Пауза' : 'Game Paused'}</h2>
             <div className="flex gap-4">
               <button
                 onClick={() => setGameState('playing')}
                 className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2"
               >
-                <Play className="w-5 h-5" /> Resume
+                <Play className="w-5 h-5" /> {isRu ? 'Продолжить' : 'Resume'}
               </button>
               <button
                 onClick={startGame}
                 className="bg-slate-700 hover:bg-slate-600 text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2"
               >
-                <RotateCcw className="w-5 h-5" /> Restart
+                <RotateCcw className="w-5 h-5" /> {isRu ? 'Заново' : 'Restart'}
               </button>
             </div>
           </div>
@@ -488,19 +495,19 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
           <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30">
             <div className="bg-slate-800/90 border border-indigo-500/50 rounded-2xl p-6 w-full max-w-md shadow-2xl">
               <div className="flex items-center justify-between text-xs text-indigo-300 font-bold uppercase tracking-wider mb-4 border-b border-slate-700/80 pb-2">
-                <span className="flex items-center gap-1.5"><BookOpen className="w-4 h-4 text-amber-400" /> Untimed Practice</span>
-                <span>{practiceIndex < practiceList.length ? `Word ${practiceIndex + 1} of ${practiceList.length}` : 'Completed!'}</span>
+                <span className="flex items-center gap-1.5"><BookOpen className="w-4 h-4 text-amber-400" /> {isRu ? 'Тренировка без времени' : 'Untimed Practice'}</span>
+                <span>{practiceIndex < practiceList.length ? `${isRu ? 'Слово' : 'Word'} ${practiceIndex + 1} ${isRu ? 'из' : 'of'} ${practiceList.length}` : (isRu ? 'Завершено!' : 'Completed!')}</span>
               </div>
 
               {practiceIndex < practiceList.length ? (
                 <div>
-                  <div className="text-sm text-slate-400 mb-1">Fill in the correct Lithuanian answer:</div>
+                  <div className="text-sm text-slate-400 mb-1">{isRu ? 'Введите правильный ответ на литовском:' : 'Fill in the correct Lithuanian answer:'}</div>
                   <div className="text-2xl font-black text-white mb-3 text-glow">
                     {practiceList[practiceIndex].prompt}
                   </div>
                   {practiceList[practiceIndex].hint && (
                     <div className="text-xs text-slate-400 italic mb-4">
-                      Hint: {practiceList[practiceIndex].hint}
+                      {isRu ? 'Подсказка:' : 'Hint:'} {practiceList[practiceIndex].hint}
                     </div>
                   )}
 
@@ -509,7 +516,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                       type="text"
                       value={practiceInput}
                       onChange={(e) => setPracticeInput(e.target.value)}
-                      placeholder="Type your answer here..."
+                      placeholder={isRu ? 'Введите ответ здесь...' : 'Type your answer here...'}
                       className="w-full bg-slate-900 border-2 border-indigo-500 text-white text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium text-center"
                       autoFocus
                     />
@@ -517,7 +524,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                       type="submit"
                       className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
                     >
-                      Check Answer <ArrowRight className="w-4 h-4" />
+                      {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
                     </button>
                   </form>
 
@@ -532,13 +539,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
               ) : (
                 <div className="py-4 space-y-4">
                   <CheckCircle2 className="w-16 h-16 text-emerald-400 mx-auto animate-bounce-short" />
-                  <h3 className="text-2xl font-black text-white">All Missed Words Mastered! 🎉</h3>
-                  <p className="text-xs text-slate-300">You completed practice mode for all missed words.</p>
+                  <h3 className="text-2xl font-black text-white">{isRu ? 'Все пропущенные слова выучены! 🎉' : 'All Missed Words Mastered! 🎉'}</h3>
+                  <p className="text-xs text-slate-300">{isRu ? 'Вы успешно прошли тренировку по всем пропущенным словам.' : 'You completed practice mode for all missed words.'}</p>
                   <button
                     onClick={startGame}
                     className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
                   >
-                    Play Main Game Again 🚀
+                    {isRu ? 'Сыграть в основную игру 🚀' : 'Play Main Game Again 🚀'}
                   </button>
                 </div>
               )}
@@ -547,7 +554,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 onClick={() => setGameState('gameover')}
                 className="mt-4 text-xs text-slate-400 hover:text-slate-200 underline"
               >
-                ← Back to Game Over Screen
+                ← {isRu ? 'Назад к экрану результатов' : 'Back to Game Over Screen'}
               </button>
             </div>
           </div>
@@ -556,38 +563,38 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         {gameState === 'gameover' && (
           <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 animate-fadeIn">
             <ShieldAlert className="w-16 h-16 text-red-500 mb-2 animate-bounce-short" />
-            <h2 className="text-3xl font-black text-red-400 mb-1">Game Over!</h2>
-            <p className="text-slate-400 mb-6">Don't worry, practice makes perfect!</p>
+            <h2 className="text-3xl font-black text-red-400 mb-1">{isRu ? 'Игра окончена!' : 'Game Over!'}</h2>
+            <p className="text-slate-400 mb-6">{isRu ? 'Не переживайте, повторение — мать учения!' : "Don't worry, practice makes perfect!"}</p>
 
             <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 w-full max-w-sm mb-6 space-y-3 font-mono text-sm">
               <div className="flex justify-between">
-                <span className="text-slate-400">Final Score:</span>
+                <span className="text-slate-400">{isRu ? 'Финальный счёт:' : 'Final Score:'}</span>
                 <span className="text-amber-400 font-bold">{score}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Words Cleared:</span>
+                <span className="text-slate-400">{isRu ? 'Угадано слов:' : 'Words Cleared:'}</span>
                 <span className="text-indigo-300 font-bold">{wordsCleared}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Max Streak:</span>
+                <span className="text-slate-400">{isRu ? 'Макс. серия:' : 'Max Streak:'}</span>
                 <span className="text-emerald-400 font-bold">{maxStreak}x</span>
               </div>
               <div className="flex justify-between border-t border-slate-700 pt-2">
-                <span className="text-slate-400">Personal Best:</span>
+                <span className="text-slate-400">{isRu ? 'Личный рекорд:' : 'Personal Best:'}</span>
                 <span className="text-amber-300 font-bold">{highScore}</span>
               </div>
 
               {missedWords.length > 0 && (
                 <div className="mt-4 pt-3 border-t border-slate-700 text-left font-sans">
                   <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-                    <span>📖 Missed Words ({missedWords.length})</span>
-                    <span className="text-[10px] text-slate-400">Review & Learn</span>
+                    <span>📖 {isRu ? 'Пропущенные слова' : 'Missed Words'} ({missedWords.length})</span>
+                    <span className="text-[10px] text-slate-400">{isRu ? 'Изучение' : 'Review & Learn'}</span>
                   </div>
-                  <div className="max-h-32 overflow-y-auto space-y-1.5 pr-1 mb-3">
+                  <div className="max-h-36 overflow-y-auto space-y-1.5 pr-1 mb-3">
                     {missedWords.map((item, idx) => (
                       <div key={idx} className="bg-slate-900/80 p-2 rounded-lg border border-slate-700/60 text-xs">
                         <div className="text-slate-300 font-medium">{item.prompt}</div>
-                        <div className="text-emerald-400 font-bold mt-0.5">Answer: {item.answer}</div>
+                        <div className="text-emerald-400 font-bold mt-0.5">{isRu ? 'Ответ:' : 'Answer:'} {item.answer}</div>
                       </div>
                     ))}
                   </div>
@@ -596,7 +603,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                     onClick={startPracticeMode}
                     className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
                   >
-                    <BookOpen className="w-4 h-4" /> Practice Missed Words (Untimed)
+                    <BookOpen className="w-4 h-4" /> {isRu ? 'Учить пропущенные слова (без времени)' : 'Practice Missed Words (Untimed)'}
                   </button>
                 </div>
               )}
@@ -607,13 +614,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 onClick={startGame}
                 className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-indigo-500/20"
               >
-                <RotateCcw className="w-5 h-5" /> Try Again
+                <RotateCcw className="w-5 h-5" /> {isRu ? 'Попробовать снова' : 'Try Again'}
               </button>
               <button
                 onClick={onBackToTopics}
                 className="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-6 py-3 rounded-xl transition"
               >
-                Change Topic
+                {isRu ? 'Сменить тему' : 'Change Topic'}
               </button>
             </div>
           </div>
@@ -627,13 +634,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
             value={inputValue}
             onChange={handleInputChange}
             disabled={gameState !== 'playing'}
-            placeholder={gameState === 'playing' ? 'Type your answer here...' : 'Game paused'}
+            placeholder={gameState === 'playing' ? (isRu ? 'Введите ответ здесь...' : 'Type your answer here...') : (isRu ? 'Пауза' : 'Game paused')}
             className="w-full bg-slate-800 border-2 border-indigo-500/80 text-white placeholder-slate-500 text-base sm:text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-400 transition shadow-inner font-medium"
             autoFocus
           />
           {streak > 1 && (
             <div className="absolute right-3 top-3 text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-full">
-              🔥 {streak} Streak
+              🔥 {streak} {isRu ? 'Серия' : 'Streak'}
             </div>
           )}
         </div>
@@ -647,10 +654,10 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 ? 'bg-cyan-600/90 hover:bg-cyan-500 border-cyan-400 text-white active:scale-95'
                 : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'
             }`}
-            title="Freeze falling words for 4.5 seconds"
+            title={isRu ? 'Заморозить слова на 4.5 секунды' : 'Freeze falling words for 4.5 seconds'}
           >
             <Snowflake className="w-4 h-4" />
-            <span>Freeze ({freezeCharges})</span>
+            <span>{isRu ? 'Заморозка' : 'Freeze'} ({freezeCharges})</span>
           </button>
 
           <button
@@ -661,10 +668,10 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 ? 'bg-rose-600/90 hover:bg-rose-500 border-rose-400 text-white active:scale-95'
                 : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'
             }`}
-            title="Vaporize all current words on screen"
+            title={isRu ? 'Взорвать все слова на экране' : 'Vaporize all current words on screen'}
           >
             <Bomb className="w-4 h-4" />
-            <span>Bomb ({bombCharges})</span>
+            <span>{isRu ? 'Бомба' : 'Bomb'} ({bombCharges})</span>
           </button>
         </div>
       </div>

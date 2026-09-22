@@ -9,6 +9,7 @@ export default function App() {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [difficulty, setDifficulty] = useState('medium');
   const [soundMuted, setSoundMuted] = useState(false);
+  const [lang, setLang] = useState('ru'); // Default translation language: Russian
 
   const handleToggleSound = () => {
     const isMuted = soundFx.toggleMute();
@@ -35,13 +36,33 @@ export default function App() {
                 Kalbos <span className="text-indigo-400">Lietus</span>
               </span>
               <span className="hidden sm:inline-block ml-2 text-xs text-slate-400">
-                Lithuanian Gamified Learning
+                {lang === 'ru' ? 'Изучение литовского языка' : 'Lithuanian Gamified Learning'}
               </span>
             </div>
           </div>
 
-          <div className="text-xs text-slate-400 flex items-center gap-2">
-            <span>Hosted on Netlify</span>
+          <div className="text-xs text-slate-400 flex items-center gap-3">
+            {/* Language Selector Toggle */}
+            <div className="flex items-center bg-slate-800 border border-slate-700 rounded-lg p-0.5">
+              <button
+                onClick={() => setLang('ru')}
+                className={`px-2 py-1 rounded-md text-xs font-bold transition ${
+                  lang === 'ru' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                🇷🇺 RU
+              </button>
+              <button
+                onClick={() => setLang('en')}
+                className={`px-2 py-1 rounded-md text-xs font-bold transition ${
+                  lang === 'en' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                🇬🇧 EN
+              </button>
+            </div>
+
+            <span className="hidden md:inline">Netlify Ready</span>
           </div>
         </div>
       </header>
@@ -55,6 +76,7 @@ export default function App() {
             onBackToTopics={() => setSelectedTopic(null)}
             soundMuted={soundMuted}
             onToggleSound={handleToggleSound}
+            lang={lang}
           />
         ) : (
           <TopicSelector
@@ -63,6 +85,7 @@ export default function App() {
             difficulty={difficulty}
             onChangeDifficulty={(diff) => setDifficulty(diff)}
             onCustomTopicUpload={handleCustomTopicUpload}
+            lang={lang}
           />
         )}
       </main>
@@ -70,8 +93,8 @@ export default function App() {
       {/* Global Footer */}
       <footer className="border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>© Kalbos Lietus • Reusable Gamified Lithuanian Learning Component</span>
-          <span>Diacritic-insensitive typing • Web Audio Synthesizer</span>
+          <span>© Kalbos Lietus • {lang === 'ru' ? 'Изучение литовского языка в игровой форме' : 'Reusable Gamified Lithuanian Learning Component'}</span>
+          <span>{lang === 'ru' ? 'Обычный ввод без спецсимволов' : 'Diacritic-insensitive typing'} • Web Audio Synthesizer</span>
         </div>
       </footer>
     </div>

@@ -1,68 +1,81 @@
 {
   "id": "essential-verbs",
-  "title": "Essential Lithuanian Verbs",
+  "title": "Essential Verbs / Важные глаголы",
+  "title_ru": "Важные литовские глаголы",
   "description": "Practice fundamental present tense verb forms.",
+  "description_ru": "Практикуйте основные формы глаголов настоящего времени.",
   "category": "Verbs & Action",
   "icon": "Zap",
   "instructions": "Type the correct conjugated verb form in Lithuanian.",
+  "instructions_ru": "Введите правильную спряженную форму глагола на литовском языке.",
   "items": [
     {
       "id": "verb-1",
-      "prompt": "I speak (kalbėti)",
+      "prompt": "Я говорю (kalbėti)",
+      "prompt_ru": "Я говорю (kalbėti)",
       "answer": "kalbu",
       "hint": "kalb..."
     },
     {
       "id": "verb-2",
-      "prompt": "You (singular) speak (kalbėti)",
+      "prompt": "Ты говоришь (kalbėti)",
+      "prompt_ru": "Ты говоришь (kalbėti)",
       "answer": "kalbi",
       "hint": "kalb..."
     },
     {
       "id": "verb-3",
-      "prompt": "We speak (kalbėti)",
+      "prompt": "Мы говорим (kalbėti)",
+      "prompt_ru": "Мы говорим (kalbėti)",
       "answer": "kalbame",
       "hint": "kalba..."
     },
     {
       "id": "verb-4",
-      "prompt": "I eat (valgyti)",
+      "prompt": "Я ем (valgyti)",
+      "prompt_ru": "Я ем (valgyti)",
       "answer": "valgau",
       "hint": "valg..."
     },
     {
       "id": "verb-5",
-      "prompt": "They eat (valgyti)",
+      "prompt": "Они едят (valgyti)",
+      "prompt_ru": "Они едят (valgyti)",
       "answer": "valgo",
       "hint": "valg..."
     },
     {
       "id": "verb-6",
-      "prompt": "I see (matyti)",
+      "prompt": "Я вижу (matyti)",
+      "prompt_ru": "Я вижу (matyti)",
       "answer": "matau",
       "hint": "mat..."
     },
     {
       "id": "verb-7",
-      "prompt": "I go / walk (eiti)",
+      "prompt": "Я иду (eiti)",
+      "prompt_ru": "Я иду (eiti)",
       "answer": "einu",
       "hint": "ein..."
     },
     {
       "id": "verb-8",
-      "prompt": "We go / walk (eiti)",
+      "prompt": "Мы идем (eiti)",
+      "prompt_ru": "Мы идем (eiti)",
       "answer": "einame",
       "hint": "eina..."
     },
     {
       "id": "verb-9",
-      "prompt": "I live (gyventi)",
+      "prompt": "Я живу (gyventi)",
+      "prompt_ru": "Я живу (gyventi)",
       "answer": "gyvenu",
       "hint": "gyve..."
     },
     {
       "id": "verb-10",
-      "prompt": "I work (dirbti)",
+      "prompt": "Я работаю (dirbti)",
+      "prompt_ru": "Я работаю (dirbti)",
       "answer": "dirbu",
       "hint": "dir..."
     }
