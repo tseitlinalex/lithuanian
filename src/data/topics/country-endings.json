@@ -1,129 +1,157 @@
 {
   "id": "country-endings",
   "title": "Šalys ir Galūnės (Country Endings / Окончания стран)",
-  "title_ru": "Šalys ir Galūnės (Окончания стран)",
-  "description": "Learn the 3 main questions for countries: Kur? (Where?), Iš kur? (Where from?), and Į kur? (Where to?).",
-  "description_ru": "Изучите 3 главных вопроса для стран: Kur? (Где?), Iš kur? (Откуда?) и Į kur? (Куда?).",
+  "title_ru": "Šalys ir Galūnės (3 вопроса по странам)",
+  "description": "Master all 3 case declensions for each country: Kur? (Where?), Iš kur? (Where from?), and Į kur? (Where to?). No falling words!",
+  "description_ru": "Склонение стран по 3 вопросам сразу: Kur? (Где?), Iš kur? (Откуда?) и Į kur? (Куда?). Без падающих слов!",
   "category": "Grammar & Cases",
   "icon": "Globe",
-  "instructions": "Type the correct country form with its ending (e.g., Prancūzijoje, iš Ispanijos, į Vokietiją).",
-  "instructions_ru": "Введите правильную форму страны с окончанием (например: Prancūzijoje, iš Ispanijos, į Vokietiją).",
-  "items": [
+  "instructions": "Answer 3 questions for each country on screen. Incorrect answers immediately reveal grammar rule explanations!",
+  "instructions_ru": "Ответьте на 3 вопроса для каждой страны на экране. В случае ошибки сразу показывается грамматическое правило!",
+  "countries": [
     {
-      "id": "c-1",
-      "prompt": "Kur? Gyvenu ____________ (Prancūzija)",
-      "prompt_ru": "Где? Я жить в ____________ (Prancūzija)",
-      "answer": "Prancūzijoje",
-      "hint": "Prancūzija (-ija) -> Prancūzijoje",
-      "rule": "-ija -> -ijoje (Kur? / Где?)",
-      "rule_ru": "Страны на -ija в вопросе Kur? (Где?) меняют окончание на -ijoje (Prancūzija -> Prancūzijoje)."
+      "country": "Prancūzija",
+      "flag": "🇫🇷",
+      "questions": [
+        {
+          "type": "kur",
+          "label": "Kur?",
+          "label_ru": "Kur? (Где?)",
+          "prompt": "Gyvenu ____________ (Prancūzija)",
+          "prompt_ru": "Я жить в ____________ (Prancūzija)",
+          "answer": "Prancūzijoje",
+          "acceptableAnswers": ["Prancūzijoje", "Prancuzijoje"],
+          "rule_ru": "Страны на -ija в вопросе Kur? (Где?) меняют окончание на -ijoje (Prancūzija -> Prancūzijoje)."
+        },
+        {
+          "type": "is_kur",
+          "label": "Iš kur?",
+          "label_ru": "Iš kur? (Откуда?)",
+          "prompt": "Esate ____________ (Prancūzija)",
+          "prompt_ru": "Вы из ____________ (Prancūzija)",
+          "answer": "iš Prancūzijos",
+          "acceptableAnswers": ["iš Prancūzijos", "is Prancuzijos", "Prancūzijos", "Prancuzijos"],
+          "rule_ru": "Страны на -ija в вопросе Iš kur? (Откуда?) берут предлог iš и окончание -ijos (iš Prancūzijos)."
+        },
+        {
+          "type": "i_kur",
+          "label": "Į kur?",
+          "label_ru": "Į kur? (Куда?)",
+          "prompt": "Važiuoju ____________ (Prancūzija)",
+          "prompt_ru": "Еду в ____________ (Prancūzija)",
+          "answer": "į Prancūziją",
+          "acceptableAnswers": ["į Prancūziją", "i Prancuzija", "Prancūziją", "Prancuzija"],
+          "rule_ru": "Страны на -ija в вопросе Į kur? (Куда?) берут предлог į и окончание -iją (į Prancūziją)."
+        }
+      ]
     },
     {
-      "id": "c-2",
-      "prompt": "Iš kur? Esate ____________ (Prancūzija)",
-      "prompt_ru": "Откуда? Вы из ____________ (Prancūzija)",
-      "answer": "iš Prancūzijos",
-      "acceptableAnswers": ["iš Prancūzijos", "is Prancuzijos", "Prancūzijos", "Prancuzijos"],
-      "hint": "Prancūzija (-ija) -> iš Prancūzijos",
-      "rule": "-ija -> iš -ijos (Iš kur? / Откуда?)",
-      "rule_ru": "Страны на -ija в вопросе Iš kur? (Откуда?) используются с предлогом iš и окончанием -ijos (iš Prancūzijos)."
+      "country": "Ispanija",
+      "flag": "🇪🇸",
+      "questions": [
+        {
+          "type": "kur",
+          "label": "Kur?",
+          "label_ru": "Kur? (Где?)",
+          "prompt": "Dirbu ____________ (Ispanija)",
+          "prompt_ru": "Работаю в ____________ (Ispanija)",
+          "answer": "Ispanijoje",
+          "acceptableAnswers": ["Ispanijoje"],
+          "rule_ru": "Страны на -ija в вопросе Kur? (Где?) меняют окончание на -ijoje (Ispanija -> Ispanijoje)."
+        },
+        {
+          "type": "is_kur",
+          "label": "Iš kur?",
+          "label_ru": "Iš kur? (Откуда?)",
+          "prompt": "Jis yra ____________ (Ispanija)",
+          "prompt_ru": "Он из ____________ (Ispanija)",
+          "answer": "iš Ispanijos",
+          "acceptableAnswers": ["iš Ispanijos", "is Ispanijos", "Ispanijos"],
+          "rule_ru": "Страны на -ija в вопросе Iš kur? (Откуда?) берут предлог iš и окончание -ijos (iš Ispanijos)."
+        },
+        {
+          "type": "i_kur",
+          "label": "Į kur?",
+          "label_ru": "Į kur? (Куда?)",
+          "prompt": "Skrendame ____________ (Ispanija)",
+          "prompt_ru": "Летим в ____________ (Ispanija)",
+          "answer": "į Ispaniją",
+          "acceptableAnswers": ["į Ispaniją", "i Ispanija", "Ispaniją", "Ispanija"],
+          "rule_ru": "Страны на -ija в вопросе Į kur? (Куда?) берут предлог į и окончание -iją (į Ispaniją)."
+        }
+      ]
     },
     {
-      "id": "c-3",
-      "prompt": "Į kur? Važiuoju ____________ (Prancūzija)",
-      "prompt_ru": "Куда? Еду в ____________ (Prancūzija)",
-      "answer": "į Prancūziją",
-      "acceptableAnswers": ["į Prancūziją", "i Prancuzija", "Prancūziją", "Prancuzija"],
-      "hint": "Prancūzija (-ija) -> į Prancūziją",
-      "rule": "-ija -> į -iją (Į kur? / Куда?)",
-      "rule_ru": "Страны на -ija в вопросе Į kur? (Куда?) используются с предлогом į и окончанием -iją (į Prancūziją)."
+      "country": "Vokietija",
+      "flag": "🇩🇪",
+      "questions": [
+        {
+          "type": "kur",
+          "label": "Kur?",
+          "label_ru": "Kur? (Где?)",
+          "prompt": "Draugas yra ____________ (Vokietija)",
+          "prompt_ru": "Друг в ____________ (Vokietija)",
+          "answer": "Vokietijoje",
+          "acceptableAnswers": ["Vokietijoje"],
+          "rule_ru": "Страны на -ija в вопросе Kur? (Где?) дают окончание -ijoje (Vokietija -> Vokietijoje)."
+        },
+        {
+          "type": "is_kur",
+          "label": "Iš kur?",
+          "label_ru": "Iš kur? (Откуда?)",
+          "prompt": "Prekės gautos ____________ (Vokietija)",
+          "prompt_ru": "Товары из ____________ (Vokietija)",
+          "answer": "iš Vokietijos",
+          "acceptableAnswers": ["iš Vokietijos", "is Vokietijos", "Vokietijos"],
+          "rule_ru": "Страны на -ija в вопросе Iš kur? (Откуда?) берут предлог iš и окончание -ijos (iš Vokietijos)."
+        },
+        {
+          "type": "i_kur",
+          "label": "Į kur?",
+          "label_ru": "Į kur? (Куда?)",
+          "prompt": "Keliaujame ____________ (Vokietija)",
+          "prompt_ru": "Путешествуем в ____________ (Vokietija)",
+          "answer": "į Vokietiją",
+          "acceptableAnswers": ["į Vokietiją", "i Vokietija", "Vokietiją", "Vokietija"],
+          "rule_ru": "Страны на -ija в вопросе Į kur? (Куда?) берут предлог į и окончание -iją (į Vokietiją)."
+        }
+      ]
     },
     {
-      "id": "c-4",
-      "prompt": "Kur? Dirbu ____________ (Ispanija)",
-      "prompt_ru": "Где? Работаю в ____________ (Ispanija)",
-      "answer": "Ispanijoje",
-      "hint": "Ispanija (-ija) -> Ispanijoje",
-      "rule": "-ija -> -ijoje (Kur? / Где?)",
-      "rule_ru": "Страны на -ija в вопросе Kur? (Где?) меняют окончание на -ijoje (Ispanija -> Ispanijoje)."
-    },
-    {
-      "id": "c-5",
-      "prompt": "Iš kur? Jis yra ____________ (Ispanija)",
-      "prompt_ru": "Откуда? Он из ____________ (Ispanija)",
-      "answer": "iš Ispanijos",
-      "acceptableAnswers": ["iš Ispanijos", "is Ispanijos", "Ispanijos"],
-      "hint": "Ispanija (-ija) -> iš Ispanijos",
-      "rule": "-ija -> iš -ijos (Iš kur? / Откуда?)",
-      "rule_ru": "Страны на -ija в вопросе Iš kur? (Откуда?) берут предлог iš и окончание -ijos (iš Ispanijos)."
-    },
-    {
-      "id": "c-6",
-      "prompt": "Į kur? Skrendame ____________ (Ispanija)",
-      "prompt_ru": "Куда? Летим в ____________ (Ispanija)",
-      "answer": "į Ispaniją",
-      "acceptableAnswers": ["į Ispaniją", "i Ispanija", "Ispaniją", "Ispanija"],
-      "hint": "Ispanija (-ija) -> į Ispaniją",
-      "rule": "-ija -> į -iją (Į kur? / Куда?)",
-      "rule_ru": "Страны на -ija в вопросе Į kur? (Куда?) берут предлог į и окончание -iją (į Ispaniją)."
-    },
-    {
-      "id": "c-7",
-      "prompt": "Kur? Draugas yra ____________ (Vokietija)",
-      "prompt_ru": "Где? Друг в ____________ (Vokietija)",
-      "answer": "Vokietijoje",
-      "hint": "Vokietija (-ija) -> Vokietijoje",
-      "rule": "-ija -> -ijoje (Kur? / Где?)",
-      "rule_ru": "Страны на -ija в вопросе Kur? (Где?) получают окончание -ijoje (Vokietija -> Vokietijoje)."
-    },
-    {
-      "id": "c-8",
-      "prompt": "Iš kur? Prekės gautos ____________ (Vokietija)",
-      "prompt_ru": "Откуда? Товары получены из ____________ (Vokietija)",
-      "answer": "iš Vokietijos",
-      "acceptableAnswers": ["iš Vokietijos", "is Vokietijos", "Vokietijos"],
-      "hint": "Vokietija (-ija) -> iš Vokietijos",
-      "rule": "-ija -> iš -ijos (Iš kur? / Откуда?)",
-      "rule_ru": "Страны на -ija в вопросе Iš kur? (Откуда?) требуют предлог iš и окончание -ijos (iš Vokietijos)."
-    },
-    {
-      "id": "c-9",
-      "prompt": "Į kur? Keliaujame ____________ (Vokietija)",
-      "prompt_ru": "Куда? Путешествуем в ____________ (Vokietija)",
-      "answer": "į Vokietiją",
-      "acceptableAnswers": ["į Vokietiją", "i Vokietija", "Vokietiją", "Vokietija"],
-      "hint": "Vokietija (-ija) -> į Vokietiją",
-      "rule": "-ija -> į -iją (Į kur? / Куда?)",
-      "rule_ru": "Страны на -ija в вопросе Į kur? (Куда?) требуют предлог į и окончание -iją (į Vokietiją)."
-    },
-    {
-      "id": "c-10",
-      "prompt": "Kur? Šeima gyvena ____________ (Lietuva)",
-      "prompt_ru": "Где? Семья живёт в ____________ (Lietuva)",
-      "answer": "Lietuvoje",
-      "hint": "Lietuva (-a) -> Lietuvoje",
-      "rule": "-a -> -oje (Kur? / Где?)",
-      "rule_ru": "Страны на -a в вопросе Kur? (Где?) меняют окончание на -oje (Lietuva -> Lietuvoje)."
-    },
-    {
-      "id": "c-11",
-      "prompt": "Iš kur? Svečiai atvyko ____________ (Lietuva)",
-      "prompt_ru": "Откуда? Гости приехали из ____________ (Lietuva)",
-      "answer": "iš Lietuvos",
-      "acceptableAnswers": ["iš Lietuvos", "is Lietuvos", "Lietuvos"],
-      "hint": "Lietuva (-a) -> iš Lietuvos",
-      "rule": "-a -> iš -os (Iš kur? / Откуда?)",
-      "rule_ru": "Страны на -a в вопросе Iš kur? (Откуда?) берут предлог iš и окончание -os (iš Lietuvos)."
-    },
-    {
-      "id": "c-12",
-      "prompt": "Į kur? Grįžtu ____________ (Lietuva)",
-      "prompt_ru": "Куда? Возвращаюсь в ____________ (Lietuva)",
-      "answer": "į Lietuvą",
-      "acceptableAnswers": ["į Lietuvą", "i Lietuva", "Lietuvą", "Lietuva"],
-      "hint": "Lietuva (-a) -> į Lietuvą",
-      "rule": "-a -> į -ą (Į kur? / Куда?)",
-      "rule_ru": "Страны на -a в вопросе Į kur? (Куда?) берут предлог į и окончание -ą (į Lietuvą)."
+      "country": "Lietuva",
+      "flag": "🇱🇹",
+      "questions": [
+        {
+          "type": "kur",
+          "label": "Kur?",
+          "label_ru": "Kur? (Где?)",
+          "prompt": "Šeima gyvena ____________ (Lietuva)",
+          "prompt_ru": "Семья живёт в ____________ (Lietuva)",
+          "answer": "Lietuvoje",
+          "acceptableAnswers": ["Lietuvoje"],
+          "rule_ru": "Страны на -a в вопросе Kur? (Где?) получают окончание -oje (Lietuva -> Lietuvoje)."
+        },
+        {
+          "type": "is_kur",
+          "label": "Iš kur?",
+          "label_ru": "Iš kur? (Откуда?)",
+          "prompt": "Svečiai atvyko ____________ (Lietuva)",
+          "prompt_ru": "Гости приехали из ____________ (Lietuva)",
+          "answer": "iš Lietuvos",
+          "acceptableAnswers": ["iš Lietuvos", "is Lietuvos", "Lietuvos"],
+          "rule_ru": "Страны на -a в вопросе Iš kur? (Откуда?) берут предлог iš и окончание -os (iš Lietuvos)."
+        },
+        {
+          "type": "i_kur",
+          "label": "Į kur?",
+          "label_ru": "Į kur? (Куда?)",
+          "prompt": "Grįžtu ____________ (Lietuva)",
+          "prompt_ru": "Возвращаюсь в ____________ (Lietuva)",
+          "answer": "į Lietuvą",
+          "acceptableAnswers": ["į Lietuvą", "i Lietuva", "Lietuvą", "Lietuva"],
+          "rule_ru": "Страны на -a в вопросе Į kur? (Куда?) берут предлог į и окончание -ą (į Lietuvą)."
+        }
+      ]
     }
   ]
 }

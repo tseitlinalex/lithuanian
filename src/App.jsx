@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { topics as initialTopics } from './data/topics';
 import TopicSelector from './components/TopicSelector';
 import FallingWordsGame from './components/FallingWordsGame';
+import CountryDeclensionGame from './components/CountryDeclensionGame';
 import { soundFx } from './utils/audio';
 
 export default function App() {
@@ -70,14 +71,24 @@ export default function App() {
       {/* Main Content Area */}
       <main className="flex-1 py-4 sm:py-6">
         {selectedTopic ? (
-          <FallingWordsGame
-            topic={selectedTopic}
-            difficulty={difficulty}
-            onBackToTopics={() => setSelectedTopic(null)}
-            soundMuted={soundMuted}
-            onToggleSound={handleToggleSound}
-            lang={lang}
-          />
+          selectedTopic.id === 'country-endings' ? (
+            <CountryDeclensionGame
+              topic={selectedTopic}
+              onBackToTopics={() => setSelectedTopic(null)}
+              soundMuted={soundMuted}
+              onToggleSound={handleToggleSound}
+              lang={lang}
+            />
+          ) : (
+            <FallingWordsGame
+              topic={selectedTopic}
+              difficulty={difficulty}
+              onBackToTopics={() => setSelectedTopic(null)}
+              soundMuted={soundMuted}
+              onToggleSound={handleToggleSound}
+              lang={lang}
+            />
+          )
         ) : (
           <TopicSelector
             topics={topics}
