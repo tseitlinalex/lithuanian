@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { Volume2, VolumeX, Smartphone, Delete, ArrowRight, CheckCircle2, XCircle, Info, RotateCcw, Trophy, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX, ArrowRight, CheckCircle2, XCircle, Info, RotateCcw, Trophy, Sparkles } from 'lucide-react';
 import { checkAnswerMatch } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
-
-const KEYBOARD_ROWS = [
-  ['ą', 'č', 'ę', 'ė', 'į', 'š', 'ų', 'ū', 'ž'],
-  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
-  ['m', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'z', 'y']
-];
 
 export default function CountryDeclensionGame({ topic, onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
   const isRu = lang === 'ru';
@@ -16,14 +10,11 @@ export default function CountryDeclensionGame({ topic, onBackToTopics, soundMute
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [inputs, setInputs] = useState({ 0: '', 1: '', 2: '' });
-  const [statuses, setStatuses] = useState({ 0: null, 1: null, 2: null }); // null, { isCorrect: bool, rule: str }
+  const [statuses, setStatuses] = useState({ 0: null, 1: null, 2: null });
   const [activeInputIndex, setActiveInputIndex] = useState(0);
 
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
-  const [useVirtualKeyboard, setUseVirtualKeyboard] = useState(() => {
-    return typeof window !== 'undefined' && window.innerWidth <= 768;
-  });
   const [isCompleted, setIsCompleted] = useState(false);
 
   const currentCountry = countries[currentIndex] || countries[0];
@@ -90,21 +81,6 @@ export default function CountryDeclensionGame({ topic, onBackToTopics, soundMute
     setIsCompleted(false);
   };
 
-  const handleVirtualKeyPress = (key) => {
-    setInputs(prev => {
-      const currentVal = prev[activeInputIndex] || '';
-      if (key === 'BACKSPACE') {
-        return { ...prev, [activeInputIndex]: currentVal.slice(0, -1) };
-      } else if (key === 'SPACE') {
-        return { ...prev, [activeInputIndex]: currentVal + ' ' };
-      } else {
-        return { ...prev, [activeInputIndex]: currentVal + key };
-      }
-    });
-  };
-
-  const allQuestionsAnswered = [0, 1, 2].every(idx => statuses[idx] !== null);
-
   return (
     <div className="relative flex flex-col min-h-[calc(100vh-80px)] max-w-4xl mx-auto p-2 sm:p-4">
       {/* HUD Header */}
@@ -138,16 +114,6 @@ export default function CountryDeclensionGame({ topic, onBackToTopics, soundMute
           )}
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setUseVirtualKeyboard(!useVirtualKeyboard)}
-              className={`p-2 rounded-lg transition flex items-center gap-1 text-xs font-bold ${
-                useVirtualKeyboard ? 'bg-indigo-600 text-white' : 'bg-slate-700/50 text-slate-400 hover:text-white'
-              }`}
-              title={isRu ? 'Переключить виртуальную клавиатуру' : 'Toggle Built-in Virtual Keyboard'}
-            >
-              <Smartphone className="w-4 h-4" />
-              <span className="hidden sm:inline">{useVirtualKeyboard ? 'Virtual KB' : 'Native KB'}</span>
-            </button>
             <button
               onClick={onToggleSound}
               className="p-2 text-slate-400 hover:text-white bg-slate-700/50 hover:bg-slate-700 rounded-lg transition"
@@ -218,7 +184,6 @@ export default function CountryDeclensionGame({ topic, onBackToTopics, soundMute
                         value={inputs[idx] || ''}
                         onChange={(e) => handleInputChange(idx, e.target.value)}
                         onFocus={() => setActiveInputIndex(idx)}
-                        readOnly={useVirtualKeyboard}
                         placeholder={isRu ? 'Введите окончание...' : 'Type answer...'}
                         className={`flex-1 bg-slate-900 border text-white px-3 py-2 rounded-lg font-medium focus:outline-none ${
                           status?.isCorrect === true
@@ -296,39 +261,6 @@ export default function CountryDeclensionGame({ topic, onBackToTopics, soundMute
               className="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-6 py-3 rounded-xl transition"
             >
               {isRu ? 'Выбрать другую тему' : 'Select Another Topic'}
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Built-in Virtual Keyboard */}
-      {useVirtualKeyboard && (
-        <div className="mt-3 bg-slate-800/90 border border-slate-700 rounded-2xl p-2.5 shadow-2xl space-y-1.5 backdrop-blur">
-          {KEYBOARD_ROWS.map((row, rIdx) => (
-            <div key={rIdx} className="flex justify-center gap-1">
-              {row.map(key => (
-                <button
-                  key={key}
-                  onClick={() => handleVirtualKeyPress(key)}
-                  className="flex-1 max-w-[38px] h-10 sm:h-11 bg-slate-700 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base rounded-lg border border-slate-600 shadow active:scale-95 transition"
-                >
-                  {key}
-                </button>
-              ))}
-            </div>
-          ))}
-          <div className="flex justify-center gap-2 pt-1">
-            <button
-              onClick={() => handleVirtualKeyPress('SPACE')}
-              className="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold py-2 rounded-lg border border-slate-600 text-xs uppercase tracking-wider"
-            >
-              {isRu ? 'Пробел (Space)' : 'Space'}
-            </button>
-            <button
-              onClick={() => handleVirtualKeyPress('BACKSPACE')}
-              className="px-4 bg-rose-600/80 hover:bg-rose-500 text-white font-bold py-2 rounded-lg border border-rose-500 text-xs flex items-center gap-1"
-            >
-              <Delete className="w-4 h-4" />
             </button>
           </div>
         </div>

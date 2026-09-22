@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Keyboard, Smartphone, Delete, Info } from 'lucide-react';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Info } from 'lucide-react';
 import { checkAnswerMatch, normalizeText } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
@@ -37,13 +37,6 @@ const DIFFICULTY_SETTINGS = {
   }
 };
 
-// On-screen virtual keyboard keys
-const KEYBOARD_ROWS = [
-  ['ą', 'č', 'ę', 'ė', 'į', 'š', 'ų', 'ū', 'ž'],
-  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
-  ['m', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'z', 'y']
-];
-
 export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
   const isRu = lang === 'ru';
   const config = DIFFICULTY_SETTINGS[difficulty] || DIFFICULTY_SETTINGS.easy;
@@ -59,11 +52,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   const [multiplier, setMultiplier] = useState(1);
   const [wordsCleared, setWordsCleared] = useState(0);
   const [missedWords, setMissedWords] = useState([]);
-
-  // Mobile / Virtual Keyboard Toggle
-  const [useVirtualKeyboard, setUseVirtualKeyboard] = useState(() => {
-    return typeof window !== 'undefined' && window.innerWidth <= 768;
-  });
 
   // Practice Mode State
   const [practiceList, setPracticeList] = useState([]);
@@ -461,34 +449,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     processAnswerCheck(value);
   };
 
-  // Virtual Keyboard Key Press Handler
-  const handleVirtualKeyPress = (key) => {
-    if (gameState === 'practice') {
-      if (key === 'BACKSPACE') {
-        setPracticeInput(prev => prev.slice(0, -1));
-      } else if (key === 'SPACE') {
-        setPracticeInput(prev => prev + ' ');
-      } else {
-        setPracticeInput(prev => prev + key);
-      }
-      return;
-    }
-
-    if (gameState !== 'playing') return;
-
-    if (key === 'BACKSPACE') {
-      setInputValue(prev => prev.slice(0, -1));
-    } else if (key === 'SPACE') {
-      const nextValue = inputValue + ' ';
-      setInputValue(nextValue);
-      processAnswerCheck(nextValue);
-    } else {
-      const nextValue = inputValue + key;
-      setInputValue(nextValue);
-      processAnswerCheck(nextValue);
-    }
-  };
-
   const activateFreeze = () => {
     if (freezeCharges <= 0 || isFrozen || gameState !== 'playing') return;
     setFreezeCharges(c => c - 1);
@@ -590,16 +550,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
           )}
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setUseVirtualKeyboard(!useVirtualKeyboard)}
-              className={`p-2 rounded-lg transition flex items-center gap-1 text-xs font-bold ${
-                useVirtualKeyboard ? 'bg-indigo-600 text-white' : 'bg-slate-700/50 text-slate-400 hover:text-white'
-              }`}
-              title={isRu ? 'Переключить виртуальную клавиатуру' : 'Toggle Built-in Virtual Keyboard'}
-            >
-              <Smartphone className="w-4 h-4" />
-              <span className="hidden sm:inline">{useVirtualKeyboard ? 'Virtual KB' : 'Native KB'}</span>
-            </button>
             <button
               onClick={onToggleSound}
               className="p-2 text-slate-400 hover:text-white bg-slate-700/50 hover:bg-slate-700 rounded-lg transition"
@@ -747,19 +697,16 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                       type="text"
                       value={practiceInput}
                       onChange={(e) => setPracticeInput(e.target.value)}
-                      readOnly={useVirtualKeyboard}
                       placeholder={isRu ? 'Введите ответ здесь...' : 'Type your answer here...'}
                       className="w-full bg-slate-900 border-2 border-indigo-500 text-white text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium text-center"
-                      autoFocus={!useVirtualKeyboard}
+                      autoFocus
                     />
-                    {!useVirtualKeyboard && (
-                      <button
-                        type="submit"
-                        className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
-                      >
-                        {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
-                      </button>
-                    )}
+                    <button
+                      type="submit"
+                      className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
+                    >
+                      {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
+                    </button>
                   </form>
 
                   {practiceFeedback && (
@@ -873,11 +820,10 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
               type="text"
               value={gameState === 'practice' ? practiceInput : inputValue}
               onChange={handleInputChange}
-              readOnly={useVirtualKeyboard}
               disabled={gameState !== 'playing' && gameState !== 'practice'}
               placeholder={gameState === 'playing' ? (isRu ? 'Введите ответ...' : 'Type answer...') : (isRu ? 'Пауза' : 'Game paused')}
               className="w-full bg-slate-800 border-2 border-indigo-500/80 text-white placeholder-slate-500 text-base sm:text-lg px-4 py-2.5 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-400 transition shadow-inner font-medium text-center sm:text-left"
-              autoFocus={!useVirtualKeyboard}
+              autoFocus
             />
             {streak > 1 && (
               <div className="absolute right-3 top-2.5 text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-full">
@@ -914,39 +860,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
             </button>
           </div>
         </div>
-
-        {/* Built-in On-Screen Virtual Keyboard */}
-        {useVirtualKeyboard && (
-          <div className="bg-slate-800/90 border border-slate-700 rounded-2xl p-2.5 shadow-2xl space-y-1.5 backdrop-blur">
-            {KEYBOARD_ROWS.map((row, rIdx) => (
-              <div key={rIdx} className="flex justify-center gap-1">
-                {row.map(key => (
-                  <button
-                    key={key}
-                    onClick={() => handleVirtualKeyPress(key)}
-                    className="flex-1 max-w-[38px] h-10 sm:h-11 bg-slate-700 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base rounded-lg border border-slate-600 shadow active:scale-95 transition"
-                  >
-                    {key}
-                  </button>
-                ))}
-              </div>
-            ))}
-            <div className="flex justify-center gap-2 pt-1">
-              <button
-                onClick={() => handleVirtualKeyPress('SPACE')}
-                className="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold py-2 rounded-lg border border-slate-600 text-xs uppercase tracking-wider"
-              >
-                {isRu ? 'Пробел (Space)' : 'Space'}
-              </button>
-              <button
-                onClick={() => handleVirtualKeyPress('BACKSPACE')}
-                className="px-4 bg-rose-600/80 hover:bg-rose-500 text-white font-bold py-2 rounded-lg border border-rose-500 text-xs flex items-center gap-1"
-              >
-                <Delete className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
