@@ -1,18 +1,45 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Flame } from 'lucide-react';
 import { checkAnswerMatch, normalizeText } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
 
 const DIFFICULTY_SETTINGS = {
-  easy: { speedMultiplier: 0.35, spawnInterval: 4500, maxWordsOnScreen: 3, label_en: 'Easy (Lengva)', label_ru: 'Легко (Lengva)' },
-  medium: { speedMultiplier: 1.0, spawnInterval: 2400, maxWordsOnScreen: 4, label_en: 'Medium (Vidutinė)', label_ru: 'Средне (Vidutinė)' },
-  hard: { speedMultiplier: 1.4, spawnInterval: 1700, maxWordsOnScreen: 5, label_en: 'Hard (Sunkus)', label_ru: 'Сложно (Sunkus)' }
+  easy: {
+    mode: 'static',
+    maxCapacity: 5,
+    spawnInterval: 3200,
+    label_en: 'Level 1: Thermometer (L1)',
+    label_ru: 'Уровень 1: Термометр (L1)',
+    desc_en: 'Words stay on screen. Keep thermometer cool!',
+    desc_ru: 'Слова не падают. Не дайте термометру перегреться!'
+  },
+  medium: {
+    mode: 'falling',
+    speedMultiplier: 0.35,
+    spawnInterval: 3200,
+    maxWordsOnScreen: 4,
+    label_en: 'Level 2: Falling Rain (L2)',
+    label_ru: 'Уровень 2: Плавный дождь (L2)',
+    desc_en: 'Words fall gently down the screen.',
+    desc_ru: 'Слова плавно падают вниз.'
+  },
+  hard: {
+    mode: 'bubbles',
+    speedMultiplier: 1.0,
+    spawnInterval: 2200,
+    maxWordsOnScreen: 5,
+    label_en: 'Level 3: Bubble Burst (L3)',
+    label_ru: 'Уровень 3: Пузыри (L3)',
+    desc_en: 'Words float & bounce in colorful bubbles!',
+    desc_ru: 'Слова летают и отскакивают в пузырях!'
+  }
 };
 
-export default function FallingWordsGame({ topic, difficulty = 'medium', onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
+export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
   const isRu = lang === 'ru';
+  const config = DIFFICULTY_SETTINGS[difficulty] || DIFFICULTY_SETTINGS.easy;
 
   // Game State
   const [gameState, setGameState] = useState('ready'); // 'ready', 'playing', 'paused', 'gameover', 'victory', 'practice'
@@ -26,12 +53,11 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
   const [wordsCleared, setWordsCleared] = useState(0);
   const [missedWords, setMissedWords] = useState([]);
 
-  // Practice Mode State (Untimed flashcard practice for missed words)
+  // Practice Mode State
   const [practiceList, setPracticeList] = useState([]);
   const [practiceIndex, setPracticeIndex] = useState(0);
   const [practiceInput, setPracticeInput] = useState('');
   const [practiceFeedback, setPracticeFeedback] = useState(null);
-  const [practiceMasteredCount, setPracticeMasteredCount] = useState(0);
 
   // Power-ups
   const [freezeCharges, setFreezeCharges] = useState(2);
@@ -53,7 +79,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
   const gameStateRef = useRef(gameState);
   const isFrozenRef = useRef(isFrozen);
 
-  // Sync refs with state
   useEffect(() => { activeWordsRef.current = activeWords; }, [activeWords]);
   useEffect(() => { gameStateRef.current = gameState; }, [gameState]);
   useEffect(() => { isFrozenRef.current = isFrozen; }, [isFrozen]);
@@ -66,7 +91,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     if (saved) setHighScore(parseInt(saved, 10));
   }, [topic.id, difficulty]);
 
-  // Reset lastTimeRef when game starts or unpauses to prevent deltaTime jump
   useEffect(() => {
     if (gameState === 'playing') {
       lastTimeRef.current = performance.now();
@@ -94,14 +118,13 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     lastTimeRef.current = performance.now();
   };
 
-  // Start Practice Mode for Missed Words
+  // Start Practice Mode
   const startPracticeMode = () => {
     if (missedWords.length === 0) return;
     setPracticeList([...missedWords]);
     setPracticeIndex(0);
     setPracticeInput('');
     setPracticeFeedback(null);
-    setPracticeMasteredCount(0);
     setGameState('practice');
   };
 
@@ -120,7 +143,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         setPracticeFeedback(null);
         setPracticeInput('');
         const nextIndex = practiceIndex + 1;
-        setPracticeMasteredCount(c => c + 1);
 
         if (nextIndex < practiceList.length) {
           setPracticeIndex(nextIndex);
@@ -132,7 +154,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
       soundFx.playWordHitBottom();
       setPracticeFeedback({
         isCorrect: false,
-        msg: isRu ? `Неправильно. (Правильный ответ: ${currentWord.answer})` : `Incorrect. (Correct answer: ${currentWord.answer})`
+        msg: isRu ? `Неправильно. (Ответ: ${currentWord.answer})` : `Incorrect. (Answer: ${currentWord.answer})`
       });
     }
   };
@@ -140,9 +162,33 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
   // Spawn Next Word
   const spawnWord = () => {
     if (gameStateRef.current !== 'playing') return;
-    const config = DIFFICULTY_SETTINGS[difficulty] || DIFFICULTY_SETTINGS.medium;
 
-    if (activeWordsRef.current.length >= config.maxWordsOnScreen) return;
+    const maxCapacity = config.mode === 'static' ? config.maxCapacity : config.maxWordsOnScreen;
+
+    if (activeWordsRef.current.length >= maxCapacity) {
+      // Level 1 Thermometer Overheat Overflow Penalty!
+      if (config.mode === 'static') {
+        const overflowWord = activeWordsRef.current[0];
+        if (overflowWord) {
+          soundFx.playWordHitBottom();
+          setMissedWords(prev => {
+            if (!prev.some(m => m.prompt === overflowWord.prompt)) {
+              return [...prev, { prompt: overflowWord.prompt, answer: overflowWord.answer, hint: overflowWord.hint }];
+            }
+            return prev;
+          });
+          setLives(l => {
+            const nl = l - 1;
+            if (nl <= 0) endGame(false);
+            return Math.max(0, nl);
+          });
+          setShakeScreen(true);
+          setTimeout(() => setShakeScreen(false), 400);
+          setActiveWords(prev => prev.slice(1));
+        }
+      }
+      return;
+    }
 
     if (queueRef.current.length === 0) {
       queueRef.current = [...topic.items].sort(() => Math.random() - 0.5);
@@ -152,10 +198,17 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     if (!item) return;
 
     const gameWidth = gameAreaRef.current ? gameAreaRef.current.clientWidth : 600;
-    const cardWidth = 260;
-    const minX = 10;
-    const maxX = Math.max(minX + 20, gameWidth - cardWidth - 10);
+    const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 500;
+    const cardWidth = 240;
+    const cardHeight = 80;
+
+    const minX = 20;
+    const maxX = Math.max(minX + 20, gameWidth - cardWidth - 20);
     const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+
+    const minY = 30;
+    const maxY = Math.max(minY + 20, gameHeight - cardHeight - 80);
+    const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
     const wordPrompt = isRu && item.prompt_ru ? item.prompt_ru : item.prompt;
 
@@ -166,14 +219,17 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
       acceptableAnswers: item.acceptableAnswers || [item.answer],
       hint: item.hint || '',
       x: randomX,
-      y: -60,
-      speed: (Math.random() * 0.4 + 0.8) * config.speedMultiplier * (1 + score / 2000)
+      y: config.mode === 'static' ? randomY : -60,
+      vx: config.mode === 'bubbles' ? (Math.random() - 0.5) * 2.5 : 0,
+      vy: config.mode === 'bubbles' ? (Math.random() - 0.5) * 2.5 : 0,
+      speed: config.mode === 'falling' ? (Math.random() * 0.3 + 0.6) * config.speedMultiplier : 0,
+      color: ['#38bdf8', '#a855f7', '#ec4899', '#f59e0b', '#10b981'][Math.floor(Math.random() * 5)]
     };
 
     setActiveWords(prev => [...prev, newWord]);
   };
 
-  // Main Game Animation Loop
+  // Main Game Animation Loop (Falling & Bouncing Bubble Loop)
   useEffect(() => {
     if (gameState !== 'playing') return;
 
@@ -184,36 +240,50 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
       lastTimeRef.current = now;
 
       if (!isFrozenRef.current) {
+        const gameWidth = gameAreaRef.current ? gameAreaRef.current.clientWidth : 600;
         const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 500;
 
         setActiveWords(prevWords => {
+          if (config.mode === 'static') return prevWords; // Static cards stay still
+
           const nextWords = [];
           let lostLives = 0;
 
           for (const word of prevWords) {
-            const nextY = word.y + word.speed * (deltaTime * 0.06);
+            if (config.mode === 'falling') {
+              const nextY = word.y + word.speed * (deltaTime * 0.06);
 
-            if (nextY >= gameHeight - 90) {
-              lostLives++;
-              soundFx.playWordHitBottom();
-              setMissedWords(prevMissed => {
-                if (!prevMissed.some(m => m.prompt === word.prompt)) {
-                  return [...prevMissed, { prompt: word.prompt, answer: word.answer, hint: word.hint }];
-                }
-                return prevMissed;
-              });
-              setParticles(createBurstParticles(word.x + 100, gameHeight - 40, 15, '#ef4444'));
-            } else {
-              nextWords.push({ ...word, y: nextY });
+              if (nextY >= gameHeight - 90) {
+                lostLives++;
+                soundFx.playWordHitBottom();
+                setMissedWords(prevMissed => {
+                  if (!prevMissed.some(m => m.prompt === word.prompt)) {
+                    return [...prevMissed, { prompt: word.prompt, answer: word.answer, hint: word.hint }];
+                  }
+                  return prevMissed;
+                });
+                setParticles(createBurstParticles(word.x + 100, gameHeight - 40, 15, '#ef4444'));
+              } else {
+                nextWords.push({ ...word, y: nextY });
+              }
+            } else if (config.mode === 'bubbles') {
+              // Bouncing Bubble Arcade Mechanics
+              let nextX = word.x + word.vx * (deltaTime * 0.06);
+              let nextY = word.y + word.vy * (deltaTime * 0.06);
+              let nextVx = word.vx;
+              let nextVy = word.vy;
+
+              if (nextX <= 10 || nextX >= gameWidth - 250) nextVx = -nextVx;
+              if (nextY <= 20 || nextY >= gameHeight - 120) nextVy = -nextVy;
+
+              nextWords.push({ ...word, x: nextX, y: nextY, vx: nextVx, vy: nextVy });
             }
           }
 
           if (lostLives > 0) {
             setLives(l => {
               const newLives = l - lostLives;
-              if (newLives <= 0) {
-                endGame(false);
-              }
+              if (newLives <= 0) endGame(false);
               return Math.max(0, newLives);
             });
             setStreak(0);
@@ -234,12 +304,11 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
     return () => {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
-  }, [gameState]);
+  }, [gameState, config.mode]);
 
   // Spawning Interval Loop
   useEffect(() => {
     if (gameState !== 'playing') return;
-    const config = DIFFICULTY_SETTINGS[difficulty] || DIFFICULTY_SETTINGS.medium;
 
     spawnTimerRef.current = setInterval(() => {
       spawnWord();
@@ -265,8 +334,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
       const matchedWord = activeWords[matchedIndex];
 
       const basePoints = 100;
-      const speedBonus = Math.round(Math.max(0, (500 - matchedWord.y) / 5));
-      const earnedPoints = (basePoints + speedBonus) * multiplier;
+      const earnedPoints = basePoints * multiplier;
 
       setScore(s => {
         const newScore = s + earnedPoints;
@@ -292,7 +360,7 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
       setWordsCleared(c => c + 1);
 
-      setParticles(createBurstParticles(matchedWord.x + 120, matchedWord.y + 30, 30, '#10b981'));
+      setParticles(createBurstParticles(matchedWord.x + 120, matchedWord.y + 30, 30, matchedWord.color || '#10b981'));
 
       setFloatingTexts(t => [
         ...t,
@@ -347,7 +415,11 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
 
   const topicTitle = isRu && topic.title_ru ? topic.title_ru : topic.title;
   const topicInstructions = isRu && topic.instructions_ru ? topic.instructions_ru : topic.instructions;
-  const diffLabel = isRu ? DIFFICULTY_SETTINGS[difficulty]?.label_ru : DIFFICULTY_SETTINGS[difficulty]?.label_en;
+  const diffLabel = isRu ? config.label_ru : config.label_en;
+
+  // Thermometer pressure ratio calculation for Level 1
+  const pressureRatio = Math.min(1, activeWords.length / (config.maxCapacity || 5));
+  const thermoColor = pressureRatio > 0.8 ? 'bg-red-500' : pressureRatio > 0.5 ? 'bg-amber-500' : 'bg-emerald-500';
 
   return (
     <div className={`relative flex flex-col h-[calc(100vh-80px)] max-w-5xl mx-auto p-2 sm:p-4 ${shakeScreen ? 'animate-shake' : ''}`}>
@@ -371,6 +443,21 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
         </div>
 
         <div className="flex items-center gap-4 sm:gap-6">
+          {/* Level 1 Thermometer Gauge HUD */}
+          {config.mode === 'static' && (
+            <div className="flex items-center gap-2 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-700" title="Thermometer Pressure">
+              <Thermometer className={`w-5 h-5 ${pressureRatio > 0.8 ? 'text-red-500 animate-pulse' : 'text-amber-400'}`} />
+              <div className="w-20 bg-slate-800 h-3 rounded-full overflow-hidden border border-slate-700">
+                <div
+                  className={`h-full transition-all duration-300 ${thermoColor}`}
+                  style={{ width: `${pressureRatio * 100}%` }}
+                />
+              </div>
+              <span className="text-xs font-bold font-mono text-slate-300">{activeWords.length}/{config.maxCapacity}</span>
+            </div>
+          )}
+
+          {/* Lives / Health */}
           <div className="flex items-center gap-1 bg-slate-900/60 px-3 py-1.5 rounded-xl border border-slate-700">
             {[...Array(5)].map((_, i) => (
               <Heart
@@ -422,45 +509,62 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
       >
         <ParticleCanvas particles={particles} floatingTexts={floatingTexts} isFrozen={isFrozen} />
 
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-red-600/30 to-transparent border-t border-red-500/30 pointer-events-none flex items-end justify-center pb-2">
-          <span className="text-[10px] tracking-widest text-red-400/80 uppercase font-semibold">
-            ⚠️ {isRu ? 'Опасная зона' : 'Danger Zone'} ⚠️
-          </span>
-        </div>
+        {config.mode === 'falling' && (
+          <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-red-600/30 to-transparent border-t border-red-500/30 pointer-events-none flex items-end justify-center pb-2">
+            <span className="text-[10px] tracking-widest text-red-400/80 uppercase font-semibold">
+              ⚠️ {isRu ? 'Опасная зона' : 'Danger Zone'} ⚠️
+            </span>
+          </div>
+        )}
 
+        {/* Active Cards Rendering depending on Level mode */}
         {gameState === 'playing' &&
-          activeWords.map(word => (
-            <div
-              key={word.id}
-              style={{
-                transform: `translate3d(${word.x}px, ${word.y}px, 0)`,
-                transition: isFrozen ? 'none' : 'transform 0.05s linear'
-              }}
-              className="absolute left-0 top-0 w-64 bg-slate-800/95 border-2 border-indigo-500/60 rounded-xl p-3 shadow-xl backdrop-blur-md transition-shadow hover:shadow-indigo-500/20 z-10"
-            >
-              <div className="text-sm font-semibold text-indigo-200 mb-1 leading-snug">
-                {word.prompt}
-              </div>
-              {difficulty === 'easy' && word.hint && (
-                <div className="text-[11px] text-slate-400 italic">
-                  {isRu ? 'Подсказка:' : 'Hint:'} {word.hint}
+          activeWords.map(word => {
+            if (config.mode === 'bubbles') {
+              return (
+                <div
+                  key={word.id}
+                  style={{
+                    transform: `translate3d(${word.x}px, ${word.y}px, 0)`,
+                    borderColor: word.color || '#38bdf8'
+                  }}
+                  className="absolute left-0 top-0 bg-slate-900/90 border-2 rounded-3xl px-4 py-3 shadow-2xl backdrop-blur-md z-10 flex flex-col items-center justify-center animate-pulse"
+                >
+                  <div className="text-sm font-black text-white text-center">
+                    {word.prompt}
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+              );
+            }
+
+            return (
+              <div
+                key={word.id}
+                style={{
+                  transform: `translate3d(${word.x}px, ${word.y}px, 0)`,
+                  transition: isFrozen ? 'none' : 'transform 0.05s linear'
+                }}
+                className="absolute left-0 top-0 w-64 bg-slate-800/95 border-2 border-indigo-500/60 rounded-xl p-3 shadow-xl backdrop-blur-md transition-shadow hover:shadow-indigo-500/20 z-10"
+              >
+                <div className="text-sm font-semibold text-indigo-200 mb-1 leading-snug">
+                  {word.prompt}
+                </div>
+                {difficulty === 'easy' && word.hint && (
+                  <div className="text-[11px] text-slate-400 italic">
+                    {isRu ? 'Подсказка:' : 'Hint:'} {word.hint}
+                  </div>
+                )}
+              </div>
+            );
+          })}
 
         {gameState === 'ready' && (
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30">
             <Sparkles className="w-16 h-16 text-indigo-400 mb-4 animate-pulse" />
             <h2 className="text-3xl font-extrabold text-white mb-2">{topicTitle}</h2>
-            <p className="text-slate-300 max-w-md mb-6">{topicInstructions}</p>
-            <div className="bg-slate-800/80 border border-slate-700 p-4 rounded-xl mb-6 max-w-sm text-left text-xs text-slate-300 space-y-2">
-              <p className="text-amber-400 font-bold">✨ {isRu ? 'Быстрые советы по игре:' : 'Quick Gamification Tips:'}</p>
-              <p>• {isRu ? 'Печатайте ответ, чтобы уничтожать падающие слова!' : 'Type the answer to vaporize falling words!'}</p>
-              <p>• {isRu ? 'Литовские спецсимволы (š, ž, ą, ė...) необязательны!' : 'Special Lithuanian letters (š, ž, ą, ė...) are optional!'}</p>
-              <p>• {isRu ? 'Делайте серии ответов для множителя очков до 5x!' : 'Build streaks for up to 5x score multipliers!'}</p>
-              <p>• {isRu ? 'Используйте суперсилы: Заморозка ❄️ и Бомба 💣' : 'Use Power-ups: Freeze Time ❄️ & Bomb Blast 💣'}</p>
-            </div>
+            <p className="text-slate-300 max-w-md mb-2">{topicInstructions}</p>
+            <p className="text-amber-300 text-xs font-semibold mb-6">{isRu ? config.desc_ru : config.desc_en}</p>
+
             <button
               onClick={startGame}
               className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg px-8 py-3.5 rounded-2xl shadow-lg shadow-indigo-500/30 hover:scale-105 active:scale-95 transition-all"
@@ -540,7 +644,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 <div className="py-4 space-y-4">
                   <CheckCircle2 className="w-16 h-16 text-emerald-400 mx-auto animate-bounce-short" />
                   <h3 className="text-2xl font-black text-white">{isRu ? 'Все пропущенные слова выучены! 🎉' : 'All Missed Words Mastered! 🎉'}</h3>
-                  <p className="text-xs text-slate-300">{isRu ? 'Вы успешно прошли тренировку по всем пропущенным словам.' : 'You completed practice mode for all missed words.'}</p>
                   <button
                     onClick={startGame}
                     className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
@@ -588,7 +691,6 @@ export default function FallingWordsGame({ topic, difficulty = 'medium', onBackT
                 <div className="mt-4 pt-3 border-t border-slate-700 text-left font-sans">
                   <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center justify-between">
                     <span>📖 {isRu ? 'Пропущенные слова' : 'Missed Words'} ({missedWords.length})</span>
-                    <span className="text-[10px] text-slate-400">{isRu ? 'Изучение' : 'Review & Learn'}</span>
                   </div>
                   <div className="max-h-36 overflow-y-auto space-y-1.5 pr-1 mb-3">
                     {missedWords.map((item, idx) => (
