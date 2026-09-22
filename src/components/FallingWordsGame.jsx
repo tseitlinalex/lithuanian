@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Keyboard, Smartphone, Delete } from 'lucide-react';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Keyboard, Smartphone, Delete, Info } from 'lucide-react';
 import { checkAnswerMatch, normalizeText } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
@@ -60,7 +60,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   const [wordsCleared, setWordsCleared] = useState(0);
   const [missedWords, setMissedWords] = useState([]);
 
-  // Mobile / Virtual Keyboard Toggle (Default to virtual keyboard on small screens)
+  // Mobile / Virtual Keyboard Toggle
   const [useVirtualKeyboard, setUseVirtualKeyboard] = useState(() => {
     return typeof window !== 'undefined' && window.innerWidth <= 768;
   });
@@ -197,7 +197,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       }
     }
 
-    // Fallback if space is crowded
     return {
       x: Math.floor(Math.random() * (maxX - minX + 1)) + minX,
       y: Math.floor(Math.random() * (maxY - minY + 1)) + minY
@@ -217,7 +216,13 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
           soundFx.playWordHitBottom();
           setMissedWords(prev => {
             if (!prev.some(m => m.prompt === overflowWord.prompt)) {
-              return [...prev, { prompt: overflowWord.prompt, answer: overflowWord.answer, hint: overflowWord.hint }];
+              return [...prev, {
+                prompt: overflowWord.prompt,
+                answer: overflowWord.answer,
+                hint: overflowWord.hint,
+                rule: overflowWord.rule,
+                rule_ru: overflowWord.rule_ru
+              }];
             }
             return prev;
           });
@@ -256,7 +261,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       const minX = 20;
       const maxX = Math.max(minX + 20, gameWidth - cardWidth - 20);
       posX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-      posY = Math.floor(Math.random() * (gameHeight / 2)) + 30; // Start upper half
+      posY = Math.floor(Math.random() * (gameHeight / 2)) + 30;
     } else {
       const minX = 10;
       const maxX = Math.max(minX + 20, gameWidth - cardWidth - 10);
@@ -266,7 +271,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
     const wordPrompt = isRu && item.prompt_ru ? item.prompt_ru : item.prompt;
 
-    // Guaranteed initial non-zero velocities for bubbles
     const vxDir = Math.random() < 0.5 ? -1 : 1;
     const vyDir = Math.random() < 0.5 ? -1 : 1;
     const bubbleVx = (Math.random() * 1.5 + 1.2) * vxDir;
@@ -278,6 +282,8 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       answer: item.answer,
       acceptableAnswers: item.acceptableAnswers || [item.answer],
       hint: item.hint || '',
+      rule: item.rule || '',
+      rule_ru: item.rule_ru || '',
       x: posX,
       y: posY,
       vx: config.mode === 'bubbles' ? bubbleVx : 0,
@@ -289,7 +295,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     setActiveWords(prev => [...prev, newWord]);
   };
 
-  // Main Game Animation Loop (Falling & Bouncing Bubble Loop)
+  // Main Game Animation Loop
   useEffect(() => {
     if (gameState !== 'playing') return;
 
@@ -304,7 +310,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
         const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 450;
 
         setActiveWords(prevWords => {
-          if (config.mode === 'static') return prevWords; // Static cards stay still
+          if (config.mode === 'static') return prevWords;
 
           const nextWords = [];
           let lostLives = 0;
@@ -318,7 +324,13 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                 soundFx.playWordHitBottom();
                 setMissedWords(prevMissed => {
                   if (!prevMissed.some(m => m.prompt === word.prompt)) {
-                    return [...prevMissed, { prompt: word.prompt, answer: word.answer, hint: word.hint }];
+                    return [...prevMissed, {
+                      prompt: word.prompt,
+                      answer: word.answer,
+                      hint: word.hint,
+                      rule: word.rule,
+                      rule_ru: word.rule_ru
+                    }];
                   }
                   return prevMissed;
                 });
@@ -327,13 +339,11 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                 nextWords.push({ ...word, y: nextY });
               }
             } else if (config.mode === 'bubbles') {
-              // Bouncing Bubble Arcade Mechanics
               let nextX = word.x + word.vx * (deltaTime * 0.06);
               let nextY = word.y + word.vy * (deltaTime * 0.06);
               let nextVx = word.vx;
               let nextVy = word.vy;
 
-              // Ensure bubbles bounce cleanly off boundaries
               const minBoundsX = 10;
               const maxBoundsX = Math.max(minBoundsX + 20, gameWidth - 250);
               const minBoundsY = 10;
@@ -542,7 +552,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
         </div>
 
         <div className="flex items-center gap-4 sm:gap-6">
-          {/* Level 1 Thermometer Gauge HUD */}
           {config.mode === 'static' && (
             <div className="flex items-center gap-2 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-700" title="Thermometer Pressure">
               <Thermometer className={`w-5 h-5 ${pressureRatio > 0.8 ? 'text-red-500 animate-pulse' : 'text-amber-400'}`} />
@@ -556,7 +565,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
             </div>
           )}
 
-          {/* Lives / Health */}
           <div className="flex items-center gap-1 bg-slate-900/60 px-3 py-1.5 rounded-xl border border-slate-700">
             {[...Array(5)].map((_, i) => (
               <Heart
@@ -626,7 +634,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
           </div>
         )}
 
-        {/* Active Cards Rendering depending on Level mode */}
+        {/* Active Cards Rendering */}
         {gameState === 'playing' &&
           activeWords.map(word => {
             if (config.mode === 'bubbles') {
@@ -719,8 +727,18 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                     {practiceList[practiceIndex].prompt}
                   </div>
                   {practiceList[practiceIndex].hint && (
-                    <div className="text-xs text-slate-400 italic mb-4">
+                    <div className="text-xs text-slate-400 italic mb-2">
                       {isRu ? 'Подсказка:' : 'Hint:'} {practiceList[practiceIndex].hint}
+                    </div>
+                  )}
+
+                  {(practiceList[practiceIndex].rule_ru || practiceList[practiceIndex].rule) && (
+                    <div className="bg-indigo-950/70 border border-indigo-500/40 p-2.5 rounded-xl text-xs text-indigo-200 mb-4 text-left flex items-start gap-2">
+                      <Info className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold text-amber-300">{isRu ? 'Грамматическое правило:' : 'Grammar Rule:'}</span>{' '}
+                        {isRu ? practiceList[practiceIndex].rule_ru : (practiceList[practiceIndex].rule || practiceList[practiceIndex].rule_ru)}
+                      </div>
                     </div>
                   )}
 
@@ -804,11 +822,17 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                   <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center justify-between">
                     <span>📖 {isRu ? 'Пропущенные слова' : 'Missed Words'} ({missedWords.length})</span>
                   </div>
-                  <div className="max-h-36 overflow-y-auto space-y-1.5 pr-1 mb-3">
+                  <div className="max-h-40 overflow-y-auto space-y-2 pr-1 mb-3">
                     {missedWords.map((item, idx) => (
-                      <div key={idx} className="bg-slate-900/80 p-2 rounded-lg border border-slate-700/60 text-xs">
+                      <div key={idx} className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700/60 text-xs">
                         <div className="text-slate-300 font-medium">{item.prompt}</div>
                         <div className="text-emerald-400 font-bold mt-0.5">{isRu ? 'Ответ:' : 'Answer:'} {item.answer}</div>
+                        {(item.rule_ru || item.rule) && (
+                          <div className="text-[11px] text-indigo-300 mt-1 bg-indigo-950/60 p-1.5 rounded border border-indigo-800/40">
+                            <span className="font-bold text-amber-300">💡 {isRu ? 'Правило:' : 'Rule:'}</span>{' '}
+                            {isRu ? item.rule_ru : (item.rule || item.rule_ru)}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -891,7 +915,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
           </div>
         </div>
 
-        {/* Built-in On-Screen Virtual Keyboard for Mobile */}
+        {/* Built-in On-Screen Virtual Keyboard */}
         {useVirtualKeyboard && (
           <div className="bg-slate-800/90 border border-slate-700 rounded-2xl p-2.5 shadow-2xl space-y-1.5 backdrop-blur">
             {KEYBOARD_ROWS.map((row, rIdx) => (
