@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Flame } from 'lucide-react';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Keyboard, Smartphone, Delete } from 'lucide-react';
 import { checkAnswerMatch, normalizeText } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
@@ -37,6 +37,13 @@ const DIFFICULTY_SETTINGS = {
   }
 };
 
+// On-screen virtual keyboard keys
+const KEYBOARD_ROWS = [
+  ['ą', 'č', 'ę', 'ė', 'į', 'š', 'ų', 'ū', 'ž'],
+  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'],
+  ['m', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'z', 'y']
+];
+
 export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
   const isRu = lang === 'ru';
   const config = DIFFICULTY_SETTINGS[difficulty] || DIFFICULTY_SETTINGS.easy;
@@ -52,6 +59,11 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   const [multiplier, setMultiplier] = useState(1);
   const [wordsCleared, setWordsCleared] = useState(0);
   const [missedWords, setMissedWords] = useState([]);
+
+  // Mobile / Virtual Keyboard Toggle (Default to virtual keyboard on small screens)
+  const [useVirtualKeyboard, setUseVirtualKeyboard] = useState(() => {
+    return typeof window !== 'undefined' && window.innerWidth <= 768;
+  });
 
   // Practice Mode State
   const [practiceList, setPracticeList] = useState([]);
@@ -129,7 +141,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   };
 
   const handlePracticeSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (!practiceInput.trim()) return;
 
     const currentWord = practiceList[practiceIndex];
@@ -159,6 +171,39 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     }
   };
 
+  // Helper function to find non-overlapping coordinates for Level 1
+  const findNonOverlappingPosition = (existingCards, cardWidth, cardHeight, gameWidth, gameHeight) => {
+    const padding = 15;
+    const minY = 20;
+    const maxY = Math.max(minY + 10, gameHeight - cardHeight - 60);
+    const minX = 15;
+    const maxX = Math.max(minX + 10, gameWidth - cardWidth - 15);
+
+    for (let attempts = 0; attempts < 30; attempts++) {
+      const candidateX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+      const candidateY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+
+      const overlaps = existingCards.some(card => {
+        return (
+          candidateX < card.x + cardWidth + padding &&
+          candidateX + cardWidth + padding > card.x &&
+          candidateY < card.y + cardHeight + padding &&
+          candidateY + cardHeight + padding > card.y
+        );
+      });
+
+      if (!overlaps) {
+        return { x: candidateX, y: candidateY };
+      }
+    }
+
+    // Fallback if space is crowded
+    return {
+      x: Math.floor(Math.random() * (maxX - minX + 1)) + minX,
+      y: Math.floor(Math.random() * (maxY - minY + 1)) + minY
+    };
+  };
+
   // Spawn Next Word
   const spawnWord = () => {
     if (gameStateRef.current !== 'playing') return;
@@ -166,7 +211,6 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     const maxCapacity = config.mode === 'static' ? config.maxCapacity : config.maxWordsOnScreen;
 
     if (activeWordsRef.current.length >= maxCapacity) {
-      // Level 1 Thermometer Overheat Overflow Penalty!
       if (config.mode === 'static') {
         const overflowWord = activeWordsRef.current[0];
         if (overflowWord) {
@@ -198,19 +242,35 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     if (!item) return;
 
     const gameWidth = gameAreaRef.current ? gameAreaRef.current.clientWidth : 600;
-    const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 500;
+    const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 450;
     const cardWidth = 240;
     const cardHeight = 80;
 
-    const minX = 20;
-    const maxX = Math.max(minX + 20, gameWidth - cardWidth - 20);
-    const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+    let posX, posY;
 
-    const minY = 30;
-    const maxY = Math.max(minY + 20, gameHeight - cardHeight - 80);
-    const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
+    if (config.mode === 'static') {
+      const pos = findNonOverlappingPosition(activeWordsRef.current, cardWidth, cardHeight, gameWidth, gameHeight);
+      posX = pos.x;
+      posY = pos.y;
+    } else if (config.mode === 'bubbles') {
+      const minX = 20;
+      const maxX = Math.max(minX + 20, gameWidth - cardWidth - 20);
+      posX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+      posY = Math.floor(Math.random() * (gameHeight / 2)) + 30; // Start upper half
+    } else {
+      const minX = 10;
+      const maxX = Math.max(minX + 20, gameWidth - cardWidth - 10);
+      posX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+      posY = -60;
+    }
 
     const wordPrompt = isRu && item.prompt_ru ? item.prompt_ru : item.prompt;
+
+    // Guaranteed initial non-zero velocities for bubbles
+    const vxDir = Math.random() < 0.5 ? -1 : 1;
+    const vyDir = Math.random() < 0.5 ? -1 : 1;
+    const bubbleVx = (Math.random() * 1.5 + 1.2) * vxDir;
+    const bubbleVy = (Math.random() * 1.5 + 1.2) * vyDir;
 
     const newWord = {
       id: `${item.id}-${Date.now()}-${Math.random()}`,
@@ -218,10 +278,10 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       answer: item.answer,
       acceptableAnswers: item.acceptableAnswers || [item.answer],
       hint: item.hint || '',
-      x: randomX,
-      y: config.mode === 'static' ? randomY : -60,
-      vx: config.mode === 'bubbles' ? (Math.random() - 0.5) * 2.5 : 0,
-      vy: config.mode === 'bubbles' ? (Math.random() - 0.5) * 2.5 : 0,
+      x: posX,
+      y: posY,
+      vx: config.mode === 'bubbles' ? bubbleVx : 0,
+      vy: config.mode === 'bubbles' ? bubbleVy : 0,
       speed: config.mode === 'falling' ? (Math.random() * 0.3 + 0.6) * config.speedMultiplier : 0,
       color: ['#38bdf8', '#a855f7', '#ec4899', '#f59e0b', '#10b981'][Math.floor(Math.random() * 5)]
     };
@@ -241,7 +301,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
       if (!isFrozenRef.current) {
         const gameWidth = gameAreaRef.current ? gameAreaRef.current.clientWidth : 600;
-        const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 500;
+        const gameHeight = gameAreaRef.current ? gameAreaRef.current.clientHeight : 450;
 
         setActiveWords(prevWords => {
           if (config.mode === 'static') return prevWords; // Static cards stay still
@@ -273,8 +333,17 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
               let nextVx = word.vx;
               let nextVy = word.vy;
 
-              if (nextX <= 10 || nextX >= gameWidth - 250) nextVx = -nextVx;
-              if (nextY <= 20 || nextY >= gameHeight - 120) nextVy = -nextVy;
+              // Ensure bubbles bounce cleanly off boundaries
+              const minBoundsX = 10;
+              const maxBoundsX = Math.max(minBoundsX + 20, gameWidth - 250);
+              const minBoundsY = 10;
+              const maxBoundsY = Math.max(minBoundsY + 20, gameHeight - 80);
+
+              if (nextX <= minBoundsX || nextX >= maxBoundsX) nextVx = -nextVx;
+              if (nextY <= minBoundsY || nextY >= maxBoundsY) nextVy = -nextVy;
+
+              nextX = Math.max(minBoundsX, Math.min(nextX, maxBoundsX));
+              nextY = Math.max(minBoundsY, Math.min(nextY, maxBoundsY));
 
               nextWords.push({ ...word, x: nextX, y: nextY, vx: nextVx, vy: nextVy });
             }
@@ -320,10 +389,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   }, [gameState, difficulty, score]);
 
   // Check typed input against active words
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-
+  const processAnswerCheck = (value) => {
     if (gameState !== 'playing' || !value.trim()) return;
 
     const matchedIndex = activeWords.findIndex(word =>
@@ -379,6 +445,40 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     }
   };
 
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    processAnswerCheck(value);
+  };
+
+  // Virtual Keyboard Key Press Handler
+  const handleVirtualKeyPress = (key) => {
+    if (gameState === 'practice') {
+      if (key === 'BACKSPACE') {
+        setPracticeInput(prev => prev.slice(0, -1));
+      } else if (key === 'SPACE') {
+        setPracticeInput(prev => prev + ' ');
+      } else {
+        setPracticeInput(prev => prev + key);
+      }
+      return;
+    }
+
+    if (gameState !== 'playing') return;
+
+    if (key === 'BACKSPACE') {
+      setInputValue(prev => prev.slice(0, -1));
+    } else if (key === 'SPACE') {
+      const nextValue = inputValue + ' ';
+      setInputValue(nextValue);
+      processAnswerCheck(nextValue);
+    } else {
+      const nextValue = inputValue + key;
+      setInputValue(nextValue);
+      processAnswerCheck(nextValue);
+    }
+  };
+
   const activateFreeze = () => {
     if (freezeCharges <= 0 || isFrozen || gameState !== 'playing') return;
     setFreezeCharges(c => c - 1);
@@ -417,12 +517,11 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   const topicInstructions = isRu && topic.instructions_ru ? topic.instructions_ru : topic.instructions;
   const diffLabel = isRu ? config.label_ru : config.label_en;
 
-  // Thermometer pressure ratio calculation for Level 1
   const pressureRatio = Math.min(1, activeWords.length / (config.maxCapacity || 5));
   const thermoColor = pressureRatio > 0.8 ? 'bg-red-500' : pressureRatio > 0.5 ? 'bg-amber-500' : 'bg-emerald-500';
 
   return (
-    <div className={`relative flex flex-col h-[calc(100vh-80px)] max-w-5xl mx-auto p-2 sm:p-4 ${shakeScreen ? 'animate-shake' : ''}`}>
+    <div className={`relative flex flex-col min-h-[calc(100vh-80px)] max-w-5xl mx-auto p-2 sm:p-4 ${shakeScreen ? 'animate-shake' : ''}`}>
       {/* Top Game Bar HUD */}
       <div className="bg-slate-800/90 backdrop-blur border border-slate-700 rounded-2xl p-3 sm:p-4 mb-3 flex flex-wrap items-center justify-between gap-3 shadow-xl z-10">
         <div className="flex items-center gap-4">
@@ -484,6 +583,16 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
           <div className="flex items-center gap-2">
             <button
+              onClick={() => setUseVirtualKeyboard(!useVirtualKeyboard)}
+              className={`p-2 rounded-lg transition flex items-center gap-1 text-xs font-bold ${
+                useVirtualKeyboard ? 'bg-indigo-600 text-white' : 'bg-slate-700/50 text-slate-400 hover:text-white'
+              }`}
+              title={isRu ? 'Переключить виртуальную клавиатуру' : 'Toggle Built-in Virtual Keyboard'}
+            >
+              <Smartphone className="w-4 h-4" />
+              <span className="hidden sm:inline">{useVirtualKeyboard ? 'Virtual KB' : 'Native KB'}</span>
+            </button>
+            <button
               onClick={onToggleSound}
               className="p-2 text-slate-400 hover:text-white bg-slate-700/50 hover:bg-slate-700 rounded-lg transition"
               title="Toggle Sound"
@@ -505,7 +614,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
       <div
         ref={gameAreaRef}
-        className="relative flex-1 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border-2 border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl min-h-[420px]"
+        className="relative flex-1 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border-2 border-slate-700/80 rounded-2xl overflow-hidden shadow-2xl min-h-[380px] sm:min-h-[420px]"
       >
         <ParticleCanvas particles={particles} floatingTexts={floatingTexts} isFrozen={isFrozen} />
 
@@ -528,9 +637,9 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                     transform: `translate3d(${word.x}px, ${word.y}px, 0)`,
                     borderColor: word.color || '#38bdf8'
                   }}
-                  className="absolute left-0 top-0 bg-slate-900/90 border-2 rounded-3xl px-4 py-3 shadow-2xl backdrop-blur-md z-10 flex flex-col items-center justify-center animate-pulse"
+                  className="absolute left-0 top-0 bg-slate-900/95 border-2 rounded-3xl px-4 py-3 shadow-2xl backdrop-blur-md z-10 flex flex-col items-center justify-center animate-pulse min-w-[200px]"
                 >
-                  <div className="text-sm font-black text-white text-center">
+                  <div className="text-sm sm:text-base font-black text-white text-center">
                     {word.prompt}
                   </div>
                 </div>
@@ -544,7 +653,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                   transform: `translate3d(${word.x}px, ${word.y}px, 0)`,
                   transition: isFrozen ? 'none' : 'transform 0.05s linear'
                 }}
-                className="absolute left-0 top-0 w-64 bg-slate-800/95 border-2 border-indigo-500/60 rounded-xl p-3 shadow-xl backdrop-blur-md transition-shadow hover:shadow-indigo-500/20 z-10"
+                className="absolute left-0 top-0 w-60 sm:w-64 bg-slate-800/95 border-2 border-indigo-500/60 rounded-xl p-3 shadow-xl backdrop-blur-md transition-shadow hover:shadow-indigo-500/20 z-10"
               >
                 <div className="text-sm font-semibold text-indigo-200 mb-1 leading-snug">
                   {word.prompt}
@@ -620,16 +729,19 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                       type="text"
                       value={practiceInput}
                       onChange={(e) => setPracticeInput(e.target.value)}
+                      readOnly={useVirtualKeyboard}
                       placeholder={isRu ? 'Введите ответ здесь...' : 'Type your answer here...'}
                       className="w-full bg-slate-900 border-2 border-indigo-500 text-white text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium text-center"
-                      autoFocus
+                      autoFocus={!useVirtualKeyboard}
                     />
-                    <button
-                      type="submit"
-                      className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
-                    >
-                      {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
-                    </button>
+                    {!useVirtualKeyboard && (
+                      <button
+                        type="submit"
+                        className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
+                      >
+                        {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
+                      </button>
+                    )}
                   </form>
 
                   {practiceFeedback && (
@@ -729,53 +841,88 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
         )}
       </div>
 
-      <div className="mt-3 flex flex-col sm:flex-row items-center gap-3">
-        <div className="relative flex-1 w-full">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={handleInputChange}
-            disabled={gameState !== 'playing'}
-            placeholder={gameState === 'playing' ? (isRu ? 'Введите ответ здесь...' : 'Type your answer here...') : (isRu ? 'Пауза' : 'Game paused')}
-            className="w-full bg-slate-800 border-2 border-indigo-500/80 text-white placeholder-slate-500 text-base sm:text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-400 transition shadow-inner font-medium"
-            autoFocus
-          />
-          {streak > 1 && (
-            <div className="absolute right-3 top-3 text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-full">
-              🔥 {streak} {isRu ? 'Серия' : 'Streak'}
+      {/* Input Box & Power-ups */}
+      <div className="mt-3 flex flex-col gap-3">
+        <div className="flex flex-col sm:flex-row items-center gap-3">
+          <div className="relative flex-1 w-full">
+            <input
+              type="text"
+              value={gameState === 'practice' ? practiceInput : inputValue}
+              onChange={handleInputChange}
+              readOnly={useVirtualKeyboard}
+              disabled={gameState !== 'playing' && gameState !== 'practice'}
+              placeholder={gameState === 'playing' ? (isRu ? 'Введите ответ...' : 'Type answer...') : (isRu ? 'Пауза' : 'Game paused')}
+              className="w-full bg-slate-800 border-2 border-indigo-500/80 text-white placeholder-slate-500 text-base sm:text-lg px-4 py-2.5 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-400 transition shadow-inner font-medium text-center sm:text-left"
+              autoFocus={!useVirtualKeyboard}
+            />
+            {streak > 1 && (
+              <div className="absolute right-3 top-2.5 text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-full">
+                🔥 {streak} {isRu ? 'Серия' : 'Streak'}
+              </div>
+            )}
+          </div>
+
+          <div className="flex gap-2 w-full sm:w-auto justify-stretch">
+            <button
+              onClick={activateFreeze}
+              disabled={gameState !== 'playing' || freezeCharges <= 0 || isFrozen}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-sm border transition shadow-md ${
+                freezeCharges > 0 && !isFrozen && gameState === 'playing'
+                  ? 'bg-cyan-600/90 hover:bg-cyan-500 border-cyan-400 text-white active:scale-95'
+                  : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'
+              }`}
+            >
+              <Snowflake className="w-4 h-4" />
+              <span>{isRu ? 'Заморозка' : 'Freeze'} ({freezeCharges})</span>
+            </button>
+
+            <button
+              onClick={activateBomb}
+              disabled={gameState !== 'playing' || bombCharges <= 0 || activeWords.length === 0}
+              className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-sm border transition shadow-md ${
+                bombCharges > 0 && activeWords.length > 0 && gameState === 'playing'
+                  ? 'bg-rose-600/90 hover:bg-rose-500 border-rose-400 text-white active:scale-95'
+                  : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'
+              }`}
+            >
+              <Bomb className="w-4 h-4" />
+              <span>{isRu ? 'Бомба' : 'Bomb'} ({bombCharges})</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Built-in On-Screen Virtual Keyboard for Mobile */}
+        {useVirtualKeyboard && (
+          <div className="bg-slate-800/90 border border-slate-700 rounded-2xl p-2.5 shadow-2xl space-y-1.5 backdrop-blur">
+            {KEYBOARD_ROWS.map((row, rIdx) => (
+              <div key={rIdx} className="flex justify-center gap-1">
+                {row.map(key => (
+                  <button
+                    key={key}
+                    onClick={() => handleVirtualKeyPress(key)}
+                    className="flex-1 max-w-[38px] h-10 sm:h-11 bg-slate-700 hover:bg-indigo-600 text-white font-bold text-sm sm:text-base rounded-lg border border-slate-600 shadow active:scale-95 transition"
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+            ))}
+            <div className="flex justify-center gap-2 pt-1">
+              <button
+                onClick={() => handleVirtualKeyPress('SPACE')}
+                className="flex-1 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold py-2 rounded-lg border border-slate-600 text-xs uppercase tracking-wider"
+              >
+                {isRu ? 'Пробел (Space)' : 'Space'}
+              </button>
+              <button
+                onClick={() => handleVirtualKeyPress('BACKSPACE')}
+                className="px-4 bg-rose-600/80 hover:bg-rose-500 text-white font-bold py-2 rounded-lg border border-rose-500 text-xs flex items-center gap-1"
+              >
+                <Delete className="w-4 h-4" />
+              </button>
             </div>
-          )}
-        </div>
-
-        <div className="flex gap-2 w-full sm:w-auto justify-stretch">
-          <button
-            onClick={activateFreeze}
-            disabled={gameState !== 'playing' || freezeCharges <= 0 || isFrozen}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl font-bold text-sm border transition shadow-md ${
-              freezeCharges > 0 && !isFrozen && gameState === 'playing'
-                ? 'bg-cyan-600/90 hover:bg-cyan-500 border-cyan-400 text-white active:scale-95'
-                : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'
-            }`}
-            title={isRu ? 'Заморозить слова на 4.5 секунды' : 'Freeze falling words for 4.5 seconds'}
-          >
-            <Snowflake className="w-4 h-4" />
-            <span>{isRu ? 'Заморозка' : 'Freeze'} ({freezeCharges})</span>
-          </button>
-
-          <button
-            onClick={activateBomb}
-            disabled={gameState !== 'playing' || bombCharges <= 0 || activeWords.length === 0}
-            className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl font-bold text-sm border transition shadow-md ${
-              bombCharges > 0 && activeWords.length > 0 && gameState === 'playing'
-                ? 'bg-rose-600/90 hover:bg-rose-500 border-rose-400 text-white active:scale-95'
-                : 'bg-slate-800 border-slate-700 text-slate-500 cursor-not-allowed'
-            }`}
-            title={isRu ? 'Взорвать все слова на экране' : 'Vaporize all current words on screen'}
-          >
-            <Bomb className="w-4 h-4" />
-            <span>{isRu ? 'Бомба' : 'Bomb'} ({bombCharges})</span>
-          </button>
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
