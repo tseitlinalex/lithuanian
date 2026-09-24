@@ -257,7 +257,8 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       posY = -60;
     }
 
-    const wordPrompt = isRu && item.prompt_ru ? item.prompt_ru : item.prompt;
+    // Always use Lithuanian phrase prompt
+    const wordPrompt = item.prompt;
 
     const vxDir = Math.random() < 0.5 ? -1 : 1;
     const vyDir = Math.random() < 0.5 ? -1 : 1;

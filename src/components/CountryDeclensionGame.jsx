@@ -174,8 +174,9 @@ export default function CountryDeclensionGame({ topic, onBackToTopics, soundMute
                       )}
                     </div>
 
+                    {/* Lithuanian Phrase Prompt */}
                     <div className="text-base sm:text-lg font-bold text-slate-200 mb-2">
-                      {isRu ? q.prompt_ru : q.prompt}
+                      {q.prompt}
                     </div>
 
                     <div className="flex gap-2">
