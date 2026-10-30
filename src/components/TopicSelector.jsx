@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Download, FileJson, Trash2, HelpCircle } from 'lucide-react';
+import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Download, FileJson, Trash2, Flag, ChevronDown, ChevronUp } from 'lucide-react';
 import { parseAndNormalizeJson } from '../utils/jsonImporter';
 import { exportTopicAsJson } from '../utils/jsonExporter';
 
@@ -16,11 +16,13 @@ export default function TopicSelector({
   onChangeDifficulty,
   onCustomTopicUpload,
   onDeleteCustomTopic,
+  onToggleWordIssue,
   lang = 'ru'
 }) {
   const [uploadError, setUploadError] = useState('');
   const [uploadSuccess, setUploadSuccess] = useState('');
   const [activeExportMenu, setActiveExportMenu] = useState(null);
+  const [expandedTopicWords, setExpandedTopicWords] = useState(null);
 
   const isRu = lang === 'ru';
 
@@ -46,7 +48,7 @@ export default function TopicSelector({
       }
     };
     reader.readAsText(file);
-    e.target.value = ''; // reset file input
+    e.target.value = '';
   };
 
   const handleExport = (topic, filterType) => {
@@ -66,8 +68,8 @@ export default function TopicSelector({
         </h1>
         <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
           {isRu
-            ? 'Импортируйте свои слова в формате JSON или выберите готовую тему. Проверяйте свои знания и экспортируйте слова для повторения!'
-            : 'Import custom JSON word lists or select a topic. Test your vocabulary and export words needing practice or mastered!'}
+            ? 'Импортируйте свои слова в формате JSON, отмечайте сложные слова флажком и экспортируйте файлы для повторения!'
+            : 'Import custom JSON word lists, flag words with issues, and export customized JSON lists for targeted practice!'}
         </p>
       </div>
 
@@ -139,8 +141,9 @@ export default function TopicSelector({
           const displayDesc = isRu && topic.description_ru ? topic.description_ru : topic.description;
 
           const totalItems = topic.items?.length || 0;
-          const knownCount = topic.items?.filter(i => i.status === 'known' || (i.timesCorrect > 0 && i.timesCorrect >= i.timesIncorrect)).length || 0;
-          const practiceCount = topic.items?.filter(i => i.status === 'need_practice' || i.timesIncorrect > i.timesCorrect).length || 0;
+          const knownCount = topic.items?.filter(i => !i.hasIssue && (i.status === 'known' || (i.timesCorrect > 0 && i.timesCorrect >= i.timesIncorrect))).length || 0;
+          const practiceCount = topic.items?.filter(i => i.hasIssue || i.status === 'need_practice' || i.timesIncorrect > i.timesCorrect).length || 0;
+          const isExpanded = expandedTopicWords === topic.id;
 
           return (
             <div
@@ -194,10 +197,14 @@ export default function TopicSelector({
 
                 {/* Knowledge Stats Badges */}
                 {totalItems > 0 && (
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-slate-400">
-                      {totalItems} {isRu ? 'слов' : 'words'}
-                    </span>
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    <button
+                      onClick={() => setExpandedTopicWords(isExpanded ? null : topic.id)}
+                      className="text-[10px] font-medium px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-slate-400 hover:text-white flex items-center gap-1 transition"
+                    >
+                      <span>{totalItems} {isRu ? 'слов' : 'words'}</span>
+                      {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                    </button>
                     {knownCount > 0 && (
                       <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                         ✓ {knownCount} {isRu ? 'знаю' : 'known'}
@@ -208,6 +215,34 @@ export default function TopicSelector({
                         ⚡ {practiceCount} {isRu ? 'повторить' : 'practice'}
                       </span>
                     )}
+                  </div>
+                )}
+
+                {/* Expandable Word List Viewer with Issue Marking */}
+                {isExpanded && (
+                  <div className="bg-slate-900/90 border border-slate-700/80 rounded-xl p-2.5 mb-4 max-h-48 overflow-y-auto space-y-1.5 text-xs">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1 flex justify-between">
+                      <span>{isRu ? 'Слова в теме:' : 'Topic Words:'}</span>
+                      <span>{isRu ? 'Отметить проблему 🚩' : 'Flag Issue 🚩'}</span>
+                    </div>
+                    {topic.items.map((item) => (
+                      <div key={item.id} className="flex items-center justify-between bg-slate-800/80 p-1.5 rounded border border-slate-700/60">
+                        <div className="truncate pr-2">
+                          <span className="text-white font-medium">{item.prompt}</span>
+                          <span className="text-slate-400 mx-1">→</span>
+                          <span className="text-emerald-400 font-bold">{item.answer}</span>
+                        </div>
+                        <button
+                          onClick={() => onToggleWordIssue(topic.id, item.id)}
+                          className={`p-1 rounded transition flex-shrink-0 ${
+                            item.hasIssue ? 'bg-amber-500/30 text-amber-300 border border-amber-500/50' : 'text-slate-500 hover:text-amber-400'
+                          }`}
+                          title={item.hasIssue ? (isRu ? 'Есть проблема' : 'Has Issue') : (isRu ? 'Отметить проблему' : 'Flag Issue')}
+                        >
+                          <Flag className="w-3.5 h-3.5 fill-current" />
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>

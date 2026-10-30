@@ -32,8 +32,6 @@ export function parseAndNormalizeJson(rawInput, fileName = 'custom-words') {
   } else if (Array.isArray(data.vocabulary)) {
     rawItems = data.vocabulary;
   } else if (typeof data === 'object') {
-    // Check if it's a key-value dictionary { "hello": "labas", "cat": "katė" }
-    // ignoring standard metadata keys if present
     const keys = Object.keys(data).filter(
       k => !['id', 'title', 'name', 'description', 'category', 'icon', 'instructions', 'instructions_ru', 'title_ru', 'description_ru'].includes(k)
     );
@@ -57,7 +55,8 @@ export function parseAndNormalizeJson(rawInput, fileName = 'custom-words') {
     let hint = item.hint || '';
     let rule = item.rule || '';
     let rule_ru = item.rule_ru || '';
-    let status = item.status || 'untested';
+    let hasIssue = !!item.hasIssue;
+    let status = item.status || (hasIssue ? 'need_practice' : 'untested');
     let timesCorrect = typeof item.timesCorrect === 'number' ? item.timesCorrect : 0;
     let timesIncorrect = typeof item.timesIncorrect === 'number' ? item.timesIncorrect : 0;
 
@@ -98,6 +97,7 @@ export function parseAndNormalizeJson(rawInput, fileName = 'custom-words') {
       hint,
       rule,
       rule_ru,
+      hasIssue,
       status,
       timesCorrect,
       timesIncorrect

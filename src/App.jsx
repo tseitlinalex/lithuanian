@@ -56,7 +56,6 @@ export default function App() {
       const filtered = prev.filter(t => t.id !== newTopic.id);
       const updatedList = [newTopic, ...filtered];
 
-      // Save custom topics to localStorage
       const customOnly = updatedList.filter(t => t.isCustom);
       try {
         localStorage.setItem(STORAGE_KEY_CUSTOM_TOPICS, JSON.stringify(customOnly));
@@ -89,7 +88,6 @@ export default function App() {
     setTopics(prev => {
       const newTopics = prev.map(t => t.id === updatedTopic.id ? updatedTopic : t);
 
-      // Save custom topics if custom
       const customOnly = newTopics.filter(t => t.isCustom);
       try {
         localStorage.setItem(STORAGE_KEY_CUSTOM_TOPICS, JSON.stringify(customOnly));
@@ -97,7 +95,6 @@ export default function App() {
         console.error('Failed to save custom topics', e);
       }
 
-      // Save word stats map for persistent tracking across all topics
       let wordStatsMap = {};
       try {
         const existingStr = localStorage.getItem(STORAGE_KEY_WORD_STATS);
@@ -109,7 +106,8 @@ export default function App() {
       updatedTopic.items.forEach(item => {
         const key = `${updatedTopic.id}_${item.id}`;
         wordStatsMap[key] = {
-          status: item.status,
+          status: item.hasIssue ? 'need_practice' : item.status,
+          hasIssue: !!item.hasIssue,
           timesCorrect: item.timesCorrect,
           timesIncorrect: item.timesIncorrect
         };
@@ -127,6 +125,27 @@ export default function App() {
     if (selectedTopic && selectedTopic.id === updatedTopic.id) {
       setSelectedTopic(updatedTopic);
     }
+  };
+
+  const handleToggleWordIssue = (topicId, itemId) => {
+    setTopics(prev => {
+      const newTopics = prev.map(t => {
+        if (t.id !== topicId) return t;
+        const newItems = t.items.map(item => {
+          if (item.id !== itemId) return item;
+          const nextHasIssue = !item.hasIssue;
+          return {
+            ...item,
+            hasIssue: nextHasIssue,
+            status: nextHasIssue ? 'need_practice' : item.status
+          };
+        });
+        const updated = { ...t, items: newItems };
+        handleUpdateTopicStats(updated);
+        return updated;
+      });
+      return newTopics;
+    });
   };
 
   return (
@@ -194,6 +213,7 @@ export default function App() {
               soundMuted={soundMuted}
               onToggleSound={handleToggleSound}
               onUpdateTopicStats={handleUpdateTopicStats}
+              onToggleWordIssue={handleToggleWordIssue}
               lang={lang}
             />
           )
@@ -205,6 +225,7 @@ export default function App() {
             onChangeDifficulty={(diff) => setDifficulty(diff)}
             onCustomTopicUpload={handleCustomTopicUpload}
             onDeleteCustomTopic={handleDeleteCustomTopic}
+            onToggleWordIssue={handleToggleWordIssue}
             lang={lang}
           />
         )}

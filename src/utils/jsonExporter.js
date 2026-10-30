@@ -9,6 +9,7 @@ export function filterTopicItems(topic, filterType = 'all') {
 
   if (filterType === 'need_practice') {
     return topic.items.filter(item =>
+      item.hasIssue === true ||
       item.status === 'need_practice' ||
       item.timesIncorrect > item.timesCorrect ||
       (item.status !== 'known' && item.timesIncorrect > 0)
@@ -17,8 +18,8 @@ export function filterTopicItems(topic, filterType = 'all') {
 
   if (filterType === 'known') {
     return topic.items.filter(item =>
-      item.status === 'known' ||
-      (item.timesCorrect > 0 && item.timesCorrect >= item.timesIncorrect)
+      !item.hasIssue &&
+      (item.status === 'known' || (item.timesCorrect > 0 && item.timesCorrect >= item.timesIncorrect))
     );
   }
 
@@ -50,7 +51,8 @@ export function exportTopicAsJson(topic, filterType = 'all', customFilename = nu
       hint: item.hint || '',
       rule: item.rule || '',
       rule_ru: item.rule_ru || '',
-      status: item.status || 'untested',
+      hasIssue: !!item.hasIssue,
+      status: item.hasIssue ? 'need_practice' : (item.status || 'untested'),
       timesCorrect: item.timesCorrect || 0,
       timesIncorrect: item.timesIncorrect || 0
     }))

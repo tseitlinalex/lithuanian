@@ -58,6 +58,16 @@ describe('JSON Importer', () => {
     expect(topic.items[0].answer).toBe('Labas');
   });
 
+  it('preserves user flagged hasIssue property', () => {
+    const input = [
+      { prompt: 'Cat', answer: 'katė', hasIssue: true }
+    ];
+
+    const topic = parseAndNormalizeJson(input);
+    expect(topic.items[0].hasIssue).toBe(true);
+    expect(topic.items[0].status).toBe('need_practice');
+  });
+
   it('throws descriptive error on invalid or empty json', () => {
     expect(() => parseAndNormalizeJson([])).toThrow('No valid words found');
     expect(() => parseAndNormalizeJson({})).toThrow('No valid words found');
@@ -72,17 +82,19 @@ describe('JSON Exporter Filter', () => {
     items: [
       { id: '1', prompt: 'Cat', answer: 'katė', status: 'known', timesCorrect: 3, timesIncorrect: 0 },
       { id: '2', prompt: 'Dog', answer: 'šuo', status: 'need_practice', timesCorrect: 1, timesIncorrect: 3 },
-      { id: '3', prompt: 'Sun', answer: 'saulė', status: 'untested', timesCorrect: 0, timesIncorrect: 0 }
+      { id: '3', prompt: 'Sun', answer: 'saulė', status: 'known', timesCorrect: 5, timesIncorrect: 0, hasIssue: true }
     ]
   };
 
-  it('filters words needing practice', () => {
+  it('filters words needing practice including manually flagged issues', () => {
     const practiceWords = filterTopicItems(sampleTopic, 'need_practice');
-    expect(practiceWords).toHaveLength(1);
-    expect(practiceWords[0].prompt).toBe('Dog');
+    expect(practiceWords).toHaveLength(2);
+    const prompts = practiceWords.map(w => w.prompt);
+    expect(prompts).toContain('Dog');
+    expect(prompts).toContain('Sun');
   });
 
-  it('filters known words', () => {
+  it('filters known words excluding flagged issues', () => {
     const knownWords = filterTopicItems(sampleTopic, 'known');
     expect(knownWords).toHaveLength(1);
     expect(knownWords[0].prompt).toBe('Cat');

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Info, Download, ArrowRightLeft, FileJson } from 'lucide-react';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Info, Download, ArrowRightLeft, FileJson, Flag } from 'lucide-react';
 import { checkAnswerMatch } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
 import { exportTopicAsJson } from '../utils/jsonExporter';
@@ -45,6 +45,7 @@ export default function FallingWordsGame({
   soundMuted,
   onToggleSound,
   onUpdateTopicStats,
+  onToggleWordIssue,
   lang = 'ru'
 }) {
   const isRu = lang === 'ru';
@@ -125,12 +126,14 @@ export default function FallingWordsGame({
         if (item.id === itemId) {
           const timesCorrect = (item.timesCorrect || 0) + (isCorrect ? 1 : 0);
           const timesIncorrect = (item.timesIncorrect || 0) + (isCorrect ? 0 : 1);
-          const status = timesCorrect > timesIncorrect ? 'known' : 'need_practice';
+          const hasIssue = item.hasIssue || !isCorrect;
+          const status = hasIssue ? 'need_practice' : (timesCorrect > timesIncorrect ? 'known' : 'need_practice');
 
           return {
             ...item,
             timesCorrect,
             timesIncorrect,
+            hasIssue,
             status
           };
         }
@@ -143,6 +146,34 @@ export default function FallingWordsGame({
       }
       return updatedTopic;
     });
+  };
+
+  const handleToggleWordIssueInGame = (itemId) => {
+    setTopicStats(prevTopic => {
+      if (!prevTopic || !prevTopic.items) return prevTopic;
+
+      const updatedItems = prevTopic.items.map(item => {
+        if (item.id === itemId) {
+          const nextHasIssue = !item.hasIssue;
+          return {
+            ...item,
+            hasIssue: nextHasIssue,
+            status: nextHasIssue ? 'need_practice' : item.status
+          };
+        }
+        return item;
+      });
+
+      const updatedTopic = { ...prevTopic, items: updatedItems };
+      if (onUpdateTopicStats) {
+        onUpdateTopicStats(updatedTopic);
+      }
+      return updatedTopic;
+    });
+
+    if (onToggleWordIssue) {
+      onToggleWordIssue(topic.id, itemId);
+    }
   };
 
   // Start / Reset Game
@@ -328,6 +359,7 @@ export default function FallingWordsGame({
       hint: displayHint,
       rule: item.rule || '',
       rule_ru: item.rule_ru || '',
+      hasIssue: !!item.hasIssue,
       x: posX,
       y: posY,
       vx: config.mode === 'bubbles' ? bubbleVx : 0,
@@ -752,21 +784,6 @@ export default function FallingWordsGame({
                   <div className="text-2xl font-black text-white mb-3 text-glow">
                     {practiceList[practiceIndex].prompt}
                   </div>
-                  {practiceList[practiceIndex].hint && (
-                    <div className="text-xs text-slate-400 italic mb-2">
-                      {isRu ? 'Подсказка:' : 'Hint:'} {practiceList[practiceIndex].hint}
-                    </div>
-                  )}
-
-                  {(practiceList[practiceIndex].rule_ru || practiceList[practiceIndex].rule) && (
-                    <div className="bg-indigo-950/70 border border-indigo-500/40 p-2.5 rounded-xl text-xs text-indigo-200 mb-4 text-left flex items-start gap-2">
-                      <Info className="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <span className="font-bold text-amber-300">{isRu ? 'Грамматическое правило:' : 'Grammar Rule:'}</span>{' '}
-                        {isRu ? practiceList[practiceIndex].rule_ru : (practiceList[practiceIndex].rule || practiceList[practiceIndex].rule_ru)}
-                      </div>
-                    </div>
-                  )}
 
                   <form onSubmit={handlePracticeSubmit} className="space-y-3">
                     <input
@@ -777,12 +794,22 @@ export default function FallingWordsGame({
                       className="w-full bg-slate-900 border-2 border-indigo-500 text-white text-lg px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 font-medium text-center"
                       autoFocus
                     />
-                    <button
-                      type="submit"
-                      className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
-                    >
-                      {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
-                    </button>
+                    <div className="flex gap-2">
+                      <button
+                        type="submit"
+                        className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2"
+                      >
+                        {isRu ? 'Проверить ответ' : 'Check Answer'} <ArrowRight className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleToggleWordIssueInGame(practiceList[practiceIndex].originalItemId)}
+                        className="px-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded-xl transition flex items-center gap-1 text-xs font-bold"
+                        title={isRu ? 'Отметить как имеющее проблему' : 'Flag as issue'}
+                      >
+                        <Flag className="w-4 h-4" />
+                      </button>
+                    </div>
                   </form>
 
                   {practiceFeedback && (
@@ -863,6 +890,35 @@ export default function FallingWordsGame({
 
             {missedWords.length > 0 && (
               <div className="w-full max-w-sm mb-4">
+                <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 text-left">
+                  📖 {isRu ? 'Пропущенные слова' : 'Missed Words'} ({missedWords.length})
+                </div>
+                <div className="max-h-36 overflow-y-auto space-y-2 pr-1 mb-3 text-left">
+                  {missedWords.map((item, idx) => {
+                    const matchedItem = topicStats.items.find(i => i.id === item.originalItemId || i.id === item.id);
+                    const isFlagged = matchedItem?.hasIssue;
+
+                    return (
+                      <div key={idx} className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700/60 text-xs flex items-center justify-between">
+                        <div>
+                          <div className="text-slate-300 font-medium">{item.prompt}</div>
+                          <div className="text-emerald-400 font-bold mt-0.5">{isRu ? 'Ответ:' : 'Answer:'} {item.targetAnswer || item.answer}</div>
+                        </div>
+                        <button
+                          onClick={() => handleToggleWordIssueInGame(item.originalItemId || item.id)}
+                          className={`px-2 py-1 rounded text-[11px] font-bold transition flex items-center gap-1 ${
+                            isFlagged ? 'bg-amber-500/30 text-amber-300 border border-amber-500/50' : 'bg-slate-800 text-slate-400 hover:text-white'
+                          }`}
+                          title={isRu ? 'Отметить проблему со словом' : 'Flag word issue'}
+                        >
+                          <Flag className="w-3 h-3" />
+                          <span>{isFlagged ? (isRu ? 'Проблема' : 'Has Issue') : (isRu ? 'Отметить' : 'Flag')}</span>
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+
                 <button
                   onClick={startPracticeMode}
                   className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
