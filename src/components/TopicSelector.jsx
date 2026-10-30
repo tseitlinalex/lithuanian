@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Download, FileJson, Trash2, Flag, ChevronDown, ChevronUp, CheckSquare, CloudRain } from 'lucide-react';
+import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Download, FileJson, Trash2, Flag, ChevronDown, ChevronUp, CheckSquare, CloudRain, HelpCircle, Code } from 'lucide-react';
 import { parseAndNormalizeJson } from '../utils/jsonImporter';
 import { exportTopicAsJson } from '../utils/jsonExporter';
 
@@ -25,6 +25,7 @@ export default function TopicSelector({
   const [uploadSuccess, setUploadSuccess] = useState('');
   const [activeExportMenu, setActiveExportMenu] = useState(null);
   const [expandedTopicWords, setExpandedTopicWords] = useState(null);
+  const [showJsonGuide, setShowJsonGuide] = useState(false);
 
   const isRu = lang === 'ru';
 
@@ -145,15 +146,58 @@ export default function TopicSelector({
         </div>
         <p className="text-xs text-slate-400 leading-relaxed">
           {isRu
-            ? 'Загрузите любой JSON файл со словами (массив пар {"word": "...", "translation": "..."} или словарик). Всё происходит локально в браузере!'
-            : 'Upload any JSON file containing words & translations (array, dictionary, or full topic format). Fully client-side!'}
+            ? 'Загрузите любой JSON файл со словами. Всё происходит локально в браузере!'
+            : 'Upload any JSON file containing words & translations. Fully client-side!'}
         </p>
 
-        <label className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl cursor-pointer transition shadow-md shadow-indigo-500/20">
-          <FileJson className="w-4 h-4" />
-          {isRu ? 'Загрузить .json файл' : 'Upload .json File'}
-          <input type="file" accept=".json" onChange={handleFileUpload} className="hidden" />
-        </label>
+        <div className="flex items-center justify-center gap-3">
+          <label className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl cursor-pointer transition shadow-md shadow-indigo-500/20">
+            <FileJson className="w-4 h-4" />
+            {isRu ? 'Загрузить .json файл' : 'Upload .json File'}
+            <input type="file" accept=".json" onChange={handleFileUpload} className="hidden" />
+          </label>
+
+          <button
+            onClick={() => setShowJsonGuide(!showJsonGuide)}
+            className="inline-flex items-center gap-1.5 bg-slate-700 hover:bg-slate-600 text-slate-300 text-xs font-bold px-3 py-2.5 rounded-xl transition"
+          >
+            <HelpCircle className="w-4 h-4 text-indigo-400" />
+            <span>{isRu ? 'Формат JSON' : 'JSON Format'}</span>
+          </button>
+        </div>
+
+        {/* JSON Format Guide Expandable Note */}
+        {showJsonGuide && (
+          <div className="bg-slate-900/90 border border-indigo-500/40 rounded-xl p-4 text-left text-xs space-y-3 mt-3 animate-fadeIn">
+            <div className="font-bold text-indigo-300 flex items-center gap-1.5">
+              <Code className="w-4 h-4 text-amber-400" />
+              <span>{isRu ? 'Поддерживаемые форматы JSON файлов:' : 'Supported JSON Formats:'}</span>
+            </div>
+
+            <div className="space-y-2">
+              <div>
+                <span className="font-bold text-slate-200">1. {isRu ? 'Массив пар слов' : 'Array of Word Pairs'}:</span>
+                <pre className="bg-slate-950 p-2 rounded border border-slate-800 text-[11px] font-mono text-emerald-400 mt-1 overflow-x-auto">
+                  {`[\n  { "word": "Кошка", "translation": "katė" },\n  { "word": "Собака", "translation": "šuo" }\n]`}
+                </pre>
+              </div>
+
+              <div>
+                <span className="font-bold text-slate-200">2. {isRu ? 'Простой словарь' : 'Key-Value Dictionary'}:</span>
+                <pre className="bg-slate-950 p-2 rounded border border-slate-800 text-[11px] font-mono text-amber-400 mt-1 overflow-x-auto">
+                  {`{\n  "Кошка": "katė",\n  "Собака": "šuo"\n}`}
+                </pre>
+              </div>
+
+              <div>
+                <span className="font-bold text-slate-200">3. {isRu ? 'Полный объект темы' : 'Full Topic Schema'}:</span>
+                <pre className="bg-slate-950 p-2 rounded border border-slate-800 text-[11px] font-mono text-cyan-400 mt-1 overflow-x-auto">
+                  {`{\n  "title": "Животные",\n  "items": [\n    { "prompt": "Кошка", "answer": "katė", "hint": "ka..." }\n  ]\n}`}
+                </pre>
+              </div>
+            </div>
+          </div>
+        )}
 
         {uploadSuccess && (
           <div className="flex items-center justify-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
