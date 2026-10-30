@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { topics as initialTopics } from './data/topics';
 import TopicSelector from './components/TopicSelector';
 import FallingWordsGame from './components/FallingWordsGame';
+import MultipleChoiceGame from './components/MultipleChoiceGame';
 import CountryDeclensionGame from './components/CountryDeclensionGame';
 import { soundFx } from './utils/audio';
 
@@ -43,6 +44,7 @@ export default function App() {
 
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [difficulty, setDifficulty] = useState('medium');
+  const [gameMode, setGameMode] = useState('falling'); // 'falling' or 'choice'
   const [soundMuted, setSoundMuted] = useState(false);
   const [lang, setLang] = useState('ru'); // Default translation language: Russian
 
@@ -129,7 +131,7 @@ export default function App() {
 
   const handleToggleWordIssue = (topicId, itemId) => {
     setTopics(prev => {
-      const newTopics = prev.map(t => {
+      return prev.map(t => {
         if (t.id !== topicId) return t;
         const newItems = t.items.map(item => {
           if (item.id !== itemId) return item;
@@ -144,7 +146,6 @@ export default function App() {
         handleUpdateTopicStats(updated);
         return updated;
       });
-      return newTopics;
     });
   };
 
@@ -205,6 +206,16 @@ export default function App() {
               onToggleSound={handleToggleSound}
               lang={lang}
             />
+          ) : gameMode === 'choice' ? (
+            <MultipleChoiceGame
+              topic={selectedTopic}
+              onBackToTopics={() => setSelectedTopic(null)}
+              soundMuted={soundMuted}
+              onToggleSound={handleToggleSound}
+              onUpdateTopicStats={handleUpdateTopicStats}
+              onToggleWordIssue={handleToggleWordIssue}
+              lang={lang}
+            />
           ) : (
             <FallingWordsGame
               topic={selectedTopic}
@@ -223,6 +234,8 @@ export default function App() {
             onSelectTopic={(topic) => setSelectedTopic(topic)}
             difficulty={difficulty}
             onChangeDifficulty={(diff) => setDifficulty(diff)}
+            gameMode={gameMode}
+            onChangeGameMode={(mode) => setGameMode(mode)}
             onCustomTopicUpload={handleCustomTopicUpload}
             onDeleteCustomTopic={handleDeleteCustomTopic}
             onToggleWordIssue={handleToggleWordIssue}

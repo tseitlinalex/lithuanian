@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Download, FileJson, Trash2, Flag, ChevronDown, ChevronUp } from 'lucide-react';
+import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Download, FileJson, Trash2, Flag, ChevronDown, ChevronUp, CheckSquare, CloudRain } from 'lucide-react';
 import { parseAndNormalizeJson } from '../utils/jsonImporter';
 import { exportTopicAsJson } from '../utils/jsonExporter';
 
@@ -14,6 +14,8 @@ export default function TopicSelector({
   onSelectTopic,
   difficulty,
   onChangeDifficulty,
+  gameMode = 'falling',
+  onChangeGameMode,
   onCustomTopicUpload,
   onDeleteCustomTopic,
   onToggleWordIssue,
@@ -61,42 +63,75 @@ export default function TopicSelector({
       {/* Header Banner */}
       <div className="text-center space-y-3">
         <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-          🇱🇹 Kalbos Lietus • {isRu ? 'Изучение литовского языка в форме игры' : 'Lithuanian Word Rain Game'}
+          🇱🇹 Kalbos Lietus • {isRu ? 'Изучение литовского языка' : 'Lithuanian Learning Games'}
         </div>
         <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-          {isRu ? 'Выберите тему и начните игру' : 'Select a Topic & Start Playing'}
+          {isRu ? 'Выберите тему и режим игры' : 'Select Topic & Game Mode'}
         </h1>
         <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
           {isRu
-            ? 'Импортируйте свои слова в формате JSON, отмечайте сложные слова флажком и экспортируйте файлы для повторения!'
-            : 'Import custom JSON word lists, flag words with issues, and export customized JSON lists for targeted practice!'}
+            ? 'Используйте готовый словарь или импортируйте свой JSON со словами. Играйте в падающие слова или викторину из 4 вариантов!'
+            : 'Use standard vocabulary or import your custom word JSON. Play falling words or 4-choice quiz mode!'}
         </p>
       </div>
 
-      {/* Difficulty Level Selector */}
-      <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 shadow-lg max-w-md mx-auto">
-        <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 text-center">
-          {isRu ? 'Уровень сложности' : 'Choose Difficulty Level'}
-        </label>
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            { id: 'easy', label: isRu ? 'Легко' : 'Easy', desc: isRu ? 'Медленно' : 'Slow speed' },
-            { id: 'medium', label: isRu ? 'Средне' : 'Medium', desc: isRu ? 'Обычный' : 'Normal speed' },
-            { id: 'hard', label: isRu ? 'Сложно' : 'Hard', desc: isRu ? 'Быстро' : 'Fast speed' }
-          ].map(level => (
+      {/* Game Mode & Difficulty Selector Bar */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        {/* Game Mode Selector */}
+        <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 shadow-lg">
+          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 text-center">
+            {isRu ? 'Режим игры' : 'Game Mode'}
+          </label>
+          <div className="grid grid-cols-2 gap-2">
             <button
-              key={level.id}
-              onClick={() => onChangeDifficulty(level.id)}
-              className={`p-2.5 rounded-xl text-center border transition-all ${
-                difficulty === level.id
-                  ? 'bg-indigo-600 border-indigo-400 text-white shadow-md shadow-indigo-500/30 scale-105 font-bold'
-                  : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:text-white hover:bg-slate-700/50'
+              onClick={() => onChangeGameMode && onChangeGameMode('falling')}
+              className={`p-2.5 rounded-xl text-center border transition-all flex flex-col items-center justify-center gap-1 ${
+                gameMode === 'falling'
+                  ? 'bg-indigo-600 border-indigo-400 text-white shadow-md shadow-indigo-500/30 scale-102 font-bold'
+                  : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:text-white'
               }`}
             >
-              <div className="text-sm">{level.label}</div>
-              <div className="text-[10px] opacity-75">{level.desc}</div>
+              <CloudRain className="w-4 h-4" />
+              <div className="text-xs">{isRu ? 'Падающие слова' : 'Falling Words'}</div>
             </button>
-          ))}
+            <button
+              onClick={() => onChangeGameMode && onChangeGameMode('choice')}
+              className={`p-2.5 rounded-xl text-center border transition-all flex flex-col items-center justify-center gap-1 ${
+                gameMode === 'choice'
+                  ? 'bg-indigo-600 border-indigo-400 text-white shadow-md shadow-indigo-500/30 scale-102 font-bold'
+                  : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:text-white'
+              }`}
+            >
+              <CheckSquare className="w-4 h-4" />
+              <div className="text-xs">{isRu ? '4 Варианта ответа' : '4-Choice Quiz'}</div>
+            </button>
+          </div>
+        </div>
+
+        {/* Difficulty Selector */}
+        <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 shadow-lg">
+          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 text-center">
+            {isRu ? 'Сложность' : 'Difficulty'}
+          </label>
+          <div className="grid grid-cols-3 gap-1.5">
+            {[
+              { id: 'easy', label: isRu ? 'Легко' : 'Easy' },
+              { id: 'medium', label: isRu ? 'Средне' : 'Medium' },
+              { id: 'hard', label: isRu ? 'Сложно' : 'Hard' }
+            ].map(level => (
+              <button
+                key={level.id}
+                onClick={() => onChangeDifficulty(level.id)}
+                className={`p-2.5 rounded-xl text-center border transition-all ${
+                  difficulty === level.id
+                    ? 'bg-indigo-600 border-indigo-400 text-white font-bold scale-102 shadow'
+                    : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:text-white'
+                }`}
+              >
+                <div className="text-xs">{level.label}</div>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -233,7 +268,7 @@ export default function TopicSelector({
                           <span className="text-emerald-400 font-bold">{item.answer}</span>
                         </div>
                         <button
-                          onClick={() => onToggleWordIssue(topic.id, item.id)}
+                          onClick={() => onToggleWordIssue && onToggleWordIssue(topic.id, item.id)}
                           className={`p-1 rounded transition flex-shrink-0 ${
                             item.hasIssue ? 'bg-amber-500/30 text-amber-300 border border-amber-500/50' : 'text-slate-500 hover:text-amber-400'
                           }`}
