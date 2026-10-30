@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
-import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Info } from 'lucide-react';
-import { checkAnswerMatch, normalizeText } from '../utils/textNormalizer';
+import { Heart, Zap, Snowflake, Bomb, Pause, Play, RotateCcw, Volume2, VolumeX, ShieldAlert, Award, Sparkles, BookOpen, CheckCircle2, ArrowRight, Thermometer, Info, Download, ArrowRightLeft, FileJson } from 'lucide-react';
+import { checkAnswerMatch } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
+import { exportTopicAsJson } from '../utils/jsonExporter';
 import ParticleCanvas, { createBurstParticles } from './ParticleCanvas';
 
 const DIFFICULTY_SETTINGS = {
@@ -37,9 +38,20 @@ const DIFFICULTY_SETTINGS = {
   }
 };
 
-export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToTopics, soundMuted, onToggleSound, lang = 'ru' }) {
+export default function FallingWordsGame({
+  topic,
+  difficulty = 'easy',
+  onBackToTopics,
+  soundMuted,
+  onToggleSound,
+  onUpdateTopicStats,
+  lang = 'ru'
+}) {
   const isRu = lang === 'ru';
   const config = DIFFICULTY_SETTINGS[difficulty] || DIFFICULTY_SETTINGS.easy;
+
+  // Direction state: 'normal' (prompt -> answer) or 'reverse' (answer -> prompt)
+  const [testDirection, setTestDirection] = useState('normal');
 
   // Game State
   const [gameState, setGameState] = useState('ready'); // 'ready', 'playing', 'paused', 'gameover', 'victory', 'practice'
@@ -52,6 +64,13 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
   const [multiplier, setMultiplier] = useState(1);
   const [wordsCleared, setWordsCleared] = useState(0);
   const [missedWords, setMissedWords] = useState([]);
+
+  // Topic items stats copy for tracking performance during session
+  const [topicStats, setTopicStats] = useState(topic);
+
+  useEffect(() => {
+    setTopicStats(topic);
+  }, [topic]);
 
   // Practice Mode State
   const [practiceList, setPracticeList] = useState([]);
@@ -97,9 +116,38 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     }
   }, [gameState]);
 
+  // Record item performance (correct vs incorrect)
+  const recordWordPerformance = (itemId, isCorrect) => {
+    setTopicStats(prevTopic => {
+      if (!prevTopic || !prevTopic.items) return prevTopic;
+
+      const updatedItems = prevTopic.items.map(item => {
+        if (item.id === itemId) {
+          const timesCorrect = (item.timesCorrect || 0) + (isCorrect ? 1 : 0);
+          const timesIncorrect = (item.timesIncorrect || 0) + (isCorrect ? 0 : 1);
+          const status = timesCorrect > timesIncorrect ? 'known' : 'need_practice';
+
+          return {
+            ...item,
+            timesCorrect,
+            timesIncorrect,
+            status
+          };
+        }
+        return item;
+      });
+
+      const updatedTopic = { ...prevTopic, items: updatedItems };
+      if (onUpdateTopicStats) {
+        onUpdateTopicStats(updatedTopic);
+      }
+      return updatedTopic;
+    });
+  };
+
   // Start / Reset Game
   const startGame = () => {
-    const items = [...topic.items].sort(() => Math.random() - 0.5);
+    const items = [...topicStats.items].sort(() => Math.random() - 0.5);
     queueRef.current = items;
     activeWordsRef.current = [];
     setActiveWords([]);
@@ -133,10 +181,11 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     if (!practiceInput.trim()) return;
 
     const currentWord = practiceList[practiceIndex];
-    const isMatch = checkAnswerMatch(practiceInput, [currentWord.answer, ...(currentWord.acceptableAnswers || [])]);
+    const isMatch = checkAnswerMatch(practiceInput, currentWord.acceptableTargetAnswers);
 
     if (isMatch) {
       soundFx.playCorrect(2);
+      recordWordPerformance(currentWord.originalItemId, true);
       setPracticeFeedback({ isCorrect: true, msg: isRu ? 'Отлично! (Puikiai!)' : 'Perfect! (Puikiai!)' });
 
       setTimeout(() => {
@@ -152,9 +201,10 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       }, 1000);
     } else {
       soundFx.playWordHitBottom();
+      recordWordPerformance(currentWord.originalItemId, false);
       setPracticeFeedback({
         isCorrect: false,
-        msg: isRu ? `Неправильно. (Ответ: ${currentWord.answer})` : `Incorrect. (Answer: ${currentWord.answer})`
+        msg: isRu ? `Неправильно. (Ответ: ${currentWord.targetAnswer})` : `Incorrect. (Answer: ${currentWord.targetAnswer})`
       });
     }
   };
@@ -202,15 +252,10 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
         const overflowWord = activeWordsRef.current[0];
         if (overflowWord) {
           soundFx.playWordHitBottom();
+          recordWordPerformance(overflowWord.originalItemId, false);
           setMissedWords(prev => {
             if (!prev.some(m => m.prompt === overflowWord.prompt)) {
-              return [...prev, {
-                prompt: overflowWord.prompt,
-                answer: overflowWord.answer,
-                hint: overflowWord.hint,
-                rule: overflowWord.rule,
-                rule_ru: overflowWord.rule_ru
-              }];
+              return [...prev, overflowWord];
             }
             return prev;
           });
@@ -228,7 +273,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     }
 
     if (queueRef.current.length === 0) {
-      queueRef.current = [...topic.items].sort(() => Math.random() - 0.5);
+      queueRef.current = [...topicStats.items].sort(() => Math.random() - 0.5);
     }
 
     const item = queueRef.current.shift();
@@ -257,8 +302,17 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
       posY = -60;
     }
 
-    // Always use Lithuanian phrase prompt
-    const wordPrompt = item.prompt;
+    // Determine displayed card prompt and target typed answer based on testDirection
+    const displayPrompt = testDirection === 'reverse' ? item.answer : item.prompt;
+    const targetAnswer = testDirection === 'reverse' ? item.prompt : item.answer;
+    const acceptableTargetAnswers = testDirection === 'reverse'
+      ? [item.prompt]
+      : (item.acceptableAnswers || [item.answer]);
+
+    let displayHint = item.hint || '';
+    if (testDirection === 'reverse' && targetAnswer.length > 2) {
+      displayHint = targetAnswer.substring(0, 2) + '...';
+    }
 
     const vxDir = Math.random() < 0.5 ? -1 : 1;
     const vyDir = Math.random() < 0.5 ? -1 : 1;
@@ -267,10 +321,11 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
     const newWord = {
       id: `${item.id}-${Date.now()}-${Math.random()}`,
-      prompt: wordPrompt,
-      answer: item.answer,
-      acceptableAnswers: item.acceptableAnswers || [item.answer],
-      hint: item.hint || '',
+      originalItemId: item.id,
+      prompt: displayPrompt,
+      targetAnswer,
+      acceptableTargetAnswers,
+      hint: displayHint,
       rule: item.rule || '',
       rule_ru: item.rule_ru || '',
       x: posX,
@@ -311,15 +366,10 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
               if (nextY >= gameHeight - 90) {
                 lostLives++;
                 soundFx.playWordHitBottom();
+                recordWordPerformance(word.originalItemId, false);
                 setMissedWords(prevMissed => {
                   if (!prevMissed.some(m => m.prompt === word.prompt)) {
-                    return [...prevMissed, {
-                      prompt: word.prompt,
-                      answer: word.answer,
-                      hint: word.hint,
-                      rule: word.rule,
-                      rule_ru: word.rule_ru
-                    }];
+                    return [...prevMissed, word];
                   }
                   return prevMissed;
                 });
@@ -392,11 +442,13 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
     if (gameState !== 'playing' || !value.trim()) return;
 
     const matchedIndex = activeWords.findIndex(word =>
-      checkAnswerMatch(value, word.acceptableAnswers)
+      checkAnswerMatch(value, word.acceptableTargetAnswers)
     );
 
     if (matchedIndex !== -1) {
       const matchedWord = activeWords[matchedIndex];
+
+      recordWordPerformance(matchedWord.originalItemId, true);
 
       const basePoints = 100;
       const earnedPoints = basePoints * multiplier;
@@ -467,6 +519,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
     const bombParticles = [];
     activeWords.forEach(word => {
+      recordWordPerformance(word.originalItemId, true);
       bombParticles.push(...createBurstParticles(word.x + 100, word.y + 30, 20, '#ef4444'));
     });
     setParticles(bombParticles);
@@ -627,15 +680,37 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
           })}
 
         {gameState === 'ready' && (
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30">
-            <Sparkles className="w-16 h-16 text-indigo-400 mb-4 animate-pulse" />
-            <h2 className="text-3xl font-extrabold text-white mb-2">{topicTitle}</h2>
-            <p className="text-slate-300 max-w-md mb-2">{topicInstructions}</p>
-            <p className="text-amber-300 text-xs font-semibold mb-6">{isRu ? config.desc_ru : config.desc_en}</p>
+          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-30 space-y-4">
+            <Sparkles className="w-14 h-14 text-indigo-400 animate-pulse" />
+            <h2 className="text-3xl font-extrabold text-white">{topicTitle}</h2>
+            <p className="text-slate-300 max-w-md text-sm">{topicInstructions}</p>
+            <p className="text-amber-300 text-xs font-semibold">{isRu ? config.desc_ru : config.desc_en}</p>
+
+            {/* Translation Direction Selection Toggle */}
+            <div className="bg-slate-900/90 border border-slate-700/80 p-3 rounded-xl flex items-center gap-3">
+              <span className="text-xs text-slate-400 font-bold uppercase">{isRu ? 'Направление:' : 'Direction:'}</span>
+              <button
+                onClick={() => setTestDirection('normal')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                  testDirection === 'normal' ? 'bg-indigo-600 text-white shadow' : 'bg-slate-800 text-slate-400 hover:text-white'
+                }`}
+              >
+                {isRu ? 'Прямой (Слово → Перевод)' : 'Normal (Word → Translation)'}
+              </button>
+              <button
+                onClick={() => setTestDirection('reverse')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 ${
+                  testDirection === 'reverse' ? 'bg-indigo-600 text-white shadow' : 'bg-slate-800 text-slate-400 hover:text-white'
+                }`}
+              >
+                <ArrowRightLeft className="w-3.5 h-3.5" />
+                {isRu ? 'Обратный (Перевод → Слово)' : 'Reverse (Translation → Word)'}
+              </button>
+            </div>
 
             <button
               onClick={startGame}
-              className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg px-8 py-3.5 rounded-2xl shadow-lg shadow-indigo-500/30 hover:scale-105 active:scale-95 transition-all"
+              className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg px-8 py-3 rounded-2xl shadow-lg shadow-indigo-500/30 hover:scale-105 active:scale-95 transition-all"
             >
               {isRu ? 'Начать игру! 🚀' : 'Start Game! 🚀'}
             </button>
@@ -673,7 +748,7 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
 
               {practiceIndex < practiceList.length ? (
                 <div>
-                  <div className="text-sm text-slate-400 mb-1">{isRu ? 'Введите правильный ответ на литовском:' : 'Fill in the correct Lithuanian answer:'}</div>
+                  <div className="text-sm text-slate-400 mb-1">{isRu ? 'Введите правильный ответ:' : 'Fill in the correct answer:'}</div>
                   <div className="text-2xl font-black text-white mb-3 text-glow">
                     {practiceList[practiceIndex].prompt}
                   </div>
@@ -742,12 +817,12 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
         )}
 
         {gameState === 'gameover' && (
-          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 animate-fadeIn">
-            <ShieldAlert className="w-16 h-16 text-red-500 mb-2 animate-bounce-short" />
-            <h2 className="text-3xl font-black text-red-400 mb-1">{isRu ? 'Игра окончена!' : 'Game Over!'}</h2>
-            <p className="text-slate-400 mb-6">{isRu ? 'Не переживайте, повторение — мать учения!' : "Don't worry, practice makes perfect!"}</p>
+          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center z-30 animate-fadeIn overflow-y-auto">
+            <ShieldAlert className="w-14 h-14 text-red-500 mb-2 animate-bounce-short" />
+            <h2 className="text-2xl font-black text-red-400 mb-1">{isRu ? 'Игра окончена!' : 'Game Over!'}</h2>
+            <p className="text-slate-400 text-xs mb-4">{isRu ? 'Повторение — мать учения! Экспортируйте слова для занятий.' : 'Practice makes perfect! Export JSON words to practice.'}</p>
 
-            <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 w-full max-w-sm mb-6 space-y-3 font-mono text-sm">
+            <div className="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 w-full max-w-sm mb-4 space-y-2 font-mono text-xs">
               <div className="flex justify-between">
                 <span className="text-slate-400">{isRu ? 'Финальный счёт:' : 'Final Score:'}</span>
                 <span className="text-amber-400 font-bold">{score}</span>
@@ -760,51 +835,53 @@ export default function FallingWordsGame({ topic, difficulty = 'easy', onBackToT
                 <span className="text-slate-400">{isRu ? 'Макс. серия:' : 'Max Streak:'}</span>
                 <span className="text-emerald-400 font-bold">{maxStreak}x</span>
               </div>
-              <div className="flex justify-between border-t border-slate-700 pt-2">
-                <span className="text-slate-400">{isRu ? 'Личный рекорд:' : 'Personal Best:'}</span>
-                <span className="text-amber-300 font-bold">{highScore}</span>
-              </div>
-
-              {missedWords.length > 0 && (
-                <div className="mt-4 pt-3 border-t border-slate-700 text-left font-sans">
-                  <div className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-                    <span>📖 {isRu ? 'Пропущенные слова' : 'Missed Words'} ({missedWords.length})</span>
-                  </div>
-                  <div className="max-h-40 overflow-y-auto space-y-2 pr-1 mb-3">
-                    {missedWords.map((item, idx) => (
-                      <div key={idx} className="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700/60 text-xs">
-                        <div className="text-slate-300 font-medium">{item.prompt}</div>
-                        <div className="text-emerald-400 font-bold mt-0.5">{isRu ? 'Ответ:' : 'Answer:'} {item.answer}</div>
-                        {(item.rule_ru || item.rule) && (
-                          <div className="text-[11px] text-indigo-300 mt-1 bg-indigo-950/60 p-1.5 rounded border border-indigo-800/40">
-                            <span className="font-bold text-amber-300">💡 {isRu ? 'Правило:' : 'Rule:'}</span>{' '}
-                            {isRu ? item.rule_ru : (item.rule || item.rule_ru)}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={startPracticeMode}
-                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
-                  >
-                    <BookOpen className="w-4 h-4" /> {isRu ? 'Учить пропущенные слова (без времени)' : 'Practice Missed Words (Untimed)'}
-                  </button>
-                </div>
-              )}
             </div>
 
-            <div className="flex gap-4">
+            {/* Client-Side Export Buttons Bar */}
+            <div className="bg-slate-900/90 border border-slate-700/80 p-3 rounded-xl w-full max-w-sm mb-4 space-y-2">
+              <div className="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center justify-center gap-1.5">
+                <Download className="w-3.5 h-3.5 text-indigo-400" />
+                <span>{isRu ? 'Экспорт результатов (JSON):' : 'Export Results (JSON):'}</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <button
+                  onClick={() => exportTopicAsJson(topicStats, 'need_practice')}
+                  className="bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 py-2 px-2.5 rounded-lg font-semibold transition flex items-center justify-center gap-1"
+                >
+                  <FileJson className="w-3.5 h-3.5" />
+                  <span>{isRu ? 'Повторить' : 'Need Practice'}</span>
+                </button>
+                <button
+                  onClick={() => exportTopicAsJson(topicStats, 'known')}
+                  className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 py-2 px-2.5 rounded-lg font-semibold transition flex items-center justify-center gap-1"
+                >
+                  <FileJson className="w-3.5 h-3.5" />
+                  <span>{isRu ? 'Выученные' : 'Mastered'}</span>
+                </button>
+              </div>
+            </div>
+
+            {missedWords.length > 0 && (
+              <div className="w-full max-w-sm mb-4">
+                <button
+                  onClick={startPracticeMode}
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md"
+                >
+                  <BookOpen className="w-4 h-4" /> {isRu ? `Учить пропущенные слова (${missedWords.length}) без времени` : `Practice Missed Words (${missedWords.length}) Untimed`}
+                </button>
+              </div>
+            )}
+
+            <div className="flex gap-3">
               <button
                 onClick={startGame}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-lg shadow-indigo-500/20"
+                className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2 shadow-lg shadow-indigo-500/20"
               >
-                <RotateCcw className="w-5 h-5" /> {isRu ? 'Попробовать снова' : 'Try Again'}
+                <RotateCcw className="w-4 h-4" /> {isRu ? 'Попробовать снова' : 'Try Again'}
               </button>
               <button
                 onClick={onBackToTopics}
-                className="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-6 py-3 rounded-xl transition"
+                className="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold px-5 py-2.5 rounded-xl text-sm transition"
               >
                 {isRu ? 'Сменить тему' : 'Change Topic'}
               </button>
