@@ -1,0 +1,3862 @@
+[
+  {
+    "id": "ch-1",
+    "book": 1,
+    "chapter": 1,
+    "level": "A1.1",
+    "title": "Koks jūsų vardas?",
+    "title_ru": "Как вас зовут?",
+    "title_en": "What is your name?",
+    "summary_ru": "Знакомство, приветствия, личные местоимения, род существительных и важнейший глагол būti (быть).",
+    "summary_en": "Introductions, greetings, pronouns, noun genders, and the verb būti.",
+    "grammar": [
+      {
+        "topic": "1. Личные местоимения (Asmeniniai įvardžiai)",
+        "explanation_ru": "В литовском языке местоимения понятны и логичны. Обратите внимание: для вежливого обращения к одному человеку или к группе людей используется 'jūs' (Вы). В 3-м лице во множественном числе есть разделение: jie (они мужчины или мужчины и женщины) и jos (только женщины).",
+        "table": [
+          {
+            "lt": "aš",
+            "ru": "я",
+            "note": "1-е лицо ед.ч."
+          },
+          {
+            "lt": "tu",
+            "ru": "ты",
+            "note": "2-е лицо ед.ч."
+          },
+          {
+            "lt": "jis",
+            "ru": "он",
+            "note": "3-е лицо муж.р."
+          },
+          {
+            "lt": "ji",
+            "ru": "она",
+            "note": "3-е лицо жен.р."
+          },
+          {
+            "lt": "mes",
+            "ru": "мы",
+            "note": "1-е лицо мн.ч."
+          },
+          {
+            "lt": "jūs",
+            "ru": "вы / Вы",
+            "note": "2-е лицо мн.ч. или вежливо к одному"
+          },
+          {
+            "lt": "jie",
+            "ru": "они (мужчины/смешанные)",
+            "note": "3-е лицо мн.ч."
+          },
+          {
+            "lt": "jos",
+            "ru": "они (только женщины)",
+            "note": "3-е лицо мн.ч."
+          }
+        ]
+      },
+      {
+        "topic": "2. Глагол būti (быть) в настоящем времени",
+        "explanation_ru": "В русском языке связка 'быть' обычно опускается («Я студент»), но в литовском она ВСЕГДА произносится: «Aš esu studentas». В отрицании частица ne- пишется слитно с глаголом: nesu, nesi, nėra. Форма 3-го лица (yra / nėra) не меняется — она одинакова и для 'он/она', и для 'они'!",
+        "table": [
+          {
+            "lt": "aš esu / nesu",
+            "ru": "я есть / не есть",
+            "note": "Aš esu Tomas."
+          },
+          {
+            "lt": "tu esi / nesi",
+            "ru": "ты есть / не есть",
+            "note": "Tu esi studentė."
+          },
+          {
+            "lt": "jis, ji yra / nėra",
+            "ru": "он, она есть / не есть",
+            "note": "Ji yra dėstytoja."
+          },
+          {
+            "lt": "mes esame / nesame",
+            "ru": "мы есть / не есть",
+            "note": "Mes esame čia."
+          },
+          {
+            "lt": "jūs esate / nesate",
+            "ru": "вы есть / не есть",
+            "note": "Ar jūs esate Lina?"
+          },
+          {
+            "lt": "jie, jos yra / nėra",
+            "ru": "они есть / не есть",
+            "note": "Jie yra studentai."
+          }
+        ]
+      },
+      {
+        "topic": "3. Род существительных (Giminė)",
+        "explanation_ru": "Мужской род (Vyriškoji giminė) обычно заканчивается на согласный + s: -as (Tomas), -is (brolis), -ys (Kastytis), -us (Paulius).\nЖенский род (Moteriškoji giminė) оканчивается на гласные: -a (Lina, mama) и -ė (Eglė, studentė).\nНазвания профессий и национальностей парные: studentas (студент) / studentė (студентка), lietuvis (литовец) / lietuvė (литовка).",
+        "table": [
+          {
+            "lt": "studentas / studentė",
+            "ru": "студент / студентка",
+            "note": "окончания -as / -ė"
+          },
+          {
+            "lt": "dėstytojas / dėstytoja",
+            "ru": "преподаватель / преподавательница",
+            "note": "окончания -as / -a"
+          },
+          {
+            "lt": "lietuvis / lietuvė",
+            "ru": "литовец / литовка",
+            "note": "окончания -is / -ė"
+          },
+          {
+            "lt": "lenkas / lenkė",
+            "ru": "поляк / полька",
+            "note": "окончания -as / -ė"
+          }
+        ]
+      },
+      {
+        "topic": "4. Вопросительные слова Kas (Кто/Что) и Ar (Ли)",
+        "explanation_ru": "Вопросительное слово 'Kas' универсально означает и 'Кто', и 'Что'.\nЧастица 'Ar' начинает вопросы, требующие ответа «да» (taip) или «нет» (ne): «Ar jūs esate studentas?» (Вы студент?).",
+        "table": [
+          {
+            "lt": "Kas jūs esate?",
+            "ru": "Кто вы?",
+            "note": "– Aš esu dėstytoja."
+          },
+          {
+            "lt": "Ar tu esi Lina?",
+            "ru": "Ты Лина? (Да/Нет)",
+            "note": "– Taip, aš esu Lina."
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Susipažinimas (Знакомство)",
+        "lines": [
+          {
+            "speaker": "Tomas",
+            "lt": "Labas rytas! Mano vardas Tomas. O koks jūsų vardas?",
+            "ru": "Доброе утро! Меня зовут Томас. А как ваше имя?"
+          },
+          {
+            "speaker": "Rasa",
+            "lt": "Labas rytas, Tomai! Mano vardas yra Rasa. Labai malonu.",
+            "ru": "Доброе утро, Томас! Мое имя — Раса. Очень приятно."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Man taip pat labai malonu! Ar jūs esate studentė?",
+            "ru": "Мне тоже очень приятно! Вы студентка?"
+          },
+          {
+            "speaker": "Rasa",
+            "lt": "Taip, aš esu studentė. O kas jūs esate?",
+            "ru": "Да, я студентка. А кто вы?"
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Aš taip pat esu studentas. Aš esu estas iš Talino.",
+            "ru": "Я тоже студент. Я эстонец из Таллина."
+          }
+        ]
+      },
+      {
+        "title": "Atsiprašymas (Извинения)",
+        "lines": [
+          {
+            "speaker": "Andrius",
+            "lt": "Atsiprašau, ar jūs esate dėstytojas Povilas?",
+            "ru": "Прошу прощения, вы преподаватель Повилас?"
+          },
+          {
+            "speaker": "Povilas",
+            "lt": "Ne, aš nesu dėstytojas. Aš esu studentas.",
+            "ru": "Нет, я не преподаватель. Я студент."
+          },
+          {
+            "speaker": "Andrius",
+            "lt": "Atsiprašau!",
+            "ru": "Извините!"
+          },
+          {
+            "speaker": "Povilas",
+            "lt": "Nieko tokio! Viskas gerai.",
+            "ru": "Ничего страшного! Всё в порядке."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Labas rytas",
+        "translation": "Доброе утро",
+        "transcription": "Ла́бас ри́тас",
+        "category": "Приветствие"
+      },
+      {
+        "word": "Laba diena",
+        "translation": "Добрый день",
+        "transcription": "Лаба́ дена́",
+        "category": "Приветствие"
+      },
+      {
+        "word": "Labas vakaras",
+        "translation": "Добрый вечер",
+        "transcription": "Ла́бас ва́карас",
+        "category": "Приветствие"
+      },
+      {
+        "word": "Labas",
+        "translation": "Привет",
+        "transcription": "Ла́бас",
+        "category": "Приветствие"
+      },
+      {
+        "word": "Viso gero",
+        "translation": "До свидания / Всего хорошего",
+        "transcription": "Ви́со гя́ро",
+        "category": "Прощание"
+      },
+      {
+        "word": "Iki pasimatymo",
+        "translation": "До встречи",
+        "transcription": "Ики́ пасимати́мо",
+        "category": "Прощание"
+      },
+      {
+        "word": "Ačiū",
+        "translation": "Спасибо",
+        "transcription": "А́чу",
+        "category": "Вежливость"
+      },
+      {
+        "word": "Prašom",
+        "translation": "Пожалуйста",
+        "transcription": "Пра́шом",
+        "category": "Вежливость"
+      },
+      {
+        "word": "Atsiprašau",
+        "translation": "Прошу прощения / Извините",
+        "transcription": "Аципраша́у",
+        "category": "Вежливость"
+      },
+      {
+        "word": "Nieko tokio",
+        "translation": "Ничего страшного",
+        "transcription": "Не́ко то́кё",
+        "category": "Вежливость"
+      },
+      {
+        "word": "vardas",
+        "translation": "имя",
+        "transcription": "ва́рдас",
+        "category": "Существительное"
+      },
+      {
+        "word": "pavardė",
+        "translation": "фамилия",
+        "transcription": "паварде́",
+        "category": "Существительное"
+      },
+      {
+        "word": "studentas",
+        "translation": "студент",
+        "transcription": "студя́нтас",
+        "category": "Профессия"
+      },
+      {
+        "word": "studentė",
+        "translation": "студентка",
+        "transcription": "студя́нте",
+        "category": "Профессия"
+      },
+      {
+        "word": "dėstytojas",
+        "translation": "преподаватель",
+        "transcription": "де́ститояс",
+        "category": "Профессия"
+      },
+      {
+        "word": "dėstytoja",
+        "translation": "преподавательница",
+        "transcription": "де́ститоя",
+        "category": "Профессия"
+      },
+      {
+        "word": "taip",
+        "translation": "да",
+        "transcription": "тайп",
+        "category": "Частица"
+      },
+      {
+        "word": "ne",
+        "translation": "нет",
+        "transcription": "ня",
+        "category": "Частица"
+      },
+      {
+        "word": "labai malonu",
+        "translation": "очень приятно",
+        "transcription": "лаба́й малону́",
+        "category": "Знакомство"
+      },
+      {
+        "word": "kas",
+        "translation": "кто / что",
+        "transcription": "кас",
+        "category": "Вопрос"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «Я студентка»?",
+        "options": [
+          "Aš esu studentė.",
+          "Aš esi studentė.",
+          "Aš yra studentė.",
+          "Aš esame studentė."
+        ],
+        "answer": "Aš esu studentė.",
+        "explanation": "С местоимением 'aš' (я) глагол būti имеет форму 'esu'."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму būti: «Mes ________ studentai.» (Мы студенты)",
+        "answer": "esame",
+        "hint": "Форма для mes",
+        "explanation": "Для 'mes' правильная форма глагола būti — 'esame'."
+      },
+      {
+        "type": "mc",
+        "question": "Выберите правильный вопрос к ответу: «Mano vardas Tomas.»",
+        "options": [
+          "Koks tavo vardas?",
+          "Kas tu esi?",
+          "Ar tu studentas?",
+          "Kokia tavo pavardė?"
+        ],
+        "answer": "Koks tavo vardas?",
+        "explanation": "Вопрос о том, как зовут: 'Koks tavo vardas?'."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте отрицание: «Aš ________ lietuvis, aš esu latvis.» (Я не литовец)",
+        "answer": "nesu",
+        "hint": "Отрицание būti для aš",
+        "explanation": "Отрицательная форма būti для 1 лица ед. ч. (aš) — 'nesu'."
+      },
+      {
+        "type": "mc",
+        "question": "Какое существительное женского рода (Moteriškoji giminė)?",
+        "options": [
+          "dėstytoja",
+          "studentas",
+          "Igoris",
+          "sūnus"
+        ],
+        "answer": "dėstytoja",
+        "explanation": "Окончание -a указывает на женский род (dėstytoja)."
+      },
+      {
+        "type": "fill",
+        "question": "С какой частицы начинается общий вопрос: «________ jūs esate Lina?»",
+        "answer": "Ar",
+        "hint": "Частица 'Ли'",
+        "explanation": "Общие вопросы в литовском языке начинаются с частицы 'Ar'."
+      }
+    ]
+  },
+  {
+    "id": "ch-2",
+    "book": 1,
+    "chapter": 2,
+    "level": "A1.1",
+    "title": "Čia mano draugas",
+    "title_ru": "Это мой друг",
+    "title_en": "Here is my friend",
+    "summary_ru": "Звательный падеж (обращение по имени), происхождение с предлогом iš + Kilmininkas (родительный падеж), спряжение глаголов настоящего времени на -a и языки на -iškai.",
+    "summary_en": "Vocative case for greetings, origin with iš + Genitive, present tense -a verbs, and adverbs for languages.",
+    "grammar": [
+      {
+        "topic": "1. Звательный падеж (Šauksmininkas) — как правильно обращаться по имени",
+        "explanation_ru": "В литовском языке при обращении к человеку окончание имени ВСЕГДА меняется! Нельзя сказать 'Labas, Jonas', обязательно нужно использовать звательную форму:\n• -as переходит в -ai: Jonas → Jonai! Tomas → Tomai!\n• -is переходит в -i: Igoris → Igori!\n• -ys переходит в -y: Balys → Baly!\n• -us переходит в -au: Paulius → Pauliau! Andrius → Andriau!\n• -ė переходит в -e: Eglė → Egle!\n• -a остаётся -a: Lina → Lina!\nИсключение: вежливое 'ponas' (господин) в звательном падеже имеет форму 'pone': Pone Tomai!",
+        "table": [
+          {
+            "lt": "Tomas → Tomai!",
+            "ru": "Томас → Томас!",
+            "note": "-as переходит в -ai"
+          },
+          {
+            "lt": "Paulius → Pauliau!",
+            "ru": "Паулюс → Паулюс!",
+            "note": "-us переходит в -au"
+          },
+          {
+            "lt": "Igoris → Igori!",
+            "ru": "Игорь → Игорь!",
+            "note": "-is переходит в -i"
+          },
+          {
+            "lt": "Eglė → Egle!",
+            "ru": "Эгле → Эгле!",
+            "note": "-ė переходит в -e"
+          },
+          {
+            "lt": "ponas → pone!",
+            "ru": "господин → господин!",
+            "note": "Laba diena, pone Jonai!"
+          }
+        ]
+      },
+      {
+        "topic": "2. Предлог iš (из) + Родительный падеж (Kilmininkas)",
+        "explanation_ru": "Чтобы сказать, откуда вы («Iš kur jūs esate?»), используется предлог 'iš' + Родительный падеж (Kilmininkas, вопрос Ko? - Кого/Чего):\n• Страны на -ija получают окончание -ijos: Lietuva → Lietuvos, Anglija → Anglijos, Vokietija → Vokietijos, Latvija → Latvijos.\n• Города мужского рода на -as получают -o: Vilnius → Vilniaus, Kaunas → Kauno.\n• Города/страны женского рода на -a получают -os: Ryga → Rygos, Varšuva → Varšuvos.",
+        "table": [
+          {
+            "lt": "Aš esu iš Lietuvos.",
+            "ru": "Я из Литвы.",
+            "note": "Lietuva → Lietuvos"
+          },
+          {
+            "lt": "Jis yra iš Vilniaus.",
+            "ru": "Он из Вильнюса.",
+            "note": "Vilnius → Vilniaus"
+          },
+          {
+            "lt": "Mes esame iš Vokietijos.",
+            "ru": "Мы из Германии.",
+            "note": "Vokietija → Vokietijos"
+          },
+          {
+            "lt": "Ji yra iš Rygos.",
+            "ru": "Она из Риги.",
+            "note": "Ryga → Rygos"
+          }
+        ]
+      },
+      {
+        "topic": "3. Спряжение глаголов типа -a (kalbėti, suprasti)",
+        "explanation_ru": "Глагол kalbėti (говорить) в настоящем времени имеет основу на -a. Посмотрите на окончания: -u (я), -i (ты), -a (он/она/они), -ame (мы), -ate (вы).",
+        "table": [
+          {
+            "lt": "aš kalbu / suprantu",
+            "ru": "я говорю / понимаю",
+            "note": "1 л. ед.ч."
+          },
+          {
+            "lt": "tu kalbi / supranti",
+            "ru": "ты говоришь / понимаешь",
+            "note": "2 л. ед.ч."
+          },
+          {
+            "lt": "jis, ji kalba / supranta",
+            "ru": "он, она говорит / понимает",
+            "note": "3 л. ед.ч."
+          },
+          {
+            "lt": "mes kalbame / suprantame",
+            "ru": "мы говорим / понимаем",
+            "note": "1 л. мн.ч."
+          },
+          {
+            "lt": "jūs kalbate / suprantate",
+            "ru": "вы говорите / понимаете",
+            "note": "2 л. мн.ч."
+          },
+          {
+            "lt": "jie, jos kalba / supranta",
+            "ru": "они говорят / понимают",
+            "note": "3 л. мн.ч."
+          }
+        ]
+      },
+      {
+        "topic": "4. Названия языков (наречия на -iškai)",
+        "explanation_ru": "Когда мы говорим «говорить на каком-то языке», в литовском всегда используется форма наречия с суффиксом -iškai:\n• lietuviškai (по-литовски)\n• angliškai (по-английски)\n• rusiškai (по-русски)\n• vokiškai (по-немецки)\n• lenkiškai (по-польски)",
+        "table": [
+          {
+            "lt": "Ar tu kalbi lietuviškai?",
+            "ru": "Ты говоришь по-литовски?",
+            "note": "– Taip, truputį."
+          },
+          {
+            "lt": "Aš gerai suprantu rusiškai.",
+            "ru": "Я хорошо понимаю по-русски.",
+            "note": "suprasti + adverb"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Kaip sekasi? (Как дела?)",
+        "lines": [
+          {
+            "speaker": "Andrius",
+            "lt": "Labas, Rūta! Kaip sekasi?",
+            "ru": "Привет, Рута! Как дела?"
+          },
+          {
+            "speaker": "Rūta",
+            "lt": "Ačiū, Andriau, puikiai! O kaip tau?",
+            "ru": "Спасибо, Андрюс, отлично! А тебе?"
+          },
+          {
+            "speaker": "Andrius",
+            "lt": "Ačiū, taip pat labai gerai. Čia mano draugas Džonas.",
+            "ru": "Спасибо, тоже отлично. Это мой друг Джон."
+          },
+          {
+            "speaker": "Rūta",
+            "lt": "Labai malonu, Džonai! Iš kur jūs esate?",
+            "ru": "Очень приятно, Джон! Откуда вы?"
+          },
+          {
+            "speaker": "Džonas",
+            "lt": "Aš esu iš Anglijos, iš Londono. O jūs?",
+            "ru": "Я из Англии, из Лондона. А вы?"
+          },
+          {
+            "speaker": "Rūta",
+            "lt": "Aš esu iš Lietuvos, iš Kauno.",
+            "ru": "Я из Литвы, из Каунаса."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Kaip sekasi?",
+        "translation": "Как дела?",
+        "transcription": "Кайп ся́каси",
+        "category": "Приветствие"
+      },
+      {
+        "word": "Ačiū, gerai",
+        "translation": "Спасибо, хорошо",
+        "transcription": "А́чу, гяра́й",
+        "category": "Фраза"
+      },
+      {
+        "word": "puikiai",
+        "translation": "отлично",
+        "transcription": "пу́йкей",
+        "category": "Наречие"
+      },
+      {
+        "word": "labai gerai",
+        "translation": "очень хорошо",
+        "transcription": "лаба́й гяра́й",
+        "category": "Фраза"
+      },
+      {
+        "word": "blogai",
+        "translation": "плохо",
+        "transcription": "блога́й",
+        "category": "Наречие"
+      },
+      {
+        "word": "čia",
+        "translation": "здесь / вот это",
+        "transcription": "чя",
+        "category": "Наречие"
+      },
+      {
+        "word": "draugas",
+        "translation": "друг",
+        "transcription": "дра́угас",
+        "category": "Люди"
+      },
+      {
+        "word": "draugė",
+        "translation": "подруга",
+        "transcription": "дра́уге",
+        "category": "Люди"
+      },
+      {
+        "word": "ponas",
+        "translation": "господин",
+        "transcription": "по́нас",
+        "category": "Обращение"
+      },
+      {
+        "word": "ponia",
+        "translation": "госпожа",
+        "transcription": "поня́",
+        "category": "Обращение"
+      },
+      {
+        "word": "Iš kur?",
+        "translation": "Откуда?",
+        "transcription": "Иш кур?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "iš Lietuvos",
+        "translation": "из Литвы",
+        "transcription": "иш Летуво́с",
+        "category": "Фраза"
+      },
+      {
+        "word": "kalbėti",
+        "translation": "говорить",
+        "transcription": "калбе́ти",
+        "category": "Глагол"
+      },
+      {
+        "word": "suprasti",
+        "translation": "понимать",
+        "transcription": "супра́сти",
+        "category": "Глагол"
+      },
+      {
+        "word": "lietuviškai",
+        "translation": "по-литовски",
+        "transcription": "лету́вишкай",
+        "category": "Язык"
+      },
+      {
+        "word": "angliškai",
+        "translation": "по-английски",
+        "transcription": "а́нглишкай",
+        "category": "Язык"
+      },
+      {
+        "word": "rusiškai",
+        "translation": "по-русски",
+        "transcription": "ру́сишкай",
+        "category": "Язык"
+      },
+      {
+        "word": "vokiškai",
+        "translation": "по-немецки",
+        "transcription": "во́кишкай",
+        "category": "Язык"
+      },
+      {
+        "word": "truputį",
+        "translation": "чуть-чуть / немного",
+        "transcription": "тру́пути",
+        "category": "Наречие"
+      },
+      {
+        "word": "bet",
+        "translation": "но",
+        "transcription": "бят",
+        "category": "Союз"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как правильно обратиться к Jonas в звательном падеже?",
+        "options": [
+          "Labas, Jonai!",
+          "Labas, Jonas!",
+          "Labas, Jonu!",
+          "Labas, Jonie!"
+        ],
+        "answer": "Labas, Jonai!",
+        "explanation": "Мужские имена на -as в звательном падеже получают окончание -ai."
+      },
+      {
+        "type": "fill",
+        "question": "Поставьте имя Paulius в звательный падеж: «Labas rytas, ________!»",
+        "answer": "Pauliau",
+        "hint": "Имена на -us получают окончание -au",
+        "explanation": "Имена на -us в звательном падеже принимают окончание -au."
+      },
+      {
+        "type": "mc",
+        "question": "Выберите верный вариант: «Aš esu iš ________.» (Lietuva)",
+        "options": [
+          "Lietuvos",
+          "Lietuvoje",
+          "Lietuvą",
+          "Lietuva"
+        ],
+        "answer": "Lietuvos",
+        "explanation": "Предлог 'iš' требует формы родительного падежа (Lietuva → Lietuvos)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола kalbėti: «Mes ________ lietuviškai ir angliškai.»",
+        "answer": "kalbame",
+        "hint": "Форма для mes (мы)",
+        "explanation": "Для 'mes' глагол kalbėti имеет окончание -ame: kalbame."
+      },
+      {
+        "type": "mc",
+        "question": "Как перевести «Я немного говорю по-литовски»?",
+        "options": [
+          "Aš truputį kalbu lietuviškai.",
+          "Aš blogai kalbu Lietuva.",
+          "Aš kalbame lietuvis.",
+          "Aš supranti kalba."
+        ],
+        "answer": "Aš truputį kalbu lietuviškai.",
+        "explanation": "'Truputį kalbu lietuviškai' означает 'немного говорю по-литовски'."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте пропущенное слово: «– Kaip sekasi? – Ačiū, ________!» (хорошо)",
+        "answer": "gerai",
+        "hint": "хорошо по-литовски",
+        "explanation": "Стандартный ответ: 'Ačiū, gerai!'."
+      }
+    ]
+  },
+  {
+    "id": "ch-3",
+    "book": 1,
+    "chapter": 3,
+    "level": "A1.1",
+    "title": "Koks tavo adresas?",
+    "title_ru": "Какой твой адрес?",
+    "title_en": "What is your address?",
+    "summary_ru": "Местный падеж (Vietininkas - Kur?), предлог prie + Kilmininkas, числительные 0-100, адреса и телефонные номера.",
+    "summary_en": "Locative case (Vietininkas), preposition prie + Genitive, numbers 0-100, addresses, and phone numbers.",
+    "grammar": [
+      {
+        "topic": "1. Местный падеж (Vietininkas) — где вы живёте? (Kur?)",
+        "explanation_ru": "Чтобы сказать 'где?' (Kur?), в литовском языке используется местный падеж (Vietininkas) без предлогов:\n• Мужской род: Vilnius → Vilniuje, Kaunas → Kaune, bendrabutis → bendrabutyje, kambarys → kambaryje.\n• Женский род: Lietuva → Lietuvoje, gatvė → gatvėje, Palanga → Palangoje, mokykla → mokykloje.",
+        "table": [
+          {
+            "lt": "Vilnius → Vilniuje",
+            "ru": "Вильнюс → в Вильнюсе",
+            "note": "окончание -e / -yje"
+          },
+          {
+            "lt": "Kaunas → Kaune",
+            "ru": "Каунас → в Каунасе",
+            "note": "окончание -e"
+          },
+          {
+            "lt": "Lietuva → Lietuvoje",
+            "ru": "Литва → в Литве",
+            "note": "окончание -oje"
+          },
+          {
+            "lt": "Vilniaus gatvė → Vilniaus gatvėje",
+            "ru": "улица Вильняус → на улице Вильняус",
+            "note": "окончание -ėje"
+          }
+        ]
+      },
+      {
+        "topic": "2. Предлог prie (возле / около) + Kilmininkas",
+        "explanation_ru": "Предлог 'prie' переводится как 'около, рядом с, у' и всегда требует родительного падежа (Ko?):\n• prie parko (у парка, parkas → parko)\n• prie universiteto (у университета, universitetas → universiteto)\n• prie stoties (у вокзала, stotis → stoties)",
+        "table": [
+          {
+            "lt": "Aš gyvenu prie parko.",
+            "ru": "Я живу возле парка.",
+            "note": "parkas → parko"
+          },
+          {
+            "lt": "Namas yra prie upės.",
+            "ru": "Дом находится у реки.",
+            "note": "upė → upės"
+          }
+        ]
+      },
+      {
+        "topic": "3. Числительные 0–20 (Skaitvardžiai)",
+        "explanation_ru": "Счет от 0 до 10: nulis (0), vienas (1), du (2), trys (3), keturi (4), penki (5), šeši (6), septyni (7), aštuoni (8), devyni (9), dešimt (10).\nОт 11 до 19 добавляется суффикс -lika: vienuolika (11), dvylika (12), trylika (13), keturiolika (14)... dvidešimt (20).",
+        "table": [
+          {
+            "lt": "vienas, du, trys",
+            "ru": "один, два, три",
+            "note": "1, 2, 3"
+          },
+          {
+            "lt": "keturi, penki, šeši",
+            "ru": "четыре, пять, шесть",
+            "note": "4, 5, 6"
+          },
+          {
+            "lt": "septyni, aštuoni, devyni, dešimt",
+            "ru": "семь, восемь, девять, десять",
+            "note": "7, 8, 9, 10"
+          },
+          {
+            "lt": "vienuolika, dvylika ... dvidešimt",
+            "ru": "одиннадцать, двенадцать ... двадцать",
+            "note": "11-20"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Adresas ir telefonas (Адрес и телефон)",
+        "lines": [
+          {
+            "speaker": "Lina",
+            "lt": "Kur tu gyveni, Tomai?",
+            "ru": "Где ты живешь, Томас?"
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Aš gyvenu Vilniuje, Gedimino prospekte, dešimtame name.",
+            "ru": "Я живу в Вильнюсе, на проспекте Гедиминаса, в десятом доме."
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Koks tavo telefono numeris?",
+            "ru": "Какой твой номер телефона?"
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Mano numeris yra +370 612 34567. O koks tavo adresas?",
+            "ru": "Мой номер +370 612 34567. А какой твой адрес?"
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Aš gyvenu Kaune, prie universiteto.",
+            "ru": "Я живу в Каунасе, возле университета."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Kur?",
+        "translation": "Где?",
+        "transcription": "Кур?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "gyventi",
+        "translation": "жить",
+        "transcription": "гивя́нти",
+        "category": "Глагол"
+      },
+      {
+        "word": "adresas",
+        "translation": "адрес",
+        "transcription": "а́дрясас",
+        "category": "Город"
+      },
+      {
+        "word": "gatvė",
+        "translation": "улица",
+        "transcription": "га́тве",
+        "category": "Город"
+      },
+      {
+        "word": "namas",
+        "translation": "дом",
+        "transcription": "на́мас",
+        "category": "Город"
+      },
+      {
+        "word": "butas",
+        "translation": "квартира",
+        "transcription": "бу́тас",
+        "category": "Город"
+      },
+      {
+        "word": "miestas",
+        "translation": "город",
+        "transcription": "ме́стас",
+        "category": "Город"
+      },
+      {
+        "word": "prie",
+        "translation": "около / возле / у",
+        "transcription": "пре",
+        "category": "Предлог"
+      },
+      {
+        "word": "parkas",
+        "translation": "парк",
+        "transcription": "па́ркас",
+        "category": "Город"
+      },
+      {
+        "word": "universitetas",
+        "translation": "университет",
+        "transcription": "унивярсите́тас",
+        "category": "Город"
+      },
+      {
+        "word": "stotis",
+        "translation": "вокзал / станция",
+        "transcription": "стоти́с",
+        "category": "Город"
+      },
+      {
+        "word": "centras",
+        "translation": "центр",
+        "transcription": "ця́нтрас",
+        "category": "Город"
+      },
+      {
+        "word": "telefono numeris",
+        "translation": "номер телефона",
+        "transcription": "тяляфо́но ну́мярис",
+        "category": "Связь"
+      },
+      {
+        "word": "vienas",
+        "translation": "один",
+        "transcription": "ве́нас",
+        "category": "Числительное"
+      },
+      {
+        "word": "du",
+        "translation": "два",
+        "transcription": "ду",
+        "category": "Числительное"
+      },
+      {
+        "word": "trys",
+        "translation": "три",
+        "transcription": "трис",
+        "category": "Числительное"
+      },
+      {
+        "word": "dešimt",
+        "translation": "десять",
+        "transcription": "дя́шимт",
+        "category": "Числительное"
+      },
+      {
+        "word": "dvidešimt",
+        "translation": "двадцать",
+        "transcription": "дви́дяшимт",
+        "category": "Числительное"
+      },
+      {
+        "word": "šimtas",
+        "translation": "сто",
+        "transcription": "ши́мтас",
+        "category": "Числительное"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «Я живу в Вильнюсе»?",
+        "options": [
+          "Aš gyvenu Vilniuje.",
+          "Aš gyvenu Vilnius.",
+          "Aš gyvenu Vilniaus.",
+          "Aš gyvenu Vilnių."
+        ],
+        "answer": "Aš gyvenu Vilniuje.",
+        "explanation": "В местном падеже (Vietininkas): Vilnius → Vilniuje."
+      },
+      {
+        "type": "fill",
+        "question": "Поставьте слово в местный падеж: «Mes gyvename ________.» (Lietuva)",
+        "answer": "Lietuvoje",
+        "hint": "Lietuva в местном падеже (-oje)",
+        "explanation": "Слова на -a в местном падеже получают окончание -oje: Lietuva → Lietuvoje."
+      },
+      {
+        "type": "mc",
+        "question": "Какое окончание требует предлог 'prie' в предложении: «Aš gyvenu prie ________.» (parkas)?",
+        "options": [
+          "parko",
+          "parke",
+          "parką",
+          "parku"
+        ],
+        "answer": "parko",
+        "explanation": "Предлог 'prie' требует родительного падежа (Kilmininkas): parkas → parko."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте вопросительное слово: «________ tu gyveni? – Vilniuje.» (Где)",
+        "answer": "Kur",
+        "hint": "Где по-литовски",
+        "explanation": "Вопрос о месте — 'Kur?' (Где?)."
+      },
+      {
+        "type": "mc",
+        "question": "Сколько это: «penkiolika»?",
+        "options": [
+          "15",
+          "5",
+          "50",
+          "14"
+        ],
+        "answer": "15",
+        "explanation": "Числительное penkiolika = 15 (-lika означает +10)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола gyventi (1 л. ед.ч.): «Aš ________ Kaune.» (Я живу)",
+        "answer": "gyvenu",
+        "hint": "Окончание -u для aš",
+        "explanation": "Для 'aš' глагол gyventi имеет форму 'gyvenu'."
+      }
+    ]
+  },
+  {
+    "id": "ch-4",
+    "book": 1,
+    "chapter": 4,
+    "level": "A1.1",
+    "title": "Kada ir kur susitinkame?",
+    "title_ru": "Когда и где встретимся?",
+    "title_en": "When and where do we meet?",
+    "summary_ru": "Дни недели, время, часы, винительный падеж времени (Galininkas - Kada?), предлоги направления į и pas.",
+    "summary_en": "Days of the week, time, telling the hour, Accusative for time expressions, prepositions į and pas.",
+    "grammar": [
+      {
+        "topic": "1. Дни недели и выражение времени (Kada? - Galininkas)",
+        "explanation_ru": "В литовском языке ответ на вопрос «Когда?» (Kada?) в днях недели стоит в ВИНИТЕЛЬНОМ падеже (Galininkas, окончание -į):\n• pirmadienis (понедельник) → pirmadienį (в понедельник)\n• antradienis → antradienį (во вторник)\n• trečiadienis → trečiadienį (в среду)\n• ketvirtadienis → ketvirtadienį (в четверг)\n• penktadienis → penktadienį (в пятницу)\n• šeštadienis → šeštadienį (в субботу)\n• sekmadienis → sekmadienį (в воскресенье)\n• savaitgalis → savaitgalį (в выходные)",
+        "table": [
+          {
+            "lt": "pirmadienis → pirmadienį",
+            "ru": "понедельник → в понедельник",
+            "note": "Kada? -į"
+          },
+          {
+            "lt": "penktadienis → penktadienį",
+            "ru": "пятница → в пятницу",
+            "note": "Kada? -į"
+          },
+          {
+            "lt": "savaitgalis → savaitgalį",
+            "ru": "выходные → на выходных",
+            "note": "Kada? -į"
+          }
+        ]
+      },
+      {
+        "topic": "2. Который час? (Kelintą valandą?)",
+        "explanation_ru": "Чтобы назвать время встречи («Во сколько часов?»), используются порядковые числительные в винительном падеже:\n• pirmą valandą (в час)\n• antrą valandą (в два часа)\n• trečią valandą (в три часа)\n• penktą valandą (в пять часов)\n• aštuntą valandą ryto / vakaro (в восемь утра / вечера).",
+        "table": [
+          {
+            "lt": "Kelintą valandą susitinkame?",
+            "ru": "В котором часу мы встречаемся?",
+            "note": "Kelintą valandą?"
+          },
+          {
+            "lt": "Susitinkame šeštą valandą vakaro.",
+            "ru": "Встретимся в шесть вечера.",
+            "note": "шесть часов"
+          }
+        ]
+      },
+      {
+        "topic": "3. Направление: предлоги į (в/на) и pas (к)",
+        "explanation_ru": "• 'į' + Galininkas (куда?): einu į universitetą (иду в университет), važiuoju į centrą (еду в центр), einu į teatrą (иду в театр).\n• 'pas' + Galininkas (к кому-то): einu pas draugą (иду к другу), einu pas gydytoją (иду к врачу).",
+        "table": [
+          {
+            "lt": "einu į darbą",
+            "ru": "иду на работу",
+            "note": "į + Galininkas"
+          },
+          {
+            "lt": "einu pas draugę",
+            "ru": "иду к подруге",
+            "note": "pas + Galininkas"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Susitikimas (Встреча)",
+        "lines": [
+          {
+            "speaker": "Jonas",
+            "lt": "Labas, Egle! Kada susitinkame?",
+            "ru": "Привет, Эгле! Когда встретимся?"
+          },
+          {
+            "speaker": "Eglė",
+            "lt": "Gal penktadienį vakare?",
+            "ru": "Может быть, в пятницу вечером?"
+          },
+          {
+            "speaker": "Jonas",
+            "lt": "Puiku! Kelintą valandą?",
+            "ru": "Отлично! В котором часу?"
+          },
+          {
+            "speaker": "Eglė",
+            "lt": "Susitinkame septintą valandą prie kino teatro.",
+            "ru": "Встретимся в семь часов возле кинотеатра."
+          },
+          {
+            "speaker": "Jonas",
+            "lt": "Gerai, iki penktadienio!",
+            "ru": "Хорошо, до пятницы!"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Kada?",
+        "translation": "Когда?",
+        "transcription": "Када́?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "Kelintą valandą?",
+        "translation": "В котором часу?",
+        "transcription": "Кяли́нта валанду́?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "pirmadienis",
+        "translation": "понедельник",
+        "transcription": "пи́рмаденис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "antradienis",
+        "translation": "вторник",
+        "transcription": "а́нтраденис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "trečiadienis",
+        "translation": "среда",
+        "transcription": "трячя́денис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "ketvirtadienis",
+        "translation": "четверг",
+        "transcription": "кятви́ртаденис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "penktadienis",
+        "translation": "пятница",
+        "transcription": "пя́нктаденис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "šeštadienis",
+        "translation": "суббота",
+        "transcription": "шяшта́денис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "sekmadienis",
+        "translation": "воскресенье",
+        "transcription": "сякма́денис",
+        "category": "Дни недели"
+      },
+      {
+        "word": "savaitgalis",
+        "translation": "выходные",
+        "transcription": "савайтга́лис",
+        "category": "Время"
+      },
+      {
+        "word": "rytas",
+        "translation": "утро",
+        "transcription": "ри́тас",
+        "category": "Время"
+      },
+      {
+        "word": "diena",
+        "translation": "день",
+        "transcription": "дена́",
+        "category": "Время"
+      },
+      {
+        "word": "vakaras",
+        "translation": "вечер",
+        "transcription": "ва́карас",
+        "category": "Время"
+      },
+      {
+        "word": "naktis",
+        "translation": "ночь",
+        "transcription": "накти́с",
+        "category": "Время"
+      },
+      {
+        "word": "valanda",
+        "translation": "час",
+        "transcription": "валанда́",
+        "category": "Время"
+      },
+      {
+        "word": "susitikti",
+        "translation": "встретиться",
+        "transcription": "сусити́кти",
+        "category": "Глагол"
+      },
+      {
+        "word": "eiti",
+        "translation": "идти",
+        "transcription": "э́йти",
+        "category": "Глагол"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как правильно сказать: «В пятницу»?",
+        "options": [
+          "penktadienį",
+          "penktadienis",
+          "penktadienyje",
+          "penktadienio"
+        ],
+        "answer": "penktadienį",
+        "explanation": "Дни недели на вопрос 'Kada?' ставятся в винительный падеж с окончанием -į."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте день недели в винительный падеж: «Mes susitinkame ________.» (šeštadienis - в субботу)",
+        "answer": "šeštadienį",
+        "hint": "окончание -į",
+        "explanation": "šeštadienis → šeštadienį."
+      },
+      {
+        "type": "mc",
+        "question": "Куда вы идете (направление į + Galininkas): «Einu į ________.» (universitetas)?",
+        "options": [
+          "universitetą",
+          "universitete",
+          "universiteto",
+          "universitetui"
+        ],
+        "answer": "universitetą",
+        "explanation": "Предлог 'į' требует винительного падежа (Galininkas): universitetą."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте вопрос «Во сколько часов?»: «________ valandą susitinkame?»",
+        "answer": "Kelintą",
+        "hint": "Kelintą valandą",
+        "explanation": "Вопрос о времени встречи: 'Kelintą valandą?'."
+      },
+      {
+        "type": "mc",
+        "question": "Как перевести: «В шесть часов вечера»?",
+        "options": [
+          "šeštą valandą vakaro",
+          "šeši valandos vakaras",
+          "šeštame valande vakarą",
+          "šeštą valanda vakare"
+        ],
+        "answer": "šeštą valandą vakaro",
+        "explanation": "Порядковое числительное и слово 'valandą' стоят в винительном падеже."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте предлог «к другу»: «Einu ________ draugo / draugą.» (к)",
+        "answer": "pas",
+        "hint": "Предлог 'к'",
+        "explanation": "К человеку идут с предлогом 'pas' (pas draugą)."
+      }
+    ]
+  },
+  {
+    "id": "ch-5",
+    "book": 1,
+    "chapter": 5,
+    "level": "A1.1",
+    "title": "Čia mano šeima",
+    "title_ru": "Это моя семья",
+    "title_en": "Here is my family",
+    "summary_ru": "Члены семьи, спряжение глаголов типа -i (turėti), конструкция обладания turėti + Galininkas vs neturėti + Kilmininkas.",
+    "summary_en": "Family members, -i type verbs, turėti + Accusative vs neturėti + Genitive.",
+    "grammar": [
+      {
+        "topic": "1. Глагол turėti (иметь) и отрицание neturėti (не иметь)",
+        "explanation_ru": "Золотое правило литовского языка:\n• В утверждении: turėti требует ВИНИТЕЛЬНОГО падежа (Ką?):\nAš turiu brolį (У меня есть брат). Jis turi seserį (У него есть сестра).\n• В отрицании: neturėti ВСЕГДА требует РОДИТЕЛЬНОГО падежа (Ko?):\nAš neturiu brolio (У меня нет брата). Jis neturi sesers (У него нет сестры).",
+        "table": [
+          {
+            "lt": "Aš turiu brolį.",
+            "ru": "У меня есть брат.",
+            "note": "turėti + Galininkas (ką?)"
+          },
+          {
+            "lt": "Aš neturiu brolio.",
+            "ru": "У меня нет брата.",
+            "note": "neturėti + Kilmininkas (ko?)"
+          },
+          {
+            "lt": "Ji turi mašiną.",
+            "ru": "У неё есть машина.",
+            "note": "mašina → mašiną"
+          },
+          {
+            "lt": "Ji neturi mašinos.",
+            "ru": "У неё нет машины.",
+            "note": "mašina → mašinos"
+          }
+        ]
+      },
+      {
+        "topic": "2. Спряжение глагола turėti (тип -i)",
+        "explanation_ru": "Глаголы типа -i имеют основу на -i. Спряжение turėti:\n• aš turiu (у меня есть)\n• tu turi (у тебя есть)\n• jis, ji turi (у него/неё есть)\n• mes turime (у нас есть)\n• jūs turite (у вас есть)\n• jie, jos turi (у них есть).",
+        "table": [
+          {
+            "lt": "aš turiu / neturiu",
+            "ru": "я имею / не имею",
+            "note": "1 л. ед.ч."
+          },
+          {
+            "lt": "tu turi / neturi",
+            "ru": "ты имеешь / не имеешь",
+            "note": "2 л. ед.ч."
+          },
+          {
+            "lt": "jis, ji turi / neturi",
+            "ru": "он, она имеет / не имеет",
+            "note": "3 л. ед.ч."
+          },
+          {
+            "lt": "mes turime / neturime",
+            "ru": "мы имеем / не имеем",
+            "note": "1 л. мн.ч."
+          },
+          {
+            "lt": "jūs turite / neturite",
+            "ru": "вы имеете / не имеете",
+            "note": "2 л. мн.ч."
+          },
+          {
+            "lt": "jie, jos turi / neturi",
+            "ru": "они имеют / не имеют",
+            "note": "3 л. мн.ч."
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Apie šeimą (О семье)",
+        "lines": [
+          {
+            "speaker": "Tomas",
+            "lt": "Ar tu turi didelę šeimą?",
+            "ru": "У тебя большая семья?"
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Taip, mano šeima didelė. Aš turiu tėtį, mamą, du brolius ir seserį.",
+            "ru": "Да, моя семья большая. У меня есть папа, мама, два брата и сестра."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "O ar turi šunį arba katę?",
+            "ru": "А у тебя есть собака или кошка?"
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Turiu šunį, bet neturiu katės. O tu?",
+            "ru": "Есть собака, но нет кошки. А у тебя?"
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Aš neturiu brolio, bet turiu seserį.",
+            "ru": "У меня нет брата, но есть сестра."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "šeima",
+        "translation": "семья",
+        "transcription": "шейма́",
+        "category": "Семья"
+      },
+      {
+        "word": "tėvai",
+        "translation": "родители",
+        "transcription": "тева́й",
+        "category": "Семья"
+      },
+      {
+        "word": "tėtis",
+        "translation": "папа",
+        "transcription": "те́тис",
+        "category": "Семья"
+      },
+      {
+        "word": "mama",
+        "translation": "мама",
+        "transcription": "мама́",
+        "category": "Семья"
+      },
+      {
+        "word": "brolis",
+        "translation": "брат",
+        "transcription": "бро́лис",
+        "category": "Семья"
+      },
+      {
+        "word": "sesuo",
+        "translation": "сестра",
+        "transcription": "сясуо́",
+        "category": "Семья"
+      },
+      {
+        "word": "sūnus",
+        "translation": "сын",
+        "transcription": "суну́с",
+        "category": "Семья"
+      },
+      {
+        "word": "duktė",
+        "translation": "дочь",
+        "transcription": "дукте́",
+        "category": "Семья"
+      },
+      {
+        "word": "vyras",
+        "translation": "муж / мужчина",
+        "transcription": "ви́рас",
+        "category": "Семья"
+      },
+      {
+        "word": "žmona",
+        "translation": "жена",
+        "transcription": "жмона́",
+        "category": "Семья"
+      },
+      {
+        "word": "vaikas",
+        "translation": "ребенок",
+        "transcription": "ва́йкас",
+        "category": "Семья"
+      },
+      {
+        "word": "senelis",
+        "translation": "дедушка",
+        "transcription": "сяне́лис",
+        "category": "Семья"
+      },
+      {
+        "word": "močiutė",
+        "translation": "бабушка",
+        "transcription": "мочю́те",
+        "category": "Семья"
+      },
+      {
+        "word": "šuo",
+        "translation": "собака",
+        "transcription": "шуо́",
+        "category": "Животные"
+      },
+      {
+        "word": "katė",
+        "translation": "кошка",
+        "transcription": "кате́",
+        "category": "Животные"
+      },
+      {
+        "word": "turėti",
+        "translation": "иметь",
+        "transcription": "туре́ти",
+        "category": "Глагол"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Выберите верную форму в утверждении: «Aš turiu ________.» (brolis - брата)",
+        "options": [
+          "brolį",
+          "brolio",
+          "brolis",
+          "broliui"
+        ],
+        "answer": "brolį",
+        "explanation": "Утвердительный глагол turėti требует винительного падежа (ką?): brolį."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму в отрицании: «Aš neturiu ________.» (brolis - брата)",
+        "answer": "brolio",
+        "hint": "neturėti требует родительного падежа (ko?)",
+        "explanation": "Отрицательный глагол neturėti всегда требует родительного падежа: brolio."
+      },
+      {
+        "type": "mc",
+        "question": "Как сказать: «У неё нет кошки»?",
+        "options": [
+          "Ji neturi katės.",
+          "Ji neturi katę.",
+          "Ji neturi katė.",
+          "Ji neturi katėje."
+        ],
+        "answer": "Ji neturi katės.",
+        "explanation": "Отрицание требует родительного падежа (katė → katės)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола turėti для 'mes': «Mes ________ didelę šeimą.»",
+        "answer": "turime",
+        "hint": "Форма для mes",
+        "explanation": "Для 'mes' глагол turėti — 'turime'."
+      },
+      {
+        "type": "mc",
+        "question": "Кто такой 'senelis'?",
+        "options": [
+          "дедушка",
+          "бабушка",
+          "дядя",
+          "племянник"
+        ],
+        "answer": "дедушка",
+        "explanation": "Senelis переводится как 'дедушка' (močiutė — бабушка)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте утвердительную форму: «Jis turi gerą ________.» (draugas - друга)",
+        "answer": "draugą",
+        "hint": "Винительный падеж draugas → draugą",
+        "explanation": "Глагол turi требует винительного падежа: draugą."
+      }
+    ]
+  },
+  {
+    "id": "ch-6",
+    "book": 1,
+    "chapter": 6,
+    "level": "A1.1",
+    "title": "Mano sesers vardas yra Lina",
+    "title_ru": "Мою сестру зовут Лина",
+    "title_en": "My sister's name is Lina",
+    "summary_ru": "Родительный падеж принадлежности (Kieno? Чей? Имя сестры, мамы, папы), притяжательные местоимения и степени сравнения прилагательных.",
+    "summary_en": "Possessive Genitive (Kieno?), possessive pronouns, and comparison of adjectives.",
+    "grammar": [
+      {
+        "topic": "1. Родительный падеж принадлежности (Kieno? - Чей? Чья? Чьё?)",
+        "explanation_ru": "Чтобы сказать, чья это вещь или как кого-то зовут через принадлежность, используется Родительный падеж (Kilmininkas):\n• mano mamos vardas (имя моей мамы, mama → mamos)\n• mano tėčio vardas (имя моего папы, tėtis → tėčio)\n• mano sesers vardas (имя моей сестры, sesuo → sesers)\n• mano brolio vardas (имя моего брата, brolis → brolio)\nВопросительное слово: 'Kieno?' (Чей? Чья? Чьё? Чьи?).",
+        "table": [
+          {
+            "lt": "Kieno čia knyga?",
+            "ru": "Чья здесь книга?",
+            "note": "Kieno? (Чей?)"
+          },
+          {
+            "lt": "Čia yra mano sesers knyga.",
+            "ru": "Это книга моей сестры.",
+            "note": "sesuo → sesers"
+          },
+          {
+            "lt": "Mano brolio vardas yra Tomas.",
+            "ru": "Имя моего брата — Томас.",
+            "note": "brolis → brolio"
+          }
+        ]
+      },
+      {
+        "topic": "2. Степени сравнения прилагательных (jaunesnis, vyresnis)",
+        "explanation_ru": "Сравнительная степень образуется суффиксом -esnis (м.р.) / -esnė (ж.р.):\n• jaunas (молодой) → jaunesnis / jaunesnė (младше)\n• senas (старый) → senesnis / senesnė (старше)\n• didelis (большой) → didesnis / didesnė (больше)\n• mažas (маленький) → mažesnis / mažesnė (меньше)\nДля сравнения с кем-то используется предлог 'už' + Galininkas:\n«Jis yra vyresnis už mane» (Он старше меня).",
+        "table": [
+          {
+            "lt": "Aš esu jaunesnis už brolį.",
+            "ru": "Я младше брата.",
+            "note": "už + Galininkas"
+          },
+          {
+            "lt": "Mano sesuo yra vyresnė už mane.",
+            "ru": "Моя сестра старше меня.",
+            "note": "vyresnė (старше)"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Kieno ši nuotrauka? (Чья эта фотография?)",
+        "lines": [
+          {
+            "speaker": "Tomas",
+            "lt": "Kieno ši nuotrauka, Lina?",
+            "ru": "Чья это фотография, Лина?"
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Čia mano šeimos nuotrauka. Štai mano tėtis ir mama.",
+            "ru": "Это фотография моей семьи. Вот мои папа и мама."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "O koks tavo brolio vardas?",
+            "ru": "А как имя твоего брата?"
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Mano brolio vardas Mantas. Jis yra jaunesnis už mane.",
+            "ru": "Имя моего брата Мантас. Он младше меня."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Kieno?",
+        "translation": "Чей? Чья? Чьё?",
+        "transcription": "Ке́но?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "mano",
+        "translation": "мой / моя / моё",
+        "transcription": "ма́но",
+        "category": "Местоимение"
+      },
+      {
+        "word": "tavo",
+        "translation": "твой / твоя / твоё",
+        "transcription": "та́во",
+        "category": "Местоимение"
+      },
+      {
+        "word": "jo",
+        "translation": "его",
+        "transcription": "йо",
+        "category": "Местоимение"
+      },
+      {
+        "word": "jos",
+        "translation": "её",
+        "transcription": "йос",
+        "category": "Местоимение"
+      },
+      {
+        "word": "mūsų",
+        "translation": "наш / наша / наше",
+        "transcription": "му́су",
+        "category": "Местоимение"
+      },
+      {
+        "word": "jūsų",
+        "translation": "ваш / ваша / ваше",
+        "transcription": "ю́су",
+        "category": "Местоимение"
+      },
+      {
+        "word": "jų",
+        "translation": "их",
+        "transcription": "ю",
+        "category": "Местоимение"
+      },
+      {
+        "word": "jaunas",
+        "translation": "молодой",
+        "transcription": "я́унас",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "senas",
+        "translation": "старый",
+        "transcription": "ся́нас",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "didelis",
+        "translation": "большой",
+        "transcription": "ди́дялис",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "mažas",
+        "translation": "маленький",
+        "transcription": "ма́жас",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "vyresnis",
+        "translation": "старше",
+        "transcription": "вирясни́с",
+        "category": "Сравнение"
+      },
+      {
+        "word": "jaunesnis",
+        "translation": "младше",
+        "transcription": "яунясни́с",
+        "category": "Сравнение"
+      },
+      {
+        "word": "už",
+        "translation": "чем / за",
+        "transcription": "уж",
+        "category": "Предлог"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Какое вопросительное слово переводится как «Чей / Чья»?",
+        "options": [
+          "Kieno",
+          "Koks",
+          "Kas",
+          "Kur"
+        ],
+        "answer": "Kieno",
+        "explanation": "Вопросительное слово принадлежности — Kieno? (Чей?)."
+      },
+      {
+        "type": "fill",
+        "question": "Поставьте слово в родительный падеж принадлежности: «Mano ________ vardas yra Lina.» (sesuo - сестры)",
+        "answer": "sesers",
+        "hint": "sesuo → sesers",
+        "explanation": "Форма родительного падежа от sesuo — sesers."
+      },
+      {
+        "type": "mc",
+        "question": "Как сказать: «Он старше меня»?",
+        "options": [
+          "Jis yra vyresnis už mane.",
+          "Jis yra vyresnis negu aš.",
+          "Jis yra senas už mane.",
+          "Jis yra mažas mane."
+        ],
+        "answer": "Jis yra vyresnis už mane.",
+        "explanation": "Конструкция сравнения: vyresnis už + Galininkas (mane)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте местоимение «его»: «Čia yra ________ brolis.» (его)",
+        "answer": "jo",
+        "hint": "jo = его",
+        "explanation": "Местоимение 3 лица мужского рода — 'jo' (его)."
+      },
+      {
+        "type": "mc",
+        "question": "Выберите форму родительного падежа от слова mama:",
+        "options": [
+          "mamos",
+          "mamą",
+          "mamoje",
+          "mamai"
+        ],
+        "answer": "mamos",
+        "explanation": "Mama в родительном падеже имеет окончание -os: mamos."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму: «Mano tėtis yra vyresnis ________ mamą.» (чем / старше мамы)",
+        "answer": "už",
+        "hint": "Предлог сравнения už",
+        "explanation": "Предлог 'už' используется для сравнения: vyresnis už mamą."
+      }
+    ]
+  },
+  {
+    "id": "ch-7",
+    "book": 1,
+    "chapter": 7,
+    "level": "A1.1",
+    "title": "Labai skanu!",
+    "title_ru": "Очень вкусно!",
+    "title_en": "Delicious!",
+    "summary_ru": "Продукты питания, спряжение глаголов типа -o (valgyti, gerti), винительный vs родительный падеж еды, частичный родительный (Dalies kilmininkas: Imk sūrio!).",
+    "summary_en": "Food and drinks, -o type verbs (valgyti, gerti), Accusative vs Genitive of food, partitive Genitive.",
+    "grammar": [
+      {
+        "topic": "1. Спряжение глаголов valgyti (есть) и gerti (пить) — тип -o",
+        "explanation_ru": "Глаголы valgyti и gerti в настоящем времени имеют основу на -o:\n• aš valgau / geriu\n• tu valgai / geri\n• jis, ji valgo / geria\n• mes valgome / geriame\n• jūs valgote / geriate\n• jie, jos valgo / geria",
+        "table": [
+          {
+            "lt": "aš valgau / geriu",
+            "ru": "я ем / пью",
+            "note": "1 л. ед.ч."
+          },
+          {
+            "lt": "tu valgai / geri",
+            "ru": "ты ешь / пьешь",
+            "note": "2 л. ед.ч."
+          },
+          {
+            "lt": "jis, ji valgo / geria",
+            "ru": "он, она ест / пьет",
+            "note": "3 л."
+          },
+          {
+            "lt": "mes valgome / geriame",
+            "ru": "мы едим / пьем",
+            "note": "1 л. мн.ч."
+          },
+          {
+            "lt": "jūs valgote / geriate",
+            "ru": "вы едите / пьете",
+            "note": "2 л. мн.ч."
+          }
+        ]
+      },
+      {
+        "topic": "2. Винительный падеж еды vs Отрицательный родительный",
+        "explanation_ru": "В утверждении: ем ЧТО? — винительный падеж (Galininkas):\nAš valgau duoną (Я ем хлеб). Aš geriu arbatą (Я пью чай).\nВ отрицании: не ем ЧЕГО? — родительный падеж (Kilmininkas):\nAš nevalgau duonos (Я не ем хлеба). Aš negeriu arbatos (Я не пью чая).",
+        "table": [
+          {
+            "lt": "Aš valgau picą.",
+            "ru": "Я ем пиццу.",
+            "note": "Galininkas (ką?)"
+          },
+          {
+            "lt": "Aš nevalgau picos.",
+            "ru": "Я не ем пиццу.",
+            "note": "Kilmininkas (ko?)"
+          },
+          {
+            "lt": "Aš geriu kavą.",
+            "ru": "Я пью кофе.",
+            "note": "kava → kavą"
+          },
+          {
+            "lt": "Aš negeriu kavos.",
+            "ru": "Я не пью кофе.",
+            "note": "kava → kavos"
+          }
+        ]
+      },
+      {
+        "topic": "3. Частичный родительный падеж (Dalies kilmininkas)",
+        "explanation_ru": "Когда мы предлагаем угощение или берем часть чего-то, используется родительный падеж (как в русском «выпей чаю, съешь сыру»):\n• Imk sūrio! (Возьми сыра!)\n• Prašom vandens! (Пожалуйста, воды!)",
+        "table": [
+          {
+            "lt": "Prašom arbatos!",
+            "ru": "Пожалуйста, чаю!",
+            "note": "arbata → arbatos"
+          },
+          {
+            "lt": "Noriu vandens.",
+            "ru": "Хочу воды.",
+            "note": "vanduo → vandens"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pusryčiai (Завтрак)",
+        "lines": [
+          {
+            "speaker": "Mantas",
+            "lt": "Ką valgysi pusryčiams, Lina?",
+            "ru": "Что ты будешь есть на завтрак, Лина?"
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Aš valgysiu sumuštinį su sūriu ir gersiu kavą. O tu?",
+            "ru": "Я съем бутерброд с сыром и выпью кофе. А ты?"
+          },
+          {
+            "speaker": "Mantas",
+            "lt": "Aš rytais negeriu kavos. Noriu žalios arbatos.",
+            "ru": "Я по утрам не пью кофе. Хочу зеленого чая."
+          },
+          {
+            "speaker": "Lina",
+            "lt": "Prašom, štai arbata! Labai skanu!",
+            "ru": "Пожалуйста, вот чай! Очень вкусно!"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "valgyti",
+        "translation": "есть / кушать",
+        "transcription": "ва́льгити",
+        "category": "Глагол"
+      },
+      {
+        "word": "gerti",
+        "translation": "пить",
+        "transcription": "гя́рти",
+        "category": "Глагол"
+      },
+      {
+        "word": "skanu",
+        "translation": "вкусно",
+        "transcription": "скану́",
+        "category": "Наречие"
+      },
+      {
+        "word": "Labai skanu!",
+        "translation": "Очень вкусно!",
+        "transcription": "Лаба́й скану́!",
+        "category": "Фраза"
+      },
+      {
+        "word": "duona",
+        "translation": "хлеб",
+        "transcription": "ду́она",
+        "category": "Еда"
+      },
+      {
+        "word": "sūris",
+        "translation": "сыр",
+        "transcription": "су́рис",
+        "category": "Еда"
+      },
+      {
+        "word": "sviestas",
+        "translation": "сливочное масло",
+        "transcription": "све́стас",
+        "category": "Еда"
+      },
+      {
+        "word": "mėsa",
+        "translation": "мясо",
+        "transcription": "меса́",
+        "category": "Еда"
+      },
+      {
+        "word": "žuvis",
+        "translation": "рыба",
+        "transcription": "жуви́с",
+        "category": "Еда"
+      },
+      {
+        "word": "kava",
+        "translation": "кофе",
+        "transcription": "кава́",
+        "category": "Напитки"
+      },
+      {
+        "word": "arbata",
+        "translation": "чай",
+        "transcription": "арбата́",
+        "category": "Напитки"
+      },
+      {
+        "word": "vanduo",
+        "translation": "вода",
+        "transcription": "вандуо́",
+        "category": "Напитки"
+      },
+      {
+        "word": "pienas",
+        "translation": "молоко",
+        "transcription": "пе́нас",
+        "category": "Напитки"
+      },
+      {
+        "word": "cukrus",
+        "translation": "сахар",
+        "transcription": "цу́крус",
+        "category": "Еда"
+      },
+      {
+        "word": "sumuštinis",
+        "translation": "бутерброд",
+        "transcription": "сумушти́нис",
+        "category": "Еда"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Выберите верную форму в отрицании: «Aš negeriu ________.» (kava - кофе)",
+        "options": [
+          "kavos",
+          "kavą",
+          "kava",
+          "kavoje"
+        ],
+        "answer": "kavos",
+        "explanation": "При отрицании глагола gerti существительное ставится в родительный падеж (kava → kavos)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола valgyti (1 л. ед.ч.): «Aš ________ duoną ir sūrį.» (ем)",
+        "answer": "valgau",
+        "hint": "Окончание -au для valgyti",
+        "explanation": "Форма 1-го лица ед. ч. — 'valgau'."
+      },
+      {
+        "type": "mc",
+        "question": "Как правильно предложить угощение: «Возьми сыра!»?",
+        "options": [
+          "Imk sūrio!",
+          "Imk sūris!",
+          "Imk sūrį!",
+          "Imk sūryje!"
+        ],
+        "answer": "Imk sūrio!",
+        "explanation": "Частичный родительный падеж требует формы sūrio."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте винительный падеж: «Ryte aš geriu ________.» (arbata - чай)",
+        "answer": "arbatą",
+        "hint": "arbata → arbatą",
+        "explanation": "В утверждении используется винительный падеж: arbatą."
+      },
+      {
+        "type": "mc",
+        "question": "Что означает фраза «Skanaus!»?",
+        "options": [
+          "Приятного аппетита!",
+          "Доброе утро!",
+          "Спасибо!",
+          "До свидания!"
+        ],
+        "answer": "Приятного аппетита!",
+        "explanation": "Skanaus! переводится как «Приятного аппетита!»."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола gerti для 'mes': «Mes ________ vandenį.»",
+        "answer": "geriame",
+        "hint": "Форма для mes",
+        "explanation": "Для 'mes' глагол gerti имеет форму 'geriame'."
+      }
+    ]
+  },
+  {
+    "id": "ch-8",
+    "book": 1,
+    "chapter": 8,
+    "level": "A1.1",
+    "title": "Šiandien eisiu į turgų",
+    "title_ru": "Сегодня я пойду на рынок",
+    "title_en": "Today I will go to the market",
+    "summary_ru": "Покупки на рынке, овощи и фрукты, будущее время глаголов (Būsimasis laikas), родительный падеж множественного числа с числительными (dešimt pomidorų).",
+    "summary_en": "Shopping at the market, fruits and vegetables, future tense, plural Genitive with numerals.",
+    "grammar": [
+      {
+        "topic": "1. Будущее время глаголов (Būsimasis laikas)",
+        "explanation_ru": "Будущее время в литовском языке образуется очень просто: берется неопределенная форма (инфинитив), убирается окончание -ti, добавляется буква -s- и личные окончания:\n• aš bū-s-iu / ei-s-iu / dirb-s-iu\n• tu bū-s-i / ei-s-i / dirb-s-i\n• jis, ji bū-s / ei-s / dirb-s (в 3-м лице окончания нет, только буква s!)\n• mes bū-s-ime / ei-s-ime\n• jūs bū-s-ite / ei-s-ite\n• jie, jos bū-s / ei-s",
+        "table": [
+          {
+            "lt": "aš eisiu / pirksiu",
+            "ru": "я пойду / куплю",
+            "note": "1 л. ед.ч. -siu"
+          },
+          {
+            "lt": "tu eisi / pirksi",
+            "ru": "ты пойдешь / купишь",
+            "note": "2 л. ед.ч. -si"
+          },
+          {
+            "lt": "jis, ji eis / pirks",
+            "ru": "он, она пойдет / купит",
+            "note": "3 л. только -s!"
+          },
+          {
+            "lt": "mes eisime / pirksime",
+            "ru": "мы пойдем / купим",
+            "note": "1 л. мн.ч. -sime"
+          },
+          {
+            "lt": "jūs eisite / pirkite",
+            "ru": "вы пойдете / купите",
+            "note": "2 л. мн.ч. -site"
+          }
+        ]
+      },
+      {
+        "topic": "2. Родительный падеж множественного числа с числами (10, 20...)",
+        "explanation_ru": "С круглыми десятками (10, 20, 30...) и числами от 11 до 19 существительное ставится в родительный падеж множественного числа (окончание -ų):\n• dešimt pomidorų (десять помидоров, pomidoras → pomidorų)\n• dvidešimt obuolių (двадцать яблок, obuolys → obuolių)\n• kilogramas morkų (килограмм моркови, morkos → morkų).",
+        "table": [
+          {
+            "lt": "Prašom duoti dešimt kiaušinių.",
+            "ru": "Пожалуйста, дайте десять яиц.",
+            "note": "kiaušinis → kiaušinių"
+          },
+          {
+            "lt": "Du kilogramai obuolių.",
+            "ru": "Два килограмма яблок.",
+            "note": "obuolys → obuolių"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Turguje (На рынке)",
+        "lines": [
+          {
+            "speaker": "Pirkėjas",
+            "lt": "Laba diena! Kiek kainuoja pomidorai?",
+            "ru": "Добрый день! Сколько стоят помидоры?"
+          },
+          {
+            "speaker": "Pardavėjas",
+            "lt": "Laba diena! Du eurus už kilogramą.",
+            "ru": "Добрый день! Два евро за килограмм."
+          },
+          {
+            "speaker": "Pirkėjas",
+            "lt": "Prašom duoti du kilogramus pomidorų ir kilogramą obuolių.",
+            "ru": "Пожалуйста, дайте два килограмма помидоров и килограмм яблок."
+          },
+          {
+            "speaker": "Pardavėjas",
+            "lt": "Prašom! Ar dar ko nors norėsite?",
+            "ru": "Пожалуйста! Что-нибудь еще пожелаете?"
+          },
+          {
+            "speaker": "Pirkėjas",
+            "lt": "Ne, ačiū, viskas. Kiek iš viso?",
+            "ru": "Нет, спасибо, всё. Сколько всего?"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "turgus",
+        "translation": "рынок",
+        "transcription": "ту́ргус",
+        "category": "Магазин"
+      },
+      {
+        "word": "pardavėjas",
+        "translation": "продавец",
+        "transcription": "пардаве́яс",
+        "category": "Профессия"
+      },
+      {
+        "word": "pirkėjas",
+        "translation": "покупатель",
+        "transcription": "пирке́яс",
+        "category": "Профессия"
+      },
+      {
+        "word": "obuolys",
+        "translation": "яблоко",
+        "transcription": "обули́с",
+        "category": "Фрукты"
+      },
+      {
+        "word": "pomidoras",
+        "translation": "помидор",
+        "transcription": "помидо́рас",
+        "category": "Овощи"
+      },
+      {
+        "word": "agurkas",
+        "translation": "огурец",
+        "transcription": "агу́ркас",
+        "category": "Овощи"
+      },
+      {
+        "word": "morka",
+        "translation": "морковь",
+        "transcription": "мо́рка",
+        "category": "Овощи"
+      },
+      {
+        "word": "bulvė",
+        "translation": "картофель",
+        "transcription": "бу́льве",
+        "category": "Овощи"
+      },
+      {
+        "word": "kiaušiniai",
+        "translation": "яйца",
+        "transcription": "кяуши́няй",
+        "category": "Еда"
+      },
+      {
+        "word": "kilogramas",
+        "translation": "килограмм",
+        "transcription": "килогра́мас",
+        "category": "Мера"
+      },
+      {
+        "word": "Kiek kainuoja?",
+        "translation": "Сколько стоит?",
+        "transcription": "Кек кайну́оя?",
+        "category": "Покупки"
+      },
+      {
+        "word": "Kiek iš viso?",
+        "translation": "Сколько всего?",
+        "transcription": "Кек иш ви́со?",
+        "category": "Покупки"
+      },
+      {
+        "word": "pirkti",
+        "translation": "покупать",
+        "transcription": "пи́ркти",
+        "category": "Глагол"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать в будущем времени: «Завтра я пойду в магазин»?",
+        "options": [
+          "Rytoj aš eisiu į parduotuvę.",
+          "Rytoj aš einu į parduotuvę.",
+          "Rytoj aš ėjau į parduotuvę.",
+          "Rytoj aš eiti į parduotuvę."
+        ],
+        "answer": "Rytoj aš eisiu į parduotuvę.",
+        "explanation": "Будущее время для 1 лица ед. ч. образуется суффиксом -siu: eisiu."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте окончание множественного числа родительного падежа: «Prašom duoti dešimt pomidor________.» (-ų)",
+        "answer": "ų",
+        "hint": "Окончание -ų для родительного падежа множественного числа",
+        "explanation": "pomidoras во множественном числе родительного падежа: pomidorų."
+      },
+      {
+        "type": "mc",
+        "question": "Какая форма 3-го лица будущего времени глагола dirbti (он будет работать)?",
+        "options": [
+          "dirbs",
+          "dirbsi",
+          "dirbsiu",
+          "dirbsime"
+        ],
+        "answer": "dirbs",
+        "explanation": "В 3-м лице будущего времени глаголы оканчиваются просто на -s: dirbs."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте вопрос о стоимости: «Kiek ________ šie obuoliai?» (стоят)",
+        "answer": "kainuoja",
+        "hint": "kainuoti в 3 лице",
+        "explanation": "Вопрос о цене: 'Kiek kainuoja?' (Сколько стоит?)."
+      },
+      {
+        "type": "mc",
+        "question": "Что означает фраза «Kiek iš viso?»?",
+        "options": [
+          "Сколько всего (к оплате)?",
+          "Где выход?",
+          "Кто следующий?",
+          "Сколько времени?"
+        ],
+        "answer": "Сколько всего (к оплате)?",
+        "explanation": "'Kiek iš viso?' переводится как 'Сколько всего?'."
+      },
+      {
+        "type": "fill",
+        "question": "Поставьте глагол būti в будущее время (мы будем): «Rytoj mes ________ namuose.»",
+        "answer": "būsime",
+        "hint": "būti для mes в будущем времени",
+        "explanation": "Форма для mes в будущем времени: 'būsime'."
+      }
+    ]
+  },
+  {
+    "id": "ch-9",
+    "book": 1,
+    "chapter": 9,
+    "level": "A1.1",
+    "title": "Norėčiau kavos",
+    "title_ru": "Я бы хотел кофе",
+    "title_en": "I would like some coffee",
+    "summary_ru": "Заказ в кафе и ресторане, сослагательное наклонение (Norėčiau), прошедшее время глаголов (Būtasis kartinis laikas), предлоги su (с + įnagininkas) и be (без + kilmininkas).",
+    "summary_en": "Ordering in cafes, conditional mood (norėčiau), past tense, prepositions su and be.",
+    "grammar": [
+      {
+        "topic": "1. Вежливый заказ: Norėčiau (Я бы хотел / хотела)",
+        "explanation_ru": "В кафе или ресторане для вежливой просьбы используется форма сослагательного наклонения 'Norėčiau...' (Я бы хотел/хотела) + Родительный падеж (Ko?):\n• Norėčiau kavos (Я бы хотел кофе)\n• Norėčiau arbatos (Я бы хотела чая)\n• Norėčiau sulčių (Я бы хотел сока)\n• Norėčiau meniu (Я бы хотел меню)",
+        "table": [
+          {
+            "lt": "Norėčiau kavos su pienu.",
+            "ru": "Я бы хотел кофе с молоком.",
+            "note": "Norėčiau + Kilmininkas"
+          },
+          {
+            "lt": "Norėčiau vandens be dujų.",
+            "ru": "Я бы хотел негазированной воды.",
+            "note": "be dujų (без газа)"
+          }
+        ]
+      },
+      {
+        "topic": "2. Предлог su (с) + Творительный (Įnagininkas) и be (без) + Родительный (Kilmininkas)",
+        "explanation_ru": "• 'su' переводится 'с' и требует творительного падежа (Kuo?):\nkava su pienu (кофе с молоком), arbata su citrina (чай с лимоном), sumuštinis su sūriu (бутерброд с сыром).\n• 'be' переводится 'без' и требует родительного падежа (Ko?):\nkava be pieno (кофе без молока), arbata be cukraus (чай без сахара).",
+        "table": [
+          {
+            "lt": "kava su cukrumi",
+            "ru": "кофе с сахаром",
+            "note": "su + Įnagininkas"
+          },
+          {
+            "lt": "kava be cukraus",
+            "ru": "кофе без сахара",
+            "note": "be + Kilmininkas"
+          }
+        ]
+      },
+      {
+        "topic": "3. Прошедшее однократное время (Būtasis kartinis laikas)",
+        "explanation_ru": "Прошедшее время показывает действие, произошедшее в прошлом (vakar — вчера, anksčiau — раньше):\nГлагол būti в прошедшем времени: aš buvau (я был), tu buvai (ты был), jis/ji buvo (он/она был/была), mes buvome (мы были), jūs buvote (вы были), jie/jos buvo (они были).",
+        "table": [
+          {
+            "lt": "aš buvau / valgiau",
+            "ru": "я был / ел",
+            "note": "1 л. ед.ч."
+          },
+          {
+            "lt": "tu buvai / valgei",
+            "ru": "ты был / ел",
+            "note": "2 л. ед.ч."
+          },
+          {
+            "lt": "jis, ji buvo / valgė",
+            "ru": "он, она был(а) / ел(а)",
+            "note": "3 л."
+          },
+          {
+            "lt": "mes buvome / valgėme",
+            "ru": "мы были / ели",
+            "note": "1 л. мн.ч."
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Kavinėje (В кафе)",
+        "lines": [
+          {
+            "speaker": "Padavėjas",
+            "lt": "Laba diena! Ką norėsite užsisakyti?",
+            "ru": "Добрый день! Что пожелаете заказать?"
+          },
+          {
+            "speaker": "Klientas",
+            "lt": "Laba diena! Norėčiau juodos kavos be cukraus ir obuolių pyrago.",
+            "ru": "Добрый день! Я бы хотел черный кофе без сахара и яблочный пирог."
+          },
+          {
+            "speaker": "Padavėjas",
+            "lt": "Ar norėsite vandens?",
+            "ru": "Пожелаете воды?"
+          },
+          {
+            "speaker": "Klientas",
+            "lt": "Taip, prašom stiklinę mineralinio vandens su citrina.",
+            "ru": "Да, пожалуйста, стакан минеральной воды с лимоном."
+          },
+          {
+            "speaker": "Padavėjas",
+            "lt": "Tuojau atnešiu!",
+            "ru": "Сейчас принесу!"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Norėčiau",
+        "translation": "Я хотел(а) бы",
+        "transcription": "Норе́чяу",
+        "category": "Заказ"
+      },
+      {
+        "word": "kavinė",
+        "translation": "кафе",
+        "transcription": "кавине́",
+        "category": "Место"
+      },
+      {
+        "word": "restoranas",
+        "translation": "ресторан",
+        "transcription": "рястора́нас",
+        "category": "Место"
+      },
+      {
+        "word": "padavėjas",
+        "translation": "официант",
+        "transcription": "падаве́яс",
+        "category": "Профессия"
+      },
+      {
+        "word": "meniu",
+        "translation": "меню",
+        "transcription": "меню́",
+        "category": "Ресторан"
+      },
+      {
+        "word": "sąskaita",
+        "translation": "счет",
+        "transcription": "са́скайта",
+        "category": "Ресторан"
+      },
+      {
+        "word": "su",
+        "translation": "с",
+        "transcription": "су",
+        "category": "Предлог"
+      },
+      {
+        "word": "be",
+        "translation": "без",
+        "transcription": "бя",
+        "category": "Предлог"
+      },
+      {
+        "word": "pienas",
+        "translation": "молоко",
+        "transcription": "пе́нас",
+        "category": "Напитки"
+      },
+      {
+        "word": "cukrus",
+        "translation": "сахар",
+        "transcription": "цу́крус",
+        "category": "Еда"
+      },
+      {
+        "word": "citrina",
+        "translation": "лимон",
+        "transcription": "цитрина́",
+        "category": "Еда"
+      },
+      {
+        "word": "pyragas",
+        "translation": "пирог / торт",
+        "transcription": "пира́гас",
+        "category": "Еда"
+      },
+      {
+        "word": "vakar",
+        "translation": "вчера",
+        "transcription": "ва́кар",
+        "category": "Время"
+      },
+      {
+        "word": "buvau",
+        "translation": "я был / была",
+        "transcription": "бува́у",
+        "category": "Глагол"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как вежливо сказать официанту: «Я бы хотел кофе с молоком»?",
+        "options": [
+          "Norėčiau kavos su pienu.",
+          "Noriu kava ir pienas.",
+          "Valgysiu kavą be pieno.",
+          "Geriu kavoje su pienu."
+        ],
+        "answer": "Norėčiau kavos su pienu.",
+        "explanation": "Norėčiau требует родительного падежа (kavos), а предлог su — творительного (pienu)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте предлог «без»: «Prašom kavos ________ cukraus.» (без)",
+        "answer": "be",
+        "hint": "Предлог 'без'",
+        "explanation": "Предлог 'be' (без) требует родительного падежа (cukraus)."
+      },
+      {
+        "type": "mc",
+        "question": "Какая форма прошедшего времени глагола būti подходит для 'aš' (вчера я был)?",
+        "options": [
+          "buvau",
+          "buvai",
+          "buvo",
+          "buvome"
+        ],
+        "answer": "buvau",
+        "explanation": "Для 1 лица ед. ч. прошедшего времени форма глагола būti — 'buvau'."
+      },
+      {
+        "type": "fill",
+        "question": "Как попросить счёт в ресторане: «Prašom ________.» (счет)",
+        "answer": "sąskaitą",
+        "hint": "sąskaita в винительном падеже",
+        "explanation": "Вежливая фраза: 'Prašom sąskaitą!' (Пожалуйста, счет!)."
+      },
+      {
+        "type": "mc",
+        "question": "Какое окончание получает слово citrina с предлогом su (с лимоном)?",
+        "options": [
+          "citrina",
+          "citrinos",
+          "citrina",
+          "citriną"
+        ],
+        "answer": "citrina",
+        "explanation": "Слово женского рода на -a в творительном падеже имеет окончание -a: arbata su citrina."
+      },
+      {
+        "type": "fill",
+        "question": "Поставьте глагол būti в прошедшее время: «Vakar mes ________ kavinėje.» (были)",
+        "answer": "buvome",
+        "hint": "būti для mes в прошлом времени",
+        "explanation": "Для 'mes' форма прошедшего времени — 'buvome'."
+      }
+    ]
+  },
+  {
+    "id": "ch-10",
+    "book": 2,
+    "chapter": 10,
+    "level": "A1.2",
+    "title": "Kaip nuvažiuoti į universitetą?",
+    "title_ru": "Как доехать до университета?",
+    "title_en": "How to get to the university?",
+    "summary_ru": "Городской транспорт, ориентирование в городе, творительный падеж средства передвижения (Įnagininkas: važiuoti autobusu), порядковые числительные и глагол reikia.",
+    "summary_en": "Public transport, city navigation, Instrumental case for transport, ordinal numbers, and the verb reikia.",
+    "grammar": [
+      {
+        "topic": "1. Творительный падеж транспорта (Priemonės įnagininkas)",
+        "explanation_ru": "Чтобы сказать, на чем вы едете, в литовском языке используется творительный падеж (Įnagininkas - Kuo?) БЕЗ всяких предлогов:\n• autobusas → važiuoju autobusu (еду на автобусе)\n• troleibusas → važiuoju troleibusu (еду на троллейбусе)\n• automobilis / mašina → važiuoju automobiliu / mašina (еду на машине)\n• traukinys → važiuoju traukiniu (еду на поезде)\n• dviratis → važiuoju dviračiu (еду на велосипеде)\n• pėsčiomis → einu pėsčiomis (иду пешком).",
+        "table": [
+          {
+            "lt": "važiuoju autobusu",
+            "ru": "еду автобусом (на автобусе)",
+            "note": "autobusas → autobusu"
+          },
+          {
+            "lt": "važiuoju automobiliu",
+            "ru": "еду на автомобиле",
+            "note": "automobilis → automobiliu"
+          },
+          {
+            "lt": "važiuoju antru troleibusu",
+            "ru": "еду на втором троллейбусе",
+            "note": "antras → antru"
+          }
+        ]
+      },
+      {
+        "topic": "2. Глагол reikia (нужно / надо) с инфинитивом",
+        "explanation_ru": "Конструкция 'reikia + инфинитив' указывает на необходимость:\n• Reikia važiuoti antru troleibusu (Нужно ехать на втором троллейбусе).\n• Reikia pasukti į dešinę (Нужно повернуть направо).\n• Reikia eiti tiesiai (Нужно идти прямо).",
+        "table": [
+          {
+            "lt": "Kaip nuvažiuoti į stotį?",
+            "ru": "Как доехать до вокзала?",
+            "note": "Вопрос"
+          },
+          {
+            "lt": "Reikia persėsti.",
+            "ru": "Нужно сделать пересадку.",
+            "note": "reikia + veiksmažodis"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Viešajame transporte (В общественном транспорте)",
+        "lines": [
+          {
+            "speaker": "Keleivis",
+            "lt": "Atsiprašau, ar trečias troleibusas važiuoja į stotį?",
+            "ru": "Простите, третий троллейбус идет до вокзала?"
+          },
+          {
+            "speaker": "Praeivis",
+            "lt": "Ne, trečias važiuoja į centrą. Į stotį važiuoja septintas troleibusas.",
+            "ru": "Нет, третий идет в центр. До вокзала идет седьмой троллейбус."
+          },
+          {
+            "speaker": "Keleivis",
+            "lt": "Kur yra stotelė?",
+            "ru": "Где находится остановка?"
+          },
+          {
+            "speaker": "Praeivis",
+            "lt": "Stotelė yra ten, už kampo. Reikia paeiti tiesiai ir pasukti į kairę.",
+            "ru": "Остановка там, за углом. Нужно пройти прямо и повернуть налево."
+          },
+          {
+            "speaker": "Keleivis",
+            "lt": "Labai ačiū!",
+            "ru": "Большое спасибо!"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "Kaip nuvažiuoti?",
+        "translation": "Как доехать?",
+        "transcription": "Кайп нуважю́оти?",
+        "category": "Транспорт"
+      },
+      {
+        "word": "Kaip nueiti?",
+        "translation": "Как дойти?",
+        "transcription": "Кайп нуэ́йти?",
+        "category": "Транспорт"
+      },
+      {
+        "word": "autobusas",
+        "translation": "автобус",
+        "transcription": "ауто́бусас",
+        "category": "Транспорт"
+      },
+      {
+        "word": "troleibusas",
+        "translation": "троллейбус",
+        "transcription": "троле́йбусас",
+        "category": "Транспорт"
+      },
+      {
+        "word": "traukinys",
+        "translation": "поезд",
+        "transcription": "траукини́с",
+        "category": "Транспорт"
+      },
+      {
+        "word": "automobilis",
+        "translation": "автомобиль",
+        "transcription": "аутомоби́лис",
+        "category": "Транспорт"
+      },
+      {
+        "word": "dviratis",
+        "translation": "велосипед",
+        "transcription": "дви́ратис",
+        "category": "Транспорт"
+      },
+      {
+        "word": "stotelė",
+        "translation": "остановка",
+        "transcription": "стотяле́",
+        "category": "Транспорт"
+      },
+      {
+        "word": "bilietas",
+        "translation": "билет",
+        "transcription": "биле́тас",
+        "category": "Транспорт"
+      },
+      {
+        "word": "tiesiai",
+        "translation": "прямо",
+        "transcription": "тесе́й",
+        "category": "Направление"
+      },
+      {
+        "word": "į kairę",
+        "translation": "налево",
+        "transcription": "и кайре́",
+        "category": "Направление"
+      },
+      {
+        "word": "į dešinę",
+        "translation": "направо",
+        "transcription": "и дя́шине",
+        "category": "Направление"
+      },
+      {
+        "word": "reikia",
+        "translation": "надо / нужно",
+        "transcription": "ре́йкя",
+        "category": "Слово"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как правильно сказать: «Я еду на работу на автобусе»?",
+        "options": [
+          "Į darbą važiuoju autobusu.",
+          "Į darbą važiuoju ant autobuso.",
+          "Į darbą važiuoju autobuse.",
+          "Į darbą važiuoju autobusą."
+        ],
+        "answer": "Į darbą važiuoju autobusu.",
+        "explanation": "Транспортное средство используется в творительном падеже без предлога: autobusu."
+      },
+      {
+        "type": "fill",
+        "question": "Поставьте слово traukinys в форму творительного падежа: «Mes važiuojame ________.» (поездом)",
+        "answer": "traukiniu",
+        "hint": "traukinys → traukiniu",
+        "explanation": "Существительное traukinys в творительном падеже: traukiniu."
+      },
+      {
+        "type": "mc",
+        "question": "Что означает фраза: «Reikia pasukti į kairę»?",
+        "options": [
+          "Нужно повернуть налево",
+          "Нужно повернуть направо",
+          "Нужно идти прямо",
+          "Нужно остановиться"
+        ],
+        "answer": "Нужно повернуть налево",
+        "explanation": "'į kairę' переводится 'налево' ('į dešinę' — направо)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте слово «нужно»: «Į centrą ________ važiuoti ketvirtu autobusu.» (нужно)",
+        "answer": "reikia",
+        "hint": "Слово 'надо/нужно'",
+        "explanation": "Безличная форма необходимости — 'reikia'."
+      },
+      {
+        "type": "mc",
+        "question": "Каким номером троллейбуса вы едете: «Važiuoju ________ troleibusu.» (antras - вторым)?",
+        "options": [
+          "antru",
+          "antras",
+          "antrame",
+          "antrą"
+        ],
+        "answer": "antru",
+        "explanation": "Порядковое числительное согласуется в творительном падеже: antru troleibusu."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте направление: «Eikite ________ ir pamatysite stotį.» (прямо)",
+        "answer": "tiesiai",
+        "hint": "Прямо по-литовски",
+        "explanation": "'tiesiai' означает 'прямо'."
+      }
+    ]
+  },
+  {
+    "id": "ch-11",
+    "book": 2,
+    "chapter": 11,
+    "level": "A1.2",
+    "title": "Geros kelionės!",
+    "title_ru": "Счастливого пути!",
+    "title_en": "Have a nice trip!",
+    "summary_ru": "Автосервис, аренда автомобиля, заправка, предлог po + Kilmininkas (через / после), дательный падеж времени (parai - на сутки).",
+    "summary_en": "Have a nice trip!",
+    "grammar": [
+      {
+        "topic": "1. Предлог po (после / через) + Kilmininkas",
+        "explanation_ru": "Предлог 'po' в значении времени требует родительного падежа: po darbo (после работы), po penkių minučių (через пять минут), po valandos (через час).",
+        "table": [
+          {
+            "lt": "Būsiu po valandos.",
+            "ru": "Буду через час.",
+            "note": "valanda → valandos"
+          }
+        ]
+      },
+      {
+        "topic": "2. Дательный падеж назначения (Naudininkas)",
+        "explanation_ru": "Когда мы говорим о сроке, на который что-то арендуем или берем: kaina parai (цена за сутки), nuoma dviem paroms (аренда на двое суток).",
+        "table": [
+          {
+            "lt": "Kokia kaina parai?",
+            "ru": "Какова цена за сутки?",
+            "note": "para → parai"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Geros kelionės! (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Geros kelionės!.",
+            "ru": "Привет! Сегодня учим тему: Счастливого пути!."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "kelionė",
+        "translation": "путешествие / поездка",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "degalinė",
+        "translation": "заправка",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "degalai",
+        "translation": "топливо / бензин",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "nuoma",
+        "translation": "аренда",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "para",
+        "translation": "сутки",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "po",
+        "translation": "после / через",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «Буду через пять минут»?",
+        "options": [
+          "Būsiu po penkių minučių.",
+          "Būsiu per penkios minutės.",
+          "Būsiu po penkios minutės.",
+          "Būsiu po penkioms minutėms."
+        ],
+        "answer": "Būsiu po penkių minučių.",
+        "explanation": "Предлог po требует родительного падежа: po penkių minučių."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте предлог «после / через»: «Susitiksime ________ darbo.» (после)",
+        "answer": "po",
+        "hint": "Предлог po",
+        "explanation": "po darbo = после работы."
+      }
+    ]
+  },
+  {
+    "id": "ch-12",
+    "book": 2,
+    "chapter": 12,
+    "level": "A1.2",
+    "title": "Koks jaukus butas!",
+    "title_ru": "Какая уютная квартира!",
+    "title_en": "What a cozy apartment!",
+    "summary_ru": "Аренда жилья, мебель, комнаты, конструкция yra + Vardininkas / nėra + Kilmininkas, предлог ant + Kilmininkas.",
+    "summary_en": "What a cozy apartment!",
+    "grammar": [
+      {
+        "topic": "1. Есть и нет в доме: Yra vs Nėra",
+        "explanation_ru": "В утверждении: Namuose yra internetas (Дома есть интернет - именительный). В отрицании: Namuose nėra interneto (Дома нет интернета - родительный).",
+        "table": [
+          {
+            "lt": "Yra balkonas.",
+            "ru": "Есть балкон.",
+            "note": "Vardininkas"
+          },
+          {
+            "lt": "Nėra balkono.",
+            "ru": "Нет балкона.",
+            "note": "Kilmininkas"
+          }
+        ]
+      },
+      {
+        "topic": "2. Предлог ant (на) + Kilmininkas",
+        "explanation_ru": "Предлог 'ant' (на поверхности) требует родительного падежа: knyga ant stalo (книга на столе, stalas → stalo).",
+        "table": [
+          {
+            "lt": "Knyga yra ant stalo.",
+            "ru": "Книга на столе.",
+            "note": "ant stalo"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Koks jaukus butas! (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Koks jaukus butas!.",
+            "ru": "Привет! Сегодня учим тему: Какая уютная квартира!."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "butas",
+        "translation": "квартира",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "kambarys",
+        "translation": "комната",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "virtuvė",
+        "translation": "кухня",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "vonia",
+        "translation": "ванная",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "stalas",
+        "translation": "стол",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "kėdė",
+        "translation": "стул",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sofa",
+        "translation": "диван",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "lova",
+        "translation": "кровать",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать «Книга на столе»?",
+        "options": [
+          "Knyga yra ant stalo.",
+          "Knyga yra ant stalas.",
+          "Knyga yra staloje.",
+          "Knyga yra prie stalą."
+        ],
+        "answer": "Knyga yra ant stalo.",
+        "explanation": "Предлог 'ant' требует родительного падежа: ant stalo."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте отрицание: «Čia nėra ________.» (internetas - интернета)",
+        "answer": "interneto",
+        "hint": "internetas → interneto",
+        "explanation": "Слово nėra требует родительного падежа: interneto."
+      }
+    ]
+  },
+  {
+    "id": "ch-13",
+    "book": 2,
+    "chapter": 13,
+    "level": "A1.2",
+    "title": "Reikia meistro!",
+    "title_ru": "Нужен мастер!",
+    "title_en": "A repairman is needed!",
+    "summary_ru": "Бытовые поломки, вызов мастера, бытовая техника, глаголы ремонта с винительным падежом (pataisyti šaldytuvą), предлог nuo + Kilmininkas.",
+    "summary_en": "A repairman is needed!",
+    "grammar": [
+      {
+        "topic": "1. Глаголы ремонта и уборки + Galininkas",
+        "explanation_ru": "Глаголы pataisyti (починить), sutvarkyti (убрать/навести порядок) требуют винительного падежа: Reikia pataisyti šaldytuvą (Нужно починить холодильник).",
+        "table": [
+          {
+            "lt": "pataisyti skalbimo mašiną",
+            "ru": "починить стиральную машину",
+            "note": "Galininkas"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Reikia meistro! (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Reikia meistro!.",
+            "ru": "Привет! Сегодня учим тему: Нужен мастер!."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "meistras",
+        "translation": "мастер",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "šaldytuvas",
+        "translation": "холодильник",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "skalbimo mašina",
+        "translation": "стиральная машина",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "viryklė",
+        "translation": "плита",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "pataisyti",
+        "translation": "починить",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sutvarkyti",
+        "translation": "привести в порядок",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «Нужно починить холодильник»?",
+        "options": [
+          "Reikia pataisyti šaldytuvą.",
+          "Reikia pataisyti šaldytuvo.",
+          "Reikia pataisyti šaldytuve.",
+          "Reikia meistras."
+        ],
+        "answer": "Reikia pataisyti šaldytuvą.",
+        "explanation": "Глагол pataisyti требует винительного падежа: šaldytuvą."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте слово «мастер»: «Man skubiai reikia ________.» (meistras - мастера)",
+        "answer": "meistro",
+        "hint": "reikia + Kilmininkas",
+        "explanation": "С глаголом reikia сущ. стоит в родительном падеже: meistro."
+      }
+    ]
+  },
+  {
+    "id": "ch-14",
+    "book": 2,
+    "chapter": 14,
+    "level": "A1.2",
+    "title": "Važiuojame apsipirkti?",
+    "title_ru": "Едем за покупками?",
+    "title_en": "Going shopping?",
+    "summary_ru": "Одежда, обувь, цвета, материалы, глагол tinka (подходит) с дательным падежом (Man tinka šis kostiumas).",
+    "summary_en": "Going shopping?",
+    "grammar": [
+      {
+        "topic": "1. Глагол tinka (подходить кому-то)",
+        "explanation_ru": "Глагол tinka требует дательного падежа (Naudininkas - Kam?):\n• Man tinka (Мне подходит)\n• Tau tinka (Тебе подходит)\n• Jums tinka (Вам подходит)\n«Ši suknelė tau labai tinka!» (Это платье тебе очень идёт!).",
+        "table": [
+          {
+            "lt": "Man netinka juoda spalva.",
+            "ru": "Мне не подходит черный цвет.",
+            "note": "Man (мне)"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Važiuojame apsipirkti? (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Važiuojame apsipirkti?.",
+            "ru": "Привет! Сегодня учим тему: Едем за покупками?."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "drabužiai",
+        "translation": "одежда",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "batai",
+        "translation": "обувь / ботинки",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "suknelė",
+        "translation": "платье",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "kelnės",
+        "translation": "брюки",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "marškiniai",
+        "translation": "рубашка",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "tinka",
+        "translation": "подходит / к лицу",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать «Тебе очень подходит это платье»?",
+        "options": [
+          "Tau labai tinka ši suknelė.",
+          "Tu labai tinka šį suknelę.",
+          "Tave tinka suknelė.",
+          "Tau tikti suknelėje."
+        ],
+        "answer": "Tau labai tinka ši suknelė.",
+        "explanation": "Глагол tinka согласуется с дательным местоимением 'tau'."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте местоимение «мне»: «________ netinka šie batai.» (Мне не подходят эти ботинки)",
+        "answer": "Man",
+        "hint": "Дательный падеж 'мне'",
+        "explanation": "Дательный падеж от 'aš' — 'Man'."
+      }
+    ]
+  },
+  {
+    "id": "ch-15",
+    "book": 2,
+    "chapter": 15,
+    "level": "A1.2",
+    "title": "Kada galėsiu atsiimti?",
+    "title_ru": "Когда я смогу забрать?",
+    "title_en": "When can I pick it up?",
+    "summary_ru": "Возврат и обмен товаров, ремонт одежды, сравнительная степень прилагательных (didesnis, mažesnis), измерение в сантиметрах.",
+    "summary_en": "When can I pick it up?",
+    "grammar": [
+      {
+        "topic": "1. Сравнительная степень (didesnis, mažesnis)",
+        "explanation_ru": "Для одежды часто требуются размеры: Man reikia didesnio megztinio (Мне нужен свитер побольше), mažesnių batų (ботинки поменьше).",
+        "table": [
+          {
+            "lt": "Reikia didesnio dydžio.",
+            "ru": "Нужен больший размер.",
+            "note": "didesnis"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Kada galėsiu atsiimti? (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Kada galėsiu atsiimti?.",
+            "ru": "Привет! Сегодня учим тему: Когда я смогу забрать?."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "atsiimti",
+        "translation": "забрать",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "grąžinti",
+        "translation": "вернуть",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "pakeisti",
+        "translation": "поменять / обменять",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "dydis",
+        "translation": "размер",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "didesnis",
+        "translation": "побольше / больший",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "mažesnis",
+        "translation": "поменьше / меньший",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Что означает фраза: «Noriu pakeisti prekę»?",
+        "options": [
+          "Хочу обменять товар",
+          "Хочу купить товар",
+          "Где касса?",
+          "Сколько стоит?"
+        ],
+        "answer": "Хочу обменять товар",
+        "explanation": "'Pakeisti prekę' переводится как обменять товар."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте слово «больший»: «Man reikia ________ megztinio.» (didesnis - побольше)",
+        "answer": "didesnio",
+        "hint": "родительный падеж didesnis",
+        "explanation": "Reikia требует родительного падежа: didesnio."
+      }
+    ]
+  },
+  {
+    "id": "ch-16",
+    "book": 2,
+    "chapter": 16,
+    "level": "A1.2",
+    "title": "Kada dirba šeimos gydytojas?",
+    "title_ru": "Когда принимает семейный врач?",
+    "title_en": "When is the family doctor working?",
+    "summary_ru": "У врача, части тела, самочувствие, конструкция skauda (болит + Galininkas: Man skauda galvą), возраст в дательном падеже.",
+    "summary_en": "When is the family doctor working?",
+    "grammar": [
+      {
+        "topic": "1. Конструкция Man skauda (У меня болит)",
+        "explanation_ru": "В литовском языке то, ЧТО болит, стоит в ВИНИТЕЛЬНОМ падеже (Galininkas):\n• Man skauda galvą (У меня болит голова, galva → galvą)\n• Man skauda gerklę (У меня болит горло)\n• Man skauda dantį (У меня болит зуб)\nВ отрицании — родительный падеж:\n• Man neskauda galvos (У меня не болит голова).",
+        "table": [
+          {
+            "lt": "Man skauda galvą.",
+            "ru": "У меня болит голова.",
+            "note": "galva → galvą"
+          },
+          {
+            "lt": "Man neskauda galvos.",
+            "ru": "У меня не болит голова.",
+            "note": "galva → galvos"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Kada dirba šeimos gydytojas? (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Kada dirba šeimos gydytojas?.",
+            "ru": "Привет! Сегодня учим тему: Когда принимает семейный врач?."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "gydytojas",
+        "translation": "врач / доктор",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "skauda",
+        "translation": "болит",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "galva",
+        "translation": "голова",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "gerklė",
+        "translation": "горло",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "dantis",
+        "translation": "зуб",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "temperatūra",
+        "translation": "температура",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "vaistai",
+        "translation": "лекарства",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «У меня болит голова»?",
+        "options": [
+          "Man skauda galvą.",
+          "Man skauda galva.",
+          "Aš skauda galvą.",
+          "Man skauda galvos."
+        ],
+        "answer": "Man skauda galvą.",
+        "explanation": "Конструкция 'Man skauda' требует винительного падежа (galva → galvą)."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму в отрицании: «Man neskauda ________.» (galva - головы)",
+        "answer": "galvos",
+        "hint": "Родительный падеж galva → galvos",
+        "explanation": "Отрицание neskauda требует родительного падежа: galvos."
+      }
+    ]
+  },
+  {
+    "id": "ch-17",
+    "book": 2,
+    "chapter": 17,
+    "level": "A1.2",
+    "title": "Prašom duoti vaistų nuo skausmo!",
+    "title_ru": "Дайте, пожалуйста, лекарство от боли!",
+    "title_en": "Please give me painkillers!",
+    "summary_ru": "В аптеке, симптомы, болезни, глагол sirgti (болеть + įnagininkas: sergu gripu), аллергия (alergiškas medui).",
+    "summary_en": "Please give me painkillers!",
+    "grammar": [
+      {
+        "topic": "1. Глагол sirgti (болеть чем-то) + Įnagininkas",
+        "explanation_ru": "Глагол sirgti требует творительного падежа (Kuo?):\n• Sergu gripu (Болею гриппом)\n• Sergu bronchitu (Болею бронхитом)\nЛекарства 'ОТ чего-то': vaistai NUO + Kilmininkas (vaistai nuo skausmo - лекарство от боли).",
+        "table": [
+          {
+            "lt": "sergu gripu",
+            "ru": "болею гриппом",
+            "note": "gripas → gripu"
+          },
+          {
+            "lt": "vaistai nuo temperatūros",
+            "ru": "лекарство от температуры",
+            "note": "nuo + Kilmininkas"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Prašom duoti vaistų nuo skausmo! (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Prašom duoti vaistų nuo skausmo!.",
+            "ru": "Привет! Сегодня учим тему: Дайте, пожалуйста, лекарство от боли!."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "vaistinė",
+        "translation": "аптека",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "vaistai",
+        "translation": "лекарства",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "receptas",
+        "translation": "рецепт",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "skausmas",
+        "translation": "боль",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sirgti",
+        "translation": "болеть",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "gripas",
+        "translation": "грипп",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать «Я болею гриппом»?",
+        "options": [
+          "Aš sergu gripu.",
+          "Aš sergu gripas.",
+          "Aš sergu į gripą.",
+          "Man yra gripas."
+        ],
+        "answer": "Aš sergu gripu.",
+        "explanation": "Глагол sirgti требует творительного падежа: gripu."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте предлог «от боли»: «Prašom duoti vaistų ________ skausmo.» (от)",
+        "answer": "nuo",
+        "hint": "Предлог 'nuo' (от)",
+        "explanation": "Предлог nuo требует родительного падежа: nuo skausmo."
+      }
+    ]
+  },
+  {
+    "id": "ch-18",
+    "book": 2,
+    "chapter": 18,
+    "level": "A1.2",
+    "title": "Kur jūs dirbate?",
+    "title_ru": "Где вы работаете?",
+    "title_en": "Where do you work?",
+    "summary_ru": "Профессии, рабочее место, график работы (nuo ... iki ...), рабочее время (komandiruotėje būsiu dvi dienas).",
+    "summary_en": "Where do you work?",
+    "grammar": [
+      {
+        "topic": "1. График работы: nuo (от) ... iki (до) ... + Kilmininkas",
+        "explanation_ru": "Время работы выражается конструкцией nuo ... iki + Kilmininkas:\n• Dirbu nuo aštuntos iki penktos valandos (Работаю с восьми до пяти часов).",
+        "table": [
+          {
+            "lt": "Dirbu nuo 9 iki 18 valandos.",
+            "ru": "Работаю с 9 до 18 часов.",
+            "note": "nuo ... iki"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Kur jūs dirbate? (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Kur jūs dirbate?.",
+            "ru": "Привет! Сегодня учим тему: Где вы работаете?."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "darbas",
+        "translation": "работа",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "biuras",
+        "translation": "офис",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "įmonė",
+        "translation": "компания / предприятие",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "direktorius",
+        "translation": "директор",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "kolega",
+        "translation": "коллега",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "nuo",
+        "translation": "от / с",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "iki",
+        "translation": "до",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «Я работаю с девяти до шести часов»?",
+        "options": [
+          "Dirbu nuo devintos iki šeštos valandos.",
+          "Dirbu nuo devynios iki šešios.",
+          "Dirbu devintą ir šeštą.",
+          "Dirbu apie devintą valandą."
+        ],
+        "answer": "Dirbu nuo devintos iki šeštos valandos.",
+        "explanation": "Конструкция времени: nuo ... iki + родительный падеж."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте предлог «до»: «Parduotuvė dirba nuo aštuonių ________ dešimtos valandos.» (до)",
+        "answer": "iki",
+        "hint": "Предлог iki",
+        "explanation": "nuo ... iki = от ... до."
+      }
+    ]
+  },
+  {
+    "id": "ch-19",
+    "book": 2,
+    "chapter": 19,
+    "level": "A1.2",
+    "title": "Ką tu studijuoji?",
+    "title_ru": "Что ты изучаешь?",
+    "title_en": "What do you study?",
+    "summary_ru": "Учёба, университет, студенческая жизнь, спряжение возвратного глагола mokytis (учиться), аудитории (dvidešimt antroje auditorijoje).",
+    "summary_en": "What do you study?",
+    "grammar": [
+      {
+        "topic": "1. Возвратный глагол mokytis (учиться чему-то)",
+        "explanation_ru": "Глагол mokytis требует родительного падежа предмета обучения (Ko?):\n• Aš mokausi lietuvių kalbos (Я учу литовский язык)\n• Mes mokomės universitete (Мы учимся в университете).",
+        "table": [
+          {
+            "lt": "Aš mokausi lietuvių kalbos.",
+            "ru": "Я учу литовский язык.",
+            "note": "mokytis + Kilmininkas"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Ką tu studijuoji? (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Ką tu studijuoji?.",
+            "ru": "Привет! Сегодня учим тему: Что ты изучаешь?."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "studijuoti",
+        "translation": "изучать / учиться в вузе",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "mokytis",
+        "translation": "учиться",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "paskaita",
+        "translation": "лекция",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "egzaminas",
+        "translation": "экзамен",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "auditorija",
+        "translation": "аудитория",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "knyga",
+        "translation": "книга",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Что требует глагол mokytis в предложении «Aš mokausi ________ kalbos»?",
+        "options": [
+          "lietuvių",
+          "lietuviškai",
+          "lietuvis",
+          "lietuvių kalbą"
+        ],
+        "answer": "lietuvių",
+        "explanation": "Mokytis требует родительного падежа: lietuvių kalbos."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола mokytis (1 л. ед.ч.): «Aš ________ universitete.» (учусь)",
+        "answer": "mokausi",
+        "hint": "1 л. ед.ч. mokytis",
+        "explanation": "Форма 1-го лица ед. ч. — 'mokausi'."
+      }
+    ]
+  },
+  {
+    "id": "ch-20",
+    "book": 2,
+    "chapter": 20,
+    "level": "A1.2",
+    "title": "Ką mėgsti veikti laisvalaikiu?",
+    "title_ru": "Чем ты любишь заниматься в свободное время?",
+    "title_en": "What do you like to do in your free time?",
+    "summary_ru": "Хобби, спорт, музыкальные инструменты (groti pianinu - на пианино), времена года, глаголы mėgti, patikti, mokėti.",
+    "summary_en": "What do you like to do in your free time?",
+    "grammar": [
+      {
+        "topic": "1. Глаголы mėgti (любить) и mokėti (уметь) с инфинитивом",
+        "explanation_ru": "• Aš mėgstu skaityti knygas (Я люблю читать книги)\n• Aš moku plaukti (Я умею плавать)\n• Aš nemoku slidinėti (Я не умею кататься на лыжах)\nИнструменты: groti + творительный падеж (groti gitara - играть на гитаре, groti pianinu - играть на пианино).",
+        "table": [
+          {
+            "lt": "Aš mėgstu sportuoti.",
+            "ru": "Я люблю заниматься спортом.",
+            "note": "mėgti + bendratis"
+          },
+          {
+            "lt": "Jis groja gitara.",
+            "ru": "Он играет на гитаре.",
+            "note": "groti + Įnagininkas"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Ką mėgsti veikti laisvalaikiu? (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Ką mėgsti veikti laisvalaikiu?.",
+            "ru": "Привет! Сегодня учим тему: Чем ты любишь заниматься в свободное время?."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "laisvalaikis",
+        "translation": "свободное время / досуг",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "mėgti",
+        "translation": "любить / нравиться",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sportuoti",
+        "translation": "заниматься спортом",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "keliauti",
+        "translation": "путешествовать",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "skaityti",
+        "translation": "читать",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "žiūrėti filmą",
+        "translation": "смотреть фильм",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "groti",
+        "translation": "играть (на инструменте)",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как сказать: «Он играет на гитаре»?",
+        "options": [
+          "Jis groja gitara.",
+          "Jis groja gitarą.",
+          "Jis groja ant gitaros.",
+          "Jis groti gitaroje."
+        ],
+        "answer": "Jis groja gitara.",
+        "explanation": "Глагол groti требует творительного падежа без предлога: gitara."
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте форму глагола mėgti (1 л. ед.ч.): «Aš labai ________ keliauti.» (люблю)",
+        "answer": "mėgstu",
+        "hint": "mėgti для aš",
+        "explanation": "Форма для 'aš' — 'mėgstu'."
+      }
+    ]
+  },
+  {
+    "id": "ch-21",
+    "book": 2,
+    "chapter": 21,
+    "level": "A1.2",
+    "title": "Su gimtadieniu!",
+    "title_ru": "С днем рождения!",
+    "title_en": "Happy Birthday!",
+    "summary_ru": "Праздники, поздравления, выражение дат (kovo aštuntą dieną), пожелания с родительным падежом (Linkiu laimės ir sveikatos!), подарки.",
+    "summary_en": "Happy Birthday!",
+    "grammar": [
+      {
+        "topic": "1. Пожелания: Linkiu (Желаю) + Kilmininkas",
+        "explanation_ru": "Глагол linkėti ВСЕГДА требует родительного падежа того, чего вы желаете:\n• Linkiu laimės (Желаю счастья, laimė → laimės)\n• Linkiu sveikatos (Желаю здоровья, sveikata → sveikatos)\n• Linkiu sėkmės (Желаю удачи, sėkmė → sėkmės!).\nБлагодарность: Ačiū už + Galininkas (Ačiū už dovaną! - Спасибо за подарок!).",
+        "table": [
+          {
+            "lt": "Su gimtadieniu!",
+            "ru": "С днем рождения!",
+            "note": "Поздравление"
+          },
+          {
+            "lt": "Linkiu sėkmės ir laimės!",
+            "ru": "Желаю удачи и счастья!",
+            "note": "Linkėti + Kilmininkas"
+          },
+          {
+            "lt": "Ačiū už dovaną!",
+            "ru": "Спасибо за подарок!",
+            "note": "už + Galininkas"
+          }
+        ]
+      }
+    ],
+    "dialogues": [
+      {
+        "title": "Pokalbis: Su gimtadieniu! (Диалог по теме)",
+        "lines": [
+          {
+            "speaker": "Agnė",
+            "lt": "Labas! Šiandien mokomės temą: Su gimtadieniu!.",
+            "ru": "Привет! Сегодня учим тему: С днем рождения!."
+          },
+          {
+            "speaker": "Tomas",
+            "lt": "Puiku! Man labai patinka ši tema.",
+            "ru": "Отлично! Мне очень нравится эта тема."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "gimtadienis",
+        "translation": "день рождения",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "šventė",
+        "translation": "праздник",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "dovana",
+        "translation": "подарок",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sveikinti",
+        "translation": "поздравлять",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "linkėti",
+        "translation": "желать",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "laimė",
+        "translation": "счастье",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sveikata",
+        "translation": "здоровье",
+        "category": "Словарь главы"
+      },
+      {
+        "word": "sėkmė",
+        "translation": "удача / успех",
+        "category": "Словарь главы"
+      }
+    ],
+    "exercises": [
+      {
+        "type": "mc",
+        "question": "Как правильно пожелать удачи на литовском языке?",
+        "options": [
+          "Linkiu sėkmės!",
+          "Linkiu sėkmė!",
+          "Linkiu sėkme!",
+          "Linkėti sėkmę!"
+        ],
+        "answer": "Linkiu sėkmės!",
+        "explanation": "Глагол linkėti требует родительного падежа: sėkmės!"
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте предлог «за»: «Ačiū ________ gražią dovaną!» (за)",
+        "answer": "už",
+        "hint": "Предлог už",
+        "explanation": "Ačiū už + Galininkas = Спасибо за..."
+      },
+      {
+        "type": "mc",
+        "question": "Что означает фраза: «Su gimtadieniu!»?",
+        "options": [
+          "С днем рождения!",
+          "С Новым годом!",
+          "Приятного аппетита!",
+          "Счастливого пути!"
+        ],
+        "answer": "С днем рождения!",
+        "explanation": "Su gimtadieniu! = С днем рождения!"
+      },
+      {
+        "type": "fill",
+        "question": "Вставьте родительный падеж слова sveikata (здоровья): «Linkiu laimės ir ________!»",
+        "answer": "sveikatos",
+        "hint": "sveikata → sveikatos",
+        "explanation": "После linkiu существительное стоит в родительном падеже: sveikatos."
+      }
+    ]
+  }
+]
