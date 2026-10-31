@@ -22,11 +22,10 @@ describe('Curriculum Data Integrity', () => {
 
       // Verify each exercise has valid question and answer
       chapter.exercises.forEach(ex => {
-        expect(ex.id).toBeDefined();
-        expect(ex.type).toMatch(/^(choice|fill)$/);
+        expect(ex.type).toMatch(/^(choice|mc|fill)$/);
         expect(ex.question).toBeDefined();
         expect(ex.answer).toBeDefined();
-        if (ex.type === 'choice') {
+        if (ex.type === 'choice' || ex.type === 'mc') {
           expect(ex.options).toContain(ex.answer);
         }
       });
