@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   BookOpen, CheckCircle, ChevronLeft, ChevronRight, HelpCircle,
-  Award, Volume2, ArrowRight, RotateCcw, Eye, EyeOff, Layers, MessageSquare, Check, X
+  Award, ArrowRight, RotateCcw, Eye, EyeOff, Layers, MessageSquare, Check, X
 } from 'lucide-react';
 import { checkAnswerMatch } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
@@ -36,16 +36,6 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
       setIsFlipped(false);
       setActiveTab('grammar');
       if (onSelectLesson) onSelectLesson(lessons[newIndex].id);
-    }
-  };
-
-  const speakLithuanian = (text) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'lt-LT';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
     }
   };
 
@@ -107,22 +97,22 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-3 sm:p-6 space-y-6">
+    <div className="max-w-5xl mx-auto p-3 sm:p-6 space-y-6 overflow-hidden">
       {/* Top Navigation & Breadcrumbs */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-900/80 border border-slate-800 p-4 rounded-2xl shadow-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-900/80 border border-slate-800 p-3 sm:p-4 rounded-2xl shadow-xl">
         <button
           onClick={onBack}
-          className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-xl transition"
+          className="self-start flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-2 rounded-xl transition"
         >
           <ChevronLeft className="w-4 h-4" /> {isRu ? 'Назад к темам' : 'Back to Menu'}
         </button>
 
         {/* Chapter Switcher */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 w-full sm:w-auto min-w-0">
           <button
             onClick={() => handleLessonChange(lessonIndex - 1)}
             disabled={lessonIndex === 0}
-            className="p-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-700 transition"
+            className="p-2 shrink-0 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-700 transition"
             title="Предыдущая глава"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -131,11 +121,11 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
           <select
             value={lessonIndex}
             onChange={(e) => handleLessonChange(parseInt(e.target.value, 10))}
-            className="bg-slate-800 border border-indigo-500/50 text-white font-bold text-xs sm:text-sm px-3 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 min-w-0 max-w-full bg-slate-800 border border-indigo-500/50 text-white font-bold text-xs sm:text-sm px-2.5 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 truncate"
           >
             {lessons.map((l, idx) => (
               <option key={l.id} value={idx}>
-                {l.book} knyga • {l.chapter} skyrius: {l.title} ({l.level})
+                {l.book} knyga • {l.chapter} sk: {l.title}
               </option>
             ))}
           </select>
@@ -143,7 +133,7 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
           <button
             onClick={() => handleLessonChange(lessonIndex + 1)}
             disabled={lessonIndex === lessons.length - 1}
-            className="p-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-700 transition"
+            className="p-2 shrink-0 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-700 transition"
             title="Следующая глава"
           >
             <ChevronRight className="w-4 h-4" />
@@ -273,16 +263,6 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                 <span className="text-[11px] font-bold text-indigo-400 uppercase tracking-widest bg-indigo-950/80 border border-indigo-800/50 px-2.5 py-1 rounded-full">
                   {vocabList[cardIndex]?.category || 'Словарь'}
                 </span>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    speakLithuanian(vocabList[cardIndex]?.word || vocabList[cardIndex]?.lt);
-                  }}
-                  className="p-2 rounded-xl bg-slate-800/80 hover:bg-indigo-600 text-slate-300 hover:text-white transition"
-                  title="Озвучить на литовском"
-                >
-                  <Volume2 className="w-5 h-5" />
-                </button>
               </div>
 
               <div className="my-6 text-center">
@@ -400,15 +380,6 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                         {w.translation || w.ru}
                       </div>
                     </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        speakLithuanian(wordKey);
-                      }}
-                      className="p-1.5 text-slate-500 hover:text-indigo-400 transition"
-                    >
-                      <Volume2 className="w-4 h-4" />
-                    </button>
                   </div>
                 );
               })}
@@ -433,8 +404,8 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                 </h3>
                 <div className="space-y-3">
                   {dial.lines.map((line, lIdx) => (
-                    <div key={lIdx} className="bg-slate-800/60 rounded-xl p-4 border border-slate-700/60 flex items-start justify-between gap-3">
-                      <div className="flex-1">
+                    <div key={lIdx} className="bg-slate-800/60 rounded-xl p-4 border border-slate-700/60">
+                      <div>
                         <span className="text-xs font-bold text-indigo-400 block mb-1">
                           {line.speaker}:
                         </span>
@@ -445,13 +416,6 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                           {line.ru}
                         </div>
                       </div>
-                      <button
-                        onClick={() => speakLithuanian(line.lt)}
-                        className="p-2 bg-slate-700/60 hover:bg-indigo-600 rounded-lg text-slate-300 hover:text-white transition"
-                        title="Прослушать реплику"
-                      >
-                        <Volume2 className="w-4 h-4" />
-                      </button>
                     </div>
                   ))}
                 </div>
