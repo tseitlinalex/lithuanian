@@ -1,0 +1,696 @@
+[
+  {
+    "id": "exam-b1",
+    "title": "Sėkmės! 1 knyga — Baigiamasis Pasitikrinimo Testas (A1.1)",
+    "title_ru": "Sėkmės! Книга 1 — Итоговый проверочный тест (A1.1)",
+    "title_en": "Sėkmės! Book 1 — Final Review Test (A1.1)",
+    "description_ru": "Официальный проверочный тест по итогам 1–9 глав книги 'Sėkmės! 1': диалоги, формы глаголов būti, esamasis, būsimasis, būtasis laikas, падежи (Vietininkas, Kilmininkas, Galininkas).",
+    "description_en": "Official review test based on Chapters 1-9 of 'Sėkmės! 1': dialogues, verb tenses, and essential cases.",
+    "passingScore": 60,
+    "questions": [
+      {
+        "id": "b1-q1",
+        "type": "choice",
+        "category": "Vietininkas (Vietos raiška)",
+        "question": "Ji gyvena ________ (Anglija).",
+        "question_ru": "Выберите правильную форму: Ji gyvena ...",
+        "options": [
+          "Anglijoje",
+          "Anglija",
+          "Anglijos",
+          "Angliją"
+        ],
+        "answer": "Anglijoje",
+        "explanation_ru": "На вопрос Kur? (Где?) названия стран на -ija принимают окончание -ijoje (Anglijoje)."
+      },
+      {
+        "id": "b1-q2",
+        "type": "choice",
+        "category": "Vietininkas",
+        "question": "Jie studijuoja ________ (universitetas).",
+        "question_ru": "Выберите правильную форму: Jie studijuoja ...",
+        "options": [
+          "universitete",
+          "universiteto",
+          "universitetą",
+          "universitetas"
+        ],
+        "answer": "universitete",
+        "explanation_ru": "Слова на -as на вопрос Kur? имеют окончание -e: universitete."
+      },
+      {
+        "id": "b1-q3",
+        "type": "choice",
+        "category": "Prielinksniai (Kryptis)",
+        "question": "Einu į ________ (biblioteka).",
+        "question_ru": "Выберите форму: Einu į ...",
+        "options": [
+          "biblioteką",
+          "bibliotekoje",
+          "biblioteka",
+          "bibliotekos"
+        ],
+        "answer": "biblioteką",
+        "explanation_ru": "Предлог 'į' (куда?) требует Galininkas: į biblioteką."
+      },
+      {
+        "id": "b1-q4",
+        "type": "choice",
+        "category": "Prielinksniai",
+        "question": "Susitinkame prie ________ (restoranas).",
+        "question_ru": "Выберите форму: Susitinkame prie ...",
+        "options": [
+          "restorano",
+          "restorane",
+          "restoraną",
+          "restoranas"
+        ],
+        "answer": "restorano",
+        "explanation_ru": "Предлог 'prie' требует родительного падежа (Kilmininkas): prie restorano."
+      },
+      {
+        "id": "b1-q5",
+        "type": "choice",
+        "category": "Galininkas (Mėgti)",
+        "question": "Aš mėgstu ________ (obuoliai).",
+        "question_ru": "Выберите форму: Aš mėgstu ...",
+        "options": [
+          "obuolius",
+          "obuolių",
+          "obuoliai",
+          "obuolyje"
+        ],
+        "answer": "obuolius",
+        "explanation_ru": "Утверждение mėgti требует Galininkas (ką?): mėgstu obuolius."
+      },
+      {
+        "id": "b1-q6",
+        "type": "choice",
+        "category": "Kilmininkas (Norėti)",
+        "question": "Jis nori ________ (arbata).",
+        "question_ru": "Выберите форму: Jis nori ...",
+        "options": [
+          "arbatos",
+          "arbatą",
+          "arbata",
+          "arbatoje"
+        ],
+        "answer": "arbatos",
+        "explanation_ru": "Желание части напитка или неопределенного количества — Dalies kilmininkas: noriu arbatos."
+      },
+      {
+        "id": "b1-q7",
+        "type": "choice",
+        "category": "Prielinksnis IŠ",
+        "question": "Dastanas yra iš ________ (Ispanija).",
+        "question_ru": "Выберите форму: Dastanas yra iš ...",
+        "options": [
+          "Ispanijos",
+          "Ispanijoje",
+          "Ispanija",
+          "Ispaniją"
+        ],
+        "answer": "Ispanijos",
+        "explanation_ru": "Iš kur? — iš Ispanijos (Kilmininkas)."
+      },
+      {
+        "id": "b1-q8",
+        "type": "choice",
+        "category": "Prielinksnis PAS",
+        "question": "Einu pas ________ (brolis).",
+        "question_ru": "Выберите форму: Einu pas ...",
+        "options": [
+          "brolį",
+          "brolio",
+          "brolis",
+          "broliui"
+        ],
+        "answer": "brolį",
+        "explanation_ru": "Предлог 'pas' требует Galininkas: pas brolį."
+      },
+      {
+        "id": "b1-q9",
+        "type": "choice",
+        "category": "Turėti vs Neturėti",
+        "question": "Jie turi ________ (duktė).",
+        "question_ru": "Выберите форму: Jie turi ...",
+        "options": [
+          "dukterį",
+          "duktė",
+          "dukters",
+          "dukteriai"
+        ],
+        "answer": "dukterį",
+        "explanation_ru": "Turėti + Galininkas: turi dukterį."
+      },
+      {
+        "id": "b1-q10",
+        "type": "choice",
+        "category": "Turėti vs Neturėti",
+        "question": "Lina neturi ________ (sesuo).",
+        "question_ru": "Выберите форму: Lina neturi ...",
+        "options": [
+          "sesers",
+          "seserį",
+          "sesuo",
+          "seseriai"
+        ],
+        "answer": "sesers",
+        "explanation_ru": "Neturėti + Kilmininkas: neturi sesers."
+      },
+      {
+        "id": "b1-q11",
+        "type": "choice",
+        "category": "Priklausomybė (Kieno?)",
+        "question": "Ar tavo ________ (draugas) vardas yra Viktoras?",
+        "question_ru": "Выберите форму: tavo ... vardas",
+        "options": [
+          "draugo",
+          "draugą",
+          "draugas",
+          "draugui"
+        ],
+        "answer": "draugo",
+        "explanation_ru": "Чей? Kieno? — draugo vardas (Kilmininkas)."
+      },
+      {
+        "id": "b1-q12",
+        "type": "choice",
+        "category": "Veiksmažodžio laikai (Esamasis)",
+        "question": "Mes ________ (būti) studentai.",
+        "question_ru": "Выберите правильную форму būti для mes:",
+        "options": [
+          "esame",
+          "esu",
+          "esi",
+          "esate"
+        ],
+        "answer": "esame",
+        "explanation_ru": "Mes esame."
+      },
+      {
+        "id": "b1-q13",
+        "type": "choice",
+        "category": "Veiksmažodžio laikai (Būsimasis)",
+        "question": "Rytoj mes ________ (eiti) į kiną.",
+        "question_ru": "Выберите форму будущего времени:",
+        "options": [
+          "eisime",
+          "eisi",
+          "eis",
+          "eisite"
+        ],
+        "answer": "eisime",
+        "explanation_ru": "Будущее время для mes: eisime."
+      },
+      {
+        "id": "b1-q14",
+        "type": "choice",
+        "category": "Veiksmažodžio laikai (Būtasis kartinis)",
+        "question": "Vakar aš ________ (valgyti) restorane.",
+        "question_ru": "Выберите форму прошедшего времени для aš:",
+        "options": [
+          "valgiau",
+          "valgėme",
+          "valgė",
+          "valgei"
+        ],
+        "answer": "valgiau",
+        "explanation_ru": "Прошедшее время от valgyti для 'aš': valgiau."
+      },
+      {
+        "id": "b1-q15",
+        "type": "fill",
+        "category": "Šauksmininkas",
+        "question": "Labas rytas, ________ (Andrius)!",
+        "question_ru": "Напишите форму звательного падежа (Andrius -> ...):",
+        "answer": "Andriau",
+        "acceptableAnswers": [
+          "Andriau",
+          "andriau"
+        ],
+        "explanation_ru": "Имена на -ius в звательном падеже оканчиваются на -iau: Andriau!"
+      }
+    ]
+  },
+  {
+    "id": "exam-b2",
+    "title": "Sėkmės! 2 knyga — Baigiamasis Pasitikrinimo Testas (A1.2)",
+    "title_ru": "Sėkmės! Книга 2 — Итоговый проверочный тест (A1.2)",
+    "title_en": "Sėkmės! Book 2 — Final Review Test (A1.2)",
+    "description_ru": "Официальный проверочный тест по итогам 10–21 глав 'Sėkmės! 2': транспорт, здоровье (skauda/neskauda), быт, покупки, учеба, досуг и праздники.",
+    "description_en": "Official review test based on Chapters 10-21 of 'Sėkmės! 2': transport, health, household, shopping, studies, hobbies.",
+    "passingScore": 60,
+    "questions": [
+      {
+        "id": "b2-q1",
+        "type": "choice",
+        "category": "Priemonės įnagininkas",
+        "question": "Į darbą važiuoju ________ (automobilis).",
+        "question_ru": "Выберите форму транспорта: Į darbą važiuoju ...",
+        "options": [
+          "automobiliu",
+          "automobilyje",
+          "automobilį",
+          "automobilio"
+        ],
+        "answer": "automobiliu",
+        "explanation_ru": "Ехать на чём-то — Priemonės įnagininkas: automobiliu."
+      },
+      {
+        "id": "b2-q2",
+        "type": "choice",
+        "category": "Prielinksnis PO (vieta)",
+        "question": "Prašom išsiurbti po ________ (sofa).",
+        "question_ru": "Выберите форму: po ... (под диваном)",
+        "options": [
+          "sofa",
+          "sofos",
+          "sofą",
+          "sofoje"
+        ],
+        "answer": "sofa",
+        "explanation_ru": "Предлог 'po' в значении 'под' требует творительного падежа (Įnagininkas): po sofa."
+      },
+      {
+        "id": "b2-q3",
+        "type": "choice",
+        "category": "Sveikata (Skauda)",
+        "question": "Man skauda ________ (galva).",
+        "question_ru": "Выберите форму: Man skauda ...",
+        "options": [
+          "galvą",
+          "galva",
+          "galvos",
+          "galvai"
+        ],
+        "answer": "galvą",
+        "explanation_ru": "Skauda требует Galininkas: skauda galvą."
+      },
+      {
+        "id": "b2-q4",
+        "type": "choice",
+        "category": "Sveikata (Neskauda)",
+        "question": "Man neskauda ________ (pilvas).",
+        "question_ru": "Выберите форму: Man neskauda ...",
+        "options": [
+          "pilvo",
+          "pilvą",
+          "pilvas",
+          "pilvui"
+        ],
+        "answer": "pilvo",
+        "explanation_ru": "Neskauda требует Kilmininkas: neskauda pilvo."
+      },
+      {
+        "id": "b2-q5",
+        "type": "choice",
+        "category": "Sveikata (Alergiškas)",
+        "question": "Ar tu alergiškas ________ (braškės)?",
+        "question_ru": "Выберите форму: alergiškas ...",
+        "options": [
+          "braškėms",
+          "braškių",
+          "braškes",
+          "braškėmis"
+        ],
+        "answer": "braškėms",
+        "explanation_ru": "Alergiškas требует дательного падежа (Naudininkas): braškėms."
+      },
+      {
+        "id": "b2-q6",
+        "type": "choice",
+        "category": "Sveikata (Sirgti)",
+        "question": "Jis serga ________ (gripas).",
+        "question_ru": "Выберите форму: serga ...",
+        "options": [
+          "gripu",
+          "gripą",
+          "gripo",
+          "gripe"
+        ],
+        "answer": "gripu",
+        "explanation_ru": "Sirgti требует творительного падежа (Įnagininkas): serga gripu."
+      },
+      {
+        "id": "b2-q7",
+        "type": "choice",
+        "category": "Laikas (Prielinksnis prieš)",
+        "question": "Prieš ________ (savaitė) važiavau į komandiruotę.",
+        "question_ru": "Выберите форму: Prieš ... važiavau",
+        "options": [
+          "savaitę",
+          "savaitės",
+          "savaitė",
+          "savaitėje"
+        ],
+        "answer": "savaitę",
+        "explanation_ru": "Предлог 'prieš' (тому назад) требует Galininkas: prieš savaitę."
+      },
+      {
+        "id": "b2-q8",
+        "type": "choice",
+        "category": "Laikas (Prielinksnis po)",
+        "question": "Ar galėčiau atvažiuoti po ________ (valanda)?",
+        "question_ru": "Выберите форму: po ... (через час)",
+        "options": [
+          "valandos",
+          "valandą",
+          "valanda",
+          "valandoje"
+        ],
+        "answer": "valandos",
+        "explanation_ru": "Предлог 'po' в значении времени требует Kilmininkas: po valandos."
+      },
+      {
+        "id": "b2-q9",
+        "type": "choice",
+        "category": "Prielinksnis ANT",
+        "question": "Raktai yra ant ________ (stalas).",
+        "question_ru": "Выберите форму: ant ...",
+        "options": [
+          "stalo",
+          "stalas",
+          "stalą",
+          "stale"
+        ],
+        "answer": "stalo",
+        "explanation_ru": "Предлог 'ant' требует родительного падежа (Kilmininkas): ant stalo."
+      },
+      {
+        "id": "b2-q10",
+        "type": "choice",
+        "category": "Nėra + Kilmininkas",
+        "question": "Vonioje nėra ________ (vanduo).",
+        "question_ru": "Выберите форму: nėra ...",
+        "options": [
+          "vandens",
+          "vanduo",
+          "vandenį",
+          "vandenyje"
+        ],
+        "answer": "vandens",
+        "explanation_ru": "Nėra требует Kilmininkas: nėra vandens."
+      },
+      {
+        "id": "b2-q11",
+        "type": "choice",
+        "category": "Vietininkas (Kelintiniai)",
+        "question": "Mes studijuojame ________ (antra) auditorijoje.",
+        "question_ru": "Выберите форму: ... auditorijoje",
+        "options": [
+          "antroje",
+          "antra",
+          "antros",
+          "antrą"
+        ],
+        "answer": "antroje",
+        "explanation_ru": "Vietininkas женского рода: antroje auditorijoje."
+      },
+      {
+        "id": "b2-q12",
+        "type": "choice",
+        "category": "Daugiskaitos vietininkas",
+        "question": "Žiemą jie slidinėja ________ (kalnai).",
+        "question_ru": "Выберите форму: slidinėja ...",
+        "options": [
+          "kalnuose",
+          "kalnų",
+          "kalnai",
+          "kalnus"
+        ],
+        "answer": "kalnuose",
+        "explanation_ru": "Множественное число Vietininkas мужского рода: kalnuose."
+      },
+      {
+        "id": "b2-q13",
+        "type": "choice",
+        "category": "Prielinksnis SU + Įnagininkas",
+        "question": "Gal tu nori eiti su ________ (aš) į kavinę?",
+        "question_ru": "Выберите форму местоимения su ...:",
+        "options": [
+          "manimi",
+          "man",
+          "mane",
+          "manęs"
+        ],
+        "answer": "manimi",
+        "explanation_ru": "Творительный падеж от 'aš' — 'manimi': su manimi."
+      },
+      {
+        "id": "b2-q14",
+        "type": "fill",
+        "category": "Mokytis + Kilmininkas",
+        "question": "Mes ________ (mokytis, esamasis laikas) lietuvių kalbos.",
+        "question_ru": "Напишите форму глагола mokytis для mes:",
+        "answer": "mokomės",
+        "acceptableAnswers": [
+          "mokomės",
+          "mokomes"
+        ],
+        "explanation_ru": "Возвратный глагол для mes: mokomės."
+      },
+      {
+        "id": "b2-q15",
+        "type": "fill",
+        "category": "Šventės (Linkėti)",
+        "question": "Linkiu jums laimės ir ________ (džiaugsmas)!",
+        "question_ru": "Linkėti требует родительного падежа: džiaugsmas -> ...",
+        "answer": "džiaugsmo",
+        "acceptableAnswers": [
+          "džiaugsmo",
+          "dziaugsmo"
+        ],
+        "explanation_ru": "Родительный падеж (Kilmininkas): džiaugsmo."
+      }
+    ]
+  },
+  {
+    "id": "exam-a1-full",
+    "title": "Valstybinis Lietuvių Kalbos A1 Egzaminas (Pilna Simuliacija)",
+    "title_ru": "Государственный экзамен по литовскому языку A1 (Полная симуляция)",
+    "title_en": "Official State Lithuanian A1 Level Exam (Full Simulation)",
+    "description_ru": "Полный комплексный симулятор государственного экзамена базового уровня A1 по материалам учебников Sėkmės 1 & 2. Включает вопросы по чтению, грамматике, падежным окончаниям и диалогам.",
+    "description_en": "Comprehensive practice exam simulating the official Lithuanian A1 proficiency examination with immediate scoring and detailed feedback.",
+    "passingScore": 60,
+    "questions": [
+      {
+        "id": "full-1",
+        "type": "choice",
+        "category": "Komunikacija",
+        "question": "– Atsiprašau, ar jūs esate Lina?\n– ________",
+        "question_ru": "Выберите верный ответ в диалоге:",
+        "options": [
+          "Ne, aš esu Rita.",
+          "Taip, aš esu studentas.",
+          "Ačiū, labai skanu.",
+          "Aš gyvenu Vilniuje."
+        ],
+        "answer": "Ne, aš esu Rita.",
+        "explanation_ru": "Логичный вежливый ответ на вопрос о личности: 'Ne, aš esu Rita.'"
+      },
+      {
+        "id": "full-2",
+        "type": "choice",
+        "category": "Prielinksniai (Iš kur)",
+        "question": "Mano draugas yra kilęs iš ________ (Lietuva).",
+        "question_ru": "Iš kur? (Lietuva):",
+        "options": [
+          "Lietuvos",
+          "Lietuvoje",
+          "Lietuvą",
+          "Lietuvai"
+        ],
+        "answer": "Lietuvos",
+        "explanation_ru": "Iš + Kilmininkas: iš Lietuvos."
+      },
+      {
+        "id": "full-3",
+        "type": "choice",
+        "category": "Vietininkas (Kur?)",
+        "question": "Mano tėvai gyvena gražiame ________ (Kaunas).",
+        "question_ru": "Vietininkas (Kaunas):",
+        "options": [
+          "Kaune",
+          "Kauno",
+          "Kauną",
+          "Kaunui"
+        ],
+        "answer": "Kaune",
+        "explanation_ru": "Kaunas -> Kaune."
+      },
+      {
+        "id": "full-4",
+        "type": "choice",
+        "category": "Laikas (Savaitės diena)",
+        "question": "Mes visada susitinkame ________ (trečiadienis).",
+        "question_ru": "Kada? (trečiadienis):",
+        "options": [
+          "trečiadienį",
+          "trečiadienyje",
+          "trečiadienio",
+          "trečiadieniui"
+        ],
+        "answer": "trečiadienį",
+        "explanation_ru": "День недели на вопрос Kada? — Galininkas: trečiadienį."
+      },
+      {
+        "id": "full-5",
+        "type": "choice",
+        "category": "Turėti / Neturėti",
+        "question": "Tomas turi naują ________ (kompiuteris), bet neturi ________ (telefonas).",
+        "question_ru": "Выберите правильную пару форм (Galininkas / Kilmininkas):",
+        "options": [
+          "kompiuterį / telefono",
+          "kompiuterio / telefoną",
+          "kompiuteris / telefonas",
+          "kompiuteryje / telefone"
+        ],
+        "answer": "kompiuterį / telefono",
+        "explanation_ru": "Turi (ką?) kompiuterį, neturi (ko?) telefono."
+      },
+      {
+        "id": "full-6",
+        "type": "choice",
+        "category": "Skauda / Neskauda",
+        "question": "Man labai skauda ________ (dantis).",
+        "question_ru": "Skauda + Galininkas:",
+        "options": [
+          "dantį",
+          "danties",
+          "dantis",
+          "dančiui"
+        ],
+        "answer": "dantį",
+        "explanation_ru": "Skauda + Galininkas: dantį."
+      },
+      {
+        "id": "full-7",
+        "type": "choice",
+        "category": "Transportas",
+        "question": "Kaip nuvažiuoti į stotį? – Reikia važiuoti penktu ________ (autobusas).",
+        "question_ru": "Važiuoti kuo? (Įnagininkas):",
+        "options": [
+          "autobusu",
+          "autobuse",
+          "autobuso",
+          "autobusą"
+        ],
+        "answer": "autobusu",
+        "explanation_ru": "Транспортное средство — Įnagininkas: penktu autobusu."
+      },
+      {
+        "id": "full-8",
+        "type": "choice",
+        "category": "Buitis (Yra / Nėra)",
+        "question": "Šiame bute yra patogi ________ (lova).",
+        "question_ru": "Yra + Vardininkas:",
+        "options": [
+          "lova",
+          "lovos",
+          "lovą",
+          "lovoje"
+        ],
+        "answer": "lova",
+        "explanation_ru": "Yra требует Vardininkas (именительный): patogi lova."
+      },
+      {
+        "id": "full-9",
+        "type": "choice",
+        "category": "Pirkimai (Tinka)",
+        "question": "Šie batai man labai ________ (tikti, esamasis laikas).",
+        "question_ru": "Šie batai (они) man...",
+        "options": [
+          "tinka",
+          "tinki",
+          "tinkame",
+          "tiko"
+        ],
+        "answer": "tinka",
+        "explanation_ru": "3-е лицо: tinka."
+      },
+      {
+        "id": "full-10",
+        "type": "choice",
+        "category": "Studijos (Mokytis)",
+        "question": "Ar jūs jau seniai mokotės lietuvių ________ (kalba)?",
+        "question_ru": "Mokytis требует Kilmininkas:",
+        "options": [
+          "kalbos",
+          "kalbą",
+          "kalba",
+          "kalboje"
+        ],
+        "answer": "kalbos",
+        "explanation_ru": "Mokytis + Kilmininkas: lietuvių kalbos."
+      },
+      {
+        "id": "full-11",
+        "type": "choice",
+        "category": "Laisvalaikis (Groti)",
+        "question": "Laisvalaikiu jis mėgsta groti ________ (gitara).",
+        "question_ru": "Groti + Įnagininkas:",
+        "options": [
+          "gitara",
+          "gitarą",
+          "gitaros",
+          "gitaroje"
+        ],
+        "answer": "gitara",
+        "explanation_ru": "Groti + Įnagininkas: groti gitara."
+      },
+      {
+        "id": "full-12",
+        "type": "choice",
+        "category": "Datos ir Šventės",
+        "question": "Mano gimtadienis yra sausio ________ (šešta) dieną.",
+        "question_ru": "Число месяца в винительном падеже (Galininkas):",
+        "options": [
+          "šeštą",
+          "šešta",
+          "šeštos",
+          "šeštoje"
+        ],
+        "answer": "šeštą",
+        "explanation_ru": "Выражение даты: sausio šeštą dieną."
+      },
+      {
+        "id": "full-13",
+        "type": "fill",
+        "category": "Kavinė (Norėti)",
+        "question": "Aš norėčiau stiklinės šalto ________ (vanduo).",
+        "question_ru": "Stiklinė требует родительного падежа (Kilmininkas): vanduo -> ...",
+        "answer": "vandens",
+        "acceptableAnswers": [
+          "vandens"
+        ],
+        "explanation_ru": "Kilmininkas от vanduo — vandens."
+      },
+      {
+        "id": "full-14",
+        "type": "fill",
+        "category": "Gydytojas (Serga)",
+        "question": "Šią žiemą vaikas serga ________ (bronchitas).",
+        "question_ru": "Sirgti + Įnagininkas: bronchitas -> ...",
+        "answer": "bronchitu",
+        "acceptableAnswers": [
+          "bronchitu"
+        ],
+        "explanation_ru": "Sirgti kuo? — bronchitu."
+      },
+      {
+        "id": "full-15",
+        "type": "fill",
+        "category": "Šventės (Dovana)",
+        "question": "Labai ačiū už gražią ________ (dovana)!",
+        "question_ru": "Už + Galininkas: dovana -> ...",
+        "answer": "dovaną",
+        "acceptableAnswers": [
+          "dovaną",
+          "dovana"
+        ],
+        "explanation_ru": "Ačiū už dovaną (Galininkas)."
+      }
+    ]
+  }
+]
