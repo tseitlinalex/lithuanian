@@ -224,9 +224,24 @@
         "category": "Прощание"
       },
       {
-        "word": "Iki pasimatymo",
-        "translation": "До встречи",
+        "word": "Sudie",
+        "translation": "Прощайте",
+        "category": "Прощание"
+      },
+      {
+        "word": "Iki! / Iki pasimatymo!",
+        "translation": "Пока! / До встречи!",
         "transcription": "Ики́ пасимати́мо",
+        "category": "Прощание"
+      },
+      {
+        "word": "Iki rytojaus!",
+        "translation": "До завтра!",
+        "category": "Прощание"
+      },
+      {
+        "word": "Ate!",
+        "translation": "Пока!",
         "category": "Прощание"
       },
       {
@@ -248,10 +263,31 @@
         "category": "Вежливость"
       },
       {
-        "word": "Nieko tokio",
-        "translation": "Ничего страшного",
+        "word": "Nieko tokio / Nieko",
+        "translation": "Ничего страшного / Пустяки",
         "transcription": "Не́ко то́кё",
         "category": "Вежливость"
+      },
+      {
+        "word": "Nėra už ką",
+        "translation": "Не за что",
+        "category": "Вежливость"
+      },
+      {
+        "word": "Labai malonu",
+        "translation": "Очень приятно",
+        "transcription": "лаба́й малону́",
+        "category": "Знакомство"
+      },
+      {
+        "word": "Man taip pat labai malonu",
+        "translation": "Мне тоже очень приятно",
+        "category": "Знакомство"
+      },
+      {
+        "word": "abėcėlė",
+        "translation": "алфавит",
+        "category": "Язык"
       },
       {
         "word": "vardas",
@@ -264,6 +300,31 @@
         "translation": "фамилия",
         "transcription": "паварде́",
         "category": "Существительное"
+      },
+      {
+        "word": "raidė",
+        "translation": "буква",
+        "category": "Язык"
+      },
+      {
+        "word": "raidės pavadinimas",
+        "translation": "название буквы",
+        "category": "Язык"
+      },
+      {
+        "word": "šalis",
+        "translation": "страна",
+        "category": "География"
+      },
+      {
+        "word": "gyventojas",
+        "translation": "житель",
+        "category": "Люди"
+      },
+      {
+        "word": "gyventoja",
+        "translation": "жительница",
+        "category": "Люди"
       },
       {
         "word": "studentas",
@@ -286,8 +347,17 @@
       {
         "word": "dėstytoja",
         "translation": "преподавательница",
-        "transcription": "де́ститоя",
         "category": "Профессия"
+      },
+      {
+        "word": "būti, yra, buvo",
+        "translation": "быть / есть (являться)",
+        "category": "Глагол"
+      },
+      {
+        "word": "nebūti, nėra, nebuvo",
+        "translation": "не быть / отсутствовать",
+        "category": "Глагол"
       },
       {
         "word": "taip",
@@ -302,16 +372,140 @@
         "category": "Частица"
       },
       {
-        "word": "labai malonu",
-        "translation": "очень приятно",
-        "transcription": "лаба́й малону́",
-        "category": "Знакомство"
+        "word": "čia",
+        "translation": "здесь / тут",
+        "category": "Наречие"
+      },
+      {
+        "word": "ir",
+        "translation": "и",
+        "category": "Союз"
+      },
+      {
+        "word": "o",
+        "translation": "а",
+        "category": "Союз"
       },
       {
         "word": "kas",
         "translation": "кто / что",
         "transcription": "кас",
         "category": "Вопрос"
+      },
+      {
+        "word": "Lietuva (lietuvis, lietuvė)",
+        "translation": "Литва (литовец, литовка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Anglija (anglas, anglė)",
+        "translation": "Англия (англичанин, англичанка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Airija (airis, airė)",
+        "translation": "Ирландия (ирландец, ирландка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Amerika / JAV (amerikietis, amerikietė)",
+        "translation": "Америка / США (американец, американка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Baltarusija (baltarusis, baltarusė)",
+        "translation": "Беларусь (белорус, белоруска)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Belgija (belgas, belgė)",
+        "translation": "Бельгия (бельгиец, бельгийка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Brazilija (brazilas, brazilė)",
+        "translation": "Бразилия (бразилец, бразильянка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Čekija (čekas, čekė)",
+        "translation": "Чехия (чех, чешка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Danija (danas, danė)",
+        "translation": "Дания (датчанин, датчанка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Estija (estas, estė)",
+        "translation": "Эстония (эстонец, эстонка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Graikija (graikas, graikė)",
+        "translation": "Греция (грек, гречанка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Ispanija (ispanas, ispanė)",
+        "translation": "Испания (испанец, испанка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Italija (italas, italė)",
+        "translation": "Италия (итальянец, итальянка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Japonija (japonas, japonė)",
+        "translation": "Япония (японец, японка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Kanada (kanadietis, kanadietė)",
+        "translation": "Канада (канадец, канадка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Kinija (kinas, kinė)",
+        "translation": "Китай (китаец, китаянка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Lenkija (lenkas, lenkė)",
+        "translation": "Польша (поляк, полька)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Norvegija (norvegas, norvegė)",
+        "translation": "Норвегия (норвежец, норвежка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Prancūzija (prancūzas, prancūzė)",
+        "translation": "Франция (француз, француженка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Suomija (suomis, suomė)",
+        "translation": "Финляндия (финн, финка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Švedija (švedas, švedė)",
+        "translation": "Швеция (швед, шведка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Ukraina (ukrainietis, ukrainietė)",
+        "translation": "Украина (украинец, украинка)",
+        "category": "Страны и национальности"
+      },
+      {
+        "word": "Vokietija (vokietis, vokietė)",
+        "translation": "Германия (немец, немка)",
+        "category": "Страны и национальности"
       }
     ],
     "exercises": [
@@ -534,21 +728,32 @@
     ],
     "vocabulary": [
       {
-        "word": "Kaip sekasi?",
-        "translation": "Как дела?",
-        "transcription": "Кайп ся́каси",
-        "category": "Приветствие"
+        "word": "kalbėti, kalba, kalbėjo",
+        "translation": "говорить",
+        "transcription": "калбе́ти",
+        "category": "Глагол"
       },
       {
-        "word": "Ačiū, gerai",
-        "translation": "Спасибо, хорошо",
-        "transcription": "А́чу, гяра́й",
-        "category": "Фраза"
+        "word": "suprasti, supranta, suprato",
+        "translation": "понимать",
+        "transcription": "супра́сти",
+        "category": "Глагол"
       },
       {
-        "word": "puikiai",
-        "translation": "отлично",
-        "transcription": "пу́йкей",
+        "word": "bet",
+        "translation": "но",
+        "transcription": "бят",
+        "category": "Союз"
+      },
+      {
+        "word": "blogai",
+        "translation": "плохо",
+        "transcription": "блога́й",
+        "category": "Наречие"
+      },
+      {
+        "word": "gerai",
+        "translation": "хорошо",
         "category": "Наречие"
       },
       {
@@ -558,28 +763,26 @@
         "category": "Фраза"
       },
       {
-        "word": "blogai",
-        "translation": "плохо",
-        "transcription": "блога́й",
+        "word": "puikiai",
+        "translation": "отлично",
+        "transcription": "пу́йкей",
         "category": "Наречие"
       },
       {
-        "word": "čia",
-        "translation": "здесь / вот это",
-        "transcription": "чя",
+        "word": "šiaip sau",
+        "translation": "так себе",
         "category": "Наречие"
       },
       {
-        "word": "draugas",
-        "translation": "друг",
-        "transcription": "дра́угас",
-        "category": "Люди"
+        "word": "taip pat",
+        "translation": "также / тоже",
+        "category": "Наречие"
       },
       {
-        "word": "draugė",
-        "translation": "подруга",
-        "transcription": "дра́уге",
-        "category": "Люди"
+        "word": "truputį",
+        "translation": "чуть-чуть / немного",
+        "transcription": "тру́пути",
+        "category": "Наречие"
       },
       {
         "word": "ponas",
@@ -594,28 +797,57 @@
         "category": "Обращение"
       },
       {
-        "word": "Iš kur?",
-        "translation": "Откуда?",
-        "transcription": "Иш кур?",
-        "category": "Вопрос"
+        "word": "draugas, draugė",
+        "translation": "друг, подруга",
+        "transcription": "дра́угас, дра́уге",
+        "category": "Люди"
       },
       {
-        "word": "iš Lietuvos",
-        "translation": "из Литвы",
-        "transcription": "иш Летуво́с",
+        "word": "Kaip sekasi?",
+        "translation": "Как дела?",
+        "transcription": "Кайп ся́каси",
+        "category": "Приветствие"
+      },
+      {
+        "word": "Ačiū, gerai!",
+        "translation": "Спасибо, хорошо!",
+        "transcription": "А́чу, гяра́й",
         "category": "Фраза"
       },
       {
-        "word": "kalbėti",
-        "translation": "говорить",
-        "transcription": "калбе́ти",
-        "category": "Глагол"
+        "word": "O kaip jums / tau?",
+        "translation": "А как вам / тебе?",
+        "category": "Вопрос"
       },
       {
-        "word": "suprasti",
-        "translation": "понимать",
-        "transcription": "супра́сти",
-        "category": "Глагол"
+        "word": "Iš kur jūs esate? / Iš kur tu esi?",
+        "translation": "Откуда вы? / Откуда ты?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "Aš esu iš...",
+        "translation": "Я из... (Литвы, Германии и т.д.)",
+        "category": "Фраза"
+      },
+      {
+        "word": "Čia mano draugas / draugė...",
+        "translation": "Это мой друг / моя подруга...",
+        "category": "Знакомство"
+      },
+      {
+        "word": "Ar tu kalbi angliškai?",
+        "translation": "Ты говоришь по-английски?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "Ar tu supranti lietuviškai?",
+        "translation": "Ты понимаешь по-литовски?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "Ar aišku? (Aišku / Neaišku)",
+        "translation": "Понятно ли? (Понятно / Непонятно)",
+        "category": "Фраза"
       },
       {
         "word": "lietuviškai",
@@ -642,16 +874,34 @@
         "category": "Язык"
       },
       {
-        "word": "truputį",
-        "translation": "чуть-чуть / немного",
-        "transcription": "тру́пути",
-        "category": "Наречие"
+        "word": "lenkiškai",
+        "translation": "по-польски",
+        "category": "Язык"
       },
       {
-        "word": "bet",
-        "translation": "но",
-        "transcription": "бят",
-        "category": "Союз"
+        "word": "latviškai",
+        "translation": "по-латышски",
+        "category": "Язык"
+      },
+      {
+        "word": "prancūziškai",
+        "translation": "по-французски",
+        "category": "Язык"
+      },
+      {
+        "word": "ispaniškai",
+        "translation": "по-испански",
+        "category": "Язык"
+      },
+      {
+        "word": "itališkai",
+        "translation": "по-итальянски",
+        "category": "Язык"
+      },
+      {
+        "word": "ukrainietiškai",
+        "translation": "по-украински",
+        "category": "Язык"
       }
     ],
     "exercises": [
@@ -828,16 +1078,52 @@
     ],
     "vocabulary": [
       {
-        "word": "Kur?",
-        "translation": "Где?",
-        "transcription": "Кур?",
-        "category": "Вопрос"
-      },
-      {
-        "word": "gyventi",
+        "word": "gyventi, gyvena, gyveno",
         "translation": "жить",
         "transcription": "гивя́нти",
         "category": "Глагол"
+      },
+      {
+        "word": "dirbti, dirba, dirbo",
+        "translation": "работать",
+        "category": "Глагол"
+      },
+      {
+        "word": "studijuoti, studijuoja, studijavo",
+        "translation": "учиться в вузе / изучать",
+        "category": "Глагол"
+      },
+      {
+        "word": "bendradarbis, bendradarbė",
+        "translation": "коллега (м.р. и ж.р.)",
+        "category": "Люди"
+      },
+      {
+        "word": "kaimynas, kaimynė",
+        "translation": "сосед, соседка",
+        "category": "Люди"
+      },
+      {
+        "word": "sostinė",
+        "translation": "столица",
+        "category": "Город"
+      },
+      {
+        "word": "miestas",
+        "translation": "город",
+        "transcription": "ме́стас",
+        "category": "Город"
+      },
+      {
+        "word": "centras",
+        "translation": "центр",
+        "transcription": "ця́нтрас",
+        "category": "Город"
+      },
+      {
+        "word": "senamiestis",
+        "translation": "старый город",
+        "category": "Город"
       },
       {
         "word": "adresas",
@@ -846,10 +1132,10 @@
         "category": "Город"
       },
       {
-        "word": "gatvė",
-        "translation": "улица",
-        "transcription": "га́тве",
-        "category": "Город"
+        "word": "telefonas (telefono numeris)",
+        "translation": "телефон (номер телефона)",
+        "transcription": "тяляфо́но ну́мярис",
+        "category": "Связь"
       },
       {
         "word": "namas",
@@ -864,27 +1150,190 @@
         "category": "Город"
       },
       {
-        "word": "miestas",
-        "translation": "город",
-        "transcription": "ме́стас",
+        "word": "kambarys",
+        "translation": "комната",
         "category": "Город"
       },
       {
-        "word": "prie",
-        "translation": "около / возле / у",
-        "transcription": "пре",
-        "category": "Предлог"
+        "word": "bendrabutis",
+        "translation": "общежитие",
+        "category": "Город"
       },
       {
-        "word": "parkas",
-        "translation": "парк",
-        "transcription": "па́ркас",
+        "word": "viešbutis",
+        "translation": "гостиница / отель",
         "category": "Город"
+      },
+      {
+        "word": "bažnyčia",
+        "translation": "костел / церковь",
+        "category": "Место"
+      },
+      {
+        "word": "ambasada",
+        "translation": "посольство",
+        "category": "Место"
+      },
+      {
+        "word": "bankas",
+        "translation": "банк",
+        "category": "Место"
+      },
+      {
+        "word": "paštas",
+        "translation": "почта",
+        "category": "Место"
+      },
+      {
+        "word": "ministerija",
+        "translation": "министерство",
+        "category": "Место"
+      },
+      {
+        "word": "biuras",
+        "translation": "офис / бюро",
+        "category": "Место"
       },
       {
         "word": "universitetas",
         "translation": "университет",
         "transcription": "унивярсите́тас",
+        "category": "Место"
+      },
+      {
+        "word": "mokykla",
+        "translation": "школа",
+        "category": "Место"
+      },
+      {
+        "word": "vaikų darželis",
+        "translation": "детский сад",
+        "category": "Место"
+      },
+      {
+        "word": "biblioteka",
+        "translation": "библиотека",
+        "category": "Место"
+      },
+      {
+        "word": "knygynas",
+        "translation": "книжный магазин",
+        "category": "Место"
+      },
+      {
+        "word": "restoranas",
+        "translation": "ресторан",
+        "category": "Место"
+      },
+      {
+        "word": "baras",
+        "translation": "бар",
+        "category": "Место"
+      },
+      {
+        "word": "kavinė",
+        "translation": "кафе",
+        "category": "Место"
+      },
+      {
+        "word": "valgykla",
+        "translation": "столовая",
+        "category": "Место"
+      },
+      {
+        "word": "prekybos centras",
+        "translation": "торговый центр",
+        "category": "Место"
+      },
+      {
+        "word": "parduotuvė",
+        "translation": "магазин",
+        "category": "Место"
+      },
+      {
+        "word": "kioskas",
+        "translation": "киоск",
+        "category": "Место"
+      },
+      {
+        "word": "turgus",
+        "translation": "рынок",
+        "category": "Место"
+      },
+      {
+        "word": "kirpykla",
+        "translation": "парикмахерская",
+        "category": "Место"
+      },
+      {
+        "word": "grožio salonas",
+        "translation": "салон красоты",
+        "category": "Место"
+      },
+      {
+        "word": "kino teatras / kinas",
+        "translation": "кинотеатр",
+        "category": "Место"
+      },
+      {
+        "word": "teatras",
+        "translation": "театр",
+        "category": "Место"
+      },
+      {
+        "word": "muziejus",
+        "translation": "музей",
+        "category": "Место"
+      },
+      {
+        "word": "pilis",
+        "translation": "замок",
+        "category": "Место"
+      },
+      {
+        "word": "sporto klubas",
+        "translation": "спортклуб / спортзал",
+        "category": "Место"
+      },
+      {
+        "word": "ligoninė",
+        "translation": "больница",
+        "category": "Место"
+      },
+      {
+        "word": "klinika",
+        "translation": "клиника",
+        "category": "Место"
+      },
+      {
+        "word": "vaistinė",
+        "translation": "аптека",
+        "category": "Место"
+      },
+      {
+        "word": "gatvė",
+        "translation": "улица",
+        "transcription": "га́тве",
+        "category": "Город"
+      },
+      {
+        "word": "alėja",
+        "translation": "аллея",
+        "category": "Город"
+      },
+      {
+        "word": "prospektas",
+        "translation": "проспект",
+        "category": "Город"
+      },
+      {
+        "word": "aikštė",
+        "translation": "площадь",
+        "category": "Город"
+      },
+      {
+        "word": "oro uostas",
+        "translation": "аэропорт",
         "category": "Город"
       },
       {
@@ -894,49 +1343,230 @@
         "category": "Город"
       },
       {
-        "word": "centras",
-        "translation": "центр",
-        "transcription": "ця́нтрас",
+        "word": "autobusų stotis",
+        "translation": "автовокзал",
         "category": "Город"
       },
       {
-        "word": "telefono numeris",
-        "translation": "номер телефона",
-        "transcription": "тяляфо́но ну́мярис",
-        "category": "Связь"
+        "word": "geležinkelio stotis",
+        "translation": "железнодорожный вокзал",
+        "category": "Город"
       },
       {
-        "word": "vienas",
+        "word": "stotelė",
+        "translation": "остановка",
+        "category": "Город"
+      },
+      {
+        "word": "darbas",
+        "translation": "работа",
+        "category": "Место"
+      },
+      {
+        "word": "upė",
+        "translation": "река",
+        "category": "Природа"
+      },
+      {
+        "word": "tiltas",
+        "translation": "мост",
+        "category": "Город"
+      },
+      {
+        "word": "ežeras",
+        "translation": "озеро",
+        "category": "Природа"
+      },
+      {
+        "word": "jūra",
+        "translation": "море",
+        "category": "Природа"
+      },
+      {
+        "word": "parkas",
+        "translation": "парк",
+        "transcription": "па́ркас",
+        "category": "Природа"
+      },
+      {
+        "word": "miškas",
+        "translation": "лес",
+        "category": "Природа"
+      },
+      {
+        "word": "arti",
+        "translation": "близко",
+        "category": "Наречие"
+      },
+      {
+        "word": "toli",
+        "translation": "далеко",
+        "category": "Наречие"
+      },
+      {
+        "word": "namie",
+        "translation": "дома",
+        "category": "Наречие"
+      },
+      {
+        "word": "Kur?",
+        "translation": "Где?",
+        "transcription": "Кур?",
+        "category": "Вопрос"
+      },
+      {
+        "word": "prie",
+        "translation": "около / возле / у",
+        "transcription": "пре",
+        "category": "Предлог"
+      },
+      {
+        "word": "nulis (0)",
+        "translation": "ноль",
+        "category": "Числительное"
+      },
+      {
+        "word": "vienas (1)",
         "translation": "один",
         "transcription": "ве́нас",
         "category": "Числительное"
       },
       {
-        "word": "du",
+        "word": "du (2)",
         "translation": "два",
         "transcription": "ду",
         "category": "Числительное"
       },
       {
-        "word": "trys",
+        "word": "trys (3)",
         "translation": "три",
         "transcription": "трис",
         "category": "Числительное"
       },
       {
-        "word": "dešimt",
+        "word": "keturi (4)",
+        "translation": "четыре",
+        "category": "Числительное"
+      },
+      {
+        "word": "penki (5)",
+        "translation": "пять",
+        "category": "Числительное"
+      },
+      {
+        "word": "šeši (6)",
+        "translation": "шесть",
+        "category": "Числительное"
+      },
+      {
+        "word": "septyni (7)",
+        "translation": "семь",
+        "category": "Числительное"
+      },
+      {
+        "word": "aštuoni (8)",
+        "translation": "восемь",
+        "category": "Числительное"
+      },
+      {
+        "word": "devyni (9)",
+        "translation": "девять",
+        "category": "Числительное"
+      },
+      {
+        "word": "dešimt (10)",
         "translation": "десять",
         "transcription": "дя́шимт",
         "category": "Числительное"
       },
       {
-        "word": "dvidešimt",
+        "word": "vienuolika (11)",
+        "translation": "одиннадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "dvylika (12)",
+        "translation": "двенадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "trylika (13)",
+        "translation": "тринадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "keturiolika (14)",
+        "translation": "четырнадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "penkiolika (15)",
+        "translation": "пятнадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "šešiolika (16)",
+        "translation": "шестнадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "septyniolika (17)",
+        "translation": "семнадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "aštuoniolika (18)",
+        "translation": "восемнадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "devyniolika (19)",
+        "translation": "девятнадцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "dvidešimt (20)",
         "translation": "двадцать",
         "transcription": "дви́дяшимт",
         "category": "Числительное"
       },
       {
-        "word": "šimtas",
+        "word": "trisdešimt (30)",
+        "translation": "тридцать",
+        "category": "Числительное"
+      },
+      {
+        "word": "keturiasdešimt (40)",
+        "translation": "сорок",
+        "category": "Числительное"
+      },
+      {
+        "word": "penkiasdešimt (50)",
+        "translation": "пятьдесят",
+        "category": "Числительное"
+      },
+      {
+        "word": "šešiasdešimt (60)",
+        "translation": "шестьдесят",
+        "category": "Числительное"
+      },
+      {
+        "word": "septyniasdešimt (70)",
+        "translation": "семьдесят",
+        "category": "Числительное"
+      },
+      {
+        "word": "aštuoniasdešimt (80)",
+        "translation": "восемьдесят",
+        "category": "Числительное"
+      },
+      {
+        "word": "devyniasdešimt (90)",
+        "translation": "девяносто",
+        "category": "Числительное"
+      },
+      {
+        "word": "šimtas (100)",
         "translation": "сто",
         "transcription": "ши́мтас",
         "category": "Числительное"
@@ -1113,6 +1743,11 @@
         "category": "Вопрос"
       },
       {
+        "word": "savaitė",
+        "translation": "неделя",
+        "category": "Время"
+      },
+      {
         "word": "pirmadienis",
         "translation": "понедельник",
         "transcription": "пи́рмаденис",
@@ -1121,86 +1756,207 @@
       {
         "word": "antradienis",
         "translation": "вторник",
-        "transcription": "а́нтраденис",
         "category": "Дни недели"
       },
       {
         "word": "trečiadienis",
         "translation": "среда",
-        "transcription": "трячя́денис",
         "category": "Дни недели"
       },
       {
         "word": "ketvirtadienis",
         "translation": "четверг",
-        "transcription": "кятви́ртаденис",
         "category": "Дни недели"
       },
       {
         "word": "penktadienis",
         "translation": "пятница",
-        "transcription": "пя́нктаденис",
         "category": "Дни недели"
       },
       {
         "word": "šeštadienis",
         "translation": "суббота",
-        "transcription": "шяшта́денис",
         "category": "Дни недели"
       },
       {
         "word": "sekmadienis",
         "translation": "воскресенье",
-        "transcription": "сякма́денис",
         "category": "Дни недели"
       },
       {
         "word": "savaitgalis",
-        "translation": "выходные",
-        "transcription": "савайтга́лис",
-        "category": "Время"
-      },
-      {
-        "word": "rytas",
-        "translation": "утро",
-        "transcription": "ри́тас",
-        "category": "Время"
-      },
-      {
-        "word": "diena",
-        "translation": "день",
-        "transcription": "дена́",
-        "category": "Время"
-      },
-      {
-        "word": "vakaras",
-        "translation": "вечер",
-        "transcription": "ва́карас",
-        "category": "Время"
-      },
-      {
-        "word": "naktis",
-        "translation": "ночь",
-        "transcription": "накти́с",
+        "translation": "выходные (уик-энд)",
         "category": "Время"
       },
       {
         "word": "valanda",
         "translation": "час",
-        "transcription": "валанда́",
         "category": "Время"
       },
       {
-        "word": "susitikti",
-        "translation": "встретиться",
-        "transcription": "сусити́кти",
+        "word": "pusė",
+        "translation": "половина",
+        "category": "Время"
+      },
+      {
+        "word": "rytas",
+        "translation": "утро",
+        "category": "Время суток"
+      },
+      {
+        "word": "diena",
+        "translation": "день",
+        "category": "Время суток"
+      },
+      {
+        "word": "vakaras",
+        "translation": "вечер",
+        "category": "Время суток"
+      },
+      {
+        "word": "naktis",
+        "translation": "ночь",
+        "category": "Время суток"
+      },
+      {
+        "word": "po pietų",
+        "translation": "после обеда (p.m.)",
+        "category": "Время суток"
+      },
+      {
+        "word": "prieš pietus",
+        "translation": "до обеда (a.m.)",
+        "category": "Время суток"
+      },
+      {
+        "word": "šiandien",
+        "translation": "сегодня",
+        "category": "Время"
+      },
+      {
+        "word": "rytoj",
+        "translation": "завтра",
+        "category": "Время"
+      },
+      {
+        "word": "kartais",
+        "translation": "иногда",
+        "category": "Наречие"
+      },
+      {
+        "word": "retai",
+        "translation": "редко",
+        "category": "Наречие"
+      },
+      {
+        "word": "dažnai",
+        "translation": "часто",
+        "category": "Наречие"
+      },
+      {
+        "word": "visada",
+        "translation": "всегда",
+        "category": "Наречие"
+      },
+      {
+        "word": "niekada",
+        "translation": "никогда",
+        "category": "Наречие"
+      },
+      {
+        "word": "kasdien",
+        "translation": "каждый день / ежедневно",
+        "category": "Наречие"
+      },
+      {
+        "word": "kartu",
+        "translation": "вместе",
+        "category": "Наречие"
+      },
+      {
+        "word": "eiti, eina, ėjo",
+        "translation": "идти (пешком)",
         "category": "Глагол"
       },
       {
-        "word": "eiti",
-        "translation": "идти",
-        "transcription": "э́йти",
+        "word": "skubėti, skuba, skubėjo",
+        "translation": "спешить / торопиться",
         "category": "Глагол"
+      },
+      {
+        "word": "susitikti, susitinka, susitiko",
+        "translation": "встречаться / встретиться",
+        "category": "Глагол"
+      },
+      {
+        "word": "važiuoti, važiuoja, važiavo",
+        "translation": "ехать (на транспорте)",
+        "category": "Глагол"
+      },
+      {
+        "word": "vėluoti, vėluoja, vėlavo",
+        "translation": "опаздывать",
+        "category": "Глагол"
+      },
+      {
+        "word": "pirma valanda (1:00 / 13:00)",
+        "translation": "час (дня/ночи)",
+        "category": "Время суток"
+      },
+      {
+        "word": "antra valanda (2:00 / 14:00)",
+        "translation": "два часа",
+        "category": "Время суток"
+      },
+      {
+        "word": "trečia valanda (3:00 / 15:00)",
+        "translation": "три часа",
+        "category": "Время суток"
+      },
+      {
+        "word": "ketvirta valanda (4:00 / 16:00)",
+        "translation": "четыре часа",
+        "category": "Время суток"
+      },
+      {
+        "word": "penkta valanda (5:00 / 17:00)",
+        "translation": "пять часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "šešta valanda (6:00 / 18:00)",
+        "translation": "шесть часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "septinta valanda (7:00 / 19:00)",
+        "translation": "семь часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "aštunta valanda (8:00 / 20:00)",
+        "translation": "восемь часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "devinta valanda (9:00 / 21:00)",
+        "translation": "девять часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "dešimta valanda (10:00 / 22:00)",
+        "translation": "десять часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "vienuolikta valanda (11:00 / 23:00)",
+        "translation": "одиннадцать часов",
+        "category": "Время суток"
+      },
+      {
+        "word": "dvylikta valanda (12:00 / 24:00)",
+        "translation": "двенадцать часов (полдень / полночь)",
+        "category": "Время суток"
       }
     ],
     "exercises": [
@@ -1383,87 +2139,234 @@
         "category": "Семья"
       },
       {
-        "word": "tėtis",
-        "translation": "папа",
+        "word": "tėvas; tėtis",
+        "translation": "отец, папа",
         "transcription": "те́тис",
         "category": "Семья"
       },
       {
-        "word": "mama",
-        "translation": "мама",
-        "transcription": "мама́",
-        "category": "Семья"
-      },
-      {
-        "word": "brolis",
-        "translation": "брат",
-        "transcription": "бро́лис",
-        "category": "Семья"
-      },
-      {
-        "word": "sesuo",
-        "translation": "сестра",
-        "transcription": "сясуо́",
-        "category": "Семья"
-      },
-      {
-        "word": "sūnus",
-        "translation": "сын",
-        "transcription": "суну́с",
-        "category": "Семья"
-      },
-      {
-        "word": "duktė",
-        "translation": "дочь",
-        "transcription": "дукте́",
-        "category": "Семья"
-      },
-      {
-        "word": "vyras",
-        "translation": "муж / мужчина",
-        "transcription": "ви́рас",
-        "category": "Семья"
-      },
-      {
-        "word": "žmona",
-        "translation": "жена",
-        "transcription": "жмона́",
+        "word": "motina, mama",
+        "translation": "мать, мама",
         "category": "Семья"
       },
       {
         "word": "vaikas",
         "translation": "ребенок",
-        "transcription": "ва́йкас",
+        "category": "Семья"
+      },
+      {
+        "word": "duktė",
+        "translation": "дочь",
+        "category": "Семья"
+      },
+      {
+        "word": "sūnus",
+        "translation": "сын",
+        "category": "Семья"
+      },
+      {
+        "word": "vyras",
+        "translation": "муж / мужчина",
+        "category": "Семья"
+      },
+      {
+        "word": "žmona",
+        "translation": "жена",
+        "category": "Семья"
+      },
+      {
+        "word": "sesuo",
+        "translation": "сестра",
+        "category": "Семья"
+      },
+      {
+        "word": "brolis",
+        "translation": "брат",
         "category": "Семья"
       },
       {
         "word": "senelis",
         "translation": "дедушка",
-        "transcription": "сяне́лис",
         "category": "Семья"
       },
       {
-        "word": "močiutė",
+        "word": "senelė / močiutė",
         "translation": "бабушка",
-        "transcription": "мочю́те",
         "category": "Семья"
       },
       {
-        "word": "šuo",
-        "translation": "собака",
-        "transcription": "шуо́",
+        "word": "anūkas, anūkė",
+        "translation": "внук, внучка",
+        "category": "Семья"
+      },
+      {
+        "word": "giminės",
+        "translation": "родственники / родня",
+        "category": "Семья"
+      },
+      {
+        "word": "teta",
+        "translation": "тетя",
+        "category": "Семья"
+      },
+      {
+        "word": "dėdė",
+        "translation": "дядя",
+        "category": "Семья"
+      },
+      {
+        "word": "pusbrolis",
+        "translation": "двоюродный брат",
+        "category": "Семья"
+      },
+      {
+        "word": "pusseserė",
+        "translation": "двоюродная сестра",
+        "category": "Семья"
+      },
+      {
+        "word": "dukterėčia",
+        "translation": "племянница",
+        "category": "Семья"
+      },
+      {
+        "word": "sūnėnas",
+        "translation": "племянник",
+        "category": "Семья"
+      },
+      {
+        "word": "vedęs",
+        "translation": "женат (о мужчине)",
+        "category": "Статус"
+      },
+      {
+        "word": "ištekėjusi",
+        "translation": "замужем (о женщине)",
+        "category": "Статус"
+      },
+      {
+        "word": "išsiskyręs, išsiskyrusi",
+        "translation": "разведен, разведена",
+        "category": "Статус"
+      },
+      {
+        "word": "miręs, mirusi",
+        "translation": "умерший, умершая",
+        "category": "Статус"
+      },
+      {
+        "word": "žmogus",
+        "translation": "человек",
+        "category": "Люди"
+      },
+      {
+        "word": "moteris",
+        "translation": "женщина",
+        "category": "Люди"
+      },
+      {
+        "word": "vaikinas",
+        "translation": "парень / юноша",
+        "category": "Люди"
+      },
+      {
+        "word": "mergina",
+        "translation": "девушка",
+        "category": "Люди"
+      },
+      {
+        "word": "berniukas",
+        "translation": "мальчик",
+        "category": "Люди"
+      },
+      {
+        "word": "mergaitė",
+        "translation": "девочка",
+        "category": "Люди"
+      },
+      {
+        "word": "mokinys, mokinė",
+        "translation": "ученик, ученица",
+        "category": "Люди"
+      },
+      {
+        "word": "naminis gyvūnas",
+        "translation": "домашнее животное (питомец)",
         "category": "Животные"
       },
       {
         "word": "katė",
         "translation": "кошка",
-        "transcription": "кате́",
         "category": "Животные"
       },
       {
-        "word": "turėti",
-        "translation": "иметь",
-        "transcription": "туре́ти",
+        "word": "šuo",
+        "translation": "собака",
+        "category": "Животные"
+      },
+      {
+        "word": "šis, ši (šie, šios)",
+        "translation": "этот, эта (эти - м.р. и ж.р.)",
+        "category": "Местоимение"
+      },
+      {
+        "word": "muzika",
+        "translation": "музыка",
+        "category": "Интересы"
+      },
+      {
+        "word": "literatūra",
+        "translation": "литература",
+        "category": "Интересы"
+      },
+      {
+        "word": "sportas",
+        "translation": "спорт",
+        "category": "Интересы"
+      },
+      {
+        "word": "teatras",
+        "translation": "театр",
+        "category": "Интересы"
+      },
+      {
+        "word": "mylėti, myli, mylėjo",
+        "translation": "любить (кого-то)",
+        "category": "Глагол"
+      },
+      {
+        "word": "sėdėti, sėdi, sėdėjo",
+        "translation": "сидеть",
+        "category": "Глагол"
+      },
+      {
+        "word": "stovėti, stovi, stovėjo",
+        "translation": "стоять",
+        "category": "Глагол"
+      },
+      {
+        "word": "turėti, turi, turėjo",
+        "translation": "иметь (кого/что)",
+        "category": "Глагол"
+      },
+      {
+        "word": "žiūrėti, žiūri, žiūrėjo",
+        "translation": "смотреть / глядеть",
+        "category": "Глагол"
+      },
+      {
+        "word": "mėgti, mėgsta, mėgo",
+        "translation": "любить / нравиться (что-то делать)",
+        "category": "Глагол"
+      },
+      {
+        "word": "sportuoti, sportuoja, sportavo",
+        "translation": "заниматься спортом",
+        "category": "Глагол"
+      },
+      {
+        "word": "vaikščioti, vaikščioja, vaikščiojo",
+        "translation": "гулять / ходить",
         "category": "Глагол"
       }
     ],
@@ -1606,93 +2509,171 @@
     "vocabulary": [
       {
         "word": "Kieno?",
-        "translation": "Чей? Чья? Чьё?",
+        "translation": "Чей? Чья? Чьё? Чьи?",
         "transcription": "Ке́но?",
         "category": "Вопрос"
       },
       {
         "word": "mano",
-        "translation": "мой / моя / моё",
+        "translation": "мой / моя / моё / мои",
         "transcription": "ма́но",
         "category": "Местоимение"
       },
       {
         "word": "tavo",
-        "translation": "твой / твоя / твоё",
+        "translation": "твой / твоя / твоё / твои",
         "transcription": "та́во",
         "category": "Местоимение"
       },
       {
         "word": "jo",
         "translation": "его",
-        "transcription": "йо",
         "category": "Местоимение"
       },
       {
         "word": "jos",
         "translation": "её",
-        "transcription": "йос",
         "category": "Местоимение"
       },
       {
         "word": "mūsų",
-        "translation": "наш / наша / наше",
-        "transcription": "му́су",
+        "translation": "наш / наша / наше / наши",
         "category": "Местоимение"
       },
       {
         "word": "jūsų",
-        "translation": "ваш / ваша / ваше",
-        "transcription": "ю́су",
+        "translation": "ваш / ваша / ваше / ваши",
         "category": "Местоимение"
       },
       {
         "word": "jų",
         "translation": "их",
-        "transcription": "ю",
         "category": "Местоимение"
       },
       {
-        "word": "jaunas",
-        "translation": "молодой",
-        "transcription": "я́унас",
-        "category": "Прилагательное"
-      },
-      {
-        "word": "senas",
-        "translation": "старый",
-        "transcription": "ся́нас",
-        "category": "Прилагательное"
-      },
-      {
-        "word": "didelis",
-        "translation": "большой",
-        "transcription": "ди́дялис",
-        "category": "Прилагательное"
-      },
-      {
-        "word": "mažas",
-        "translation": "маленький",
-        "transcription": "ма́жас",
-        "category": "Прилагательное"
-      },
-      {
-        "word": "vyresnis",
-        "translation": "старше",
-        "transcription": "вирясни́с",
-        "category": "Сравнение"
-      },
-      {
-        "word": "jaunesnis",
-        "translation": "младше",
-        "transcription": "яунясни́с",
-        "category": "Сравнение"
-      },
-      {
         "word": "už",
-        "translation": "чем / за",
-        "transcription": "уж",
+        "translation": "чем / за (для сравнения: už mane - чем я)",
         "category": "Предлог"
+      },
+      {
+        "word": "aukštas, aukšta",
+        "translation": "высокий, высокая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "žemas, žema",
+        "translation": "низкий, низкая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "draugiškas, draugiška",
+        "translation": "дружелюбный, дружелюбная",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "geras, gera",
+        "translation": "хороший, хорошая / добрый, добрая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "jaunas, jauna",
+        "translation": "молодой, молодая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "senas, sena",
+        "translation": "старый, старая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "linksmas, linksma",
+        "translation": "веселый, веселая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "liūdnas, liūdna",
+        "translation": "грустный, грустная",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "mažas, maža",
+        "translation": "маленький, маленькая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "didelis, didelė",
+        "translation": "большой, большая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "mielas, miela",
+        "translation": "милый, милая / дорогой",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "protingas, protinga",
+        "translation": "умный, умная",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "gražus, graži",
+        "translation": "красивый, красивая",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "įdomus, įdomi",
+        "translation": "интересный, интересная",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "malonus, maloni",
+        "translation": "приятный, приятная",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "puikus, puiki",
+        "translation": "прекрасный, прекрасная / отличный",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "šviesus, šviesi",
+        "translation": "светлый, светлая (русый, блондин)",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "tamsus, tamsi",
+        "translation": "темный, темная (брюнет)",
+        "category": "Прилагательное"
+      },
+      {
+        "word": "vidurinis, vidurinė",
+        "translation": "средний, средняя",
+        "category": "Семья"
+      },
+      {
+        "word": "jaunesnis, jaunesnė",
+        "translation": "младший, младшая",
+        "category": "Семья"
+      },
+      {
+        "word": "jauniausias, jauniausia",
+        "translation": "самый младший, самая младшая",
+        "category": "Семья"
+      },
+      {
+        "word": "vyresnis, vyresnė",
+        "translation": "старший, старшая",
+        "category": "Семья"
+      },
+      {
+        "word": "vyriausias, vyriausia",
+        "translation": "самый старший, самая старшая",
+        "category": "Семья"
+      },
+      {
+        "word": "tas, ta (tie, tos)",
+        "translation": "тот, та (те - м.р. и ж.р.)",
+        "category": "Местоимение"
       }
     ],
     "exercises": [
@@ -1869,94 +2850,316 @@
     ],
     "vocabulary": [
       {
-        "word": "valgyti",
-        "translation": "есть / кушать",
-        "transcription": "ва́льгити",
-        "category": "Глагол"
+        "word": "pieno produktai",
+        "translation": "молочные продукты",
+        "category": "Еда"
       },
       {
-        "word": "gerti",
-        "translation": "пить",
-        "transcription": "гя́рти",
-        "category": "Глагол"
+        "word": "pienas",
+        "translation": "молоко",
+        "category": "Еда"
       },
       {
-        "word": "skanu",
-        "translation": "вкусно",
-        "transcription": "скану́",
-        "category": "Наречие"
+        "word": "grietinė",
+        "translation": "сметана",
+        "category": "Еда"
       },
       {
-        "word": "Labai skanu!",
-        "translation": "Очень вкусно!",
-        "transcription": "Лаба́й скану́!",
-        "category": "Фраза"
+        "word": "jogurtas",
+        "translation": "йогурт",
+        "category": "Еда"
       },
       {
-        "word": "duona",
-        "translation": "хлеб",
-        "transcription": "ду́она",
+        "word": "kefyras",
+        "translation": "кефир",
         "category": "Еда"
       },
       {
         "word": "sūris",
         "translation": "сыр",
-        "transcription": "су́рис",
         "category": "Еда"
       },
       {
         "word": "sviestas",
         "translation": "сливочное масло",
-        "transcription": "све́стас",
+        "category": "Еда"
+      },
+      {
+        "word": "varškė",
+        "translation": "творог",
+        "category": "Еда"
+      },
+      {
+        "word": "duona",
+        "translation": "хлеб",
+        "category": "Еда"
+      },
+      {
+        "word": "juoda duona",
+        "translation": "черный (ржаной) хлеб",
+        "category": "Еда"
+      },
+      {
+        "word": "šviesi duona",
+        "translation": "белый хлеб",
+        "category": "Еда"
+      },
+      {
+        "word": "batonas",
+        "translation": "батон",
         "category": "Еда"
       },
       {
         "word": "mėsa",
         "translation": "мясо",
-        "transcription": "меса́",
+        "category": "Еда"
+      },
+      {
+        "word": "jautiena",
+        "translation": "говядина",
+        "category": "Еда"
+      },
+      {
+        "word": "kalakutiena",
+        "translation": "индейка",
+        "category": "Еда"
+      },
+      {
+        "word": "kiauliena",
+        "translation": "свинина",
+        "category": "Еда"
+      },
+      {
+        "word": "vištiena",
+        "translation": "курица",
+        "category": "Еда"
+      },
+      {
+        "word": "dešra",
+        "translation": "колбаса",
+        "category": "Еда"
+      },
+      {
+        "word": "dešrelės",
+        "translation": "сосиски",
+        "category": "Еда"
+      },
+      {
+        "word": "kumpis",
+        "translation": "ветчина / окорок",
         "category": "Еда"
       },
       {
         "word": "žuvis",
         "translation": "рыба",
-        "transcription": "жуви́с",
         "category": "Еда"
       },
       {
-        "word": "kava",
-        "translation": "кофе",
-        "transcription": "кава́",
-        "category": "Напитки"
-      },
-      {
-        "word": "arbata",
-        "translation": "чай",
-        "transcription": "арбата́",
+        "word": "gėrimai",
+        "translation": "напитки",
         "category": "Напитки"
       },
       {
         "word": "vanduo",
         "translation": "вода",
-        "transcription": "вандуо́",
         "category": "Напитки"
       },
       {
-        "word": "pienas",
-        "translation": "молоко",
-        "transcription": "пе́нас",
+        "word": "sultys",
+        "translation": "сок",
         "category": "Напитки"
       },
       {
-        "word": "cukrus",
-        "translation": "сахар",
-        "transcription": "цу́крус",
+        "word": "arbata",
+        "translation": "чай",
+        "category": "Напитки"
+      },
+      {
+        "word": "kava",
+        "translation": "кофе",
+        "category": "Напитки"
+      },
+      {
+        "word": "gira",
+        "translation": "квас",
+        "category": "Напитки"
+      },
+      {
+        "word": "saldumynai",
+        "translation": "сладости",
+        "category": "Еда"
+      },
+      {
+        "word": "bandelė",
+        "translation": "булочка",
+        "category": "Еда"
+      },
+      {
+        "word": "medus",
+        "translation": "мед",
+        "category": "Еда"
+      },
+      {
+        "word": "pyragas",
+        "translation": "пирог",
+        "category": "Еда"
+      },
+      {
+        "word": "šokoladas",
+        "translation": "шоколад",
+        "category": "Еда"
+      },
+      {
+        "word": "spurga",
+        "translation": "пончик",
+        "category": "Еда"
+      },
+      {
+        "word": "tortas",
+        "translation": "торт",
+        "category": "Еда"
+      },
+      {
+        "word": "košė",
+        "translation": "каша",
+        "category": "Еда"
+      },
+      {
+        "word": "kiaušinis",
+        "translation": "яйцо",
         "category": "Еда"
       },
       {
         "word": "sumuštinis",
         "translation": "бутерброд",
-        "transcription": "сумушти́нис",
         "category": "Еда"
+      },
+      {
+        "word": "pusryčiai",
+        "translation": "завтрак",
+        "category": "Еда"
+      },
+      {
+        "word": "pietūs",
+        "translation": "обед",
+        "category": "Еда"
+      },
+      {
+        "word": "vakarienė",
+        "translation": "ужин",
+        "category": "Еда"
+      },
+      {
+        "word": "alkanas, alkana",
+        "translation": "голодный, голодная",
+        "category": "Свойства"
+      },
+      {
+        "word": "sotus, soti",
+        "translation": "сытый, сытая",
+        "category": "Свойства"
+      },
+      {
+        "word": "skanus, skani",
+        "translation": "вкусный, вкусная",
+        "category": "Свойства"
+      },
+      {
+        "word": "šiltas, šilta",
+        "translation": "теплый, теплая",
+        "category": "Свойства"
+      },
+      {
+        "word": "šaltas, šalta",
+        "translation": "холодный, холодная",
+        "category": "Свойства"
+      },
+      {
+        "word": "karštas, karšta",
+        "translation": "горячий, горячая",
+        "category": "Свойства"
+      },
+      {
+        "word": "keptas, kepta",
+        "translation": "жареный, жареная / запеченный",
+        "category": "Свойства"
+      },
+      {
+        "word": "virtas, virta",
+        "translation": "вареный, вареная",
+        "category": "Свойства"
+      },
+      {
+        "word": "juodas, juoda",
+        "translation": "черный, черная",
+        "category": "Свойства"
+      },
+      {
+        "word": "valgyti, valgo, valgė",
+        "translation": "есть / кушать",
+        "transcription": "ва́льгити",
+        "category": "Глагол"
+      },
+      {
+        "word": "gerti, geria, gėrė",
+        "translation": "пить",
+        "transcription": "гя́рти",
+        "category": "Глагол"
+      },
+      {
+        "word": "patikti, patinka, patiko",
+        "translation": "нравиться (кому)",
+        "category": "Глагол"
+      },
+      {
+        "word": "mėgti, mėgsta, mėgo",
+        "translation": "любить (что-то делать или есть)",
+        "category": "Глагол"
+      },
+      {
+        "word": "norėti, nori, norėjo",
+        "translation": "хотеть",
+        "category": "Глагол"
+      },
+      {
+        "word": "ragauti, ragauja, ragavo",
+        "translation": "пробовать / отведать",
+        "category": "Глагол"
+      },
+      {
+        "word": "imti, ima, ėmė",
+        "translation": "брать / взять",
+        "category": "Глагол"
+      },
+      {
+        "word": "paduoti, paduoda, padavė",
+        "translation": "передать / подать (соль, хлеб)",
+        "category": "Глагол"
+      },
+      {
+        "word": "įdėti, įdeda, įdėjo",
+        "translation": "положить / положить в (тарелку)",
+        "category": "Глагол"
+      },
+      {
+        "word": "įpilti, įpila, įpylė",
+        "translation": "налить / подлить (чай, воду)",
+        "category": "Глагол"
+      },
+      {
+        "word": "pusryčiauti, pusryčiauja, pusryčiavo",
+        "translation": "завтракать",
+        "category": "Глагол"
+      },
+      {
+        "word": "pietauti, pietauja, pietavo",
+        "translation": "обедать",
+        "category": "Глагол"
+      },
+      {
+        "word": "vakarieniauti, vakarieniauja, vakarieniavo",
+        "translation": "ужинать",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -2118,75 +3321,309 @@
         "category": "Магазин"
       },
       {
-        "word": "pardavėjas",
-        "translation": "продавец",
+        "word": "pardavėjas, pardavėja",
+        "translation": "продавец, продавщица",
         "transcription": "пардаве́яс",
         "category": "Профессия"
       },
       {
-        "word": "pirkėjas",
-        "translation": "покупатель",
-        "transcription": "пирке́яс",
-        "category": "Профессия"
+        "word": "gabaliukas / gabalėlis",
+        "translation": "кусочек / ломтик",
+        "category": "Магазин"
       },
       {
-        "word": "obuolys",
-        "translation": "яблоко",
-        "transcription": "обули́с",
-        "category": "Фрукты"
+        "word": "kilogramas (kg)",
+        "translation": "килограмм",
+        "category": "Магазин"
       },
       {
-        "word": "pomidoras",
-        "translation": "помидор",
-        "transcription": "помидо́рас",
+        "word": "maišelis",
+        "translation": "пакет / мешочек",
+        "category": "Магазин"
+      },
+      {
+        "word": "kaina",
+        "translation": "цена",
+        "category": "Магазин"
+      },
+      {
+        "word": "euras",
+        "translation": "евро",
+        "category": "Деньги"
+      },
+      {
+        "word": "centas",
+        "translation": "цент",
+        "category": "Деньги"
+      },
+      {
+        "word": "daržovės",
+        "translation": "овощи",
         "category": "Овощи"
       },
       {
         "word": "agurkas",
         "translation": "огурец",
-        "transcription": "агу́ркас",
+        "category": "Овощи"
+      },
+      {
+        "word": "baklažanas",
+        "translation": "баклажан",
+        "category": "Овощи"
+      },
+      {
+        "word": "burokėlis",
+        "translation": "свекла",
+        "category": "Овощи"
+      },
+      {
+        "word": "bulvė",
+        "translation": "картофель / картошка",
+        "category": "Овощи"
+      },
+      {
+        "word": "cukinija",
+        "translation": "кабачок / цукини",
+        "category": "Овощи"
+      },
+      {
+        "word": "česnakas",
+        "translation": "чеснок",
+        "category": "Овощи"
+      },
+      {
+        "word": "kopūstas",
+        "translation": "капуста",
+        "category": "Овощи"
+      },
+      {
+        "word": "moliūgas",
+        "translation": "тыква",
         "category": "Овощи"
       },
       {
         "word": "morka",
         "translation": "морковь",
-        "transcription": "мо́рка",
         "category": "Овощи"
       },
       {
-        "word": "bulvė",
-        "translation": "картофель",
-        "transcription": "бу́льве",
+        "word": "pomidoras",
+        "translation": "помидор",
         "category": "Овощи"
       },
       {
-        "word": "kiaušiniai",
-        "translation": "яйца",
-        "transcription": "кяуши́няй",
+        "word": "pupelės",
+        "translation": "фасоль / бобы",
+        "category": "Овощи"
+      },
+      {
+        "word": "svogūnas",
+        "translation": "лук (репчатый)",
+        "category": "Овощи"
+      },
+      {
+        "word": "žirniai",
+        "translation": "горох / горошек",
+        "category": "Овощи"
+      },
+      {
+        "word": "vaisiai",
+        "translation": "фрукты",
+        "category": "Фрукты"
+      },
+      {
+        "word": "apelsinas",
+        "translation": "апельсин",
+        "category": "Фрукты"
+      },
+      {
+        "word": "bananas",
+        "translation": "банан",
+        "category": "Фрукты"
+      },
+      {
+        "word": "citrina",
+        "translation": "лимон",
+        "category": "Фрукты"
+      },
+      {
+        "word": "kriaušė",
+        "translation": "груша",
+        "category": "Фрукты"
+      },
+      {
+        "word": "obuolys",
+        "translation": "яблоко",
+        "category": "Фрукты"
+      },
+      {
+        "word": "uogos",
+        "translation": "ягоды",
+        "category": "Фрукты"
+      },
+      {
+        "word": "avietės",
+        "translation": "малина",
+        "category": "Фрукты"
+      },
+      {
+        "word": "braškės",
+        "translation": "клубника",
+        "category": "Фрукты"
+      },
+      {
+        "word": "serbentai",
+        "translation": "смородина",
+        "category": "Фрукты"
+      },
+      {
+        "word": "vynuogės",
+        "translation": "виноград",
+        "category": "Фрукты"
+      },
+      {
+        "word": "vyšnios",
+        "translation": "вишня",
+        "category": "Фрукты"
+      },
+      {
+        "word": "riešutai",
+        "translation": "орехи",
         "category": "Еда"
       },
       {
-        "word": "kilogramas",
-        "translation": "килограмм",
-        "transcription": "килогра́мас",
-        "category": "Мера"
+        "word": "prieskoniai",
+        "translation": "пряности / специи",
+        "category": "Еда"
       },
       {
-        "word": "Kiek kainuoja?",
-        "translation": "Сколько стоит?",
-        "transcription": "Кек кайну́оя?",
-        "category": "Покупки"
+        "word": "bazilikai",
+        "translation": "базилик",
+        "category": "Еда"
       },
       {
-        "word": "Kiek iš viso?",
-        "translation": "Сколько всего?",
-        "transcription": "Кек иш ви́со?",
-        "category": "Покупки"
+        "word": "kmynai",
+        "translation": "тмин",
+        "category": "Еда"
       },
       {
-        "word": "pirkti",
+        "word": "krapai",
+        "translation": "укроп",
+        "category": "Еда"
+      },
+      {
+        "word": "lauro lapai",
+        "translation": "лавровый лист",
+        "category": "Еда"
+      },
+      {
+        "word": "mėtos",
+        "translation": "мята",
+        "category": "Еда"
+      },
+      {
+        "word": "petražolės",
+        "translation": "петрушка",
+        "category": "Еда"
+      },
+      {
+        "word": "pipirai",
+        "translation": "перец",
+        "category": "Еда"
+      },
+      {
+        "word": "raudonėliai",
+        "translation": "орегано (душица)",
+        "category": "Еда"
+      },
+      {
+        "word": "sriuba",
+        "translation": "суп",
+        "category": "Еда"
+      },
+      {
+        "word": "salotos",
+        "translation": "салат",
+        "category": "Еда"
+      },
+      {
+        "word": "saldus, saldi",
+        "translation": "сладкий, сладкая",
+        "category": "Свойства"
+      },
+      {
+        "word": "rūgštus, rūgšti",
+        "translation": "кислый, кислая",
+        "category": "Свойства"
+      },
+      {
+        "word": "šviežias, šviežia",
+        "translation": "свежий, свежая",
+        "category": "Свойства"
+      },
+      {
+        "word": "senas, sena",
+        "translation": "несвежий / старый",
+        "category": "Свойства"
+      },
+      {
+        "word": "riebus, riebi",
+        "translation": "жирный, жирная",
+        "category": "Свойства"
+      },
+      {
+        "word": "rūkytas, rūkyta",
+        "translation": "копченый, копченая",
+        "category": "Свойства"
+      },
+      {
+        "word": "žalias, žalia",
+        "translation": "сырой / зеленый",
+        "category": "Свойства"
+      },
+      {
+        "word": "baltas, balta",
+        "translation": "белый, белая",
+        "category": "Цвет"
+      },
+      {
+        "word": "geltonas, geltona",
+        "translation": "желтый, желтая",
+        "category": "Цвет"
+      },
+      {
+        "word": "mėlynas, mėlyna",
+        "translation": "синий, синяя",
+        "category": "Цвет"
+      },
+      {
+        "word": "raudonas, raudona",
+        "translation": "красный, красная",
+        "category": "Цвет"
+      },
+      {
+        "word": "daryti, daro, darė",
+        "translation": "делать / готовить",
+        "category": "Глагол"
+      },
+      {
+        "word": "kepti, kepa, kepė",
+        "translation": "жарить / печь",
+        "category": "Глагол"
+      },
+      {
+        "word": "virti, verda, virė",
+        "translation": "варить",
+        "category": "Глагол"
+      },
+      {
+        "word": "duoti, duoda, davė",
+        "translation": "давать / дать",
+        "category": "Глагол"
+      },
+      {
+        "word": "pirkti, perka, pirko",
         "translation": "покупать",
-        "transcription": "пи́ркти",
         "category": "Глагол"
       }
     ],
@@ -2366,76 +3803,380 @@
         "category": "Место"
       },
       {
+        "word": "kepyklėlė",
+        "translation": "булочная / пекарня",
+        "category": "Место"
+      },
+      {
         "word": "restoranas",
         "translation": "ресторан",
         "transcription": "рястора́нас",
         "category": "Место"
       },
       {
-        "word": "padavėjas",
-        "translation": "официант",
-        "transcription": "падаве́яс",
+        "word": "baras",
+        "translation": "бар",
+        "category": "Место"
+      },
+      {
+        "word": "picerija",
+        "translation": "пиццерия",
+        "category": "Место"
+      },
+      {
+        "word": "padavėjas, padavėja",
+        "translation": "официант, официантка",
         "category": "Профессия"
       },
       {
         "word": "meniu",
         "translation": "меню",
-        "transcription": "меню́",
+        "category": "Ресторан"
+      },
+      {
+        "word": "dienos pietūs",
+        "translation": "комплексный обед (ланч)",
+        "category": "Ресторан"
+      },
+      {
+        "word": "staliukas",
+        "translation": "столик",
         "category": "Ресторан"
       },
       {
         "word": "sąskaita",
         "translation": "счет",
-        "transcription": "са́скайта",
         "category": "Ресторан"
       },
       {
-        "word": "su",
-        "translation": "с",
-        "transcription": "су",
-        "category": "Предлог"
+        "word": "paprastai",
+        "translation": "обычно",
+        "category": "Наречие"
       },
       {
-        "word": "be",
-        "translation": "без",
-        "transcription": "бя",
-        "category": "Предлог"
+        "word": "patiekalas",
+        "translation": "блюдо",
+        "category": "Еда"
       },
       {
-        "word": "pienas",
-        "translation": "молоко",
-        "transcription": "пе́нас",
-        "category": "Напитки"
+        "word": "sriuba",
+        "translation": "суп",
+        "category": "Еда"
+      },
+      {
+        "word": "dienos sriuba",
+        "translation": "суп дня",
+        "category": "Еда"
+      },
+      {
+        "word": "daržovių sriuba",
+        "translation": "овощной суп",
+        "category": "Еда"
+      },
+      {
+        "word": "grybų sriuba",
+        "translation": "грибной суп",
+        "category": "Еда"
+      },
+      {
+        "word": "burokėlių sriuba",
+        "translation": "свекольный суп",
+        "category": "Еда"
+      },
+      {
+        "word": "salotos",
+        "translation": "салат",
+        "category": "Еда"
+      },
+      {
+        "word": "daržovių salotos",
+        "translation": "овощной салат",
+        "category": "Еда"
+      },
+      {
+        "word": "pomidorų salotos",
+        "translation": "салат из помидоров",
+        "category": "Еда"
+      },
+      {
+        "word": "kopūstų salotos",
+        "translation": "салат из капусты",
+        "category": "Еда"
+      },
+      {
+        "word": "lietuviškos salotos",
+        "translation": "литовский салат (белый салат / оливье)",
+        "category": "Еда"
+      },
+      {
+        "word": "omletas",
+        "translation": "омлет",
+        "category": "Еда"
+      },
+      {
+        "word": "kiaušinienė",
+        "translation": "яичница",
+        "category": "Еда"
+      },
+      {
+        "word": "kiaušinienė su šonine",
+        "translation": "яичница с беконом",
+        "category": "Еда"
+      },
+      {
+        "word": "sumuštinis su kumpiu ir salotomis",
+        "translation": "бутерброд с ветчиной и салатом",
+        "category": "Еда"
+      },
+      {
+        "word": "kepsnys",
+        "translation": "стейк / жаркое",
+        "category": "Еда"
+      },
+      {
+        "word": "vištienos kepsnys",
+        "translation": "куриный стейк",
+        "category": "Еда"
+      },
+      {
+        "word": "kiaulienos kepsnys",
+        "translation": "свиной стейк / отбивная",
+        "category": "Еда"
+      },
+      {
+        "word": "jautienos kepsnys",
+        "translation": "говяжий стейк",
+        "category": "Еда"
+      },
+      {
+        "word": "pica",
+        "translation": "пицца",
+        "category": "Еда"
+      },
+      {
+        "word": "blynai",
+        "translation": "блины",
+        "category": "Еда"
+      },
+      {
+        "word": "bulvių blynai",
+        "translation": "драники (картофельные блины)",
+        "category": "Еда"
+      },
+      {
+        "word": "blynelis / blyneliai",
+        "translation": "блинчик / блинчики с начинкой",
+        "category": "Еда"
+      },
+      {
+        "word": "blyneliai su sūriu",
+        "translation": "блинчики с сыром",
+        "category": "Еда"
+      },
+      {
+        "word": "blyneliai su obuoliais",
+        "translation": "блинчики с яблоками",
+        "category": "Еда"
+      },
+      {
+        "word": "blyneliai su uogiene",
+        "translation": "блинчики с вареньем",
+        "category": "Еда"
+      },
+      {
+        "word": "makaronai (su sūriu)",
+        "translation": "макароны / паста (с сыром)",
+        "category": "Еда"
+      },
+      {
+        "word": "ryžiai (su daržovėmis)",
+        "translation": "рис (с овощами)",
+        "category": "Еда"
+      },
+      {
+        "word": "avižinė košė",
+        "translation": "овсяная каша",
+        "category": "Еда"
+      },
+      {
+        "word": "grikių košė",
+        "translation": "гречневая каша",
+        "category": "Еда"
+      },
+      {
+        "word": "desertas",
+        "translation": "десерт",
+        "category": "Десерт"
+      },
+      {
+        "word": "ledai",
+        "translation": "мороженое",
+        "category": "Десерт"
+      },
+      {
+        "word": "pyragaitis",
+        "translation": "пирожное",
+        "category": "Десерт"
+      },
+      {
+        "word": "tortas",
+        "translation": "торт",
+        "category": "Десерт"
+      },
+      {
+        "word": "actas",
+        "translation": "уксус",
+        "category": "Приправы"
+      },
+      {
+        "word": "aliejus",
+        "translation": "растительное масло",
+        "category": "Приправы"
       },
       {
         "word": "cukrus",
         "translation": "сахар",
-        "transcription": "цу́крус",
+        "category": "Приправы"
+      },
+      {
+        "word": "druska",
+        "translation": "соль",
+        "category": "Приправы"
+      },
+      {
+        "word": "garstyčios",
+        "translation": "горчица",
+        "category": "Приправы"
+      },
+      {
+        "word": "krienai",
+        "translation": "хрен",
+        "category": "Приправы"
+      },
+      {
+        "word": "majonezas",
+        "translation": "майонез",
+        "category": "Приправы"
+      },
+      {
+        "word": "padažas",
+        "translation": "соус",
+        "category": "Приправы"
+      },
+      {
+        "word": "uogienė",
+        "translation": "варенье / джем",
         "category": "Еда"
       },
       {
-        "word": "citrina",
-        "translation": "лимон",
-        "transcription": "цитрина́",
-        "category": "Еда"
+        "word": "gėrimas",
+        "translation": "напиток",
+        "category": "Напитки"
       },
       {
-        "word": "pyragas",
-        "translation": "пирог / торт",
-        "transcription": "пира́гас",
-        "category": "Еда"
+        "word": "gazuotas vanduo",
+        "translation": "газированная вода",
+        "category": "Напитки"
       },
       {
-        "word": "vakar",
-        "translation": "вчера",
-        "transcription": "ва́кар",
-        "category": "Время"
+        "word": "negazuotas vanduo",
+        "translation": "негазированная вода",
+        "category": "Напитки"
       },
       {
-        "word": "buvau",
-        "translation": "я был / была",
-        "transcription": "бува́у",
-        "category": "Глагол"
+        "word": "juoda arbata",
+        "translation": "черный чай",
+        "category": "Напитки"
+      },
+      {
+        "word": "žalia arbata",
+        "translation": "зеленый чай",
+        "category": "Напитки"
+      },
+      {
+        "word": "vaisinė arbata",
+        "translation": "фруктовый чай",
+        "category": "Напитки"
+      },
+      {
+        "word": "žolelių arbata / mėtų arbata",
+        "translation": "травяной чай / мятный чай",
+        "category": "Напитки"
+      },
+      {
+        "word": "kokteilis",
+        "translation": "коктейль",
+        "category": "Напитки"
+      },
+      {
+        "word": "obuolių / apelsinų sultys",
+        "translation": "яблочный / апельсиновый сок",
+        "category": "Напитки"
+      },
+      {
+        "word": "ananasų / vynuogių sultys",
+        "translation": "ананасовый / виноградный сок",
+        "category": "Напитки"
+      },
+      {
+        "word": "morkų / pomidorų sultys",
+        "translation": "морковный / томатный сок",
+        "category": "Напитки"
+      },
+      {
+        "word": "aštrus, aštri",
+        "translation": "острый, острая",
+        "category": "Вкус"
+      },
+      {
+        "word": "švelnus, švelni",
+        "translation": "нежный, нежная / мягкий на вкус",
+        "category": "Вкус"
+      },
+      {
+        "word": "sūrus, sūri",
+        "translation": "соленый, соленая",
+        "category": "Вкус"
+      },
+      {
+        "word": "lietuviški patiekalai",
+        "translation": "литовские национальные блюда",
+        "category": "Литовская кухня"
+      },
+      {
+        "word": "šaltibarščiai",
+        "translation": "холодный борщ (шалтибарщай)",
+        "category": "Литовская кухня"
+      },
+      {
+        "word": "cepelinai",
+        "translation": "цепелины (картофельные клёцки с начинкой)",
+        "category": "Литовская кухня"
+      },
+      {
+        "word": "medaus tortas",
+        "translation": "медовик (медовый торт)",
+        "category": "Литовская кухня"
+      },
+      {
+        "word": "šakotis",
+        "translation": "шакотис (традиционный торт)",
+        "category": "Литовская кухня"
+      },
+      {
+        "word": "Kava išsinešti",
+        "translation": "Кофе с собой на вынос",
+        "category": "Вывески"
+      },
+      {
+        "word": "Rezervuota",
+        "translation": "Забронировано",
+        "category": "Вывески"
+      },
+      {
+        "word": "Be glitimo / Be laktozės",
+        "translation": "Без глютена / Без лактозы",
+        "category": "Вывески"
       }
     ],
     "exercises": [
@@ -2581,15 +4322,33 @@
     ],
     "vocabulary": [
       {
-        "word": "Kaip nuvažiuoti?",
-        "translation": "Как доехать?",
-        "transcription": "Кайп нуважю́оти?",
+        "word": "transporto priemonės",
+        "translation": "транспортные средства",
         "category": "Транспорт"
       },
       {
-        "word": "Kaip nueiti?",
-        "translation": "Как дойти?",
-        "transcription": "Кайп нуэ́йти?",
+        "word": "automobilis / mašina",
+        "translation": "автомобиль / машина",
+        "category": "Транспорт"
+      },
+      {
+        "word": "automobilių stovėjimo aikštelė",
+        "translation": "автомобильная стоянка / парковка",
+        "category": "Транспорт"
+      },
+      {
+        "word": "dviratis",
+        "translation": "велосипед",
+        "category": "Транспорт"
+      },
+      {
+        "word": "paspirtukas",
+        "translation": "самокат",
+        "category": "Транспорт"
+      },
+      {
+        "word": "viešasis transportas",
+        "translation": "общественный транспорт",
         "category": "Транспорт"
       },
       {
@@ -2599,64 +4358,229 @@
         "category": "Транспорт"
       },
       {
+        "word": "greitasis autobusas",
+        "translation": "скоростной автобус (экспресс)",
+        "category": "Транспорт"
+      },
+      {
+        "word": "naktinis autobusas",
+        "translation": "ночной автобус",
+        "category": "Транспорт"
+      },
+      {
         "word": "troleibusas",
         "translation": "троллейбус",
-        "transcription": "троле́йбусас",
         "category": "Транспорт"
       },
       {
         "word": "traukinys",
         "translation": "поезд",
-        "transcription": "траукини́с",
         "category": "Транспорт"
       },
       {
-        "word": "automobilis",
-        "translation": "автомобиль",
-        "transcription": "аутомоби́лис",
+        "word": "greitasis traukinys",
+        "translation": "скоростной поезд",
         "category": "Транспорт"
       },
       {
-        "word": "dviratis",
-        "translation": "велосипед",
-        "transcription": "дви́ратис",
+        "word": "lėktuvas",
+        "translation": "самолет",
         "category": "Транспорт"
       },
       {
-        "word": "stotelė",
-        "translation": "остановка",
-        "transcription": "стотяле́",
+        "word": "autobusų stotis",
+        "translation": "автовокзал",
+        "category": "Транспорт"
+      },
+      {
+        "word": "geležinkelio stotis",
+        "translation": "железнодорожный вокзал",
+        "category": "Транспорт"
+      },
+      {
+        "word": "oro uostas",
+        "translation": "аэропорт",
+        "category": "Транспорт"
+      },
+      {
+        "word": "stotelė (autobusų, troleibusų)",
+        "translation": "остановка (автобусная, троллейбусная)",
+        "category": "Транспорт"
+      },
+      {
+        "word": "aikštelė",
+        "translation": "площадка / платформа автобусов",
+        "category": "Транспорт"
+      },
+      {
+        "word": "peronas",
+        "translation": "перрон",
+        "category": "Транспорт"
+      },
+      {
+        "word": "kelias",
+        "translation": "путь (железнодорожный) / дорога",
+        "category": "Транспорт"
+      },
+      {
+        "word": "informacija",
+        "translation": "информация",
+        "category": "Транспорт"
+      },
+      {
+        "word": "tvarkaraštis",
+        "translation": "расписание (движения)",
         "category": "Транспорт"
       },
       {
         "word": "bilietas",
         "translation": "билет",
-        "transcription": "биле́тас",
         "category": "Транспорт"
       },
       {
-        "word": "tiesiai",
-        "translation": "прямо",
-        "transcription": "тесе́й",
-        "category": "Направление"
+        "word": "elektroninis bilietas",
+        "translation": "электронный билет",
+        "category": "Транспорт"
       },
       {
-        "word": "į kairę",
-        "translation": "налево",
-        "transcription": "и кайре́",
-        "category": "Направление"
+        "word": "bilietas su nuolaida",
+        "translation": "билет со скидкой (льготный)",
+        "category": "Транспорт"
+      },
+      {
+        "word": "bilietas pirmyn ir atgal (į abi puses)",
+        "translation": "билет туда и обратно",
+        "category": "Транспорт"
+      },
+      {
+        "word": "bilietas į vieną pusę",
+        "translation": "билет в одну сторону",
+        "category": "Транспорт"
+      },
+      {
+        "word": "bilietų kasa",
+        "translation": "билетная касса",
+        "category": "Транспорт"
+      },
+      {
+        "word": "greitas, greita",
+        "translation": "быстрый, быстрая",
+        "category": "Свойства"
+      },
+      {
+        "word": "lėtas, lėta",
+        "translation": "медленный, медленная",
+        "category": "Свойства"
+      },
+      {
+        "word": "pigus, pigi",
+        "translation": "дешевый, дешевая",
+        "category": "Свойства"
+      },
+      {
+        "word": "brangus, brangi",
+        "translation": "дорогой, дорогая",
+        "category": "Свойства"
+      },
+      {
+        "word": "patogus, patogi",
+        "translation": "удобный, удобная",
+        "category": "Свойства"
+      },
+      {
+        "word": "dešinėje",
+        "translation": "справа",
+        "category": "Ориентирование"
+      },
+      {
+        "word": "kairėje",
+        "translation": "слева",
+        "category": "Ориентирование"
       },
       {
         "word": "į dešinę",
         "translation": "направо",
-        "transcription": "и дя́шине",
-        "category": "Направление"
+        "category": "Ориентирование"
       },
       {
-        "word": "reikia",
-        "translation": "надо / нужно",
-        "transcription": "ре́йкя",
-        "category": "Слово"
+        "word": "į kairę",
+        "translation": "налево",
+        "category": "Ориентирование"
+      },
+      {
+        "word": "tiesiai",
+        "translation": "прямо",
+        "category": "Ориентирование"
+      },
+      {
+        "word": "paskui",
+        "translation": "потом / затем",
+        "category": "Ориентирование"
+      },
+      {
+        "word": "kaip",
+        "translation": "как",
+        "category": "Вопрос"
+      },
+      {
+        "word": "nueiti, nueina, nuėjo",
+        "translation": "дойти (пешком)",
+        "category": "Глагол"
+      },
+      {
+        "word": "nuvažiuoti, nuvažiuoja, nuvažiavo",
+        "translation": "доехать (на транспорте)",
+        "category": "Глагол"
+      },
+      {
+        "word": "atvažiuoti, atvažiuoja, atvažiavo",
+        "translation": "приехать / прибыть",
+        "category": "Глагол"
+      },
+      {
+        "word": "išvažiuoti, išvažiuoja, išvažiavo",
+        "translation": "уехать / отправиться",
+        "category": "Глагол"
+      },
+      {
+        "word": "pasukti, pasuka, pasuko",
+        "translation": "повернуть",
+        "category": "Глагол"
+      },
+      {
+        "word": "įlipti, įlipa, įlipo (į ką?)",
+        "translation": "сесть в (транспорт) / войти",
+        "category": "Глагол"
+      },
+      {
+        "word": "išlipti, išlipa, išlipo (iš ko?)",
+        "translation": "выйти из (транспорта)",
+        "category": "Глагол"
+      },
+      {
+        "word": "skristi, skrenda, skrido",
+        "translation": "лететь (на самолете)",
+        "category": "Глагол"
+      },
+      {
+        "word": "reikėti, reikia, reikėjo",
+        "translation": "нужно / требоваться",
+        "category": "Глагол"
+      },
+      {
+        "word": "papildyti, papildo, papildė (kortelę)",
+        "translation": "пополнить (карту/баланс)",
+        "category": "Глагол"
+      },
+      {
+        "word": "Kita stotelė...",
+        "translation": "Следующая остановка...",
+        "category": "Объявления"
+      },
+      {
+        "word": "Paskutinė maršruto stotelė",
+        "translation": "Конечная остановка маршрута",
+        "category": "Объявления"
       }
     ],
     "exercises": [
@@ -2777,29 +4701,304 @@
         "category": "Словарь главы"
       },
       {
-        "word": "degalinė",
-        "translation": "заправка",
-        "category": "Словарь главы"
+        "word": "keleivis, keleivė",
+        "translation": "пассажир, пассажирка",
+        "category": "Люди"
       },
       {
-        "word": "degalai",
-        "translation": "топливо / бензин",
-        "category": "Словарь главы"
+        "word": "vairuotojas, vairuotoja",
+        "translation": "водитель, водительница",
+        "category": "Профессия"
       },
       {
-        "word": "nuoma",
-        "translation": "аренда",
-        "category": "Словарь главы"
+        "word": "vairuotojo pažymėjimas",
+        "translation": "водительское удостоверение (права)",
+        "category": "Документы"
+      },
+      {
+        "word": "automobilio draudimas",
+        "translation": "страховка автомобиля",
+        "category": "Документы"
+      },
+      {
+        "word": "mokestis",
+        "translation": "налог / сбор / плата",
+        "category": "Финансы"
+      },
+      {
+        "word": "mėnuo",
+        "translation": "месяц",
+        "category": "Время"
+      },
+      {
+        "word": "data",
+        "translation": "дата",
+        "category": "Время"
       },
       {
         "word": "para",
-        "translation": "сутки",
-        "category": "Словарь главы"
+        "translation": "сутки (24 часа)",
+        "category": "Время"
       },
       {
-        "word": "po",
-        "translation": "после / через",
-        "category": "Словарь главы"
+        "word": "automobilio dalys",
+        "translation": "детали автомобиля",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "salonas",
+        "translation": "салон автомобиля",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "vairas",
+        "translation": "руль",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "rakteliai",
+        "translation": "ключи (от машины)",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "stabdžiai",
+        "translation": "тормоза",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "padangos",
+        "translation": "шины / покрышки",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "valytuvai",
+        "translation": "дворники (стеклоочистители)",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "tepalai",
+        "translation": "масла / смазочные материалы",
+        "category": "Автомобиль"
+      },
+      {
+        "word": "automobilių plovykla",
+        "translation": "автомойка",
+        "category": "Сервис"
+      },
+      {
+        "word": "salono valymas",
+        "translation": "чистка салона",
+        "category": "Сервис"
+      },
+      {
+        "word": "automobilių plovimas",
+        "translation": "мойка автомобилей",
+        "category": "Сервис"
+      },
+      {
+        "word": "autoservisas / automobilių taisykla",
+        "translation": "автосервис / автомастерская",
+        "category": "Сервис"
+      },
+      {
+        "word": "techninė pagalba kelyje",
+        "translation": "техпомощь на дороге",
+        "category": "Сервис"
+      },
+      {
+        "word": "nuomos punktas",
+        "translation": "пункт проката (автомобилей)",
+        "category": "Сервис"
+      },
+      {
+        "word": "nuoma: ilgalaikė, trumpalaikė",
+        "translation": "аренда: долгосрочная, краткосрочная",
+        "category": "Сервис"
+      },
+      {
+        "word": "paėmimas / grąžinimas",
+        "translation": "получение (выдача) / возврат",
+        "category": "Сервис"
+      },
+      {
+        "word": "rezervacija",
+        "translation": "бронирование / резервация",
+        "category": "Сервис"
+      },
+      {
+        "word": "greitis",
+        "translation": "скорость",
+        "category": "Дорога"
+      },
+      {
+        "word": "viršyti greitį",
+        "translation": "превысить скорость",
+        "category": "Дорога"
+      },
+      {
+        "word": "greitai",
+        "translation": "быстро",
+        "category": "Наречие"
+      },
+      {
+        "word": "galima – draudžiama",
+        "translation": "разрешено – запрещено",
+        "category": "Правила"
+      },
+      {
+        "word": "išskyrus (ką?)",
+        "translation": "за исключением / кроме",
+        "category": "Предлог"
+      },
+      {
+        "word": "degalinė",
+        "translation": "заправочная станция (АЗС)",
+        "category": "АЗС"
+      },
+      {
+        "word": "degalai / kuras",
+        "translation": "топливо / горючее",
+        "category": "АЗС"
+      },
+      {
+        "word": "benzinas",
+        "translation": "бензин",
+        "category": "АЗС"
+      },
+      {
+        "word": "dyzelinas",
+        "translation": "дизельное топливо",
+        "category": "АЗС"
+      },
+      {
+        "word": "dujos",
+        "translation": "газ",
+        "category": "АЗС"
+      },
+      {
+        "word": "kolonėlė",
+        "translation": "топливораздаточная колонка",
+        "category": "АЗС"
+      },
+      {
+        "word": "oras / vanduo",
+        "translation": "воздух (подкачка шин) / вода",
+        "category": "АЗС"
+      },
+      {
+        "word": "naujas, nauja",
+        "translation": "новый, новая",
+        "category": "Свойства"
+      },
+      {
+        "word": "švarus, švari",
+        "translation": "чистый, чистая",
+        "category": "Свойства"
+      },
+      {
+        "word": "nešvarus, nešvari",
+        "translation": "грязный, грязная",
+        "category": "Свойства"
+      },
+      {
+        "word": "mokamas, mokama",
+        "translation": "платный, платная",
+        "category": "Свойства"
+      },
+      {
+        "word": "nemokamas, nemokama",
+        "translation": "бесплатный, бесплатная",
+        "category": "Свойства"
+      },
+      {
+        "word": "ilgas, ilga",
+        "translation": "длинный, длинная",
+        "category": "Свойства"
+      },
+      {
+        "word": "trumpas, trumpa",
+        "translation": "короткий, короткая",
+        "category": "Свойства"
+      },
+      {
+        "word": "užimtas, užimta",
+        "translation": "занятый, занятая",
+        "category": "Свойства"
+      },
+      {
+        "word": "laisvas, laisva",
+        "translation": "свободный, свободная",
+        "category": "Свойства"
+      },
+      {
+        "word": "kitas, kita",
+        "translation": "другой, другая / следующий",
+        "category": "Свойства"
+      },
+      {
+        "word": "keliauti, keliauja, keliavo",
+        "translation": "путешествовать",
+        "category": "Глагол"
+      },
+      {
+        "word": "vairuoti, vairuoja, vairavo",
+        "translation": "водить (машину)",
+        "category": "Глагол"
+      },
+      {
+        "word": "išsinuomoti, išsinuomoja, išsinuomojo",
+        "translation": "арендовать / взять напрокат",
+        "category": "Глагол"
+      },
+      {
+        "word": "rezervuoti, rezervuoja, rezervavo",
+        "translation": "бронировать / резервировать",
+        "category": "Глагол"
+      },
+      {
+        "word": "užrašyti, užrašo, užrašė",
+        "translation": "записать",
+        "category": "Глагол"
+      },
+      {
+        "word": "parodyti, parodo, parodė",
+        "translation": "показать",
+        "category": "Глагол"
+      },
+      {
+        "word": "sustoti, sustoja, sustojo",
+        "translation": "остановиться",
+        "category": "Глагол"
+      },
+      {
+        "word": "veikti, veikia, veikė",
+        "translation": "работать / функционировать",
+        "category": "Глагол"
+      },
+      {
+        "word": "sugesti, sugenda, sugedo",
+        "translation": "сломаться / выйти из строя",
+        "category": "Глагол"
+      },
+      {
+        "word": "pataisyti, pataiso, pataisė",
+        "translation": "починить / отремонтировать",
+        "category": "Глагол"
+      },
+      {
+        "word": "nuplauti, nuplauna, nuplovė",
+        "translation": "помыть (машину)",
+        "category": "Глагол"
+      },
+      {
+        "word": "išvalyti, išvalo, išvalė",
+        "translation": "почистить (салон)",
+        "category": "Глагол"
+      },
+      {
+        "word": "pilti, pila, pylė",
+        "translation": "заливать / заправлять (топливо)",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -2882,44 +5081,269 @@
     ],
     "vocabulary": [
       {
+        "word": "namas",
+        "translation": "дом (здание)",
+        "category": "Жилье"
+      },
+      {
+        "word": "namai",
+        "translation": "дом (родной дом / домашний очаг)",
+        "category": "Жилье"
+      },
+      {
         "word": "butas",
         "translation": "квартира",
-        "category": "Словарь главы"
+        "category": "Жилье"
+      },
+      {
+        "word": "laiptinė",
+        "translation": "подъезд / лестничная клетка",
+        "category": "Жилье"
+      },
+      {
+        "word": "laiptai",
+        "translation": "лестница / ступени",
+        "category": "Жилье"
+      },
+      {
+        "word": "aukštas",
+        "translation": "этаж",
+        "category": "Жилье"
+      },
+      {
+        "word": "liftas",
+        "translation": "лифт",
+        "category": "Жилье"
+      },
+      {
+        "word": "balkonas",
+        "translation": "балкон",
+        "category": "Жилье"
+      },
+      {
+        "word": "garažas",
+        "translation": "гараж",
+        "category": "Жилье"
+      },
+      {
+        "word": "kiemas",
+        "translation": "двор",
+        "category": "Жилье"
+      },
+      {
+        "word": "vartai",
+        "translation": "ворота",
+        "category": "Жилье"
+      },
+      {
+        "word": "durys",
+        "translation": "дверь / двери",
+        "category": "Жилье"
+      },
+      {
+        "word": "durų kodas",
+        "translation": "код от двери (домофон)",
+        "category": "Жилье"
+      },
+      {
+        "word": "raktas",
+        "translation": "ключ",
+        "category": "Жилье"
+      },
+      {
+        "word": "langas",
+        "translation": "окно",
+        "category": "Жилье"
+      },
+      {
+        "word": "siena",
+        "translation": "стена",
+        "category": "Жилье"
+      },
+      {
+        "word": "lubos",
+        "translation": "потолок",
+        "category": "Жилье"
+      },
+      {
+        "word": "grindys",
+        "translation": "пол",
+        "category": "Жилье"
+      },
+      {
+        "word": "kilimas",
+        "translation": "ковер",
+        "category": "Жилье"
       },
       {
         "word": "kambarys",
         "translation": "комната",
-        "category": "Словарь главы"
+        "category": "Комнаты"
       },
       {
         "word": "virtuvė",
         "translation": "кухня",
-        "category": "Словарь главы"
+        "category": "Комнаты"
+      },
+      {
+        "word": "svetainė",
+        "translation": "гостиная",
+        "category": "Комнаты"
+      },
+      {
+        "word": "koridorius",
+        "translation": "коридор / прихожая",
+        "category": "Комнаты"
       },
       {
         "word": "vonia",
-        "translation": "ванная",
-        "category": "Словарь главы"
+        "translation": "ванная комната / ванна",
+        "category": "Комнаты"
+      },
+      {
+        "word": "dušas",
+        "translation": "душ",
+        "category": "Комнаты"
+      },
+      {
+        "word": "tualetas",
+        "translation": "туалет",
+        "category": "Комнаты"
+      },
+      {
+        "word": "miegamasis",
+        "translation": "спальня",
+        "category": "Комнаты"
+      },
+      {
+        "word": "rūsys",
+        "translation": "подвал",
+        "category": "Комнаты"
+      },
+      {
+        "word": "baldai",
+        "translation": "мебель",
+        "category": "Мебель"
       },
       {
         "word": "stalas",
         "translation": "стол",
-        "category": "Словарь главы"
+        "category": "Мебель"
       },
       {
         "word": "kėdė",
         "translation": "стул",
-        "category": "Словарь главы"
-      },
-      {
-        "word": "sofa",
-        "translation": "диван",
-        "category": "Словарь главы"
+        "category": "Мебель"
       },
       {
         "word": "lova",
         "translation": "кровать",
-        "category": "Словарь главы"
+        "category": "Мебель"
+      },
+      {
+        "word": "sofa",
+        "translation": "диван",
+        "category": "Мебель"
+      },
+      {
+        "word": "fotelis",
+        "translation": "кресло",
+        "category": "Мебель"
+      },
+      {
+        "word": "spinta",
+        "translation": "шкаф",
+        "category": "Мебель"
+      },
+      {
+        "word": "lentyna",
+        "translation": "полка",
+        "category": "Мебель"
+      },
+      {
+        "word": "mokesčiai (už šildymą, vandenį, elektrą, dujas)",
+        "translation": "коммунальные платежи (отопление, вода, электричество, газ)",
+        "category": "Финансы"
+      },
+      {
+        "word": "jaukus, jauki",
+        "translation": "уютный, уютная",
+        "category": "Свойства"
+      },
+      {
+        "word": "ramus, rami",
+        "translation": "спокойный, спокойная / тихий",
+        "category": "Свойства"
+      },
+      {
+        "word": "triukšmingas, triukšminga",
+        "translation": "шумный, шумная",
+        "category": "Свойства"
+      },
+      {
+        "word": "minkštas, minkšta",
+        "translation": "мягкий, мягкая",
+        "category": "Свойства"
+      },
+      {
+        "word": "patogus, patogi",
+        "translation": "удобный, удобная",
+        "category": "Свойства"
+      },
+      {
+        "word": "sumokėti, sumoka, sumokėjo (už ką?)",
+        "translation": "оплатить / заплатить за...",
+        "category": "Глагол"
+      },
+      {
+        "word": "uždaryti, uždaro, uždarė",
+        "translation": "закрыть",
+        "category": "Глагол"
+      },
+      {
+        "word": "atidaryti, atidaro, atidarė",
+        "translation": "открыть",
+        "category": "Глагол"
+      },
+      {
+        "word": "užrakinti, užrakina, užrakino",
+        "translation": "запереть на ключ",
+        "category": "Глагол"
+      },
+      {
+        "word": "atrakinti, atrakina, atrakino",
+        "translation": "отпереть ключом",
+        "category": "Глагол"
+      },
+      {
+        "word": "nuomoti, nuomoja, nuomojo",
+        "translation": "сдавать в аренду",
+        "category": "Глагол"
+      },
+      {
+        "word": "išsinuomoti, išsinuomoja, išsinuomojo",
+        "translation": "снимать / арендовать (жилье)",
+        "category": "Глагол"
+      },
+      {
+        "word": "ieškoti, ieško, ieškojo (ko?)",
+        "translation": "искать",
+        "category": "Глагол"
+      },
+      {
+        "word": "sėdėti, sėdi, sėdėjo",
+        "translation": "сидеть",
+        "category": "Глагол"
+      },
+      {
+        "word": "gulėti, guli, gulėjo",
+        "translation": "лежать",
+        "category": "Глагол"
+      },
+      {
+        "word": "miegoti, miega, miegojo",
+        "translation": "спать",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -2986,34 +5410,209 @@
     ],
     "vocabulary": [
       {
-        "word": "meistras",
-        "translation": "мастер",
-        "category": "Словарь главы"
+        "word": "buitinė technika",
+        "translation": "бытовая техника",
+        "category": "Техника"
       },
       {
         "word": "šaldytuvas",
         "translation": "холодильник",
-        "category": "Словарь главы"
+        "category": "Техника"
       },
       {
-        "word": "skalbimo mašina",
-        "translation": "стиральная машина",
-        "category": "Словарь главы"
+        "word": "orkaitė",
+        "translation": "духовка / духовой шкаф",
+        "category": "Техника"
       },
       {
         "word": "viryklė",
-        "translation": "плита",
-        "category": "Словарь главы"
+        "translation": "плита (кухонная)",
+        "category": "Техника"
       },
       {
-        "word": "pataisyti",
-        "translation": "починить",
-        "category": "Словарь главы"
+        "word": "mikrobangų krosnelė",
+        "translation": "микроволновая печь",
+        "category": "Техника"
       },
       {
-        "word": "sutvarkyti",
-        "translation": "привести в порядок",
-        "category": "Словарь главы"
+        "word": "indaplovė",
+        "translation": "посудомоечная машина",
+        "category": "Техника"
+      },
+      {
+        "word": "skalbyklė / skalbimo mašina",
+        "translation": "стиральная машина",
+        "category": "Техника"
+      },
+      {
+        "word": "džiovyklė",
+        "translation": "сушильная машина",
+        "category": "Техника"
+      },
+      {
+        "word": "virdulys",
+        "translation": "чайник",
+        "category": "Техника"
+      },
+      {
+        "word": "kavos aparatas",
+        "translation": "кофемашина / кофеварка",
+        "category": "Техника"
+      },
+      {
+        "word": "dulkių siurblys",
+        "translation": "пылесос",
+        "category": "Техника"
+      },
+      {
+        "word": "lygintuvas",
+        "translation": "утюг",
+        "category": "Техника"
+      },
+      {
+        "word": "televizorius",
+        "translation": "телевизор",
+        "category": "Техника"
+      },
+      {
+        "word": "lempa",
+        "translation": "лампа / светильник",
+        "category": "Интерьер"
+      },
+      {
+        "word": "veidrodis",
+        "translation": "зеркало",
+        "category": "Интерьер"
+      },
+      {
+        "word": "indai",
+        "translation": "посуда",
+        "category": "Дом"
+      },
+      {
+        "word": "šiukšlių dėžė",
+        "translation": "мусорное ведро / урна",
+        "category": "Уборка"
+      },
+      {
+        "word": "šiukšlės",
+        "translation": "мусор",
+        "category": "Уборка"
+      },
+      {
+        "word": "dulkės",
+        "translation": "пыль",
+        "category": "Уборка"
+      },
+      {
+        "word": "purvas",
+        "translation": "грязь",
+        "category": "Уборка"
+      },
+      {
+        "word": "valymas",
+        "translation": "уборка / чистка",
+        "category": "Уборка"
+      },
+      {
+        "word": "namų tvarkytojas, namų tvarkytoja",
+        "translation": "домработник, домработница",
+        "category": "Профессия"
+      },
+      {
+        "word": "šviesa",
+        "translation": "свет / освещение",
+        "category": "Дом"
+      },
+      {
+        "word": "vamzdis",
+        "translation": "труба",
+        "category": "Сантехника"
+      },
+      {
+        "word": "čiaupas",
+        "translation": "кран (водопроводный)",
+        "category": "Сантехника"
+      },
+      {
+        "word": "avarinė tarnyba",
+        "translation": "аварийная служба",
+        "category": "Службы"
+      },
+      {
+        "word": "remontas",
+        "translation": "ремонт",
+        "category": "Ремонт"
+      },
+      {
+        "word": "meistras, meistrė",
+        "translation": "мастер (м.р. и ж.р.)",
+        "category": "Профессия"
+      },
+      {
+        "word": "santechnikas, santechnikė",
+        "translation": "сантехник (м.р. и ж.р.)",
+        "category": "Профессия"
+      },
+      {
+        "word": "tvarkingas, tvarkinga",
+        "translation": "аккуратный, аккуратная / опрятный",
+        "category": "Свойства"
+      },
+      {
+        "word": "tvarkyti, tvarko, tvarkė",
+        "translation": "наводить порядок / убирать",
+        "category": "Глагол"
+      },
+      {
+        "word": "sutvarkyti, sutvarko, sutvarkė",
+        "translation": "привести в порядок / убрать",
+        "category": "Глагол"
+      },
+      {
+        "word": "valyti, valo, valė",
+        "translation": "чистить / вытирать",
+        "category": "Глагол"
+      },
+      {
+        "word": "išvalyti, išvalo, išvalė",
+        "translation": "вычистить / убрать",
+        "category": "Глагол"
+      },
+      {
+        "word": "išplauti, išplauna, išplovė",
+        "translation": "вымыть (полы/посуду)",
+        "category": "Глагол"
+      },
+      {
+        "word": "išsiurbti, išsiurbia, išsiurbė",
+        "translation": "пропылесосить",
+        "category": "Глагол"
+      },
+      {
+        "word": "išnešti, išneša, išnešė (šiukšles)",
+        "translation": "вынести (мусор)",
+        "category": "Глагол"
+      },
+      {
+        "word": "įjungti, įjungia, įjungė",
+        "translation": "включить",
+        "category": "Глагол"
+      },
+      {
+        "word": "išjungti, išjungia, išjungė",
+        "translation": "выключить",
+        "category": "Глагол"
+      },
+      {
+        "word": "trūkti, trūksta, trūko (vamzdis)",
+        "translation": "лопнуть / прорвать (о трубе)",
+        "category": "Глагол"
+      },
+      {
+        "word": "pataisyti, pataiso, pataisė",
+        "translation": "починить / отремонтировать",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -3080,34 +5679,264 @@
     ],
     "vocabulary": [
       {
-        "word": "drabužiai",
+        "word": "drabužiai / rūbai",
         "translation": "одежда",
-        "category": "Словарь главы"
+        "category": "Одежда"
       },
       {
-        "word": "batai",
-        "translation": "обувь / ботинки",
-        "category": "Словарь главы"
+        "word": "megztinis",
+        "translation": "свитер / джемпер",
+        "category": "Одежда"
+      },
+      {
+        "word": "kelnės",
+        "translation": "брюки / штаны",
+        "category": "Одежда"
+      },
+      {
+        "word": "sijonas",
+        "translation": "юбка",
+        "category": "Одежда"
       },
       {
         "word": "suknelė",
         "translation": "платье",
-        "category": "Словарь главы"
+        "category": "Одежда"
       },
       {
-        "word": "kelnės",
-        "translation": "брюки",
-        "category": "Словарь главы"
+        "word": "palaidinė",
+        "translation": "блузка",
+        "category": "Одежда"
       },
       {
         "word": "marškiniai",
         "translation": "рубашка",
-        "category": "Словарь главы"
+        "category": "Одежда"
       },
       {
-        "word": "tinka",
-        "translation": "подходит / к лицу",
-        "category": "Словарь главы"
+        "word": "švarkas",
+        "translation": "пиджак / жакет",
+        "category": "Одежда"
+      },
+      {
+        "word": "kostiumas",
+        "translation": "костюм",
+        "category": "Одежда"
+      },
+      {
+        "word": "marškinėliai",
+        "translation": "футболка",
+        "category": "Одежда"
+      },
+      {
+        "word": "šortai",
+        "translation": "шорты",
+        "category": "Одежда"
+      },
+      {
+        "word": "džinsai",
+        "translation": "джинсы",
+        "category": "Одежда"
+      },
+      {
+        "word": "striukė",
+        "translation": "куртка",
+        "category": "Одежда"
+      },
+      {
+        "word": "paltas",
+        "translation": "пальто",
+        "category": "Одежда"
+      },
+      {
+        "word": "kojinės",
+        "translation": "носки",
+        "category": "Одежда"
+      },
+      {
+        "word": "pirštinės",
+        "translation": "перчатки / варежки",
+        "category": "Одежда"
+      },
+      {
+        "word": "kepurė",
+        "translation": "шапка / кепка",
+        "category": "Одежда"
+      },
+      {
+        "word": "šalikas",
+        "translation": "шарф",
+        "category": "Одежда"
+      },
+      {
+        "word": "apatiniai drabužiai",
+        "translation": "нижнее белье",
+        "category": "Одежда"
+      },
+      {
+        "word": "maudymosi kostiumėlis",
+        "translation": "купальник",
+        "category": "Одежда"
+      },
+      {
+        "word": "džemperis",
+        "translation": "толстовка / свитшот",
+        "category": "Одежда"
+      },
+      {
+        "word": "avalynė",
+        "translation": "обувь",
+        "category": "Обувь"
+      },
+      {
+        "word": "batai",
+        "translation": "ботинки / сапоги / туфли",
+        "category": "Обувь"
+      },
+      {
+        "word": "bateliai",
+        "translation": "туфли на каблуке",
+        "category": "Обувь"
+      },
+      {
+        "word": "sportbačiai",
+        "translation": "кроссовки / кеды",
+        "category": "Обувь"
+      },
+      {
+        "word": "basutės",
+        "translation": "босоножки / сандалии",
+        "category": "Обувь"
+      },
+      {
+        "word": "dydis",
+        "translation": "размер",
+        "category": "Магазин"
+      },
+      {
+        "word": "matavimosi kabina",
+        "translation": "примерочная кабина",
+        "category": "Магазин"
+      },
+      {
+        "word": "kvitas",
+        "translation": "чек (кассовый)",
+        "category": "Магазин"
+      },
+      {
+        "word": "išpardavimas",
+        "translation": "распродажа",
+        "category": "Магазин"
+      },
+      {
+        "word": "nuolaida",
+        "translation": "скидка",
+        "category": "Магазин"
+      },
+      {
+        "word": "vilnonis, vilnonė",
+        "translation": "шерстяной, шерстяная",
+        "category": "Материал"
+      },
+      {
+        "word": "medvilninis, medvilninė",
+        "translation": "хлопковый, хлопковая",
+        "category": "Материал"
+      },
+      {
+        "word": "odinis, odinė",
+        "translation": "кожаный, кожаная",
+        "category": "Материал"
+      },
+      {
+        "word": "sintetinis, sintetinė",
+        "translation": "синтетический, синтетическая",
+        "category": "Материал"
+      },
+      {
+        "word": "margas, marga",
+        "translation": "пестрый, пестрая / узорчатый",
+        "category": "Цвет"
+      },
+      {
+        "word": "vienspalvis, vienspalvė",
+        "translation": "однотонный, однотонная",
+        "category": "Цвет"
+      },
+      {
+        "word": "rausvas, rausva",
+        "translation": "розовый, розовая",
+        "category": "Цвет"
+      },
+      {
+        "word": "žydras, žydra",
+        "translation": "голубой, голубая",
+        "category": "Цвет"
+      },
+      {
+        "word": "oranžinis, oranžinė",
+        "translation": "оранжевый, оранжевая",
+        "category": "Цвет"
+      },
+      {
+        "word": "violetinis, violetinė",
+        "translation": "фиолетовый, фиолетовая",
+        "category": "Цвет"
+      },
+      {
+        "word": "rudas, ruda",
+        "translation": "коричневый, коричневая",
+        "category": "Цвет"
+      },
+      {
+        "word": "vyriškas / moteriškas / vaikiškas",
+        "translation": "мужской / женский / детский",
+        "category": "Категории"
+      },
+      {
+        "word": "dėvėti, dėvi, dėvėjo",
+        "translation": "носить (одежду)",
+        "category": "Глагол"
+      },
+      {
+        "word": "apsirengti, apsirengia, apsirengė",
+        "translation": "одеться / надеть на себя",
+        "category": "Глагол"
+      },
+      {
+        "word": "nusirengti, nusirengia, nusirengė",
+        "translation": "раздеться / снять одежду",
+        "category": "Глагол"
+      },
+      {
+        "word": "apsiauti, apsiauna, apsiavė",
+        "translation": "обуться / надеть обувь",
+        "category": "Глагол"
+      },
+      {
+        "word": "nusiauti, nusiauna, nusiavė",
+        "translation": "разуться / снять обувь",
+        "category": "Глагол"
+      },
+      {
+        "word": "kainuoti, kainuoja, kainavo",
+        "translation": "стоить",
+        "category": "Глагол"
+      },
+      {
+        "word": "pasimatuoti, pasimatuoja, pasimatavo",
+        "translation": "померить / примерить",
+        "category": "Глагол"
+      },
+      {
+        "word": "tikti, tinka, tiko (kam? kas?)",
+        "translation": "подходить / идти к лицу",
+        "category": "Глагол"
+      },
+      {
+        "word": "apsipirkti, apsiperka, apsipirko",
+        "translation": "делать покупки / закупиться",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -3174,34 +6003,189 @@
     ],
     "vocabulary": [
       {
-        "word": "atsiimti",
-        "translation": "забрать",
-        "category": "Словарь главы"
+        "word": "piniginė",
+        "translation": "кошелек / портмоне",
+        "category": "Аксессуары"
       },
       {
-        "word": "grąžinti",
-        "translation": "вернуть",
-        "category": "Словарь главы"
+        "word": "rankinė",
+        "translation": "дамская сумочка",
+        "category": "Аксессуары"
       },
       {
-        "word": "pakeisti",
-        "translation": "поменять / обменять",
-        "category": "Словарь главы"
+        "word": "kuprinė",
+        "translation": "рюкзак",
+        "category": "Аксессуары"
       },
       {
-        "word": "dydis",
-        "translation": "размер",
-        "category": "Словарь главы"
+        "word": "skėtis",
+        "translation": "зонт",
+        "category": "Аксессуары"
       },
       {
-        "word": "didesnis",
-        "translation": "побольше / больший",
-        "category": "Словарь главы"
+        "word": "diržas",
+        "translation": "ремень / пояс",
+        "category": "Аксессуары"
       },
       {
-        "word": "mažesnis",
-        "translation": "поменьше / меньший",
-        "category": "Словарь главы"
+        "word": "laikrodis",
+        "translation": "часы",
+        "category": "Аксессуары"
+      },
+      {
+        "word": "akiniai / akiniai nuo saulės",
+        "translation": "очки / солнцезащитные очки",
+        "category": "Аксессуары"
+      },
+      {
+        "word": "auskarai",
+        "translation": "серьги",
+        "category": "Украшения"
+      },
+      {
+        "word": "žiedas",
+        "translation": "кольцо",
+        "category": "Украшения"
+      },
+      {
+        "word": "grandinėlė",
+        "translation": "цепочка",
+        "category": "Украшения"
+      },
+      {
+        "word": "šukos",
+        "translation": "расческа",
+        "category": "Аксессуары"
+      },
+      {
+        "word": "saga",
+        "translation": "пуговица",
+        "category": "Детали"
+      },
+      {
+        "word": "užtrauktukas",
+        "translation": "молния (застежка)",
+        "category": "Детали"
+      },
+      {
+        "word": "kišenė",
+        "translation": "карман",
+        "category": "Детали"
+      },
+      {
+        "word": "rankovė",
+        "translation": "рукав",
+        "category": "Детали"
+      },
+      {
+        "word": "valykla",
+        "translation": "химчистка",
+        "category": "Услуги"
+      },
+      {
+        "word": "cheminis drabužių valymas",
+        "translation": "химическая чистка одежды",
+        "category": "Услуги"
+      },
+      {
+        "word": "skalbykla / savitarnos skalbykla",
+        "translation": "прачечная / прачечная самообслуживания",
+        "category": "Услуги"
+      },
+      {
+        "word": "dėmė (dėmių šalinimas)",
+        "translation": "пятно (удаление пятен)",
+        "category": "Услуги"
+      },
+      {
+        "word": "siuvykla",
+        "translation": "швейная мастерская / ателье",
+        "category": "Услуги"
+      },
+      {
+        "word": "taisykla (drabužių / avalynės)",
+        "translation": "мастерская по ремонту (одежды/обуви)",
+        "category": "Услуги"
+      },
+      {
+        "word": "siuvėjas, siuvėja",
+        "translation": "портной, портниха / швея",
+        "category": "Профессия"
+      },
+      {
+        "word": "patalynė",
+        "translation": "постельное белье",
+        "category": "Дом"
+      },
+      {
+        "word": "platus, plati",
+        "translation": "широкий, широкая",
+        "category": "Свойства"
+      },
+      {
+        "word": "siauras, siaura",
+        "translation": "узкий, узкая",
+        "category": "Свойства"
+      },
+      {
+        "word": "madingas, madinga",
+        "translation": "модный, модная",
+        "category": "Свойства"
+      },
+      {
+        "word": "senamadiškas, senamadiška",
+        "translation": "старомодный, старомодная",
+        "category": "Свойства"
+      },
+      {
+        "word": "auksinis, sidabrinis, medinis",
+        "translation": "золотой, серебряный, деревянный",
+        "category": "Материал"
+      },
+      {
+        "word": "per trumpas / per mažas / per didelis",
+        "translation": "слишком короткий / слишком маленький / слишком большой",
+        "category": "Посадка"
+      },
+      {
+        "word": "palenkti, palenkia, palenkė",
+        "translation": "подрубить / подогнуть (брюки)",
+        "category": "Глагол"
+      },
+      {
+        "word": "patrumpinti, patrumpina, patrumpino",
+        "translation": "укоротить",
+        "category": "Глагол"
+      },
+      {
+        "word": "įsiūti, įsiuva, įsiuvo",
+        "translation": "вшить (молнию/пуговицу)",
+        "category": "Глагол"
+      },
+      {
+        "word": "pasisiūti, pasisiuva, pasisiuvo",
+        "translation": "сшить себе на заказ",
+        "category": "Глагол"
+      },
+      {
+        "word": "atsiimti, atsiima, atsiėmė",
+        "translation": "забрать (заказ из химчистки/ремонта)",
+        "category": "Глагол"
+      },
+      {
+        "word": "pakeisti, pakeičia, pakeitė",
+        "translation": "поменять / обменять (товар)",
+        "category": "Глагол"
+      },
+      {
+        "word": "grąžinti, grąžina, grąžino",
+        "translation": "вернуть (товар/деньги)",
+        "category": "Глагол"
+      },
+      {
+        "word": "skalbti, skalbia, skalbė",
+        "translation": "стирать",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -3273,39 +6257,249 @@
     ],
     "vocabulary": [
       {
-        "word": "gydytojas",
-        "translation": "врач / доктор",
-        "category": "Словарь главы"
-      },
-      {
-        "word": "skauda",
-        "translation": "болит",
-        "category": "Словарь главы"
+        "word": "kūnas",
+        "translation": "тело",
+        "category": "Анатомия"
       },
       {
         "word": "galva",
         "translation": "голова",
-        "category": "Словарь главы"
+        "category": "Анатомия"
       },
       {
-        "word": "gerklė",
-        "translation": "горло",
-        "category": "Словарь главы"
+        "word": "veidas",
+        "translation": "лицо",
+        "category": "Анатомия"
+      },
+      {
+        "word": "akis",
+        "translation": "глаз",
+        "category": "Анатомия"
+      },
+      {
+        "word": "ausis",
+        "translation": "ухо",
+        "category": "Анатомия"
+      },
+      {
+        "word": "nosis",
+        "translation": "нос",
+        "category": "Анатомия"
       },
       {
         "word": "dantis",
         "translation": "зуб",
-        "category": "Словарь главы"
+        "category": "Анатомия"
       },
       {
-        "word": "temperatūra",
-        "translation": "температура",
-        "category": "Словарь главы"
+        "word": "gerklė",
+        "translation": "горло",
+        "category": "Анатомия"
       },
       {
-        "word": "vaistai",
-        "translation": "лекарства",
-        "category": "Словарь главы"
+        "word": "ranka (pirštas)",
+        "translation": "рука (палец)",
+        "category": "Анатомия"
+      },
+      {
+        "word": "koja",
+        "translation": "нога",
+        "category": "Анатомия"
+      },
+      {
+        "word": "skrandis / pilvas",
+        "translation": "желудок / живот",
+        "category": "Анатомия"
+      },
+      {
+        "word": "nugara",
+        "translation": "спина",
+        "category": "Анатомия"
+      },
+      {
+        "word": "širdis",
+        "translation": "сердце",
+        "category": "Анатомия"
+      },
+      {
+        "word": "jaustis, jaučiasi, jautėsi",
+        "translation": "чувствовать себя",
+        "category": "Глагол"
+      },
+      {
+        "word": "skaudėti, skauda, skaudėjo (ką?)",
+        "translation": "болеть (Man skauda galvą - У меня болит голова)",
+        "category": "Глагол"
+      },
+      {
+        "word": "temperatūra (aukšta, normali)",
+        "translation": "температура (высокая, нормальная)",
+        "category": "Здоровье"
+      },
+      {
+        "word": "karščiuoti, karščiuoja, karščiavo",
+        "translation": "температурить / быть в лихорадке",
+        "category": "Глагол"
+      },
+      {
+        "word": "sirgti, serga, sirgo",
+        "translation": "болеть (быть больным)",
+        "category": "Глагол"
+      },
+      {
+        "word": "peršalti, peršąla, peršalo",
+        "translation": "простудиться",
+        "category": "Глагол"
+      },
+      {
+        "word": "pasveikti, pasveiksta, pasveiko",
+        "translation": "выздороветь / поправиться",
+        "category": "Глагол"
+      },
+      {
+        "word": "sveikata",
+        "translation": "здоровье",
+        "category": "Здоровье"
+      },
+      {
+        "word": "sveikas, sveika",
+        "translation": "здоровый, здоровая",
+        "category": "Здоровье"
+      },
+      {
+        "word": "pavargęs, pavargusi",
+        "translation": "уставший, уставшая",
+        "category": "Самочувствие"
+      },
+      {
+        "word": "gydytojas, gydytoja",
+        "translation": "врач, доктор",
+        "category": "Профессия"
+      },
+      {
+        "word": "šeimos gydytojas, gydytoja",
+        "translation": "семейный врач",
+        "category": "Профессия"
+      },
+      {
+        "word": "odontologas, odontologė",
+        "translation": "стоматолог / зубной врач",
+        "category": "Профессия"
+      },
+      {
+        "word": "slaugytojas, slaugytoja",
+        "translation": "медбрат, медсестра",
+        "category": "Профессия"
+      },
+      {
+        "word": "veterinaras, veterinarė",
+        "translation": "ветеринар",
+        "category": "Профессия"
+      },
+      {
+        "word": "poliklinika",
+        "translation": "поликлиника",
+        "category": "Медицина"
+      },
+      {
+        "word": "kabinetas",
+        "translation": "кабинет врача",
+        "category": "Медицина"
+      },
+      {
+        "word": "ligoninė (palata)",
+        "translation": "больница (палата)",
+        "category": "Медицина"
+      },
+      {
+        "word": "gulėti ligoninėje",
+        "translation": "лежать в больнице",
+        "category": "Медицина"
+      },
+      {
+        "word": "ligonis, ligonė",
+        "translation": "больной, больная (пациент)",
+        "category": "Медицина"
+      },
+      {
+        "word": "užsiregistruoti pas gydytoją",
+        "translation": "записаться на прием к врачу",
+        "category": "Медицина"
+      },
+      {
+        "word": "sveikatos draudimas",
+        "translation": "медицинская страховка",
+        "category": "Документы"
+      },
+      {
+        "word": "asmens dokumentas",
+        "translation": "документ, удостоверяющий личность",
+        "category": "Документы"
+      },
+      {
+        "word": "amžius / metai",
+        "translation": "возраст / годы",
+        "category": "Анкета"
+      },
+      {
+        "word": "sausis (1 mėn.)",
+        "translation": "январь",
+        "category": "Месяцы"
+      },
+      {
+        "word": "vasaris (2 mėn.)",
+        "translation": "февраль",
+        "category": "Месяцы"
+      },
+      {
+        "word": "kovas (3 mėn.)",
+        "translation": "март",
+        "category": "Месяцы"
+      },
+      {
+        "word": "balandis (4 mėn.)",
+        "translation": "апрель",
+        "category": "Месяцы"
+      },
+      {
+        "word": "gegužė (5 mėn.)",
+        "translation": "май",
+        "category": "Месяцы"
+      },
+      {
+        "word": "birželis (6 mėn.)",
+        "translation": "июнь",
+        "category": "Месяцы"
+      },
+      {
+        "word": "liepa (7 mėn.)",
+        "translation": "июль",
+        "category": "Месяцы"
+      },
+      {
+        "word": "rugpjūtis (8 mėn.)",
+        "translation": "август",
+        "category": "Месяцы"
+      },
+      {
+        "word": "rugsėjis (9 mėn.)",
+        "translation": "сентябрь",
+        "category": "Месяцы"
+      },
+      {
+        "word": "spalis (10 mėn.)",
+        "translation": "октябрь",
+        "category": "Месяцы"
+      },
+      {
+        "word": "lapkritis (11 mėn.)",
+        "translation": "ноябрь",
+        "category": "Месяцы"
+      },
+      {
+        "word": "gruodis (12 mėn.)",
+        "translation": "декабрь",
+        "category": "Месяцы"
       }
     ],
     "exercises": [
@@ -3379,32 +6573,172 @@
       {
         "word": "vaistinė",
         "translation": "аптека",
-        "category": "Словарь главы"
+        "category": "Аптека"
       },
       {
         "word": "vaistai",
-        "translation": "лекарства",
-        "category": "Словарь главы"
+        "translation": "лекарства / медикаменты",
+        "category": "Аптека"
       },
       {
-        "word": "receptas",
-        "translation": "рецепт",
-        "category": "Словарь главы"
+        "word": "receptas (nereceptiniai vaistai)",
+        "translation": "рецепт (безрецептурные лекарства)",
+        "category": "Аптека"
       },
       {
-        "word": "skausmas",
-        "translation": "боль",
-        "category": "Словарь главы"
+        "word": "vaistai nuo skausmo",
+        "translation": "обезболивающие лекарства",
+        "category": "Аптека"
       },
       {
-        "word": "sirgti",
-        "translation": "болеть",
-        "category": "Словарь главы"
+        "word": "vaistai nuo temperatūros",
+        "translation": "жаропонижающие средства",
+        "category": "Аптека"
+      },
+      {
+        "word": "vaistai nuo slogos",
+        "translation": "лекарства от насморка",
+        "category": "Аптека"
+      },
+      {
+        "word": "vaistai nuo kosulio",
+        "translation": "лекарства от кашля",
+        "category": "Аптека"
+      },
+      {
+        "word": "vaistai nuo alergijos",
+        "translation": "лекарства от аллергии",
+        "category": "Аптека"
+      },
+      {
+        "word": "tabletė",
+        "translation": "таблетка",
+        "category": "Аптека"
+      },
+      {
+        "word": "antibiotikai",
+        "translation": "антибиотики",
+        "category": "Аптека"
+      },
+      {
+        "word": "sirupas nuo kosulio",
+        "translation": "сироп от кашля",
+        "category": "Аптека"
+      },
+      {
+        "word": "purškalas (nosies / gerklės)",
+        "translation": "спрей (назальный / для горла)",
+        "category": "Аптека"
+      },
+      {
+        "word": "lašai (akių / ausų / širdies)",
+        "translation": "капли (глазные / ушные / сердечные)",
+        "category": "Аптека"
+      },
+      {
+        "word": "kraujas (kraujo tyrimas)",
+        "translation": "кровь (анализ крови)",
+        "category": "Медицина"
+      },
+      {
+        "word": "šlapimo tyrimas",
+        "translation": "анализ мочи",
+        "category": "Медицина"
+      },
+      {
+        "word": "kraujospūdis (žemas, aukštas)",
+        "translation": "давление крови (низкое, высокое)",
+        "category": "Медицина"
+      },
+      {
+        "word": "greitoji pagalba (112)",
+        "translation": "скорая помощь (телефон 112)",
+        "category": "Медицина"
+      },
+      {
+        "word": "išsikviesti greitąją / gydytoją",
+        "translation": "вызвать скорую / врача",
+        "category": "Медицина"
+      },
+      {
+        "word": "kosėti, kosėja, kosėjo",
+        "translation": "кашлять",
+        "category": "Глагол"
+      },
+      {
+        "word": "pykinti, pykina, pykino",
+        "translation": "тошнить (Mane pykina - Меня тошнит)",
+        "category": "Глагол"
+      },
+      {
+        "word": "vemti, vemia, vėmė",
+        "translation": "рвать / тошнить",
+        "category": "Глагол"
+      },
+      {
+        "word": "viduriuoti, viduriuoja, viduriavo",
+        "translation": "страдать диареей / поносить",
+        "category": "Глагол"
+      },
+      {
+        "word": "liga",
+        "translation": "болезнь / заболевание",
+        "category": "Болезни"
+      },
+      {
+        "word": "alergija (alergiškas, alergiška)",
+        "translation": "аллергия (аллергичный, аллергичная)",
+        "category": "Болезни"
       },
       {
         "word": "gripas",
         "translation": "грипп",
-        "category": "Словарь главы"
+        "category": "Болезни"
+      },
+      {
+        "word": "sloga",
+        "translation": "насморк",
+        "category": "Болезни"
+      },
+      {
+        "word": "kosulys",
+        "translation": "кашель",
+        "category": "Болезни"
+      },
+      {
+        "word": "virusas",
+        "translation": "вирус",
+        "category": "Болезни"
+      },
+      {
+        "word": "bronchitas",
+        "translation": "бронхит",
+        "category": "Болезни"
+      },
+      {
+        "word": "plaučių uždegimas",
+        "translation": "воспаление легких (пневмония)",
+        "category": "Болезни"
+      },
+      {
+        "word": "angina",
+        "translation": "ангина",
+        "category": "Болезни"
+      },
+      {
+        "word": "pasiskiepyti (nuo ko?)",
+        "translation": "привиться / сделать прививку от...",
+        "category": "Глагол"
+      },
+      {
+        "word": "gerti vaistus prieš valgį / po valgio",
+        "translation": "принимать лекарства до еды / после еды",
+        "category": "Инструкции"
+      },
+      {
+        "word": "vieną kartą / du / tris kartus per dieną",
+        "translation": "один раз / два / три раза в день",
+        "category": "Инструкции"
       }
     ],
     "exercises": [
@@ -3473,37 +6807,237 @@
       {
         "word": "darbas",
         "translation": "работа",
-        "category": "Словарь главы"
+        "category": "Работа"
       },
       {
-        "word": "biuras",
-        "translation": "офис",
-        "category": "Словарь главы"
+        "word": "darbovietė",
+        "translation": "место работы",
+        "category": "Работа"
       },
       {
         "word": "įmonė",
-        "translation": "компания / предприятие",
-        "category": "Словарь главы"
+        "translation": "компания / предприятие / фирма",
+        "category": "Работа"
       },
       {
-        "word": "direktorius",
-        "translation": "директор",
-        "category": "Словарь главы"
+        "word": "biuras / kabinetas",
+        "translation": "офис / рабочий кабинет",
+        "category": "Работа"
       },
       {
-        "word": "kolega",
-        "translation": "коллега",
-        "category": "Словарь главы"
+        "word": "direktorius, direktorė",
+        "translation": "директор / руководитель",
+        "category": "Профессия"
       },
       {
-        "word": "nuo",
-        "translation": "от / с",
-        "category": "Словарь главы"
+        "word": "kolega, kolegė",
+        "translation": "коллега (м.р. и ж.р.)",
+        "category": "Люди"
       },
       {
-        "word": "iki",
-        "translation": "до",
-        "category": "Словарь главы"
+        "word": "darbuotojas, darbuotoja",
+        "translation": "сотрудник, сотрудница / работник",
+        "category": "Люди"
+      },
+      {
+        "word": "klientas, klientė",
+        "translation": "клиент, клиентка",
+        "category": "Люди"
+      },
+      {
+        "word": "užsiėmęs, užsiėmusi",
+        "translation": "занят, занята",
+        "category": "Статус"
+      },
+      {
+        "word": "komandiruotė",
+        "translation": "командировка",
+        "category": "Работа"
+      },
+      {
+        "word": "susirinkimas / susitikimas",
+        "translation": "собрание / встреча",
+        "category": "Работа"
+      },
+      {
+        "word": "pietų pertrauka",
+        "translation": "обеденный перерыв",
+        "category": "Работа"
+      },
+      {
+        "word": "atostogos (atostogauti)",
+        "translation": "отпуск (быть в отпуске)",
+        "category": "Работа"
+      },
+      {
+        "word": "poilsio / nedarbo diena",
+        "translation": "выходной / нерабочий день",
+        "category": "Работа"
+      },
+      {
+        "word": "dokumentas",
+        "translation": "документ",
+        "category": "Документы"
+      },
+      {
+        "word": "kopija (daryti kopijas)",
+        "translation": "копия (делать копии)",
+        "category": "Офис"
+      },
+      {
+        "word": "sutartis",
+        "translation": "договор / контракт",
+        "category": "Документы"
+      },
+      {
+        "word": "parašas (pasirašyti)",
+        "translation": "подпись (подписать)",
+        "category": "Документы"
+      },
+      {
+        "word": "elektroninis laiškas",
+        "translation": "электронное письмо (email)",
+        "category": "Связь"
+      },
+      {
+        "word": "popierius (popieriaus lapas)",
+        "translation": "бумага (лист бумаги)",
+        "category": "Офис"
+      },
+      {
+        "word": "kompiuteris / spausdintuvas",
+        "translation": "компьютер / принтер",
+        "category": "Офис"
+      },
+      {
+        "word": "administratorius, administratorė",
+        "translation": "администратор",
+        "category": "Профессия"
+      },
+      {
+        "word": "sekretorius, sekretorė",
+        "translation": "секретарь",
+        "category": "Профессия"
+      },
+      {
+        "word": "mokytojas, mokytoja",
+        "translation": "учитель, учительница",
+        "category": "Профессия"
+      },
+      {
+        "word": "dėstytojas, dėstytoja",
+        "translation": "преподаватель вуза",
+        "category": "Профессия"
+      },
+      {
+        "word": "slaugytojas, slaugytoja",
+        "translation": "медбрат, медсестра",
+        "category": "Профессия"
+      },
+      {
+        "word": "vadybininkas, vadybininkė",
+        "translation": "менеджер",
+        "category": "Профессия"
+      },
+      {
+        "word": "verslininkas, verslininkė",
+        "translation": "бизнесмен, предпринимательница",
+        "category": "Профессия"
+      },
+      {
+        "word": "teisininkas, teisininkė",
+        "translation": "юрист",
+        "category": "Профессия"
+      },
+      {
+        "word": "buhalteris, buhalterė",
+        "translation": "бухгалтер",
+        "category": "Профессия"
+      },
+      {
+        "word": "inžinierius, inžinierė",
+        "translation": "инженер",
+        "category": "Профессия"
+      },
+      {
+        "word": "žurnalistas, žurnalistė",
+        "translation": "журналист, журналистка",
+        "category": "Профессия"
+      },
+      {
+        "word": "architektas, architektė",
+        "translation": "архитектор",
+        "category": "Профессия"
+      },
+      {
+        "word": "IT specialistas, specialistė",
+        "translation": "IT-специалист",
+        "category": "Профессия"
+      },
+      {
+        "word": "statybininkas, statybininkė",
+        "translation": "строитель",
+        "category": "Профессия"
+      },
+      {
+        "word": "kirpėjas, kirpėja",
+        "translation": "парикмахер",
+        "category": "Профессия"
+      },
+      {
+        "word": "aukštasis išsilavinimas",
+        "translation": "высшее образование",
+        "category": "Образование"
+      },
+      {
+        "word": "profesinis išsilavinimas",
+        "translation": "профессиональное образование",
+        "category": "Образование"
+      },
+      {
+        "word": "vidurinis išsilavinimas",
+        "translation": "среднее образование",
+        "category": "Образование"
+      },
+      {
+        "word": "pradėti, pradeda, pradėjo",
+        "translation": "начинать / начать",
+        "category": "Глагол"
+      },
+      {
+        "word": "baigti, baigia, baigė (darbą)",
+        "translation": "заканчивать (работу)",
+        "category": "Глагол"
+      },
+      {
+        "word": "prasidėti / pasibaigti",
+        "translation": "начинаться / заканчиваться",
+        "category": "Глагол"
+      },
+      {
+        "word": "išspausdinti, išspausdina, išspausdino",
+        "translation": "распечатать",
+        "category": "Глагол"
+      },
+      {
+        "word": "išsiųsti / gauti (laišką)",
+        "translation": "отправить / получить (письмо)",
+        "category": "Глагол"
+      },
+      {
+        "word": "paskambinti (kam?)",
+        "translation": "позвонить (кому)",
+        "category": "Глагол"
+      },
+      {
+        "word": "nuo... iki...",
+        "translation": "с... до... (nuo devintos iki šeštos)",
+        "category": "Время"
+      },
+      {
+        "word": "tuojau / tuoj",
+        "translation": "сейчас же / прямо сейчас",
+        "category": "Наречие"
       }
     ],
     "exercises": [
@@ -3570,34 +7104,199 @@
     ],
     "vocabulary": [
       {
-        "word": "studijuoti",
-        "translation": "изучать / учиться в вузе",
-        "category": "Словарь главы"
+        "word": "profesorius, profesorė",
+        "translation": "профессор",
+        "category": "Профессия"
       },
       {
-        "word": "mokytis",
-        "translation": "учиться",
-        "category": "Словарь главы"
+        "word": "universitetas",
+        "translation": "университет",
+        "category": "Учеба"
       },
       {
-        "word": "paskaita",
-        "translation": "лекция",
-        "category": "Словарь главы"
+        "word": "akademija / kolegija",
+        "translation": "академия / колледж",
+        "category": "Учеба"
       },
       {
-        "word": "egzaminas",
-        "translation": "экзамен",
-        "category": "Словарь главы"
+        "word": "biblioteka (skaitykla)",
+        "translation": "библиотека (читальный зал)",
+        "category": "Учеба"
       },
       {
         "word": "auditorija",
         "translation": "аудитория",
-        "category": "Словарь главы"
+        "category": "Учеба"
+      },
+      {
+        "word": "dekanatas",
+        "translation": "деканат",
+        "category": "Учеба"
+      },
+      {
+        "word": "kursas (pirmas, antras...)",
+        "translation": "курс (первый, второй...)",
+        "category": "Учеба"
+      },
+      {
+        "word": "tvarkaraštis",
+        "translation": "расписание занятий",
+        "category": "Учеба"
+      },
+      {
+        "word": "paskaita",
+        "translation": "лекция",
+        "category": "Учеба"
+      },
+      {
+        "word": "seminaras",
+        "translation": "семинар",
+        "category": "Учеба"
+      },
+      {
+        "word": "egzaminas (laikyti / išlaikyti)",
+        "translation": "экзамен (сдавать / сдать)",
+        "category": "Учеба"
+      },
+      {
+        "word": "testas",
+        "translation": "тест",
+        "category": "Учеба"
+      },
+      {
+        "word": "pažymys",
+        "translation": "оценка / балл",
+        "category": "Учеба"
+      },
+      {
+        "word": "diplomas / pažymėjimas",
+        "translation": "диплом / сертификат (удостоверение)",
+        "category": "Учеба"
+      },
+      {
+        "word": "namų darbas (daryti namų darbą)",
+        "translation": "домашняя работа (делать уроки)",
+        "category": "Учеба"
+      },
+      {
+        "word": "užduotis / pratimas",
+        "translation": "задание / упражнение",
+        "category": "Учеба"
+      },
+      {
+        "word": "puslapis / tekstas",
+        "translation": "страница / текст",
+        "category": "Учеба"
+      },
+      {
+        "word": "klausimas",
+        "translation": "вопрос",
+        "category": "Учеба"
+      },
+      {
+        "word": "biologija / chemija",
+        "translation": "биология / химия",
+        "category": "Наука"
+      },
+      {
+        "word": "fizika / matematika",
+        "translation": "физика / математика",
+        "category": "Наука"
+      },
+      {
+        "word": "geografija / istorija",
+        "translation": "география / история",
+        "category": "Наука"
+      },
+      {
+        "word": "informatika",
+        "translation": "информатика",
+        "category": "Наука"
+      },
+      {
+        "word": "filologija (lietuvių, anglų...)",
+        "translation": "филология (литовская, английская...)",
+        "category": "Наука"
+      },
+      {
+        "word": "ekonomika / vadyba",
+        "translation": "экономика / менеджмент (управление)",
+        "category": "Наука"
+      },
+      {
+        "word": "medicina / teisė",
+        "translation": "медицина / право (юриспруденция)",
+        "category": "Наука"
+      },
+      {
+        "word": "politologija / psichologija",
+        "translation": "политология / психология",
+        "category": "Наука"
+      },
+      {
+        "word": "žurnalistika",
+        "translation": "журналистика",
+        "category": "Наука"
+      },
+      {
+        "word": "vadovėlis",
+        "translation": "учебник",
+        "category": "Учеба"
+      },
+      {
+        "word": "žodynas",
+        "translation": "словарь",
+        "category": "Учеба"
       },
       {
         "word": "knyga",
         "translation": "книга",
-        "category": "Словарь главы"
+        "category": "Учеба"
+      },
+      {
+        "word": "sąsiuvinis",
+        "translation": "тетрадь",
+        "category": "Канцелярия"
+      },
+      {
+        "word": "rašiklis / pieštukas / trintukas",
+        "translation": "ручка / карандаш / ластик",
+        "category": "Канцелярия"
+      },
+      {
+        "word": "mokytis, mokosi, mokėsi (ko?)",
+        "translation": "учиться (чему: mokausi lietuvių kalbos)",
+        "category": "Глагол"
+      },
+      {
+        "word": "mokyti, moko, mokė (ką? ko?)",
+        "translation": "учить / обучать (кого-то чему-то)",
+        "category": "Глагол"
+      },
+      {
+        "word": "studijuoti, studijuoja, studijavo (ką?)",
+        "translation": "изучать в вузе",
+        "category": "Глагол"
+      },
+      {
+        "word": "žinoti, žino, žinojo",
+        "translation": "знать",
+        "category": "Глагол"
+      },
+      {
+        "word": "pamiršti, pamiršta, pamiršo",
+        "translation": "забыть",
+        "category": "Глагол"
+      },
+      {
+        "word": "pakartoti, pakartoja, pakartojo",
+        "translation": "повторить",
+        "category": "Глагол"
+      },
+      {
+        "word": "paskolinti, paskolina, paskolino",
+        "translation": "одолжить / дать взаймы",
+        "category": "Глагол"
       }
     ],
     "exercises": [
@@ -3671,37 +7370,147 @@
       {
         "word": "laisvalaikis",
         "translation": "свободное время / досуг",
-        "category": "Словарь главы"
+        "category": "Досуг"
       },
       {
-        "word": "mėgti",
-        "translation": "любить / нравиться",
-        "category": "Словарь главы"
+        "word": "pailsėti, pailsi, pailsėjo",
+        "translation": "отдохнуть",
+        "category": "Глагол"
       },
       {
-        "word": "sportuoti",
-        "translation": "заниматься спортом",
-        "category": "Словарь главы"
+        "word": "veikti, veikia, veikė (Ką veiki?)",
+        "translation": "делать / заниматься чем-то",
+        "category": "Глагол"
       },
       {
-        "word": "keliauti",
-        "translation": "путешествовать",
-        "category": "Словарь главы"
+        "word": "koncertas / muzika",
+        "translation": "концерт / музыка",
+        "category": "Культура"
       },
       {
-        "word": "skaityti",
-        "translation": "читать",
-        "category": "Словарь главы"
+        "word": "opera / baletas",
+        "translation": "опера / балет",
+        "category": "Культура"
       },
       {
-        "word": "žiūrėti filmą",
-        "translation": "смотреть фильм",
-        "category": "Словарь главы"
+        "word": "gitara / pianinas / fortepijonas",
+        "translation": "гитара / пианино / фортепиано",
+        "category": "Музыка"
       },
       {
-        "word": "groti",
-        "translation": "играть (на инструменте)",
-        "category": "Словарь главы"
+        "word": "groti (gitara, pianinu)",
+        "translation": "играть на музыкальном инструменте",
+        "category": "Глагол"
+      },
+      {
+        "word": "dainuoti / šokti",
+        "translation": "петь / танцевать",
+        "category": "Глагол"
+      },
+      {
+        "word": "paroda (fotografija, paveikslas, skulptūra)",
+        "translation": "выставка (фотография, картина, скульптура)",
+        "category": "Культура"
+      },
+      {
+        "word": "teatras (spektaklis)",
+        "translation": "театр (спектакль)",
+        "category": "Культура"
+      },
+      {
+        "word": "kinas (filmas)",
+        "translation": "кино (фильм)",
+        "category": "Культура"
+      },
+      {
+        "word": "salė, eilė, vieta",
+        "translation": "зал, ряд, место",
+        "category": "Культура"
+      },
+      {
+        "word": "sportas (stadionas, baseinas)",
+        "translation": "спорт (стадион, бассейн)",
+        "category": "Спорт"
+      },
+      {
+        "word": "krepšinis / futbolas / tenisas",
+        "translation": "баскетбол / футбол / теннис",
+        "category": "Спорт"
+      },
+      {
+        "word": "žaisti (krepšinį, futbolą)",
+        "translation": "играть (в баскетбол, футбол)",
+        "category": "Глагол"
+      },
+      {
+        "word": "šaškės / šachmatai (žaisti šaškėmis)",
+        "translation": "шашки / шахматы (играть в шашки)",
+        "category": "Игры"
+      },
+      {
+        "word": "plaukioti / bėgioti / slidinėti",
+        "translation": "плавать / бегать трусцой / кататься на лыжах",
+        "category": "Глагол"
+      },
+      {
+        "word": "važinėti (dviračiu, riedučiais)",
+        "translation": "кататься (на велосипеде, роликах)",
+        "category": "Глагол"
+      },
+      {
+        "word": "eiti pasivaikščioti",
+        "translation": "идти на прогулку / гулять",
+        "category": "Глагол"
+      },
+      {
+        "word": "keliauti (kelionė, lėktuvas, bagažas)",
+        "translation": "путешествовать (поездка, самолет, багаж)",
+        "category": "Путешествия"
+      },
+      {
+        "word": "jūra / ežeras / upė",
+        "translation": "море / озеро / река",
+        "category": "Природа"
+      },
+      {
+        "word": "miškas / kalnai",
+        "translation": "лес / горы",
+        "category": "Природа"
+      },
+      {
+        "word": "kaimas / sodyba",
+        "translation": "деревня / усадьба (загородный дом)",
+        "category": "Отдых"
+      },
+      {
+        "word": "grybauti / žvejoti",
+        "translation": "собирать грибы / ловить рыбу",
+        "category": "Глагол"
+      },
+      {
+        "word": "vasara",
+        "translation": "лето",
+        "category": "Времена года"
+      },
+      {
+        "word": "ruduo",
+        "translation": "осень",
+        "category": "Времена года"
+      },
+      {
+        "word": "žiema",
+        "translation": "зима",
+        "category": "Времена года"
+      },
+      {
+        "word": "pavasaris",
+        "translation": "весна",
+        "category": "Времена года"
+      },
+      {
+        "word": "labai / labiau",
+        "translation": "очень / больше (сильнее)",
+        "category": "Наречие"
       }
     ],
     "exercises": [
@@ -3778,44 +7587,169 @@
     ],
     "vocabulary": [
       {
+        "word": "šventė (švęsti, švenčia, šventė)",
+        "translation": "праздник (праздновать / отмечать)",
+        "category": "Праздники"
+      },
+      {
         "word": "gimtadienis",
         "translation": "день рождения",
-        "category": "Словарь главы"
+        "category": "Праздники"
       },
       {
-        "word": "šventė",
-        "translation": "праздник",
-        "category": "Словарь главы"
+        "word": "vardadienis",
+        "translation": "именины (день ангела)",
+        "category": "Праздники"
       },
       {
-        "word": "dovana",
-        "translation": "подарок",
-        "category": "Словарь главы"
+        "word": "jubiliejus",
+        "translation": "юбилей",
+        "category": "Праздники"
       },
       {
-        "word": "sveikinti",
-        "translation": "поздравлять",
-        "category": "Словарь главы"
+        "word": "vakarėlis",
+        "translation": "вечеринка",
+        "category": "Праздники"
       },
       {
-        "word": "linkėti",
-        "translation": "желать",
-        "category": "Словарь главы"
+        "word": "svečias (eiti į svečius, būti svečiuose)",
+        "translation": "гость (идти в гости, быть в гостях)",
+        "category": "Праздники"
+      },
+      {
+        "word": "kviesti (kviečia, kvietė į svečius)",
+        "translation": "приглашать в гости",
+        "category": "Глагол"
+      },
+      {
+        "word": "dovana (dovanoti, gauti dovaną)",
+        "translation": "подарок (дарить, получать подарок)",
+        "category": "Праздники"
+      },
+      {
+        "word": "gėlė",
+        "translation": "цветок",
+        "category": "Праздники"
+      },
+      {
+        "word": "atvirukas (užrašyti, išsiųsti atviruką)",
+        "translation": "открытка (подписать, отправить открытку)",
+        "category": "Праздники"
+      },
+      {
+        "word": "tortas (žvakutė)",
+        "translation": "торт (свечка)",
+        "category": "Праздники"
+      },
+      {
+        "word": "sveikinti, sveikina, sveikino (ką?)",
+        "translation": "поздравлять (кого: Sveikinu tave!)",
+        "category": "Глагол"
+      },
+      {
+        "word": "linkėti, linki, linkėjo (ko?)",
+        "translation": "желать (чего: Linkiu laimės ir sėkmės!)",
+        "category": "Глагол"
+      },
+      {
+        "word": "Kūčios (kūčiukai)",
+        "translation": "Сочельник (кучукай - рождественское печенье)",
+        "category": "Традиции"
+      },
+      {
+        "word": "Kalėdos (Kalėdų senelis, eglė / eglutė)",
+        "translation": "Рождество (Дед Мороз / Санта, елка)",
+        "category": "Традиции"
+      },
+      {
+        "word": "Naujieji metai (sutikti Naujuosius metus)",
+        "translation": "Новый год (встречать Новый год)",
+        "category": "Традиции"
+      },
+      {
+        "word": "fejerverkai",
+        "translation": "фейерверки / салют",
+        "category": "Праздники"
+      },
+      {
+        "word": "Velykos (margutis, dažyti kiaušinius)",
+        "translation": "Пасха (пасхальное яйцо, красить яйца)",
+        "category": "Традиции"
+      },
+      {
+        "word": "valstybinės šventės",
+        "translation": "государственные праздники",
+        "category": "Государство"
+      },
+      {
+        "word": "Vasario 16 d. (Valstybės atkūrimo diena)",
+        "translation": "16 февраля — День восстановления Литовского государства (1918 г.)",
+        "category": "Государство"
+      },
+      {
+        "word": "Kovo 11 d. (Nepriklausomybės atkūrimo diena)",
+        "translation": "11 марта — День восстановления независимости Литвы (1990 г.)",
+        "category": "Государство"
+      },
+      {
+        "word": "Liepos 6 d. (Valstybės diena / Karaliaus Mindaugo karūnavimas)",
+        "translation": "6 июля — День Государства (коронация короля Миндаугаса)",
+        "category": "Государство"
+      },
+      {
+        "word": "himnas (giedoti himną)",
+        "translation": "гимн (петь гимн)",
+        "category": "Государство"
+      },
+      {
+        "word": "vėliava / prezidentas",
+        "translation": "флаг / президент",
+        "category": "Государство"
+      },
+      {
+        "word": "sėkmė",
+        "translation": "успех / удача",
+        "category": "Пожелания"
+      },
+      {
+        "word": "meilė",
+        "translation": "любовь",
+        "category": "Пожелания"
       },
       {
         "word": "laimė",
         "translation": "счастье",
-        "category": "Словарь главы"
+        "category": "Пожелания"
       },
       {
-        "word": "sveikata",
-        "translation": "здоровье",
-        "category": "Словарь главы"
+        "word": "džiaugsmas",
+        "translation": "радость",
+        "category": "Пожелания"
       },
       {
-        "word": "sėkmė",
-        "translation": "удача / успех",
-        "category": "Словарь главы"
+        "word": "laimingas, laiminga",
+        "translation": "счастливый, счастливая",
+        "category": "Свойства"
+      },
+      {
+        "word": "mylimas, mylima",
+        "translation": "любимый, любимая",
+        "category": "Свойства"
+      },
+      {
+        "word": "gerbiamas, gerbiama",
+        "translation": "уважаемый, уважаемая",
+        "category": "Свойства"
+      },
+      {
+        "word": "spalvingas, spalvinga",
+        "translation": "красочный, красочная / яркий",
+        "category": "Свойства"
+      },
+      {
+        "word": "populiarus, populiari",
+        "translation": "популярный, популярная",
+        "category": "Свойства"
       }
     ],
     "exercises": [
