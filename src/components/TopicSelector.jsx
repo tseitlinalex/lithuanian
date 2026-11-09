@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle } from 'lucide-react';
+import { MapPin, BookOpen, Zap, Trophy, Play, Upload, CheckCircle2, AlertCircle, Award, Sparkles, GraduationCap } from 'lucide-react';
 
 const ICON_MAP = {
   MapPin,
@@ -7,9 +7,21 @@ const ICON_MAP = {
   Zap
 };
 
-export default function TopicSelector({ topics, onSelectTopic, difficulty, onChangeDifficulty, onCustomTopicUpload, lang = 'ru' }) {
+export default function TopicSelector({
+  topics,
+  onSelectTopic,
+  difficulty,
+  onChangeDifficulty,
+  onCustomTopicUpload,
+  onStartLesson,
+  onStartExam,
+  lessons,
+  exams,
+  lang = 'ru'
+}) {
   const [uploadError, setUploadError] = React.useState('');
   const [uploadSuccess, setUploadSuccess] = React.useState('');
+  const [activeCategory, setActiveCategory] = React.useState('all'); // 'all', 'books', 'games'
 
   const isRu = lang === 'ru';
 
@@ -37,46 +49,158 @@ export default function TopicSelector({ topics, onSelectTopic, difficulty, onCha
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4 sm:p-6 space-y-8">
+    <div className="max-w-6xl mx-auto p-4 sm:p-6 space-y-10">
       {/* Header Banner */}
       <div className="text-center space-y-3">
         <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-          🇱🇹 Kalbos Lietus • {isRu ? 'Изучение литовского языка в форме игры' : 'Lithuanian Word Rain Game'}
+          🇱🇹 Kalbos Lietus • {isRu ? 'Интерактивный курс и подготовка к экзамену A1 (Sėkmės! 1 & 2)' : 'Interactive Course & A1 Exam Prep (Sėkmės! 1 & 2)'}
         </div>
         <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-          {isRu ? 'Выберите тему и начните игру' : 'Select a Topic & Start Playing'}
+          {isRu ? 'Изучайте литовский и сдайте экзамен' : 'Learn Lithuanian & Pass the A1 Exam'}
         </h1>
-        <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+        <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
           {isRu
-            ? 'Ловите падающие литовские слова до того, как они упадут. Вводите правильную форму — литовские спецсимволы (š, ž, ą, ė) вводить необязательно!'
-            : 'Catch falling Lithuanian words before they hit the bottom. Type the correct form or translation—diacritics (š, ž, ą, ė) are ignored!'}
+            ? 'Полный курс по учебникам Sėkmės! (Книги 1 и 2): 21 глава с грамматикой, правилами, словарем и официальными тестами проверки знаний для сдачи экзамена.'
+            : 'Complete curriculum based on Sėkmės! Books 1 & 2: 21 chapters of grammar, vocabulary, rules, and official review tests for the A1 exam.'}
         </p>
       </div>
 
-      {/* Difficulty Level Selector */}
-      <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 shadow-lg max-w-md mx-auto">
-        <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 text-center">
-          {isRu ? 'Уровень сложности' : 'Choose Difficulty Level'}
-        </label>
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            { id: 'easy', label: isRu ? 'Легко' : 'Easy', desc: isRu ? 'Медленно' : 'Slow speed' },
-            { id: 'medium', label: isRu ? 'Средне' : 'Medium', desc: isRu ? 'Обычный' : 'Normal speed' },
-            { id: 'hard', label: isRu ? 'Сложно' : 'Hard', desc: isRu ? 'Быстро' : 'Fast speed' }
-          ].map(level => (
+      {/* Quick Launch Cards: Lessons & Exams */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Course Card */}
+        <div className="bg-gradient-to-br from-indigo-950/80 via-slate-900 to-slate-900 border-2 border-indigo-500/40 hover:border-indigo-500 rounded-3xl p-6 shadow-2xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <div className="p-3 bg-indigo-600/20 text-indigo-400 rounded-2xl border border-indigo-500/30">
+                <BookOpen className="w-8 h-8" />
+              </div>
+              <span className="text-xs font-black uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-full">
+                21 {isRu ? 'Глава' : 'Chapters'} (A1.1 + A1.2)
+              </span>
+            </div>
+            <h2 className="text-2xl font-black text-white mb-2">
+              {isRu ? 'Уроки по учебникам Sėkmės! 1 & 2' : 'Lessons from Sėkmės! 1 & 2'}
+            </h2>
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              {isRu
+                ? 'Грамматические правила, таблицы окончаний, лексика по темам, диалоги и интерактивные упражнения с моментальным объяснением ошибок.'
+                : 'Grammar tables, endings declensions, thematic vocabulary, dialogues, and practice drills with instant feedback.'}
+            </p>
+          </div>
+
+          <div className="space-y-3 pt-2">
             <button
-              key={level.id}
-              onClick={() => onChangeDifficulty(level.id)}
-              className={`p-2.5 rounded-xl text-center border transition-all ${
-                difficulty === level.id
-                  ? 'bg-indigo-600 border-indigo-400 text-white shadow-md shadow-indigo-500/30 scale-105 font-bold'
-                  : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:text-white hover:bg-slate-700/50'
-              }`}
+              onClick={() => onStartLesson && onStartLesson('ch-1')}
+              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/25"
             >
-              <div className="text-sm">{level.label}</div>
-              <div className="text-[10px] opacity-75">{level.desc}</div>
+              <GraduationCap className="w-5 h-5" />
+              {isRu ? 'Открыть интерактивные уроки' : 'Open Interactive Lessons'}
+            </button>
+          </div>
+        </div>
+
+        {/* Exam Card */}
+        <div className="bg-gradient-to-br from-emerald-950/80 via-slate-900 to-slate-900 border-2 border-emerald-500/40 hover:border-emerald-500 rounded-3xl p-6 shadow-2xl flex flex-col justify-between">
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <div className="p-3 bg-emerald-600/20 text-emerald-400 rounded-2xl border border-emerald-500/30">
+                <Award className="w-8 h-8" />
+              </div>
+              <span className="text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full">
+                {isRu ? 'Официальный формат' : 'Official Format'}
+              </span>
+            </div>
+            <h2 className="text-2xl font-black text-white mb-2">
+              {isRu ? 'Симулятор экзамена A1 (Pasitikrinkime)' : 'A1 Exam Simulator (Pasitikrinkime)'}
+            </h2>
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+              {isRu
+                ? 'Итоговые проверочные тесты из книг Sėkmės! 1 и 2 и полная симуляция государственного экзамена A1 с подсчетом баллов и разбором ошибок.'
+                : 'Official final review tests from Sėkmės! 1 & 2 plus a full simulation of the Lithuanian State A1 exam with scoring and mistake review.'}
+            </p>
+          </div>
+
+          <div className="space-y-3 pt-2">
+            <button
+              onClick={() => onStartExam && onStartExam('exam-a1-full')}
+              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25"
+            >
+              <Award className="w-5 h-5" />
+              {isRu ? 'Пройти симуляцию экзамена A1' : 'Take A1 Exam Simulation'}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Chapters Carousel / Quick List */}
+      <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+            <GraduationCap className="w-5 h-5 text-indigo-400" />
+            {isRu ? 'Все главы курса (21 skyrius)' : 'All Course Chapters (21 Chapters)'}
+          </h3>
+          <span className="text-xs text-slate-400">
+            {isRu ? 'Нажмите для перехода к уроку' : 'Click to jump to lesson'}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
+          {lessons?.map(l => (
+            <button
+              key={l.id}
+              onClick={() => onStartLesson && onStartLesson(l.id)}
+              className="bg-slate-800 hover:bg-indigo-600 hover:border-indigo-400 border border-slate-700/80 rounded-xl p-2.5 text-center transition group flex flex-col items-center justify-center"
+            >
+              <div className="text-[10px] font-bold text-slate-400 group-hover:text-indigo-200">
+                {l.level} • Knyga {l.book}
+              </div>
+              <div className="text-sm font-black text-white my-0.5">
+                {l.chapter} sk.
+              </div>
+              <div className="text-[11px] text-slate-300 truncate w-full group-hover:text-white">
+                {l.title}
+              </div>
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Section Divider: Word Rain Arcade */}
+      <div className="pt-4 border-t border-slate-800 text-center">
+        <h2 className="text-2xl font-black text-white mb-2">
+          {isRu ? 'Игровая тренировка слов (Kalbos Lietus)' : 'Word Rain Arcade Training'}
+        </h2>
+        <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+          {isRu
+            ? 'Тренируйте скорость реакции и запоминание окончаний в игровом режиме падающих слов!'
+            : 'Train quick recall of declensions and vocabulary in the arcade word rain game!'}
+        </p>
+
+        {/* Difficulty Selector */}
+        <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 shadow-lg max-w-md mx-auto mb-8">
+          <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 text-center">
+            {isRu ? 'Уровень сложности игры' : 'Choose Game Difficulty'}
+          </label>
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { id: 'easy', label: isRu ? 'Легко' : 'Easy', desc: isRu ? 'Медленно' : 'Slow speed' },
+              { id: 'medium', label: isRu ? 'Средне' : 'Medium', desc: isRu ? 'Обычный' : 'Normal speed' },
+              { id: 'hard', label: isRu ? 'Сложно' : 'Hard', desc: isRu ? 'Быстро' : 'Fast speed' }
+            ].map(level => (
+              <button
+                key={level.id}
+                onClick={() => onChangeDifficulty(level.id)}
+                className={`p-2.5 rounded-xl text-center border transition-all ${
+                  difficulty === level.id
+                    ? 'bg-indigo-600 border-indigo-400 text-white shadow-md shadow-indigo-500/30 scale-105 font-bold'
+                    : 'bg-slate-900/60 border-slate-700 text-slate-400 hover:text-white hover:bg-slate-700/50'
+                }`}
+              >
+                <div className="text-sm">{level.label}</div>
+                <div className="text-[10px] opacity-75">{level.desc}</div>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -116,7 +240,7 @@ export default function TopicSelector({ topics, onSelectTopic, difficulty, onCha
 
               <div className="space-y-3 pt-2">
                 <div className="text-[11px] text-slate-500 flex justify-between">
-                  <span>{topic.items?.length || 0} {isRu ? 'вопросов' : 'Questions'}</span>
+                  <span>{topic.items?.length || topic.countries?.length || 0} {isRu ? 'вопросов' : 'Questions'}</span>
                   <span>{topic.category || 'General'}</span>
                 </div>
 
