@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
   BookOpen, CheckCircle, ChevronLeft, ChevronRight, HelpCircle,
-  Award, ArrowRight, RotateCcw, Eye, EyeOff, Layers, MessageSquare, Check, X
+  Award, ArrowRight, RotateCcw, Eye, EyeOff, Layers, MessageSquare, Check, X,
+  Shuffle, Sparkles
 } from 'lucide-react';
 import { checkAnswerMatch } from '../utils/textNormalizer';
 import { soundFx } from '../utils/audio';
@@ -22,9 +23,27 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
   const [userAnswers, setUserAnswers] = useState({});
   const [feedback, setFeedback] = useState({});
   const [score, setScore] = useState(0);
+  const [isRandomOrder, setIsRandomOrder] = useState(false);
+  const [shuffleKey, setShuffleKey] = useState(0);
 
   const lesson = lessons[lessonIndex] || lessons[0];
   const vocabList = lesson.vocabulary || [];
+
+  // Exercises ordering: original or randomized
+  const displayedExercises = React.useMemo(() => {
+    const list = (lesson.exercises || []).map((ex, originalIndex) => ({
+      ...ex,
+      originalIndex
+    }));
+    if (!isRandomOrder) return list;
+    // deterministic shuffle based on shuffleKey
+    const shuffled = [...list];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, [lesson.exercises, isRandomOrder, shuffleKey]);
 
   const handleLessonChange = (newIndex) => {
     if (newIndex >= 0 && newIndex < lessons.length) {
@@ -84,6 +103,14 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
   };
 
   const resetExercises = () => {
+    setUserAnswers({});
+    setFeedback({});
+    setScore(0);
+  };
+
+  const toggleRandomOrder = () => {
+    setIsRandomOrder(prev => !prev);
+    setShuffleKey(prev => prev + 1);
     setUserAnswers({});
     setFeedback({});
     setScore(0);
@@ -428,31 +455,73 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
       {/* Tab 4: Interactive Exercises */}
       {activeTab === 'exercises' && (
         <div className="space-y-6 animate-fadeIn">
-          <div className="flex items-center justify-between bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-900/80 p-4 rounded-xl border border-slate-800">
             <div>
               <span className="text-sm font-bold text-white block">
                 Интерактивные упражнения к главе {lesson.chapter}
               </span>
               <span className="text-xs text-slate-400">
                 Правильно решено: <strong className="text-indigo-400">{score}</strong> из {lesson.exercises?.length || 0}
+                {isRandomOrder && <span className="ml-2 text-amber-400 font-semibold">• Случайный порядок</span>}
               </span>
             </div>
-            <button
-              onClick={resetExercises}
-              className="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg flex items-center gap-1 transition"
-            >
-              <RotateCcw className="w-3.5 h-3.5" /> Сбросить
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleRandomOrder}
+                title={isRandomOrder ? "Включить обычный порядок" : "Перемешать вопросы в случайном порядке"}
+                className={`text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 font-medium transition ${
+                  isRandomOrder
+                    ? 'bg-amber-600/30 text-amber-300 border border-amber-500/50 hover:bg-amber-600/40'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                }`}
+              >
+                <Shuffle className="w-3.5 h-3.5" />
+                {isRandomOrder ? 'Случайный порядок (Вкл)' : 'Случайный порядок'}
+              </button>
+              <button
+                onClick={resetExercises}
+                className="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg flex items-center gap-1 border border-slate-700 transition"
+              >
+                <RotateCcw className="w-3.5 h-3.5" /> Сбросить
+              </button>
+            </div>
           </div>
 
+          {/* All Answered Result / Completion Card */}
+          {Object.keys(feedback).length > 0 && Object.keys(feedback).length === displayedExercises.length && (
+            <div className="p-5 rounded-2xl border-2 border-indigo-500/60 bg-gradient-to-r from-indigo-950/60 via-purple-950/40 to-slate-900 p-6 shadow-2xl text-center space-y-3 animate-fadeIn">
+              <div className="inline-flex p-3 rounded-full bg-indigo-500/20 text-indigo-300 mb-1">
+                <Sparkles className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-black text-white">Все упражнения главы завершены!</h3>
+              <p className="text-sm text-slate-300">
+                Ваш результат: <strong className="text-indigo-300 font-bold text-lg">{score}</strong> из {displayedExercises.length} ({Math.round((score / displayedExercises.length) * 100)}%)
+              </p>
+              <div className="pt-2 flex justify-center gap-3">
+                <button
+                  onClick={resetExercises}
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-sm font-bold transition shadow-lg flex items-center gap-2"
+                >
+                  <RotateCcw className="w-4 h-4" /> Повторить главу
+                </button>
+                <button
+                  onClick={toggleRandomOrder}
+                  className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 rounded-xl text-sm font-bold transition flex items-center gap-2"
+                >
+                  <Shuffle className="w-4 h-4" /> Попробовать случайно
+                </button>
+              </div>
+            </div>
+          )}
+
           <div className="space-y-4">
-            {lesson.exercises?.map((ex, idx) => {
-              const currentFeedback = feedback[idx];
+            {displayedExercises.map((ex, displayIdx) => {
+              const currentFeedback = feedback[ex.id || displayIdx];
               const isAnswered = !!currentFeedback;
 
               return (
                 <div
-                  key={idx}
+                  key={ex.id || displayIdx}
                   className={`p-5 rounded-2xl border-2 transition shadow-xl bg-slate-900/90 ${
                     !isAnswered
                       ? 'border-slate-800'
@@ -463,7 +532,7 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
-                      Вопрос {idx + 1} из {lesson.exercises.length}
+                      Вопрос {displayIdx + 1} из {displayedExercises.length}
                     </span>
                     {isAnswered && (
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
@@ -487,7 +556,7 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                   {ex.type === 'mc' && ex.options && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
                       {ex.options.map((opt, oIdx) => {
-                        const isChosen = userAnswers[idx] === opt;
+                        const isChosen = userAnswers[ex.id || displayIdx] === opt;
                         const isCorrectOption = opt === ex.answer;
 
                         let btnStyle = 'bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700';
@@ -501,7 +570,7 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                           <button
                             key={oIdx}
                             disabled={isAnswered}
-                            onClick={() => handleChoiceSelect(idx, opt, ex)}
+                            onClick={() => handleChoiceSelect(ex.id || displayIdx, opt, ex)}
                             className={`p-3 rounded-xl border text-left font-medium text-sm transition ${btnStyle}`}
                           >
                             {opt}
@@ -514,14 +583,14 @@ export default function LessonViewer({ lessons, currentLessonId, onSelectLesson,
                   {/* Fill in the blank Format */}
                   {ex.type === 'fill' && (
                     <form
-                      onSubmit={(e) => handleFillSubmit(idx, ex, e)}
+                      onSubmit={(e) => handleFillSubmit(ex.id || displayIdx, ex, e)}
                       className="flex flex-col sm:flex-row gap-2 mb-3"
                     >
                       <input
                         type="text"
                         disabled={isAnswered}
-                        value={userAnswers[idx] || ''}
-                        onChange={(e) => setUserAnswers({ ...userAnswers, [idx]: e.target.value })}
+                        value={userAnswers[ex.id || displayIdx] || ''}
+                        onChange={(e) => setUserAnswers({ ...userAnswers, [ex.id || displayIdx]: e.target.value })}
                         placeholder="Введите ответ на литовском (можно без диакритики)..."
                         className="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-medium focus:outline-none focus:border-indigo-500"
                       />
